@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animation</title>
+  <link rel="stylesheet" href="./background.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      display: block;
+      margin: 4px;
+      zoom: 1;
+    }
+
+    ul {
+      column-width: auto;
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+    }
+
+    a {
+      color: red;
+      font-size: 11;
+      white-space: normal;
+    }
+
+    li {
+      top: 0px;
+      list-style-type: none;
+      overflow: visible;
+      /* margin: top; */
+      font-size: 16px;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: normal;
+      color: red !important;
+      word-wrap: break-word;
+      height: 30px;
+      text-align: left;
+      padding: 1.2em 1em 0;
+      box-shadow: 0 0 5px;
+      margin: 1em;
+      /* display: grid; */
+      /* -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px; */
+    }
+
+    .stars1 {
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="https://github.com/bgoonz" class="github-corner" aria-label="View source on Github"><svg width="80"
+      height="80" viewBox="0 0 250 250"
+      style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
+      aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path
+        d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+        fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm">
+      </path>
+      <path
+        d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+        fill="currentColor" class="octo-body"></path>
+    </svg></a>
+  <div id='stars'></div>
+  <div class="wrapper">
+    <center>
+
+
+      <a href="./bryanguner.html">
+        ✅About The Author
+        &nbsp;</a>
+
+
+      <a href="./directory.html">
+        ✅Navigation
+        &nbsp;</a>
+
+
+
+    </center>
+    <ul>
+
+
+
+
+      <li>
+        <a href="./Gists/postgreSQL-commands.html">✅postgreSQL-commands </a>
+      </li>
+
+      <li>
+        <a href="./Gists/data-structures.html">✅data-structures </a>
+      </li>
+      <li>
+        <a href="./Gists/deploy-2-heroku.html">✅deploy-2-heroku </a>
+      </li>
+
+      <li>
+        <a
+          href="./Originals/2021-02-27_A-Quick-Guide-to-Big-O-Notation--Memoization--Tabulation--and-Sorting-Algorithms-by-Example-803ff193c522.html">✅
+          A-Quick-Guide-to-Big-O-Notation
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-02-27_Basic-Web-Development-Environment-Setup-9f36c3f15afe">✅
+          Web-Development-Environment-Setup
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-05_Deploy-React-App-To-Heroku-Using-Postgres---Express-70b7ea807986.html">✅
+          Deploy-React-App-To-Heroku
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-05_Express-Quick-Sheet-8f93762c59ca">✅
+          _Express-Quick-Sheet </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-05_Fetch-Quick-Sheet-8872650742b4.html">✅
+          Fetch-Quick-Sheet</a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-05_Fundamental-Data-Structures-In-JavaScript-8f9f709c15b4.html">✅
+          Data-Structures-In-JavaScript
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-05_Postgresql-Cheat-Sheet-718b813d3e31.html">✅
+          Postgresql-Cheat-Sheet</a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_A-Collection-of-my-most-useful-Gist-Entries-f4314f3ba3ab.html">✅
+          Useful Gists
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_Emmet-Cheat-Sheet-24758e628d37.html">✅
+          Emmet-Cheat-Sheet-24758e628d37 </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_Git-Tricks-57e8d0292285.html">✅
+          Git-Tricks-57e8d0292285 </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_Learn-CSS-So-That-Your-Site-Doesn-t-Look-Like-Garbage-938871b4521a.html">✅
+          Learn-CSS
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_PostgreSQL-Setup-For-Windows---WSL-Ubuntu-801672ab7089.html">✅
+          PostgreSQL-Setup-For-Windows
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_Python-Study-Guide-for-a-JavaScript-Programmer-5cfdf3d2bdfb.html">✅
+          Python-Study-Guide
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_Regular-Expressions-4d8fb3eb146b.html">✅
+          Regular-Expressions-4d8fb3eb146b </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_VsCode-Extension-Readme-Compilation-92c60342cc8a.html">✅
+          VsCode-Extension-Readme-Compilation
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-06_Writing-Files-Using-Python-d46b4851366f.html">✅
+          Writing-Files-Using-Python
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-07_Web-Dev-Resources-ec1975773d7d.html">✅
+          Web-Dev-Resources-ec1975773d7d </a>
+      </li>
+      <li>
+        <a
+          href="./Originals/2021-03-08_An-Introduction-to-Markdown--Bonus-Markdown-Templates-Included--3497ce56de3.html">✅
+          An-Introduction-to-Markdown
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-08_Complete-JavaScript-Reference-Guide-64306cd6b0db.html">✅
+          Complete-JavaScript-Reference-Guide
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-08_Modules-in-Javascript-a55333e35978.html">✅
+          Modules-in-Javascript </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-08_The-Complete-JavaScript-Reference-Guide-64306cd6b0db">
+          The-Complete-JavaScript-Reference-Guide
+        </a>
+      </li>
+      <li>
+        <a
+          href="./Originals/2021-03-12_Understanding-Git--A-Beginners-Guide-Containing-Cheat-Sheets---Resources--b50c9c01a107.html">✅
+          Understanding-Git
+        </a>
+      </li>
+      <li>
+        <a
+          href="./Originals/2021-03-13_Everything-You-Need-To-Know-About-Relational-Databases--SQL--PostgreSQL-and-Sequelize-To-Build--8acb68284a98.html">✅
+          Relational-Databases
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-13_Super-Simple-Intro-To-HTML-651d695f9bc.html">✅
+          Super-Simple-Intro-To-HTML </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-14_JavaScript-Rotate--Array--ProblemWalkthrough-31deb19ebba1.html">✅
+          JavaScript-Rotate
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-14_Object-Oriented-Programming-in-JavaScript-d45007d06333.html">✅
+          Object-Oriented-Programming
+        </a>
+      </li>
+      <li>
+        <a
+          href="./Originals/2021-03-18_Everything-You-Need-to-Get-Started-With-VSCode---Extensions---Resources-b9f4c8d91931.html">✅
+          VSCode
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-18_HTTP-Basics-8f02a96a834a.html">✅
+          HTTP-Basics </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-18_JavaScript-Frameworks---Libraries-35931e187a35.html">✅
+          JavaScript-Frameworks
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-18_My-Favorite-VSCode-Themes-9bab65af3f0f.html">✅
+          My-Favorite-VSCode-Themes </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-18_My-Take-On-Awesome-JavaScript-243255451e74.html">✅
+          My-Take-On-Awesome-JavaScript
+        </a>
+      </li>
+      <li>
+        <a href="./Originals/2021-03-18_The-Web-Developer-s-Technical-Interview-e347d7db3822.html">✅
+          Technical-Interview
+        </a>
+      </li>
+      <li>
+        <a
+          href="./Originals/draft_Beginners-Guide-To-JavaScript--JavaScript-Cheat-Sheet---js-file--Included-Below---419c9b175344.html">✅
+          Beginers-Guide-To-JavaScript
+      </li>
+      <li>
+        <a href="./WebDevelopmentEnvironmentSetupfcfafe.html">✅
+          ./WebDevelopmentEnvironmentSetup</a>
+      </li>
+      <li><a href="./Gists/directory.html">✅ ./Gists/directory </a></li>
+      <li>
+        <a href="./Gists/git-cheat-sheet.html">✅git-cheat-sheet </a>
+      </li>
+      <li> <a href="./Gists/03e15da8a9f4dd3c536e9fbbd9f380c7.html">✅03e15da8a9f4dd3c536e9fbbd9f380c7 </a></li>
+      </li>
+      <li>
+        <a href="./Gists/06beb45507d26bacdb645452e2e46627.html">✅06beb45507d26bacdb645452e2e46627 </a>
+      </li>
+      <li>
+        <a href="./Gists/140a268bdc42f03bbb4ab47a9cd11263.html">✅140a268bdc42f03bbb4ab47a9cd11263 </a>
+      </li>
+      <li>
+        <a href="./Gists/15a638abb3b4026abc8e5ca05f8d90f1.html">✅15a638abb3b4026abc8e5ca05f8d90f1 </a>
+      </li>
+      <li>
+        <a href="./Gists/15f0936a8fc5c59f011722146f4852b8.html">✅15f0936a8fc5c59f011722146f4852b8 </a>
+      </li>
+      <li>
+        <a href="./Gists/2d1e852b77d4c8aa04bab0dd14703ddd.html">✅2d1e852b77d4c8aa04bab0dd14703ddd </a>
+      </li>
+      <li>
+        <a href="./Gists/2d8f71471cf8381577c91df34769af3b.html">✅2d8f71471cf8381577c91df34769af3b </a>
+      </li>
+      <li>
+        <a href="./Gists/48b79d0e098323b694ffbbeb078924e6.html">✅48b79d0e098323b694ffbbeb078924e6 </a>
+      </li>
+      <li>
+        <a href="./Gists/51714f703eba19ad65fb897068bc65c9.html">✅51714f703eba19ad65fb897068bc65c9 </a>
+      </li>
+      <li>
+        <a href="./Gists/69bb5ef5e62f9350d2766df123cc6e54.html">✅69bb5ef5e62f9350d2766df123cc6e54 </a>
+      </li>
+      <li>
+        <a href="./Gists/6af1b7b3b0e7075cef628bb8497b961f.html">✅6af1b7b3b0e7075cef628bb8497b961f </a>
+      </li>
+      <li>
+        <a href="./Gists/86949afff1760ed0d5ed3ec44da32b41.html">✅86949afff1760ed0d5ed3ec44da32b41 </a>
+      </li>
+      <li>
+        <a href="./Gists/90d1e7d288611c791bd3410eb77be4fd.html">✅90d1e7d288611c791bd3410eb77be4fd </a>
+      </li>
+      <li>
+        <a href="./Gists/999163a278b987fe47fb247fd4d66904.html">✅999163a278b987fe47fb247fd4d66904 </a>
+      </li>
+      <li>
+        <a href="./Gists/99f39285d28bc320ae3500c40e7e664b.html">✅99f39285d28bc320ae3500c40e7e664b </a>
+      </li>
+      <li>
+        <a href="./Gists/9e488be7fc5c0a5a9d146e5005c7a511.html">✅9e488be7fc5c0a5a9d146e5005c7a511 </a>
+      </li>
+      <li>
+        <a href="./Gists/a2029ec40cdcb29b0554a087974d193f.html">✅a2029ec40cdcb29b0554a087974d193f </a>
+      </li>
+      <li>
+        <a href="./Gists/a479a4c9e0ea0c76117615e41d8e603c.html">✅a479a4c9e0ea0c76117615e41d8e603c </a>
+      </li>
+      <li>
+        <a href="./Gists/a60b88ec9ecce568fb1a6d1bcc1bec81.html">✅a60b88ec9ecce568fb1a6d1bcc1bec81 </a>
+      </li>
+      <li>
+        <a href="./Gists/b8eb08d8065456540618860621143dfc.html">✅b8eb08d8065456540618860621143dfc </a>
+      </li>
+      <li>
+        <a href="./Gists/c559a8e4d6fd2eb586b2e8452d6e233b.html">✅c559a8e4d6fd2eb586b2e8452d6e233b </a>
+      </li>
+      <li>
+        <a href="./Gists/c7658139004c1e0bc02e0674188eaeb6.html">✅c7658139004c1e0bc02e0674188eaeb6 </a>
+      </li>
+      <li>
+        <a href="./Gists/cd6312bfeae2d3f07655cb84e30413e9.html">✅cd6312bfeae2d3f07655cb84e30413e9 </a>
+      </li>
+      <li>
+        <a href="./Gists/cda912e05879c6281d75566b2e4e7020.html">✅cda912e05879c6281d75566b2e4e7020 </a>
+      </li>
+
+      <li>
+        <a href="./Gists/de05ada6da193c8a13bed59451290f0b.html">✅de05ada6da193c8a13bed59451290f0b </a>
+      </li>
+
+      <li>
+        <a href="./Gists/e7b3e62408aaf51922cccb8405760bb5.html">✅e7b3e62408aaf51922cccb8405760bb5 </a>
+      </li>
+      <li>
+        <a href="./Gists/f055c802b4fa56f1bfe85d07c6eefafc.html">✅f055c802b4fa56f1bfe85d07c6eefafc </a>
+      </li>
+      <li>
+        <a href="./Gists/fa4a41ac2ef7d66d5bc2dba07eec7591.html">✅fa4a41ac2ef7d66d5bc2dba07eec7591 </a>
+      </li>
+      <li>
+        <a href="./Gists/fb104c5834e2ce32778b162923ef68fd.html">✅fb104c5834e2ce32778b162923ef68fd </a>
+      </li>
+    </ul>
+  </div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+  <div id='title'>
+
+
+    <a href="https://github.com/bgoonz/Medium_Articles.git">
+      <br>
+      </br>
+      <br>
+      </br>
+
+      <div id="ToC" class="my_class " style="font-weight:800;"></div>
+  </div>
+</body>
+
+</html>

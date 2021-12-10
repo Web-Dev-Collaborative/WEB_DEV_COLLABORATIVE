@@ -1,0 +1,5 @@
+{
+    "emmet.triggerExpansionOnTab": true,
+    "git.allowForcePush": true,
+    "git.allowNoVerifyCommit": true
+}

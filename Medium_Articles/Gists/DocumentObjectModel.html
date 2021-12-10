@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-language" content="en-us">
+  <meta name="csrf-token" value="abI2zOnZnZ4lK2hhXDpfWnEsePWz7XmLPaj0IDqr">
+  <title>DOM-VS-BOM | bgoonz | GistLog - Your dev blog delivered</title>
+
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="DOM-VS-BOM">
+  <meta itemprop="description"
+    content="DOM vs BOM
+- the `Document Object Model` is the hierarchy/representation of the objects that comprise a document on the web (i.e. how all elements in a document are organized). The DOM is a part of the">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="DOM-VS-BOM">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://gistlog.co/bgoonz/15f0936a8fc5c59f011722146f4852b8">
+  <meta property="og:description"
+    content="DOM vs BOM
+- the `Document Object Model` is the hierarchy/representation of the objects that comprise a document on the web (i.e. how all elements in a document are organized). The DOM is a part of the">
+  <meta property="og:site_name" content="GistLog">
+
+
+  <link rel="icon" type="image/png" href="https://gistlog.co/img/favicon.png">
+  <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Roboto:100,300,400,700">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+  <link href="https://gistlog.co/css/app.css" rel="stylesheet">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="font-sans border-t-8 border-blue-darker bg-grey-lightest">
+  <div class="flex flex-col h-screen">
+    <div id="app" class="flex-auto">
+      <nav class="container mx-auto mt-4">
+        <a href="https://gistlog.co/" title="GistLog by Tighten"
+          class="w-full flex items-center text-blue-darker no-underline">
+          <img width="50px" src="https://gistlog.co/img/gistlog-logo.svg" alt="GistLog logo." class="mr-2">
+          <h1 class="text-2xl"><span class="font-bold">Gist</span>Log</h1>
+        </a>
+      </nav>
+
+
+      <div class="container gistlog__container">
+        <div class="avatar">
+          <a href="https://gistlog.co/bgoonz" target="_blank">
+            <img src="https://avatars.githubusercontent.com/u/66654881?v=4" alt="bgoonz - Laravel">
+          </a>
+        </div>
+        <div class="py-8 gistlog sm:px-8">
+          <article class="px-4 my-8 sm:px-8">
+            <h1 class="gistlog__title" v-pre>DOM-VS-BOM</h1>
+            <span class="table mx-auto font-light" v-pre>
+              by <a href="https://gistlog.co/bgoonz" class="font-bold no-underline text-blue-dark">bgoonz</a>
+            </span>
+
+            <div class="gistlog__content">
+              <div v-pre>
+                <h2>DOM vs BOM</h2>
+                <pre><code>- the `Document Object Model` is the hierarchy/representation of the objects that comprise a document on the web (i.e. how all elements in a document are organized). The DOM is a part of the `Browser Object Model`, the hierarchy/representation of all browser objects associated with the web browser. 
+</code></pre>
+                <p><strong>Browser Diagram</strong><br>
+                  User Interface<br>
+                  v<br>
+                  Browser Engine ---&gt; Data Persistence<br>
+                  v<br>
+                  Rendering Engine<br>
+                  v v v<br>
+                  Networking JS interpreter UI backend<br>
+                  ======================================<br>
+                  - <code>User Interface</code>: everything in browser interface except requested page content<br>
+                  - <code>Browser Engine</code>: manages interactions btwen UI and rendering engine<br>
+                  - <code>Rendering Engine</code>: renders requested page content, parsing HTML &amp; CSS<br>
+                  - <code>Networking</code>: handles network calls, i.e. HTTP requests<br>
+                  - <code>JS Interpreter</code>: parses &amp; executes JS code<br>
+                  - <code>UI Backend</code>: used for drawing basic widgets, using operating system UI methods<br>
+                  - <code>Data Persistence</code>: persistence of data stored in browser, i.e. cookies</p>
+                <pre><code>- A browser's main role in the request/response cycle is:
+    1. Parsing HTML, CSS, JS
+    2. Rendering that information to the user by constructing a DOM tree and rendering it. 
+</code></pre>
+                <p><strong>Request-Response Diagram</strong></p>
+                <pre><code>Click ---&gt;          Request ---&gt;        Server &lt;----&gt; Data
+    Browser
+Page &lt;---           &lt;--- Response      
+
+Your Computer       The Internet        Data Center
+</code></pre>
+                <p><strong>Window API</strong></p>
+                <ul>
+                  <li>
+                    <p>the <code>Window API</code> includes the methods and properties that you can use on the
+                      <code>window object</code>, the core of the <code>BOM</code>.</p>
+                  </li>
+                  <li>
+                    <p>using the <code>Window API</code> to resize the browser window:</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-c">//opens a new window</span>
+<span class="pl-s1">newWindow</span> <span class="pl-c1">=</span> <span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-en">open</span><span class="pl-kos">(</span><span class="pl-s">"url"</span><span class="pl-kos">,</span> <span class="pl-s">"name"</span><span class="pl-kos">,</span> <span class="pl-s">"width=100, height=100"</span><span class="pl-kos">)</span>
+<span class="pl-c">//resizes new window</span>
+<span class="pl-s1">newWindow</span><span class="pl-kos">.</span><span class="pl-en">resizeTo</span><span class="pl-kos">(</span><span class="pl-c1">500</span><span class="pl-kos">,</span><span class="pl-c1">500</span><span class="pl-kos">)</span>
+<span class="pl-c">//also resizes by given amount; use `-` to shrink</span>
+<span class="pl-s1">newWindow</span><span class="pl-kos">.</span><span class="pl-en">resizeBy</span><span class="pl-kos">(</span><span class="pl-s1">xDelta</span><span class="pl-kos">,</span> <span class="pl-s1">yDelta</span><span class="pl-kos">)</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>the <code>context</code> of an <code>anonymous function</code> fun in the browser will be the
+                      <code>window object</code>. Remember that every function has a context, which we can think of as
+                      which object OWNS the function, and context is most often determined by how a function is invoked.
+                    </p>
+                  </li>
+                </ul>
+                <p><strong>Running Scripts</strong></p>
+                <ul>
+                  <li>Insert a script via a .js document into an .html document:
+                    <div class="highlight highlight-text-html-basic">
+                      <pre><span class="pl-kos">&lt;</span><span class="pl-ent">html</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">head</span><span class="pl-kos">&gt;</span>
+    <span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">type</span>="<span class="pl-s">text/javascript</span>" <span class="pl-c1">src</span>="<span class="pl-s">dom-ready-script.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">head</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">body</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">body</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">html</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">html</span><span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">html</span><span class="pl-kos">&gt;</span></pre>
+                    </div>
+                  </li>
+                  <li>Run the script on DOMContentLoaded (when the doc has been loaded, but without waiting for
+                    stylesheets, images, and subframes):
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">"DOMContentLoaded"</span><span class="pl-kos">,</span> <span class="pl-s1">event</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"This script loaded when the DOM was ready."</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>Run the script on page load using window.onload (wait for EVERYTHING to load):
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-en">onload</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span>
+        <span class="pl-s">"This script loaded when all the resources and the DOM were ready."</span>
+    <span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>Three ways to prevent script from running until page loads:
+                    <ol>
+                      <li>Use <code>DOMContentLoaded</code></li>
+                      <li>Place <code>script tag</code> at very bottom of HTML file</li>
+                      <li>Add attribute like <code>async</code> or <code>defer</code></li>
+                    </ol>
+                  </li>
+                </ul>
+                <p><strong>async vs defer</strong><br>
+                  - <code>&lt;script&gt;</code> without any attributes will pause HTML parsing, and a request will be
+                  made to fetch the file (if it is external). The script will be executed before parsing is resumed.<br>
+                  - <code>async</code> downloads the file during HTML parsing and will pause the HTML parser to execute
+                  it once it has downloaded.<br>
+                  - <code>defer</code> downloads the file during HTML parsing, but will only execute it after the parser
+                  has completed.<br>
+                  - the standard is to use <code>async</code>, then <code>defer</code>.</p>
+                <p><strong>Cookies vs Web Storage API</strong></p>
+                <ul>
+                  <li>
+                    <p>Cookies - stores stateful info about a user, transfers data to server, under 4KB storage limit
+                    </p>
+                  </li>
+                  <li>
+                    <p><code>sessionStorage</code> - stores data only for a session, until browser window/tab is closed,
+                      does not transfer data to server, 5MB storage limit.</p>
+                  </li>
+                  <li>
+                    <p><code>localStorage</code> - stores data w/no expiration date, does not transfer data to server,
+                      deleted when browser cache is cleared; maximum storage limit</p>
+                  </li>
+                  <li>
+                    <p>Create a cookie:</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">const</span> <span class="pl-s1">firstCookie</span> <span class="pl-c1">=</span> <span class="pl-s">"favoriteCat=million"</span><span class="pl-kos">;</span>
+<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">cookie</span> <span class="pl-c1">=</span> <span class="pl-s1">firstCookie</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-s1">secondCookie</span> <span class="pl-c1">=</span> <span class="pl-s">"favoriteDog=bambi"</span><span class="pl-kos">;</span>
+<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">cookie</span> <span class="pl-c1">=</span> <span class="pl-s1">secondCookie</span><span class="pl-kos">;</span>
+<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">cookie</span><span class="pl-kos">;</span> <span class="pl-c">// Returns "favoriteCat=million; favoriteDog=bambi"</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Delete a cookie by setting a cookie's expiration date to the past (or delete in Developer Tools):
+                    </p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">cookie</span> <span class="pl-c1">=</span> <span class="pl-s">"favoriteCat=; expires = Thu, 01 Jan 1970 00:00:00 GMT"</span><span class="pl-kos">;</span>
+  <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">cookie</span><span class="pl-kos">;</span> <span class="pl-c">// Returns "favoriteDog=bambi"</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Create localStorage data:</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-c">//set new localStorage item</span>
+<span class="pl-s1">localStorage</span><span class="pl-kos">.</span><span class="pl-en">setItem</span><span class="pl-kos">(</span><span class="pl-s">"firstThing"</span><span class="pl-kos">,</span> <span class="pl-s">"firstValue"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">//retrieve that localStorage item</span>
+<span class="pl-s1">localSTorage</span><span class="pl-kos">.</span><span class="pl-en">getItem</span><span class="pl-kos">(</span><span class="pl-s">"firstThing"</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>When to use the Web Storage API?</p>
+                    <ul>
+                      <li>shopping cart</li>
+                      <li>input data on forms</li>
+                      <li>info on user i.e. preferences or buying habits</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>When to use cookies:</p>
+                    <ul>
+                      <li>Session cookie, stores session info on user login/validation (lost once browser is closed
+                        unless you use a persistent cookie)</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>You can view cookies and web storage info with Developer Tools (inspect -&gt; Application tab).
+                    </p>
+                  </li>
+                </ul>
+                <h2>Objectives</h2>
+                <p><em>BROWSER BASICS &amp; STORAGE</em></p>
+                <ol>
+                  <li>✓ Explain the difference between BOM (browser object model) and the DOM (document object model).
+                  </li>
+                  <li>✓ Given a diagram of all the different parts of the Browser, identify each part.</li>
+                  <li>✓ Use the Window API to change the innerHeight of a user's window.</li>
+                  <li>✓ Identify the context of an anonymous function running in the Browser (the window).</li>
+                  <li>✓ Given a JS file and an HTML file, use a script tag to import the JS file and execute the code
+                    therin when all elements on a page load (using DOMContentLoaded).</li>
+                  <li>✓ Given a JS file and an HTML file, use a script tag to import the JS file and execute the code
+                    therein when the page loads.</li>
+                  <li>✓ Identify three ways to prevent JS code from executing until an entire HTML page is loaded.</li>
+                  <li>✓ Label a diagram on the Request/Response cycle.</li>
+                  <li>✓ Explain the Browser's main role in the request/response cycle (1. Parsing HTML, CSS, JS; 2.
+                    Rendering that information to the user by constructing a DOM tree and rendering it.)</li>
+                  <li>✓ Given several detractors - identify which real-world situations could be implemented with the
+                    Web Storage API (shopping cart, forms savings inputs, etc.).</li>
+                  <li>✓ Given a website to visit that depends on cookies (like Amazon), students should be able to go to
+                    that site, add something to their cart, and then delete that cooking using Chrome Developer tools in
+                    order to empty their cart.</li>
+                  <li>✓ Write JS to store the value "I &lt;3 falafel" with the eky "eatz" in the browser's local
+                    storage.</li>
+                  <li>✓ Write JS to read the value stored in local storage for the key "paper-trail".</li>
+                </ol>
+                <p><em>ELEMENT SELECTION</em></p>
+                <ol>
+                  <li>
+                    <p>Given HTML that includes <code>&lt;div id="catch-me-if-you-can&gt;HI!&lt;/div&gt;</code>, write a
+                      JS statement that stores a reference to the HTMLDivElement with the id "catch-me-if-you-can" in a
+                      variable named "divOfInterest".</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">divOfInterest</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"catch-me-if-you-can"</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given HTML that includes seven SPAN elements each with the class "cloudy", write a JS statement
+                      that stores a reference to a NodeList filled with references to the seven HTMLSpanElements in a
+                      variable named "cloud</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">cloudyNodes</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">querySelectorAll</span><span class="pl-kos">(</span><span class="pl-s">"span.cloudy"</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML file with HTML, HEAD, TITLE, and BODY elements, create and reference a JS file that
+                      in which the JS will create and attach to the BODY element an H1 element with the id
+                      "sleeping-giant" with the content "Jell-O, Burled!".</p>
+                    <div class="highlight highlight-text-html-basic">
+                      <pre><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">type</span>="<span class="pl-s">text/javascript</span>" <span class="pl-c1">src</span>="<span class="pl-s">location.file</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre>
+                    </div>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">newHeader</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">createElement</span><span class="pl-kos">(</span><span class="pl-s">"h1"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">newHeader</span><span class="pl-kos">.</span><span class="pl-en">setAttribute</span><span class="pl-kos">(</span><span class="pl-s">"id"</span><span class="pl-kos">,</span> <span class="pl-s">"sleeping-giant"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">newHeader</span><span class="pl-kos">.</span><span class="pl-c1">innerHTML</span> <span class="pl-c1">=</span> <span class="pl-s">"Jell-O, Burled!"</span><span class="pl-kos">;</span>
+<span class="pl-c">//const newContent = document.createTextNode("Jell-O, Burled!");</span>
+<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-en">appendChild</span><span class="pl-kos">(</span><span class="pl-s1">newHeader</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML file with HTML, HEAD, TITLE, SCRIPT, and BODY elements with the SCRIPT's SRC
+                      attribute referencing an empty JS file, write a script in the JS file to create a DIV element with
+                      the id "lickable-frog" and add it as the last child to the BODY element.</p>
+                    <div class="highlight highlight-text-html-basic">
+                      <pre><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">type</span>="<span class="pl-s">text/javascript</span>" <span class="pl-c1">src</span>="<span class="pl-s">location.file</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre>
+                    </div>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">newDiv</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">createElement</span><span class="pl-kos">(</span><span class="pl-s">"div"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">newDiv</span><span class="pl-kos">.</span><span class="pl-en">setAttribute</span><span class="pl-kos">(</span><span class="pl-s">"id"</span><span class="pl-kos">,</span> <span class="pl-s">"lickable-frog"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-en">appendChild</span><span class="pl-kos">(</span><span class="pl-s1">newDiv</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML file with HTML, HEAD, TITLE, SCRIPT, and BODY elements with no SRC attribute on the
+                      SCRIPT element, write a script in the SCRIPT block to create a UL element with no id, create an LI
+                      element with the id "dreamy-eyes, add the LI as a child to the UL element, and add the UL element
+                      as the first child of the BODY element.</p>
+                    <div class="highlight highlight-text-html-basic">
+                      <pre><span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">type</span>="<span class="pl-s">text/javascript</span>"<span class="pl-kos">&gt;</span>
+    <span class="pl-k">let</span> <span class="pl-s1">newList</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">createElement</span><span class="pl-kos">(</span><span class="pl-s">"ul"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">let</span> <span class="pl-s1">newItem</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">createElement</span><span class="pl-kos">(</span><span class="pl-s">"li"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">newItem</span><span class="pl-kos">.</span><span class="pl-en">setAttribute</span><span class="pl-kos">(</span><span class="pl-s">"id"</span><span class="pl-kos">,</span> <span class="pl-s">"dreamy-eyes"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">newList</span><span class="pl-kos">.</span><span class="pl-en">appendChild</span><span class="pl-kos">(</span><span class="pl-s1">newItem</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-en">prepend</span><span class="pl-kos">(</span><span class="pl-s1">newList</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Write JS to add the CSS class "i-got-loaded" to the BODY element when the window fires the
+                      DOMContentLoaded event.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">"DOMContentLoaded"</span><span class="pl-kos">,</span> <span class="pl-s1">event</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+   <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-en">className</span><span class="pl-kos">(</span><span class="pl-s">"i-got-loaded"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML file with a UL element with the id "your-best-friend" that has six non-empty ILs as
+                      its children, write JS to write the content of each LI to the console.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">parentList</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"your-best-friend"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">childNodes</span> <span class="pl-c1">=</span> <span class="pl-s1">parent</span><span class="pl-kos">.</span><span class="pl-c1">childNodes</span><span class="pl-kos">;</span>
+<span class="pl-k">for</span> <span class="pl-kos">(</span><span class="pl-k">let</span> <span class="pl-s1">value</span> <span class="pl-k">of</span> <span class="pl-s1">childNodes</span><span class="pl-kos">.</span><span class="pl-en">values</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML file with a UL element with the id "your-worst-enemy" that has no children, write
+                      JS to construct a string that contains six LI tags each containing a random number and set the
+                      inner HTML property of ul#your-worst-enemy to that string.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">const</span> <span class="pl-en">getRandomInt</span> <span class="pl-c1">=</span> <span class="pl-s1">max</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">return</span> <span class="pl-v">Math</span><span class="pl-kos">.</span><span class="pl-en">floor</span><span class="pl-kos">(</span><span class="pl-v">Math</span><span class="pl-kos">.</span><span class="pl-en">random</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">*</span> <span class="pl-v">Math</span><span class="pl-kos">.</span><span class="pl-en">floor</span><span class="pl-kos">(</span><span class="pl-s1">max</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
+<span class="pl-k">const</span> <span class="pl-s1">liArr</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+<span class="pl-k">for</span> <span class="pl-kos">(</span><span class="pl-k">let</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-s1">i</span> <span class="pl-c1">&lt;</span> <span class="pl-c1">6</span><span class="pl-kos">,</span> <span class="pl-s1">i</span><span class="pl-c1">++</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-s1">liArr</span><span class="pl-kos">.</span><span class="pl-s1">push</span><span class="pl-kos">(</span><span class="pl-s">"&lt;li&gt;"</span> <span class="pl-c1">+</span> <span class="pl-en">getRandomInt</span><span class="pl-kos">(</span><span class="pl-c1">10</span><span class="pl-kos">)</span> <span class="pl-c1">+</span> <span class="pl-s">"&lt;/li&gt;"</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span>
+<span class="pl-s1">const</span> <span class="pl-s1">liString</span> <span class="pl-c1">=</span> <span class="pl-s1">liArr</span><span class="pl-kos">.</span><span class="pl-en">join</span><span class="pl-kos">(</span><span class="pl-s">" "</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">const</span> <span class="pl-s1">listElement</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"your-worst-enemy"</span><span class="pl-kos">)</span>
+<span class="pl-s1">listElement</span><span class="pl-kos">.</span><span class="pl-c1">innerHTML</span> <span class="pl-c1">=</span> <span class="pl-s1">liString</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Write JS to update the title of the document to the current time at a reasonable interval such
+                      that it looks like a real clock.</p>
+                    <div class="highlight highlight-text-html-basic">
+                      <pre><span class="pl-kos">&lt;</span><span class="pl-ent">title</span> <span class="pl-c1">id</span>="<span class="pl-s">title</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">title</span><span class="pl-kos">&gt;</span></pre>
+                    </div>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">const</span> <span class="pl-s1">title</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"title"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-en">time</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">const</span> <span class="pl-s1">date</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Date</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">const</span> <span class="pl-s1">seconds</span> <span class="pl-c1">=</span> <span class="pl-s1">date</span><span class="pl-kos">.</span><span class="pl-en">getSeconds</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">const</span> <span class="pl-s1">minutes</span> <span class="pl-c1">=</span> <span class="pl-s1">date</span><span class="pl-kos">.</span><span class="pl-en">getMinutes</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">const</span> <span class="pl-s1">hours</span> <span class="pl-c1">=</span> <span class="pl-s1">date</span><span class="pl-kos">.</span><span class="pl-en">getHours</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+    <span class="pl-s1">title</span><span class="pl-kos">.</span><span class="pl-c1">innerHTML</span> <span class="pl-c1">=</span> <span class="pl-s">`<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">hours</span><span class="pl-kos">}</span></span>:<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">minutes</span><span class="pl-kos">}</span></span>:<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">seconds</span><span class="pl-kos">}</span></span>`</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span>
+<span class="pl-en">setInterval</span><span class="pl-kos">(</span><span class="pl-en">time</span><span class="pl-kos">,</span> <span class="pl-c1">1000</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                </ol>
+                <p><em>EVENT HANDLING</em></p>
+                <ol>
+                  <li>
+                    <p>Given an HTML page that includes <code>&lt;button id="increment-count"&gt;I have been clicked
+                        &lt;span id="clicked-count"&gt;0&lt;/span&gt; times&lt;/button&gt;</code>, write JS that
+                      increases the value of the content of <code>span#clicked-count</code> by 1 every time
+                      <code>button#increment-count</code> is clicked.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">incrementButton</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"increment-count"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">incrementSpan</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"clicked-count"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">count</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span>
+<span class="pl-s1">incrementButton</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">"click"</span><span class="pl-kos">,</span> <span class="pl-s1">event</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-s1">count</span><span class="pl-c1">++</span>
+    <span class="pl-s1">incrementSpan</span><span class="pl-kos">.</span><span class="pl-c1">innerHTML</span> <span class="pl-c1">=</span> <span class="pl-s1">count</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML page that includes <code>&lt;input type="checkbox" id="on-off"&gt;&lt;div
+                        id="now-you-see-me"&gt;Now you see me&lt;/div&gt;</code>, write JS that sets the display of
+                      div#now-you-see-me to "none" when input#on-off is checked and "block" when input#on-off is not
+                      checked.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">inputBox</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"checkbox"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">divSee</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"now-you-see-me"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">inputBox</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">"click"</span><span class="pl-kos">,</span> <span class="pl-s1">event</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">inputBox</span><span class="pl-kos">.</span><span class="pl-c1">checked</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-s1">divSee</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">display</span> <span class="pl-c1">=</span> <span class="pl-s">"block"</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+        <span class="pl-s1">divSee</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">display</span> <span class="pl-c1">=</span> <span class="pl-s">"none"</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML file that includes <code>&lt;input id="stopper" type="text" placeholder="Quick!
+                        Type STOP"&gt;</code>, write JS that will change the background color of the page to cyan five
+                      seconds after a page loads unless the field input#stopper contains only the text "STOP".</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">inputStopper</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"stopper"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">const</span> <span class="pl-en">stopCyanMadness</span> <span class="pl-c1">=</span> <span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">inputStopper</span><span class="pl-kos">.</span><span class="pl-c1">value</span> <span class="pl-c1">!==</span> <span class="pl-s">"STOP"</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">backgroundColor</span> <span class="pl-c1">=</span> <span class="pl-s">"cyan"</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+<span class="pl-kos">}</span><span class="pl-kos">;</span>
+<span class="pl-en">setTimeout</span><span class="pl-kos">(</span><span class="pl-en">stopCyanMadness</span><span class="pl-kos">,</span> <span class="pl-c1">5000</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML page that includes <code>&lt;input type="text" id="fancypants"&gt;</code>, write JS
+                      that changes the background color of the textbox to #E8F5E9 when the caret is in the textbox and
+                      turns it back to its normal color when focus is elsewhere.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">const</span> <span class="pl-s1">input</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"fancypands"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">"focus"</span><span class="pl-kos">,</span> <span class="pl-s1">event</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-s1">event</span><span class="pl-kos">.</span><span class="pl-c1">target</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">backgroundColor</span> <span class="pl-c1">=</span> <span class="pl-s">"#E8F5E9"</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">input</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">"blur"</span><span class="pl-kos">,</span> <span class="pl-s1">event</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-s1">event</span><span class="pl-kos">.</span><span class="pl-c1">target</span><span class="pl-kos">.</span><span class="pl-c1">style</span><span class="pl-kos">.</span><span class="pl-c1">backgroundColor</span> <span class="pl-c1">=</span> <span class="pl-s">"initial"</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML page that includes a form with two password fields, write JS that subscribes to the
+                      forms submission event and cancels it if the values in the two password fields differ.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">let</span> <span class="pl-s1">form</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"signup-form"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-k">let</span> <span class="pl-s1">passwordOne</span> <span class="pl-c1">=</span> <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-en">getElementById</span><span class="pl-kos">(</span><span class="pl-s">"password);</span>
+<span class="pl-s">let passwordTwo = document.getElementById("</span><span class="pl-s1">password</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">form</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">"submit"</span><span class="pl-kos">,</span> <span class="pl-s1">event</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">passwordOne</span><span class="pl-kos">.</span><span class="pl-c1">value</span> <span class="pl-c1">!==</span> <span class="pl-s1">passwordTwo</span><span class="pl-kos">.</span><span class="pl-c1">value</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-s1">event</span><span class="pl-kos">.</span><span class="pl-en">preventDefault</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+        <span class="pl-en">alert</span><span class="pl-kos">(</span><span class="pl-s">"Passwords must match!"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-kos">{</span>
+        <span class="pl-en">alert</span><span class="pl-kos">(</span><span class="pl-s">"The form was submitted!"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Given an HTML page that includes a div styled as a square with a red background, write JS that
+                      allows a user to draf the square around the screen.</p>
+                    <ol>
+                      <li>Mark the element as draggable:
+                        <div class="highlight highlight-text-html-basic">
+                          <pre><span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">id</span>="<span class="pl-s">red-square</span>" <span class="pl-c1">draggable</span>="<span class="pl-s">true</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">div</span><span class="pl-kos">&gt;</span></pre>
+                        </div>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <p>Given HTML page that has 300 DIVs, create one click event subscription that will print the id of
+                      the element clicked on to the console.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-en">addEventListener</span><span class="pl-kos">(</span><span class="pl-s">"click"</span><span class="pl-kos">,</span> <span class="pl-s1">event</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">event</span><span class="pl-kos">.</span><span class="pl-c1">target</span><span class="pl-kos">.</span><span class="pl-c1">id</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Identify the definition of the bubbling principle.</p>
+                    <p>When an event happens on an element, it first runs the handlers on it, then on its parent, then
+                      all the way up on other ancestors.</p>
+                  </li>
+                </ol>
+                <p><em>JSON</em></p>
+                <ol>
+                  <li>
+                    <p>Identify and generate valid JSON-formatted strings.</p>
+                    <p>String in JS: <code>'this is "text"'</code><br>
+                      String in JSON: <code>"this is \"text\""</code></p>
+                    <ul>
+                      <li>use \n for line breaks</li>
+                      <li>keys in JSON objects must be surrounded by " quotes</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>Use <code>JSON.parse</code> to deserialize JSON-formatted strings.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">const</span> <span class="pl-s1">str</span> <span class="pl-c1">=</span> <span class="pl-s">'[1,"hello, \\"world\\"",3.14,{"id":17}]'</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">parse</span><span class="pl-kos">(</span><span class="pl-s1">str</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-c">// prints an array with the following entries:</span>
+    <span class="pl-c">//   0: 1</span>
+    <span class="pl-c">//   1: "hello, \"world\""</span>
+    <span class="pl-c">//   2: 3.14</span>
+    <span class="pl-c">//   3: { id: 17 }</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Use <code>JSON.stringify</code> to serialize JS objects.</p>
+                    <div class="highlight highlight-source-js">
+                      <pre><span class="pl-k">const</span> <span class="pl-s1">array</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-s">'hello, "world"'</span><span class="pl-kos">,</span> <span class="pl-c1">3.14</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> <span class="pl-c1">id</span>: <span class="pl-c1">17</span> <span class="pl-kos">}</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-s1">array</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-c">// prints [1, "hello, \"world\"", 3.14, {"id":17}]</span></pre>
+                    </div>
+                  </li>
+                  <li>
+                    <p>Correctly identify the definition of "serialize".</p>
+                    <p>Converting your data into a format that can be sent to another computer.</p>
+                  </li>
+                  <li>
+                    <p>Correctly idenfity the definition of "deserialize".</p>
+                    <p>Getting a message from another computer and converting that message into usable data.</p>
+                  </li>
+                </ol>
+
+                <div class="mt-8 mb-2 text-xs text-grey-darker">
+                  Created 1 week ago |
+                  Updated 1 week ago
+                </div>
+
+                <div>
+                  <a class="text-xs no-underline text-blue"
+                    href="https://gist.github.com/15f0936a8fc5c59f011722146f4852b8" target="_blank">View on GitHub</a>
+                </div>
+              </div>
+
+              <div class="pt-4 mb-8">
+                <h2 class="mb-2 text-2xl">Comments</h2>
+
+                <form method="POST" class="flex flex-col mb-2 -mt-2 flex-end"
+                  action="https://gistlog.co/comment/15f0936a8fc5c59f011722146f4852b8">
+                  <input type="hidden" name="_token" value="abI2zOnZnZ4lK2hhXDpfWnEsePWz7XmLPaj0IDqr">
+                  <label for="comment" class="hidden">Comment</label>
+                  <textarea id="comment" name="comment"
+                    class="w-full px-4 py-3 text-base border border-solid rounded text-grey border-grey"
+                    placeholder="Join the discussion&hellip;" required></textarea>
+                  <div class="flex justify-end flex-1">
+                    <a class="btn-github" href="https://gistlog.co/auth/github">
+                      <span class="w-6 mr-2 text-white fill-current">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1024 1024"
+                          enable-background="new 0 0 1024 1024" xml:space="preserve">
+                          <path
+                            d="M512 0C229.25 0 0 229.25 0 512c0 226.25 146.688 418.125 350.156 485.812 25.594 4.688 34.938-11.125 34.938-24.625 0-12.188-0.469-52.562-0.719-95.312C242 908.812 211.906 817.5 211.906 817.5c-23.312-59.125-56.844-74.875-56.844-74.875-46.531-31.75 3.53-31.125 3.53-31.125 51.406 3.562 78.47 52.75 78.47 52.75 45.688 78.25 119.875 55.625 149 42.5 4.654-33 17.904-55.625 32.5-68.375C304.906 725.438 185.344 681.5 185.344 485.312c0-55.938 19.969-101.562 52.656-137.406-5.219-13-22.844-65.094 5.062-135.562 0 0 42.938-13.75 140.812 52.5 40.812-11.406 84.594-17.031 128.125-17.219 43.5 0.188 87.312 5.875 128.188 17.281 97.688-66.312 140.688-52.5 140.688-52.5 28 70.531 10.375 122.562 5.125 135.5 32.812 35.844 52.625 81.469 52.625 137.406 0 196.688-119.75 240-233.812 252.688 18.438 15.875 34.75 47 34.75 94.75 0 68.438-0.688 123.625-0.688 140.5 0 13.625 9.312 29.562 35.25 24.562C877.438 930 1024 738.125 1024 512 1024 229.25 794.75 0 512 0z" />
+                        </svg>
+                      </span>
+                      Sign in with GitHub
+                    </a>
+                  </div>
+                </form>
+
+                <gist-comments gist-author="bgoonz" gist-id="15f0936a8fc5c59f011722146f4852b8"></gist-comments>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col lg:flex-row bg-grey-darkest justify-center items-center text-xs md:text-sm text-white mt-4 py-4">
+      <div>
+        <a href="https://gistlog.co/" class="text-blue-lighter no-underline hover:text-white">GistLog</a>
+        &copy; 2021
+        <span class="hidden lg:inline-block">|&nbsp;</span>
+      </div>
+
+      <div>
+        Brought to you by the lovely humans at
+        <a href="https://tighten.co/" class="text-blue-lighter no-underline hover:text-white">Tighten</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://gistlog.co/js/app.js"></script>
+  <script>
+    ( function () {
+      autosize( document.querySelectorAll( 'textarea' ) );
+    } )();
+  </script>
+  <script>
+    ( function () {
+      const alerts = document.querySelectorAll( '.js-auto_dismiss' );
+      if ( typeof ( alerts ) !== undefined ) {
+        alerts.forEach( ( el ) => setTimeout( () => fadeOut( el ), 4500 ) );
+      }
+    } )();
+
+    function fadeOut( el ) {
+      el.style.opacity = 1;
+      ( function fade() {
+        if ( ( el.style.opacity -= .1 ) < 0 ) {
+          el.style.display = "none";
+        } else {
+          requestAnimationFrame( fade );
+        }
+      } )();
+    }
+  </script>
+</body>
+
+
+</html>
