@@ -1,0 +1,11 @@
+demo/
+plugins/
+tests/
+scripts/
+examples/
+.eslintrc
+.gitignore
+Icon
+scratch.js
+changelog.md
+contributing.md
