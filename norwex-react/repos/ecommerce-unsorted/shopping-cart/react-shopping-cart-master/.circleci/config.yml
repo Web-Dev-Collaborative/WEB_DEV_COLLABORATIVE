@@ -1,0 +1,54 @@
+witmy: &witmy
+  docker:
+    - image: circleci/node:8.11.3
+
+version: 2
+jobs:
+  test:
+    <<: *witmy
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run test
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  build:
+    <<: *witmy
+    steps:
+      - attach_workspace:
+          at: .
+      - run: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  deploy:
+    <<: *witmy
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Deploy Master to Firebase
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+workflows:
+  version: 2
+  test-branch:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore: master
+  build-deploy:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: master
+      - build:
+          requires:
+            - test
+      - deploy:
+          requires:
+            - build
