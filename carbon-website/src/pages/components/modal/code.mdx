@@ -1,0 +1,132 @@
+---
+title: Modal
+description:
+  Modals focus the user’s attention exclusively on one task or piece of
+  information via a window that sits on top of the page content.
+tabs: ['Usage', 'Style', 'Code', 'Accessibility']
+---
+
+<PageDescription>
+
+Preview the modal component with the React live demo. For detailed code usage
+documentation, see the Storybooks for each framework below.
+
+</PageDescription>
+
+## Documentation
+
+<Row className="resource-card-group">
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+    subTitle="React"
+    href="https://react.carbondesignsystem.com/?path=/story/components-modal--default"
+    >
+
+<MdxIcon name="react" />
+
+  </ResourceCard>
+</Column>
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+      subTitle="Angular (Community)"
+      href="https://angular.carbondesignsystem.com/?path=/story/components-modal--basic"
+      >
+
+<MdxIcon name="angular" />
+
+  </ResourceCard>
+</Column>
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+      subTitle="Vue (Community)"
+      href="http://vue.carbondesignsystem.com/?path=/story/components-cvmodal--default"
+      >
+
+<MdxIcon name="vue" />
+
+  </ResourceCard>
+</Column>
+</Row>
+
+## Live demo
+
+<ComponentDemo
+  components={[
+    {
+      id: 'modal',
+      label: 'Modal',
+    },
+    {
+      id: 'scrolling-content',
+      label: 'With scrolling content',
+    },
+  ]}>
+  <ComponentVariant
+    id="modal"
+    knobs={{
+      ModalWrapper: ['passiveModal', 'danger', 'disabled', 'size'],
+    }}
+    links={{
+      React:
+        'https://react.carbondesignsystem.com/?path=/story/components-modal--default',
+      Angular:
+        'https://angular.carbondesignsystem.com/?path=/story/components-modal--basic',
+      Vue:
+        'http://vue.carbondesignsystem.com/?path=/story/components-cvmodal--default',
+      Vanilla: 'https://the-carbon-components.netlify.com/?nav=modal',
+    }}>{`
+    <ModalWrapper
+      buttonTriggerText="Launch modal"
+      modalHeading="Modal heading"
+      modalLabel="Label"
+    >
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus fermentum risus, sit amet fringilla nunc pellentesque quis. Duis quis odio ultrices, cursus lacus ac, posuere felis. Donec dignissim libero in augue mattis, a molestie metus vestibulum. Aliquam placerat felis ultrices lorem condimentum, nec ullamcorper felis porttitor. </p>
+    </ModalWrapper>
+`}</ComponentVariant>
+  <ComponentVariant
+    id="scrolling-content"
+    links={{
+      React:
+        'https://react.carbondesignsystem.com/?path=/story/components-modal--default',
+      Angular:
+        'https://angular.carbondesignsystem.com/?path=/story/components-modal--basic',
+      Vue:
+        'http://vue.carbondesignsystem.com/?path=/story/components-cvmodal--default',
+      Vanilla: 'https://the-carbon-components.netlify.com/?nav=modal',
+    }}>{`
+    <ModalWrapper
+      hasScrollingContent
+      size="sm"
+      buttonTriggerText="Launch modal"
+      modalHeading="Modal heading"
+      modalLabel="Label"
+    >
+      <>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum. 
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum. 
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum. 
+        </p>
+        <h3>
+          Lorem ipsum
+        </h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum. 
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum. 
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum. 
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum. 
+        </p>
+      </>
+    </ModalWrapper>
+`}</ComponentVariant>
+</ComponentDemo>

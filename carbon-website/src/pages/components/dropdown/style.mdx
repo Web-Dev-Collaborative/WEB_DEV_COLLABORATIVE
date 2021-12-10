@@ -1,0 +1,241 @@
+---
+title: Dropdown
+description:
+  Dropdowns present a list of options that can be used to filter or sort
+  existing content. They can also be used as menus.
+tabs: ['Usage', 'Style', 'Code', 'Accessibility']
+---
+
+## Color
+
+Inputs come in two different colors. The default input color is `$field-01` and
+is used on `$ui-background` and `$ui-02` page backgrounds. The `--light` version
+input color is `$field-02` and is used on `$ui-01` page backgrounds.
+
+| Element            | Property         | Color token                  |
+| ------------------ | ---------------- | ---------------------------- |
+| Label              | text color       | `$text-02`                   |
+| Field text         | text color       | `$text-01`                   |
+| Field text: prompt | text color       | `$text-05`                   |
+| Helper text        | text color       | `$text-05`                   |
+| Field              | background-color | `$field-01`                  |
+|                    | border-bottom    | `$ui-04`                     |
+| Field: light       | background-color | `$field-02`                  |
+| Chevron            | svg              | `$icon-01`                   |
+| Menu option        | text color       | `$text-02`                   |
+|                    | background-color | `$field-01`                  |
+|                    | border-top       | `$ui-03`                     |
+| Menu option: light | background-color | `$field-02`                  |
+| Menu               | box-shadow       | `0 2px 6px 0 rgba(0,0,0,.2)` |
+| Checkbox           | background-color | `$icon-01`                   |
+|                    | check            | `$inverse-01`                |
+|                    | border           | `$icon-01`                   |
+
+<Row>
+<Column colLg={12}>
+
+![Dropdown variant examples](images/dropdown-style-1.png)
+
+</Column>
+</Row>
+
+<Caption>
+  Dropdown variant examples: default, inline, multiselect, combo box.
+</Caption>
+
+### Interactive states
+
+| State          | Element            | Property         | Color token          |
+| -------------- | ------------------ | ---------------- | -------------------- |
+| Focus          | Field              | border           | `$focus`             |
+| Hover          | Field              | background-color | `$hover-ui`          |
+|                | Menu option        | background-color | `$hover-ui`          |
+|                | Menu option        | text color       | `$text-01`           |
+|                | Field: light       | background-color | `$hover-light-ui`    |
+|                | Menu option: light | background-color | `$hover-light-ui`    |
+| Invalid        | Error icon         | svg              | `$support-01`        |
+|                | Field              | border           | `$support-01`        |
+|                | Error message      | text-color       | `$text-error`        |
+| Warning        | Warning message    | text-color       | `$text-01`           |
+|                | Warning icon       | svg              | `$support-03`        |
+| Active         | Menu option        | background-color | `$selected-ui`       |
+|                | Menu option: light | background-color | `$selected-light-ui` |
+| Selected       | Menu option        | background-color | `$selected-ui`       |
+|                | Menu option        | checkmark        | `$icon-01`           |
+| Multi-selected | Tag                | background-color | `$inverse-02`        |
+|                | Tag                | text color       | `$inverse-02`        |
+| Disabled       | Field              | background-color | `$disabled-01`       |
+|                | Field              | text color       | `$disabled-02`       |
+|                | Label              | text color       | `$disabled-02`       |
+|                | Chevron            | svg              | `$disabled-02`       |
+
+<Row>
+<Column colLg={12}>
+
+![Dropdown and combo-box states](images/dropdown-style-2.png)
+
+</Column>
+</Row>
+
+<Caption>Dropdown and combo box states</Caption>
+
+<Row>
+<Column colLg={12}>
+
+![Multi-select dropdown states](images/dropdown-style-3.png)
+
+</Column>
+</Row>
+
+<Caption>Multiselect dropdown states</Caption>
+
+### Inline dropdown
+
+| Element  | State              | Property         | Color token          |
+| -------- | ------------------ | ---------------- | -------------------- |
+| Enabled  | Field              | background-color | `transparent`        |
+|          | Field text         | text color       | `$text-01`           |
+|          | Chevron            | svg              | `$icon-01`           |
+|          | Menu option        | text color       | `$text-02`           |
+|          | Menu option        | background-color | `$field-01`          |
+|          | Menu option: light | background-color | `$field-02`          |
+| Hover    | Field              | background-color | `$hover-ui`          |
+|          | Menu option        | background-color | `$hover-ui`          |
+|          | Menu option        | text color       | `$text-01`           |
+|          | Menu option: light | background-color | `$hover-light-ui`    |
+| Active   | Menu option        | background-color | `$selected-ui`       |
+|          | Menu option: light | background-color | `$selected-light-ui` |
+| Selected | Menu option        | background-color | `$selected-ui`       |
+|          | Menu option        | checkmark        | `$icon-01`           |
+| Invalid  | Error icon         | svg              | `$support-01`        |
+|          | Field              | border           | `$support-01`        |
+|          | Error message      | text-color       | `$text-error`        |
+
+<Row>
+<Column colLg={12}>
+
+![Inline dropdown states](images/dropdown-style-4.png)
+
+</Column>
+</Row>
+
+<Caption>Inline dropdown states</Caption>
+
+## Typography
+
+All dropdown text should be set in sentence case, with only the first word in a
+phrase and any proper nouns capitalized. Dropdown options should not exceed
+three words.
+
+| Class            | Font-size  | Font-weight   | Type style        |
+| ---------------- | ---------- | ------------- | ----------------- |
+| Label            | 12 / 0.75  | Regular / 400 | `$label-01`       |
+| Field text       | 14 / 0.875 | Regular / 400 | `$body-short-01`  |
+| Menu option text | 14 / 0.875 | Regular / 400 | `$body-short-01`  |
+| Error message    | 12 / 0.75  | Regular / 400 | `$label-01`       |
+| Helper text      | 12 / 0.75  | Regular / 400 | `$helper-text-01` |
+
+## Structure
+
+Dropdowns have two states, open and closed. An open and closed dropdown should
+be the same width and appropriately fit the design, layout, and content. The
+height of a closed dropdown stays consistent while the height of an open
+dropdown will vary based on the amount of options it has. Please note the
+various color differences for closed and open dropdowns.
+
+| Element     | Property                    | px / rem | Spacing tokens |
+| ----------- | --------------------------- | -------- | -------------- |
+| Label       | margin-bottom               | 8 / 0.5  | `$spacing-03`  |
+| Field       | padding-left                | 16 / 1   | `$spacing-05`  |
+|             | padding-right               | 48 / 3   | `$spacing-09`  |
+|             | border-bottom               | 1px      | –              |
+| Chevron     | padding-right, padding-left | 16 / 1   | `$spacing-05`  |
+| Helper text | margin-top                  | 4 / 0.25 | `$spacing-02`  |
+| State icon  | padding-right, padding-left | 16 / 1   | `$spacing-05`  |
+
+<div className="image--fixed">
+
+![Structure and spacing for a closed dropdown](images/dropdown-style-5.png)
+
+</div>
+
+<Caption>Structure and spacing measurements for dropdown | px / rem</Caption>
+
+### Sizes
+
+The field height and menu option height should always match. These sizes options
+can be applied to all variants of dropdown.
+
+| Element     | Property | Size    | px / rem |
+| ----------- | -------- | ------- | -------- |
+| Field       | height   | Small   | 32 / 2   |
+|             | height   | Default | 40 / 2.5 |
+|             | height   | Large   | 48 / 3   |
+| Menu option | height   | Small   | 32 / 2   |
+|             | height   | Default | 40 / 2.5 |
+|             | height   | Large   | 48 / 3   |
+
+<div className="image--fixed">
+
+![Dropdown sizes](images/dropdown-style-9.png)
+
+</div>
+
+<Caption>Dropdown sizes | px / rem</Caption>
+
+### Combo box
+
+| Element    | Property      | px / rem | Spacing token |
+| ---------- | ------------- | -------- | ------------- |
+| Label      | margin-bottom | 8 / 0.5  | `$spacing-03` |
+| Field      | padding-left  | 16 / 1   | `$spacing-05` |
+|            | padding-right | 72 / 4.5 | –             |
+| Chevron    | padding-right | 16 / 1   | `$spacing-05` |
+| Clear icon | padding-right | 8 / .5   | `$spacing-03` |
+
+<div className="image--fixed">
+
+![Spacing for combo box dropdown](images/dropdown-style-6.png)
+
+</div>
+
+<Caption>Spacing for combo box dropdown | px / rem</Caption>
+
+### Multiselect dropdown
+
+| Element  | Property                    | px / rem | Spacing tokens |
+| -------- | --------------------------- | -------- | -------------- |
+| Label    | margin-bottom               | 8 / 0.5  | `$spacing-03`  |
+| Field    | padding-left                | 16 / 1   | `$spacing-05`  |
+|          | padding-right               | 48 / 3   | `$spacing-09`  |
+| Chevron  | padding-left, padding-right | 16 / 1   | `$spacing-05`  |
+| Tag      | height                      | 24 / 1.5 | –              |
+|          | padding-right               | 8 / .5   | `$spacing-03`  |
+| Checkbox | padding-left                | 16 / 1   | `$spacing-05`  |
+|          | padding-right               | 8 / .5   | `$spacing-03`  |
+
+<div className="image--fixed">
+
+![Structure and spacing for a multiselect dropdown](images/dropdown-style-7.png)
+
+</div>
+
+<Caption>
+  Structure and spacing measurements for a multiselect dropdown | px / rem
+</Caption>
+
+### Inline dropdown
+
+| Class       | Property                    | px / rem | Spacing token |
+| ----------- | --------------------------- | -------- | ------------- |
+| Field text  | padding-right, padding-left | 16 / 1   | `$spacing-05` |
+| Menu option | padding-right, padding-left | 16 / 1   | `$spacing-05` |
+| Chevron     | padding-left                | 16 / 1   | `$spacing-05` |
+
+<div className="image--fixed">
+
+![Structure and spacing for inline dropdown](images/dropdown-style-8.png)
+
+</div>
+
+<Caption>Structure and spacing for inline dropdown | px / rem</Caption>
