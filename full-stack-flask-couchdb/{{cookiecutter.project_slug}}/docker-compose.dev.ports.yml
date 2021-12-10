@@ -1,0 +1,15 @@
+version: '3'
+services:
+  couchdb:
+    ports:
+      - '5984:5984'
+  proxy:
+    ports:
+      - '80:80'
+      - '8090:8080'
+  flower:
+    ports:
+      - '5555:5555'
+  backend:
+    ports:
+      - '8888:8888'
