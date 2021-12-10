@@ -1,0 +1,38 @@
+{
+  "name": "purecrypt",
+  "version": "1.0.8",
+  "description": "Ultralight string encryption, decryption and validation package for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinnihoke/purecrypt.git"
+  },
+  "keywords": [
+    "crypt",
+    "cryptography",
+    "crypto",
+    "encryption",
+    "decryption",
+    "validation",
+    "purecrypt",
+    "validate",
+    "security",
+    "password",
+    "node.js"
+  ],
+  "author": "Vinni Hoke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vinnihoke/purecrypt/issues"
+  },
+  "homepage": "https://github.com/vinnihoke/purecrypt#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^25.2.3"
+  }
+}
