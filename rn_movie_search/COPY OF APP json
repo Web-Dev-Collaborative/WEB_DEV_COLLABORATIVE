@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Movie Info",
+    "description": "Search for movie data from the Open Movie Database.",
+    "slug": "movie-info",
+    "privacy": "public",
+    "sdkVersion": "35.0.0",
+    "entryPoint": "./App.js",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#dd66bb"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.usarneme.movie_info",
+      "versionCode": 1,
+      "icon": "./assets/icon.png"
+    }
+  }
+}
