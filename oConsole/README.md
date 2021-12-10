@@ -1,0 +1,1 @@
+Output colored text to the Windows console.
