@@ -1,0 +1,44 @@
+
+{% set localize = strings[language] %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+       {% block extraStyle %}{% endblock %}
+    </style>
+    <title>Virtual {{ localize['Lollipops'] }} for all!</title>
+  </head>
+  <body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
+
+    {% include "svg/github-corner.svg" %}
+
+    <div class="container">
+      <header>
+        <h1 class="title"><a href="/">virtual {{ localize['lollipop'] }}</a></h1>
+        <p class="subtitle">because we all know someone <br/>who deserves some sugar.</p>
+      </header>
+      {% block main %}
+      {{ content | safe }}
+      {% endblock %}
+      <footer>
+        <p>
+          Built and hosted with <a href="https://netlify.com?utm_source=vlolly&utm_medium=staticfirst-pnh&utm_campaign=devex">Netlify</a> by <a href="https://twitter.com/philhawksworth">Phil Hawksworth</a>
+        </p>
+        <p>
+          Read about how and why <a href="https://css-tricks.com/static-first-pre-generated-jamstack-sites-with-serverless-rendering-as-a-fallback/">on CSS-Tricks</a>.
+        </p>
+      </footer>
+    </div>
+
+    {% block scripts %}
+    {% endblock %}
+
+  </body>
+</html>
+
+
+

@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+
+{% set localize = strings[language] %}
+
+<div class="thumbs">
+  <div class="lolly example example-red">
+    {%  include "svg/lolly-image.svg" %}
+  </div>
+  <div class="lolly example example-tropical">
+    {%  include "svg/lolly-image.svg" %}
+  </div>
+  <div class="lolly example example-green">
+    {%  include "svg/lolly-image.svg" %}
+  </div>
+  <div class="lolly example example-mixed">
+    {%  include "svg/lolly-image.svg" %}
+  </div>
+  <div class="lolly example example-french">
+    {%  include "svg/lolly-image.svg" %}
+  </div>
+</div>
+
+<p>
+  <a href="/create" class="btn">Make a new {{ localize["lolly"] }} to send to a friend</a>
+</p>
+
+
