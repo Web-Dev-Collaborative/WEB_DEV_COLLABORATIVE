@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/jonathansnook/Sites/p/smacss/trunk/app'
+let g:netrw_dirhist_2='/Users/jonathansnook/Sites/p/phmralcom'
+let g:netrw_dirhist_3='/Users/jonathansnook/Sites/p/phmralcom/app'
+let g:netrw_dirhist_4='/Users/jonathansnook/Sites/p/phmralcom/app/Controller'
+let g:netrw_dirhist_5='/Users/jonathansnook/Desktop/temp'
