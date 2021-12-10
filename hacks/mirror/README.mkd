@@ -1,0 +1,25 @@
+# mirror
+Detect query string values reflected in HTTP responses.
+
+## Install
+```
+go get -u github.com/tomnomnom/hacks/mirror
+```
+
+## Usage
+```
+mirror <url>
+```
+
+Or
+
+```
+cat urls | mirror
+```
+
+## TODO
+* Only check for values over a certain length to help avoid false positives
+* Check for URLencoded versions of values
+* Check for reflection in HTTP headers
+* Option for checking path reflection
+* A way to send and check for reflection in POST data
