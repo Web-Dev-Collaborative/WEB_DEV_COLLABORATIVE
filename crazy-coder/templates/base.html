@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include 'snippets/meta.html' %}
+    {% if title %}
+    <title>{{title}} | crazy coder</title>
+    {% else %}
+    <title>crazy coder</title>
+    {% endif %}
+
+    <link rel="shortcut icon" type="image/x-icon" href="" />
+
+    <title>crazy coder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="{% static 'base.css' %}" type="text/css" />
+  </head>
+
+  <div id="root">
+    <div class="ui large top fixed hidden menu">
+      <div class="ui container">
+        <a href="{% url 'index' %}" class="active item">Home</a>
+      </div>
+    </div>
+    <!--Sidebar Menu-->
+    <div class="ui vertical inverted sidebar menu">
+      <a href="{% url 'index' %}" class="active item">Home</a>
+    </div>
+    <!--Page Contents-->
+    <div class="pusher">
+      <div class="ui inverted vertical masthead center aligned segment">
+        <div class="ui container">
+          <div class="ui large secondary inverted pointing menu">
+            <a class="toc item"><i class="sidebar icon"></i></a>
+            <a href="{% url 'index' %}" class="active item">Home</a> 
+            <div class="right item">
+              <a class="ui inverted">
+                <i class="linkedin icon big"></i>
+              </a>
+              <a class="ui inverted">
+                <i class="github square icon big"></i>
+              </a>
+              <a class="ui inverted">
+                <i class="youtube icon big"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% block header %}
+        <div class="ui text container">
+          <h1 class="ui inverted header">Crazy Coder</h1>
+              <form class="ui center aligned basic segment" action="{% url 'subscribe' %}" method="POST">
+                  {% csrf_token %}
+                  <div class="ui left icon action input">
+                    <i class="search icon"></i>
+                    <input type="text" placeholder="subscribe  #" />
+                    </div>
+                    <button type="submit" class="ui right attached  blue submit button">subscribe</button>
+              </form>
+          </div>
+        {% endblock header %}
+      </div>
+    </div>
+
+      <div class="ui vertical stripe container">
+        {% block container %} {% endblock container %}
+      </div>
+      {% include 'snippets/footer.html' %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // fix menu when passed
+        $(".masthead").visibility({
+          once: false,
+          onBottomPassed: function () {
+            $(".fixed.menu").transition("fade in");
+          },
+          onBottomPassedReverse: function () {
+            $(".fixed.menu").transition("fade out");
+          },
+        });
+
+        // create sidebar and attach to menu open
+        $(".ui.sidebar").sidebar("attach events", ".toc.item");
+      });
+    </script>
+  </body>
+</html>

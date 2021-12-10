@@ -1,0 +1,50 @@
+{% extends "base.html" %} 
+
+{% block container %} 
+
+<div class="ui  items">
+  {% for post in post_list %}
+    <div class="item" style="word-break:break-all">
+      <div class="ui segment">
+      {% if post.image %}
+        <div class="ui small image">
+          <img src="{% url post.image.url %}" alt="{{ post.title }}">
+        </div>
+      {% endif %}
+        <div class="middle aligned content" >
+          <h3 class="header">
+            {{ post.title }}
+          </h3>
+          <div class="meta">{{ post.author }} | {{ post.created_on}}</div>
+          <div class="description">
+              {{post.content|striptags|slice:':500'|safe }}
+          </div>
+          <div class="extra">
+            <a class="ui right floated button" href="{% url 'post_detail' post.slug  %}">Read More</a>
+          </div>
+        </div>
+    </div>
+  </div>
+  <br/>
+  {% endfor %}
+</div>
+
+
+<div class=" ui padded centered grid container">
+    <div class="ui pagination menu">
+      {% if page_obj.has_previous %}
+      <a class="item" href="?page=1"><i class="chevron circle left icon"></i>&nbsp; First</a>
+      <a class="item" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
+      <a class="active item">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      </a>
+      {% if page_obj.has_next %}
+      <a class="item" href="?page={{ page_obj.next_page_number }}">Next</a>
+      <a class="item" href="?page={{ page_obj.paginator.num_pages }}">Last &nbsp;<i class="chevron circle right icon"></i></a>
+      {% endif %}
+    </div>
+</div>
+
+<br/>
+{% endblock container %}
