@@ -1,0 +1,27 @@
+{
+    "liveServer.settings.port": 5501,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "_MACOSX": true,
+        "*__MACOSX": true,
+        "*.ini": true,
+        "**__MACOSX": true,
+        "**_MACOSX": true,
+        "**/__MACOSX": true,
+        "**/_MACOSX": true,
+        "**/**.ini": true,
+        "**/desktop.ini": true,
+        "*/_MACOSX": true,
+        "/*ini": true,
+        "desktop.ini": true,
+        "**/.vscode": true,
+        ".vscode": true,
+        "**/.vs": true,
+        ".vs": true
+    },
+    "explorerExclude.backup": null
+}
