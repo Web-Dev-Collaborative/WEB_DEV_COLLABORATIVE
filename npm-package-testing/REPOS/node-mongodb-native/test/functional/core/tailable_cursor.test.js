@@ -1,0 +1,85 @@
+'use strict';
+
+var expect = require('chai').expect,
+  f = require('util').format;
+const setupDatabase = require('./shared').setupDatabase;
+
+describe('Tailable cursor tests', function() {
+  before(function() {
+    return setupDatabase(this.configuration);
+  });
+
+  it('should correctly perform awaitdata', {
+    metadata: {
+      requires: {
+        os: '!win32' // NODE-2943: timeout on windows
+      }
+    },
+
+    test: function(done) {
+      var self = this;
+      const config = this.configuration;
+      const server = config.newTopology();
+
+      var ns = f('%s.cursor_tailable', self.configuration.db);
+      // Add event listeners
+      server.on('connect', function(_server) {
+        // Create a capped collection
+        _server.command(
+          f('%s.$cmd', self.configuration.db),
+          { create: 'cursor_tailable', capped: true, size: 10000 },
+          function(cmdErr, cmdRes) {
+            expect(cmdErr).to.not.exist;
+            expect(cmdRes).to.exist;
+
+            // Execute the write
+            _server.insert(
+              ns,
+              [{ a: 1 }],
+              {
+                writeConcern: { w: 1 },
+                ordered: true
+              },
+              function(insertErr, results) {
+                expect(insertErr).to.be.null;
+                expect(results.result.n).to.equal(1);
+
+                // Execute find
+                var cursor = _server.cursor(ns, {
+                  find: ns,
+                  query: {},
+                  batchSize: 2,
+                  tailable: true,
+                  awaitData: true
+                });
+
+                // Execute next
+                cursor._next(function(cursorErr, cursorD) {
+                  expect(cursorErr).to.be.null;
+                  expect(cursorD).to.exist;
+
+                  var s = new Date();
+
+                  cursor._next(function() {
+                    var e = new Date();
+                    expect(e.getTime() - s.getTime()).to.be.at.least(300);
+
+                    // Destroy the server connection
+                    _server.destroy(done);
+                  });
+
+                  setTimeout(function() {
+                    cursor.kill();
+                  }, 300);
+                });
+              }
+            );
+          }
+        );
+      });
+
+      // Start connection
+      server.connect();
+    }
+  });
+});

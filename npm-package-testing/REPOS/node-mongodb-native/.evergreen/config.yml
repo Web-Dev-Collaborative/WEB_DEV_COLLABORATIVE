@@ -1,0 +1,2134 @@
+stepback: true
+command_type: system
+exec_timeout_secs: 1200
+timeout:
+  - command: shell.exec
+    params:
+      script: |
+        ls -la
+functions:
+  fetch source:
+    - command: git.get_project
+      params:
+        directory: src
+    - command: shell.exec
+      params:
+        working_dir: src
+        script: |
+          # Get the current unique version of this checkout
+          if [ "${is_patch}" = "true" ]; then
+             CURRENT_VERSION=$(git describe)-patch-${version_id}
+          else
+             CURRENT_VERSION=latest
+          fi
+
+          export DRIVERS_TOOLS="$(pwd)/../drivers-tools"
+          export PROJECT_DIRECTORY="$(pwd)"
+          export MONGO_ORCHESTRATION_HOME="$DRIVERS_TOOLS/.evergreen/orchestration"
+          export MONGODB_BINARIES="$DRIVERS_TOOLS/mongodb/bin"
+          export UPLOAD_BUCKET="${project}"
+
+          # fix paths on windows
+          if [ "Windows_NT" = "$OS" ]; then
+            export DRIVERS_TOOLS=$(cygpath -m -a $DRIVERS_TOOLS)
+            export MONGO_ORCHESTRATION_HOME=$(cygpath -m -a $MONGO_ORCHESTRATION_HOME)
+            export MONGODB_BINARIES=$(cygpath -m -a $MONGODB_BINARIES)
+            export PROJECT_DIRECTORY=$(cygpath -m -a $PROJECT_DIRECTORY)
+          fi
+
+          cat <<EOT > expansion.yml
+          CURRENT_VERSION: "$CURRENT_VERSION"
+          DRIVERS_TOOLS: "$DRIVERS_TOOLS"
+          MONGO_ORCHESTRATION_HOME: "$MONGO_ORCHESTRATION_HOME"
+          MONGODB_BINARIES: "$MONGODB_BINARIES"
+          UPLOAD_BUCKET: "$UPLOAD_BUCKET"
+          PROJECT_DIRECTORY: "$PROJECT_DIRECTORY"
+          PREPARE_SHELL: |
+             set -o errexit
+             set -o xtrace
+             export DRIVERS_TOOLS="$DRIVERS_TOOLS"
+             export MONGO_ORCHESTRATION_HOME="$MONGO_ORCHESTRATION_HOME"
+             export MONGODB_BINARIES="$MONGODB_BINARIES"
+             export UPLOAD_BUCKET="$UPLOAD_BUCKET"
+             export PROJECT_DIRECTORY="$PROJECT_DIRECTORY"
+
+             export TMPDIR="$MONGO_ORCHESTRATION_HOME/db"
+             export PATH="$MONGODB_BINARIES:$PATH"
+             export PROJECT="${project}"
+          EOT
+          # See what we've done
+          cat expansion.yml
+    - command: expansions.update
+      params:
+        file: src/expansion.yml
+  prepare resources:
+    - command: shell.exec
+      params:
+        script: >
+          ${PREPARE_SHELL}
+
+          git clone git://github.com/mongodb-labs/drivers-evergreen-tools.git $DRIVERS_TOOLS
+
+          echo "{ \"releases\": { \"default\": \"$MONGODB_BINARIES\" }}" >
+          $MONGO_ORCHESTRATION_HOME/orchestration.config
+  bootstrap mongo-orchestration:
+    - command: shell.exec
+      params:
+        script: |
+          ${PREPARE_SHELL}
+          MONGODB_VERSION=${VERSION} TOPOLOGY=${TOPOLOGY} \
+          AUTH=${AUTH} SSL=${SSL} \
+          ORCHESTRATION_FILE=${ORCHESTRATION_FILE} \
+          bash ${DRIVERS_TOOLS}/.evergreen/run-orchestration.sh
+    - command: expansions.update
+      params:
+        file: mo-expansion.yml
+  run tests:
+    - command: shell.exec
+      type: test
+      params:
+        silent: true
+        working_dir: src
+        script: |
+          if [ -n "${CLIENT_ENCRYPTION}" ]; then
+            cat <<EOT > prepare_client_encryption.sh
+            export CLIENT_ENCRYPTION=${CLIENT_ENCRYPTION}
+            export CSFLE_KMS_PROVIDERS='${CSFLE_KMS_PROVIDERS}'
+          EOT
+          fi
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        timeout_secs: 60
+        script: |
+          ${PREPARE_SHELL}
+
+          if [ -n "${CLIENT_ENCRYPTION}" ]; then
+            # Disable xtrace (just in case it was accidentally set).
+            set +x
+            . ./prepare_client_encryption.sh
+            rm -f ./prepare_client_encryption.sh
+          fi
+
+          AUTH=${AUTH} SSL=${SSL} UNIFIED=${UNIFIED} MONGODB_URI="${MONGODB_URI}" \
+          NODE_VERSION=${NODE_VERSION} SKIP_DEPS=1 NO_EXIT=1 \
+            bash ${PROJECT_DIRECTORY}/.evergreen/run-tests.sh
+  run checks:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          bash ${PROJECT_DIRECTORY}/.evergreen/run-checks.sh
+  cleanup:
+    - command: shell.exec
+      params:
+        silent: true
+        script: |
+          ${PREPARE_SHELL}
+          rm -rf $DRIVERS_TOOLS || true
+  fix absolute paths:
+    - command: shell.exec
+      params:
+        silent: true
+        script: |
+          ${PREPARE_SHELL}
+          for filename in $(find ${DRIVERS_TOOLS} -name \*.json); do
+            perl -p -i -e "s|ABSOLUTE_PATH_REPLACEMENT_TOKEN|${DRIVERS_TOOLS}|g" $filename
+          done
+  windows fix:
+    - command: shell.exec
+      params:
+        silent: true
+        script: |
+          ${PREPARE_SHELL}
+          # for i in $(find ${DRIVERS_TOOLS}/.evergreen ${PROJECT_DIRECTORY}/.evergreen -name \*.sh); do
+          #   cat $i | tr -d '\r' > $i.new
+          #   mv $i.new $i
+          # done
+          # Copy client certificate because symlinks do not work on Windows.
+          cp ${DRIVERS_TOOLS}/.evergreen/x509gen/client.pem ${MONGO_ORCHESTRATION_HOME}/lib/client.pem
+  make files executable:
+    - command: shell.exec
+      params:
+        silent: true
+        script: |
+          ${PREPARE_SHELL}
+          for i in $(find ${DRIVERS_TOOLS}/.evergreen ${PROJECT_DIRECTORY}/.evergreen -name \*.sh); do
+            chmod +x $i
+          done
+  install dependencies:
+    - command: shell.exec
+      type: setup
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          NODE_LTS_NAME=${NODE_LTS_NAME} MSVS_VERSION=${MSVS_VERSION} \
+            bash ${PROJECT_DIRECTORY}/.evergreen/install-dependencies.sh
+    - command: expansions.update
+      params:
+        file: src/deps-expansion.yml
+  run atlas tests:
+    - command: shell.exec
+      type: test
+      params:
+        silent: true
+        working_dir: src
+        script: |
+          cat <<EOT > prepare_atlas_connectivity.sh
+          export ATLAS_CONNECTIVITY='${ATLAS_CONNECTIVITY}'
+          EOT
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          # Disable xtrace (just in case it was accidentally set).
+          set +x
+          . ./prepare_atlas_connectivity.sh
+          rm -f ./prepare_atlas_connectivity.sh
+
+          NODE_LTS_NAME='${NODE_LTS_NAME}' bash ${PROJECT_DIRECTORY}/.evergreen/run-atlas-tests.sh
+  run kerberos tests:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          KRB5_KEYTAB='${gssapi_auth_keytab_base64}' KRB5_PRINCIPAL='${gssapi_auth_principal}' \
+          MONGODB_URI='${gssapi_auth_mongodb_uri}' UNIFIED=${UNIFIED} \
+          NODE_LTS_NAME='${NODE_LTS_NAME}' bash ${PROJECT_DIRECTORY}/.evergreen/run-kerberos-tests.sh
+  run ldap tests:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          MONGODB_URI='${plain_auth_mongodb_uri}' NODE_LTS_NAME='${NODE_LTS_NAME}' \
+          bash ${PROJECT_DIRECTORY}/.evergreen/run-ldap-tests.sh
+  run tls tests:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          NODE_LTS_NAME=${NODE_LTS_NAME} DRIVERS_TOOLS="${DRIVERS_TOOLS}" \
+          SSL_CA_FILE="${SSL_CA_FILE}" SSL_KEY_FILE="${SSL_KEY_FILE}" \
+          MONGODB_URI="${MONGODB_URI}" bash ${PROJECT_DIRECTORY}/.evergreen/run-tls-tests.sh
+  add aws auth variables to file:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        silent: true
+        script: |
+          cat <<EOF > ${DRIVERS_TOOLS}/.evergreen/auth_aws/aws_e2e_setup.json
+          {
+              "iam_auth_ecs_account" : "${iam_auth_ecs_account}",
+              "iam_auth_ecs_secret_access_key" : "${iam_auth_ecs_secret_access_key}",
+              "iam_auth_ecs_account_arn": "arn:aws:iam::557821124784:user/authtest_fargate_user",
+              "iam_auth_ecs_cluster": "${iam_auth_ecs_cluster}",
+              "iam_auth_ecs_task_definition": "${iam_auth_ecs_task_definition}",
+              "iam_auth_ecs_subnet_a": "${iam_auth_ecs_subnet_a}",
+              "iam_auth_ecs_subnet_b": "${iam_auth_ecs_subnet_b}",
+              "iam_auth_ecs_security_group": "${iam_auth_ecs_security_group}",
+              "iam_auth_assume_aws_account" : "${iam_auth_assume_aws_account}",
+              "iam_auth_assume_aws_secret_access_key" : "${iam_auth_assume_aws_secret_access_key}",
+              "iam_auth_assume_role_name" : "${iam_auth_assume_role_name}",
+              "iam_auth_ec2_instance_account" : "${iam_auth_ec2_instance_account}",
+              "iam_auth_ec2_instance_secret_access_key" : "${iam_auth_ec2_instance_secret_access_key}",
+              "iam_auth_ec2_instance_profile" : "${iam_auth_ec2_instance_profile}"
+          }
+          EOF
+  setup aws env:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          cd ${DRIVERS_TOOLS}/.evergreen/auth_aws
+          . ./activate_venv.sh
+          cd -
+  run aws auth test with regular aws credentials:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          cd ${DRIVERS_TOOLS}/.evergreen/auth_aws
+          ${MONGODB_BINARIES}/mongo aws_e2e_regular_aws.js
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        silent: true
+        script: |
+          cat <<'EOF' > "${PROJECT_DIRECTORY}/prepare_mongodb_aws.sh"
+            alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+            USER=$(urlencode ${iam_auth_ecs_account})
+            PASS=$(urlencode ${iam_auth_ecs_secret_access_key})
+            export MONGODB_URI="mongodb://$USER:$PASS@localhost:27017/aws?authMechanism=MONGODB-AWS"
+          EOF
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          ${PROJECT_DIRECTORY}/.evergreen/run-mongodb-aws-test.sh
+  run aws auth test with assume role credentials:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          cd ${DRIVERS_TOOLS}/.evergreen/auth_aws
+          . ./activate_venv.sh
+          ${MONGODB_BINARIES}/mongo aws_e2e_assume_role.js
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        silent: true
+        script: |
+          cat <<'EOF' > "${PROJECT_DIRECTORY}/prepare_mongodb_aws.sh"
+            alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+            USER=$(jq -r '.AccessKeyId' ${DRIVERS_TOOLS}/.evergreen/auth_aws/creds.json)
+            USER=$(urlencode $USER)
+            PASS=$(jq -r '.SecretAccessKey' ${DRIVERS_TOOLS}/.evergreen/auth_aws/creds.json)
+            PASS=$(urlencode $PASS)
+            SESSION_TOKEN=$(jq -r '.SessionToken' ${DRIVERS_TOOLS}/.evergreen/auth_aws/creds.json)
+            SESSION_TOKEN=$(urlencode $SESSION_TOKEN)
+            export MONGODB_URI="mongodb://$USER:$PASS@localhost:27017/aws?authMechanism=MONGODB-AWS&authMechanismProperties=AWS_SESSION_TOKEN:$SESSION_TOKEN"
+          EOF
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          ${PROJECT_DIRECTORY}/.evergreen/run-mongodb-aws-test.sh
+  run aws auth test with aws EC2 credentials:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          cd ${DRIVERS_TOOLS}/.evergreen/auth_aws
+          . ./activate_venv.sh
+          ${MONGODB_BINARIES}/mongo aws_e2e_ec2.js
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          ${PROJECT_DIRECTORY}/.evergreen/run-mongodb-aws-test.sh
+  run aws auth test with aws credentials as environment variables:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        silent: true
+        script: |
+          cd ${DRIVERS_TOOLS}/.evergreen/auth_aws
+          ${MONGODB_BINARIES}/mongo --verbose aws_e2e_regular_aws.js
+          cd -
+          cat <<EOF > "${PROJECT_DIRECTORY}/prepare_mongodb_aws.sh"
+            export AWS_ACCESS_KEY_ID=${iam_auth_ecs_account}
+            export AWS_SECRET_ACCESS_KEY=${iam_auth_ecs_secret_access_key}
+            export MONGODB_URI="mongodb://localhost:27017/aws?authMechanism=MONGODB-AWS"
+          EOF
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          ${PROJECT_DIRECTORY}/.evergreen/run-mongodb-aws-test.sh
+  run aws auth test with aws credentials and session token as environment variables:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        silent: true
+        script: |
+          cd ${DRIVERS_TOOLS}/.evergreen/auth_aws
+          ${MONGODB_BINARIES}/mongo --verbose aws_e2e_assume_role.js
+          cd -
+          cat <<'EOF' > "${PROJECT_DIRECTORY}/prepare_mongodb_aws.sh"
+            export AWS_ACCESS_KEY_ID=$(jq -r '.AccessKeyId' ${DRIVERS_TOOLS}/.evergreen/auth_aws/creds.json)
+            export AWS_SECRET_ACCESS_KEY=$(jq -r '.SecretAccessKey' ${DRIVERS_TOOLS}/.evergreen/auth_aws/creds.json)
+            export AWS_SESSION_TOKEN=$(jq -r '.SessionToken' ${DRIVERS_TOOLS}/.evergreen/auth_aws/creds.json)
+            export MONGODB_URI="mongodb://localhost:27017/aws?authMechanism=MONGODB-AWS"
+          EOF
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          ${PROJECT_DIRECTORY}/.evergreen/run-mongodb-aws-test.sh
+  run aws ECS auth test:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          AUTH_AWS_DIR=${DRIVERS_TOOLS}/.evergreen/auth_aws
+          ECS_SRC_DIR=$AUTH_AWS_DIR/src
+
+          # fix issue with `TestData` in SERVER-46340
+          sed -i '1s+^+TestData = {};\n+' $AUTH_AWS_DIR/lib/ecs_hosted_test.js
+
+          # pack up project directory to ssh it to the container
+          mkdir -p $ECS_SRC_DIR/.evergreen
+          cp $PROJECT_DIRECTORY/.evergreen/run-mongodb-aws-ecs-test.sh $ECS_SRC_DIR/.evergreen
+          tar -czf $ECS_SRC_DIR/src.tgz -C $PROJECT_DIRECTORY .
+
+          cd $AUTH_AWS_DIR
+          cat <<EOF > setup.js
+            const mongo_binaries = "$MONGODB_BINARIES";
+            const project_dir = "$ECS_SRC_DIR";
+          EOF
+
+          cat setup.js
+          . ./activate_venv.sh
+          ${MONGODB_BINARIES}/mongo --nodb setup.js aws_e2e_ecs.js
+  run-ocsp-test:
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+
+          UNIFIED=${UNIFIED} \
+          CA_FILE="$DRIVERS_TOOLS/.evergreen/ocsp/rsa/ca.pem" \
+          OCSP_TLS_SHOULD_SUCCEED="${OCSP_TLS_SHOULD_SUCCEED}" \
+          bash ${PROJECT_DIRECTORY}/.evergreen/run-ocsp-tests.sh
+  run-valid-ocsp-server:
+    - command: shell.exec
+      params:
+        script: |
+          cd ${DRIVERS_TOOLS}/.evergreen/ocsp
+          /opt/mongodbtoolchain/v3/bin/python3 -m venv ./venv
+          ./venv/bin/pip3 install asn1crypto oscrypto bottle
+    - command: shell.exec
+      params:
+        background: true
+        script: |
+          cd ${DRIVERS_TOOLS}/.evergreen/ocsp
+          nohup ./venv/bin/python3 ocsp_mock.py \
+            --ca_file rsa/ca.pem \
+            --ocsp_responder_cert rsa/ca.crt \
+            --ocsp_responder_key rsa/ca.key \
+            -p 8100 -v
+  run-revoked-ocsp-server:
+    - command: shell.exec
+      params:
+        script: |
+          cd ${DRIVERS_TOOLS}/.evergreen/ocsp
+          /opt/mongodbtoolchain/v3/bin/python3 -m venv ./venv
+          ./venv/bin/pip3 install asn1crypto oscrypto bottle
+    - command: shell.exec
+      params:
+        background: true
+        script: |
+          cd ${DRIVERS_TOOLS}/.evergreen/ocsp
+          nohup ./venv/bin/python3 ocsp_mock.py \
+            --ca_file rsa/ca.pem \
+            --ocsp_responder_cert rsa/ca.crt \
+            --ocsp_responder_key rsa/ca.key \
+            -p 8100 \
+            -v \
+            --fault revoked
+  run custom csfle tests:
+    - command: shell.exec
+      type: test
+      params:
+        silent: true
+        working_dir: src
+        script: |
+          ${PREPARE_SHELL}
+          cat <<EOT > prepare_client_encryption.sh
+          export CLIENT_ENCRYPTION=${CLIENT_ENCRYPTION}
+          export CSFLE_KMS_PROVIDERS='${CSFLE_KMS_PROVIDERS}'
+          export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"
+          export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"
+          export CSFLE_GIT_REF="${CSFLE_GIT_REF}"
+          export CDRIVER_GIT_REF="${CDRIVER_GIT_REF}"
+          EOT
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: src
+        timeout_secs: 60
+        script: |
+          ${PREPARE_SHELL}
+
+          # Disable xtrace (just in case it was accidentally set).
+          set +x
+          . ./prepare_client_encryption.sh
+          rm -f ./prepare_client_encryption.sh
+
+          UNIFIED=${UNIFIED} MONGODB_URI="${MONGODB_URI}" bash ${PROJECT_DIRECTORY}/.evergreen/run-custom-csfle-tests.sh
+  upload test results:
+    - command: attach.xunit_results
+      params:
+        file: src/xunit.xml
+pre:
+  - func: fetch source
+  - func: prepare resources
+  - func: windows fix
+  - func: fix absolute paths
+  - func: make files executable
+post:
+  - func: upload test results
+  - func: cleanup
+ignore:
+  - '*.md'
+tasks:
+  - name: test-latest-server
+    tags:
+      - latest
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-latest-replica_set
+    tags:
+      - latest
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-latest-sharded_cluster
+    tags:
+      - latest
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-latest-server-unified
+    tags:
+      - latest
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-latest-replica_set-unified
+    tags:
+      - latest
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-latest-sharded_cluster-unified
+    tags:
+      - latest
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.4-server
+    tags:
+      - '4.4'
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-4.4-replica_set
+    tags:
+      - '4.4'
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-4.4-sharded_cluster
+    tags:
+      - '4.4'
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-4.4-server-unified
+    tags:
+      - '4.4'
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.4-replica_set-unified
+    tags:
+      - '4.4'
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.4-sharded_cluster-unified
+    tags:
+      - '4.4'
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.2-server
+    tags:
+      - '4.2'
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.2'
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-4.2-replica_set
+    tags:
+      - '4.2'
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.2'
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-4.2-sharded_cluster
+    tags:
+      - '4.2'
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.2'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-4.2-server-unified
+    tags:
+      - '4.2'
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.2'
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.2-replica_set-unified
+    tags:
+      - '4.2'
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.2'
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.2-sharded_cluster-unified
+    tags:
+      - '4.2'
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.2'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.0-server
+    tags:
+      - '4.0'
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.0'
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-4.0-replica_set
+    tags:
+      - '4.0'
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.0'
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-4.0-sharded_cluster
+    tags:
+      - '4.0'
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.0'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-4.0-server-unified
+    tags:
+      - '4.0'
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.0'
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.0-replica_set-unified
+    tags:
+      - '4.0'
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.0'
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-4.0-sharded_cluster-unified
+    tags:
+      - '4.0'
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.0'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.6-server
+    tags:
+      - '3.6'
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.6'
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-3.6-replica_set
+    tags:
+      - '3.6'
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.6'
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-3.6-sharded_cluster
+    tags:
+      - '3.6'
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.6'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-3.6-server-unified
+    tags:
+      - '3.6'
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.6'
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.6-replica_set-unified
+    tags:
+      - '3.6'
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.6'
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.6-sharded_cluster-unified
+    tags:
+      - '3.6'
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.6'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.4-server
+    tags:
+      - '3.4'
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.4'
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-3.4-replica_set
+    tags:
+      - '3.4'
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.4'
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-3.4-sharded_cluster
+    tags:
+      - '3.4'
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.4'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-3.4-server-unified
+    tags:
+      - '3.4'
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.4'
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.4-replica_set-unified
+    tags:
+      - '3.4'
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.4'
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.4-sharded_cluster-unified
+    tags:
+      - '3.4'
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.4'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.2-server
+    tags:
+      - '3.2'
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.2'
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-3.2-replica_set
+    tags:
+      - '3.2'
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.2'
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-3.2-sharded_cluster
+    tags:
+      - '3.2'
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.2'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-3.2-server-unified
+    tags:
+      - '3.2'
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.2'
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.2-replica_set-unified
+    tags:
+      - '3.2'
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.2'
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.2-sharded_cluster-unified
+    tags:
+      - '3.2'
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.2'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.0-server
+    tags:
+      - '3.0'
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.0'
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-3.0-replica_set
+    tags:
+      - '3.0'
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.0'
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-3.0-sharded_cluster
+    tags:
+      - '3.0'
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.0'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-3.0-server-unified
+    tags:
+      - '3.0'
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.0'
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.0-replica_set-unified
+    tags:
+      - '3.0'
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.0'
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-3.0-sharded_cluster-unified
+    tags:
+      - '3.0'
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '3.0'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-2.6-server
+    tags:
+      - '2.6'
+      - server
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '2.6'
+          TOPOLOGY: server
+      - func: run tests
+  - name: test-2.6-replica_set
+    tags:
+      - '2.6'
+      - replica_set
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '2.6'
+          TOPOLOGY: replica_set
+      - func: run tests
+  - name: test-2.6-sharded_cluster
+    tags:
+      - '2.6'
+      - sharded_cluster
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '2.6'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+  - name: test-2.6-server-unified
+    tags:
+      - '2.6'
+      - server-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '2.6'
+          TOPOLOGY: server
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-2.6-replica_set-unified
+    tags:
+      - '2.6'
+      - replica_set-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '2.6'
+          TOPOLOGY: replica_set
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-2.6-sharded_cluster-unified
+    tags:
+      - '2.6'
+      - sharded_cluster-unified
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '2.6'
+          TOPOLOGY: sharded_cluster
+      - func: run tests
+        vars:
+          UNIFIED: 1
+  - name: test-atlas-connectivity
+    tags:
+      - atlas-connect
+    commands:
+      - func: install dependencies
+      - func: run atlas tests
+  - name: test-auth-kerberos-legacy
+    tags:
+      - auth
+      - kerberos
+      - legacy
+    commands:
+      - func: install dependencies
+      - func: run kerberos tests
+        vars:
+          UNIFIED: 0
+  - name: test-auth-kerberos-unified
+    tags:
+      - auth
+      - kerberos
+      - unified
+    commands:
+      - func: install dependencies
+      - func: run kerberos tests
+        vars:
+          UNIFIED: 1
+  - name: test-auth-ldap
+    tags:
+      - auth
+      - ldap
+    commands:
+      - func: install dependencies
+      - func: run ldap tests
+  - name: test-tls-support-latest
+    tags:
+      - tls-support
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          SSL: ssl
+          TOPOLOGY: server
+      - func: run tls tests
+  - name: test-tls-support-4.2
+    tags:
+      - tls-support
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.2'
+          SSL: ssl
+          TOPOLOGY: server
+      - func: run tls tests
+  - name: test-latest-ocsp-valid-cert-server-staples
+    tags:
+      - ocsp
+    commands:
+      - func: run-valid-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-mustStaple.json
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 1
+  - name: test-latest-ocsp-invalid-cert-server-staples
+    tags:
+      - ocsp
+    commands:
+      - func: run-revoked-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-mustStaple.json
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 0
+  - name: test-latest-ocsp-valid-cert-server-does-not-staple
+    tags:
+      - ocsp
+    commands:
+      - func: run-valid-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-disableStapling.json
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 1
+  - name: test-latest-ocsp-invalid-cert-server-does-not-staple
+    tags:
+      - ocsp
+    commands:
+      - func: run-revoked-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-disableStapling.json
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 0
+  - name: test-latest-ocsp-soft-fail
+    tags:
+      - ocsp
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-disableStapling.json
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 1
+  - name: test-latest-ocsp-malicious-invalid-cert-mustStaple-server-does-not-staple
+    tags:
+      - ocsp
+    commands:
+      - func: run-revoked-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-mustStaple-disableStapling.json
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 0
+  - name: test-latest-ocsp-malicious-no-responder-mustStaple-server-does-not-staple
+    tags:
+      - ocsp
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-mustStaple-disableStapling.json
+          VERSION: latest
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 0
+  - name: test-4.4-ocsp-valid-cert-server-staples
+    tags:
+      - ocsp
+    commands:
+      - func: run-valid-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-mustStaple.json
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 1
+  - name: test-4.4-ocsp-invalid-cert-server-staples
+    tags:
+      - ocsp
+    commands:
+      - func: run-revoked-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-mustStaple.json
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 0
+  - name: test-4.4-ocsp-valid-cert-server-does-not-staple
+    tags:
+      - ocsp
+    commands:
+      - func: run-valid-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-disableStapling.json
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 1
+  - name: test-4.4-ocsp-invalid-cert-server-does-not-staple
+    tags:
+      - ocsp
+    commands:
+      - func: run-revoked-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-disableStapling.json
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 0
+  - name: test-4.4-ocsp-soft-fail
+    tags:
+      - ocsp
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-disableStapling.json
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 1
+  - name: test-4.4-ocsp-malicious-invalid-cert-mustStaple-server-does-not-staple
+    tags:
+      - ocsp
+    commands:
+      - func: run-revoked-ocsp-server
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-mustStaple-disableStapling.json
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 0
+  - name: test-4.4-ocsp-malicious-no-responder-mustStaple-server-does-not-staple
+    tags:
+      - ocsp
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          ORCHESTRATION_FILE: rsa-basic-tls-ocsp-mustStaple-disableStapling.json
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run-ocsp-test
+        vars:
+          OCSP_TLS_SHOULD_SUCCEED: 0
+  - name: aws-latest-auth-test-run-aws-auth-test-with-regular-aws-credentials
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with regular aws credentials
+  - name: aws-latest-auth-test-run-aws-auth-test-with-assume-role-credentials
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with assume role credentials
+  - name: aws-latest-auth-test-run-aws-auth-test-with-aws-EC2-credentials
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with aws EC2 credentials
+  - name: aws-latest-auth-test-run-aws-auth-test-with-aws-credentials-as-environment-variables
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with aws credentials as environment variables
+  - name: aws-latest-auth-test-run-aws-auth-test-with-aws-credentials-and-session-token-as-environment-variables
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with aws credentials and session token as environment variables
+  - name: aws-latest-auth-test-run-aws-ECS-auth-test
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: latest
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws ECS auth test
+  - name: aws-4.4-auth-test-run-aws-auth-test-with-regular-aws-credentials
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with regular aws credentials
+  - name: aws-4.4-auth-test-run-aws-auth-test-with-assume-role-credentials
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with assume role credentials
+  - name: aws-4.4-auth-test-run-aws-auth-test-with-aws-EC2-credentials
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with aws EC2 credentials
+  - name: aws-4.4-auth-test-run-aws-auth-test-with-aws-credentials-as-environment-variables
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with aws credentials as environment variables
+  - name: aws-4.4-auth-test-run-aws-auth-test-with-aws-credentials-and-session-token-as-environment-variables
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws auth test with aws credentials and session token as environment variables
+  - name: aws-4.4-auth-test-run-aws-ECS-auth-test
+    commands:
+      - func: install dependencies
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          AUTH: auth
+          ORCHESTRATION_FILE: auth-aws.json
+          TOPOLOGY: server
+      - func: add aws auth variables to file
+      - func: setup aws env
+      - func: run aws ECS auth test
+  - name: run-checks
+    tags:
+      - run-checks
+    commands:
+      - func: install dependencies
+        vars:
+          NODE_LTS_NAME: erbium
+      - func: run checks
+  - name: run-custom-csfle-tests
+    tags:
+      - run-custom-csfle-tests
+    commands:
+      - func: install dependencies
+        vars:
+          NODE_LTS_NAME: erbium
+      - func: bootstrap mongo-orchestration
+        vars:
+          VERSION: '4.4'
+          TOPOLOGY: server
+      - func: run custom csfle tests
+buildvariants:
+  - name: macos-1014-fermium
+    display_name: macOS 10.14 Node Fermium
+    run_on: macos-1014
+    expansions:
+      NODE_LTS_NAME: fermium
+    tasks: &ref_0
+      - test-latest-server
+      - test-latest-replica_set
+      - test-latest-sharded_cluster
+      - test-latest-server-unified
+      - test-latest-replica_set-unified
+      - test-latest-sharded_cluster-unified
+      - test-4.4-server
+      - test-4.4-replica_set
+      - test-4.4-sharded_cluster
+      - test-4.4-server-unified
+      - test-4.4-replica_set-unified
+      - test-4.4-sharded_cluster-unified
+      - test-4.2-server
+      - test-4.2-replica_set
+      - test-4.2-sharded_cluster
+      - test-4.2-server-unified
+      - test-4.2-replica_set-unified
+      - test-4.2-sharded_cluster-unified
+      - test-4.0-server
+      - test-4.0-replica_set
+      - test-4.0-sharded_cluster
+      - test-4.0-server-unified
+      - test-4.0-replica_set-unified
+      - test-4.0-sharded_cluster-unified
+      - test-3.6-server
+      - test-3.6-replica_set
+      - test-3.6-sharded_cluster
+      - test-3.6-server-unified
+      - test-3.6-replica_set-unified
+      - test-3.6-sharded_cluster-unified
+      - test-3.4-server
+      - test-3.4-replica_set
+      - test-3.4-sharded_cluster
+      - test-3.4-server-unified
+      - test-3.4-replica_set-unified
+      - test-3.4-sharded_cluster-unified
+      - test-3.2-server
+      - test-3.2-replica_set
+      - test-3.2-sharded_cluster
+      - test-3.2-server-unified
+      - test-3.2-replica_set-unified
+      - test-3.2-sharded_cluster-unified
+      - test-3.0-server
+      - test-3.0-replica_set
+      - test-3.0-sharded_cluster
+      - test-3.0-server-unified
+      - test-3.0-replica_set-unified
+      - test-3.0-sharded_cluster-unified
+      - test-2.6-server
+      - test-2.6-replica_set
+      - test-2.6-sharded_cluster
+      - test-2.6-server-unified
+      - test-2.6-replica_set-unified
+      - test-2.6-sharded_cluster-unified
+      - test-atlas-connectivity
+      - test-auth-kerberos-legacy
+      - test-auth-kerberos-unified
+      - test-auth-ldap
+      - test-tls-support-latest
+      - test-tls-support-4.2
+      - test-latest-ocsp-valid-cert-server-staples
+      - test-latest-ocsp-invalid-cert-server-staples
+      - test-latest-ocsp-valid-cert-server-does-not-staple
+      - test-latest-ocsp-invalid-cert-server-does-not-staple
+      - test-latest-ocsp-soft-fail
+      - test-latest-ocsp-malicious-invalid-cert-mustStaple-server-does-not-staple
+      - test-latest-ocsp-malicious-no-responder-mustStaple-server-does-not-staple
+      - test-4.4-ocsp-valid-cert-server-staples
+      - test-4.4-ocsp-invalid-cert-server-staples
+      - test-4.4-ocsp-valid-cert-server-does-not-staple
+      - test-4.4-ocsp-invalid-cert-server-does-not-staple
+      - test-4.4-ocsp-soft-fail
+      - test-4.4-ocsp-malicious-invalid-cert-mustStaple-server-does-not-staple
+      - test-4.4-ocsp-malicious-no-responder-mustStaple-server-does-not-staple
+  - name: macos-1014-erbium
+    display_name: macOS 10.14 Node Erbium
+    run_on: macos-1014
+    expansions:
+      NODE_LTS_NAME: erbium
+    tasks: *ref_0
+  - name: macos-1014-dubnium
+    display_name: macOS 10.14 Node Dubnium
+    run_on: macos-1014
+    expansions:
+      NODE_LTS_NAME: dubnium
+    tasks: *ref_0
+  - name: macos-1014-carbon
+    display_name: macOS 10.14 Node Carbon
+    run_on: macos-1014
+    expansions:
+      NODE_LTS_NAME: carbon
+    tasks: *ref_0
+  - name: macos-1014-boron
+    display_name: macOS 10.14 Node Boron
+    run_on: macos-1014
+    expansions:
+      NODE_LTS_NAME: boron
+    tasks: *ref_0
+  - name: macos-1014-argon
+    display_name: macOS 10.14 Node Argon
+    run_on: macos-1014
+    expansions:
+      NODE_LTS_NAME: argon
+    tasks: *ref_0
+  - name: rhel70-fermium
+    display_name: RHEL 7.0 Node Fermium
+    run_on: rhel70-small
+    expansions:
+      NODE_LTS_NAME: fermium
+    tasks: &ref_1
+      - test-latest-server
+      - test-latest-replica_set
+      - test-latest-sharded_cluster
+      - test-latest-server-unified
+      - test-latest-replica_set-unified
+      - test-latest-sharded_cluster-unified
+      - test-4.4-server
+      - test-4.4-replica_set
+      - test-4.4-sharded_cluster
+      - test-4.4-server-unified
+      - test-4.4-replica_set-unified
+      - test-4.4-sharded_cluster-unified
+      - test-4.2-server
+      - test-4.2-replica_set
+      - test-4.2-sharded_cluster
+      - test-4.2-server-unified
+      - test-4.2-replica_set-unified
+      - test-4.2-sharded_cluster-unified
+      - test-4.0-server
+      - test-4.0-replica_set
+      - test-4.0-sharded_cluster
+      - test-4.0-server-unified
+      - test-4.0-replica_set-unified
+      - test-4.0-sharded_cluster-unified
+      - test-3.6-server
+      - test-3.6-replica_set
+      - test-3.6-sharded_cluster
+      - test-3.6-server-unified
+      - test-3.6-replica_set-unified
+      - test-3.6-sharded_cluster-unified
+      - test-3.4-server
+      - test-3.4-replica_set
+      - test-3.4-sharded_cluster
+      - test-3.4-server-unified
+      - test-3.4-replica_set-unified
+      - test-3.4-sharded_cluster-unified
+      - test-3.2-server
+      - test-3.2-replica_set
+      - test-3.2-sharded_cluster
+      - test-3.2-server-unified
+      - test-3.2-replica_set-unified
+      - test-3.2-sharded_cluster-unified
+      - test-3.0-server
+      - test-3.0-replica_set
+      - test-3.0-sharded_cluster
+      - test-3.0-server-unified
+      - test-3.0-replica_set-unified
+      - test-3.0-sharded_cluster-unified
+      - test-2.6-server
+      - test-2.6-replica_set
+      - test-2.6-sharded_cluster
+      - test-2.6-server-unified
+      - test-2.6-replica_set-unified
+      - test-2.6-sharded_cluster-unified
+      - test-atlas-connectivity
+      - test-auth-kerberos-legacy
+      - test-auth-kerberos-unified
+      - test-auth-ldap
+      - test-tls-support-latest
+      - test-tls-support-4.2
+      - test-latest-ocsp-valid-cert-server-staples
+      - test-latest-ocsp-invalid-cert-server-staples
+      - test-latest-ocsp-valid-cert-server-does-not-staple
+      - test-latest-ocsp-invalid-cert-server-does-not-staple
+      - test-latest-ocsp-soft-fail
+      - test-latest-ocsp-malicious-invalid-cert-mustStaple-server-does-not-staple
+      - test-latest-ocsp-malicious-no-responder-mustStaple-server-does-not-staple
+      - test-4.4-ocsp-valid-cert-server-staples
+      - test-4.4-ocsp-invalid-cert-server-staples
+      - test-4.4-ocsp-valid-cert-server-does-not-staple
+      - test-4.4-ocsp-invalid-cert-server-does-not-staple
+      - test-4.4-ocsp-soft-fail
+      - test-4.4-ocsp-malicious-invalid-cert-mustStaple-server-does-not-staple
+      - test-4.4-ocsp-malicious-no-responder-mustStaple-server-does-not-staple
+  - name: rhel70-erbium
+    display_name: RHEL 7.0 Node Erbium
+    run_on: rhel70-small
+    expansions:
+      NODE_LTS_NAME: erbium
+    tasks: *ref_1
+  - name: rhel70-dubnium
+    display_name: RHEL 7.0 Node Dubnium
+    run_on: rhel70-small
+    expansions:
+      NODE_LTS_NAME: dubnium
+    tasks: *ref_1
+  - name: rhel70-carbon
+    display_name: RHEL 7.0 Node Carbon
+    run_on: rhel70-small
+    expansions:
+      NODE_LTS_NAME: carbon
+    tasks: *ref_1
+  - name: rhel70-boron
+    display_name: RHEL 7.0 Node Boron
+    run_on: rhel70-small
+    expansions:
+      NODE_LTS_NAME: boron
+    tasks: *ref_1
+  - name: rhel70-argon
+    display_name: RHEL 7.0 Node Argon
+    run_on: rhel70-small
+    expansions:
+      NODE_LTS_NAME: argon
+    tasks: *ref_1
+  - name: ubuntu-14.04-fermium
+    display_name: Ubuntu 14.04 Node Fermium
+    run_on: ubuntu1404-test
+    expansions:
+      NODE_LTS_NAME: fermium
+    tasks: &ref_2
+      - test-4.0-server
+      - test-4.0-replica_set
+      - test-4.0-sharded_cluster
+      - test-4.0-server-unified
+      - test-4.0-replica_set-unified
+      - test-4.0-sharded_cluster-unified
+      - test-3.6-server
+      - test-3.6-replica_set
+      - test-3.6-sharded_cluster
+      - test-3.6-server-unified
+      - test-3.6-replica_set-unified
+      - test-3.6-sharded_cluster-unified
+      - test-3.4-server
+      - test-3.4-replica_set
+      - test-3.4-sharded_cluster
+      - test-3.4-server-unified
+      - test-3.4-replica_set-unified
+      - test-3.4-sharded_cluster-unified
+      - test-3.2-server
+      - test-3.2-replica_set
+      - test-3.2-sharded_cluster
+      - test-3.2-server-unified
+      - test-3.2-replica_set-unified
+      - test-3.2-sharded_cluster-unified
+      - test-3.0-server
+      - test-3.0-replica_set
+      - test-3.0-sharded_cluster
+      - test-3.0-server-unified
+      - test-3.0-replica_set-unified
+      - test-3.0-sharded_cluster-unified
+      - test-2.6-server
+      - test-2.6-replica_set
+      - test-2.6-sharded_cluster
+      - test-2.6-server-unified
+      - test-2.6-replica_set-unified
+      - test-2.6-sharded_cluster-unified
+      - test-atlas-connectivity
+      - test-auth-kerberos-legacy
+      - test-auth-kerberos-unified
+      - test-auth-ldap
+  - name: ubuntu-14.04-erbium
+    display_name: Ubuntu 14.04 Node Erbium
+    run_on: ubuntu1404-test
+    expansions:
+      NODE_LTS_NAME: erbium
+    tasks: *ref_2
+  - name: ubuntu-14.04-dubnium
+    display_name: Ubuntu 14.04 Node Dubnium
+    run_on: ubuntu1404-test
+    expansions:
+      NODE_LTS_NAME: dubnium
+    tasks: *ref_2
+  - name: ubuntu-14.04-carbon
+    display_name: Ubuntu 14.04 Node Carbon
+    run_on: ubuntu1404-test
+    expansions:
+      NODE_LTS_NAME: carbon
+    tasks: *ref_2
+  - name: ubuntu-14.04-boron
+    display_name: Ubuntu 14.04 Node Boron
+    run_on: ubuntu1404-test
+    expansions:
+      NODE_LTS_NAME: boron
+    tasks: *ref_2
+  - name: ubuntu-14.04-argon
+    display_name: Ubuntu 14.04 Node Argon
+    run_on: ubuntu1404-test
+    expansions:
+      NODE_LTS_NAME: argon
+    tasks: *ref_2
+  - name: ubuntu-18.04-fermium
+    display_name: Ubuntu 18.04 Node Fermium
+    run_on: ubuntu1804-test
+    expansions:
+      NODE_LTS_NAME: fermium
+      CLIENT_ENCRYPTION: true
+    tasks: &ref_3
+      - test-latest-server
+      - test-latest-replica_set
+      - test-latest-sharded_cluster
+      - test-latest-server-unified
+      - test-latest-replica_set-unified
+      - test-latest-sharded_cluster-unified
+      - test-4.4-server
+      - test-4.4-replica_set
+      - test-4.4-sharded_cluster
+      - test-4.4-server-unified
+      - test-4.4-replica_set-unified
+      - test-4.4-sharded_cluster-unified
+      - test-4.2-server
+      - test-4.2-replica_set
+      - test-4.2-sharded_cluster
+      - test-4.2-server-unified
+      - test-4.2-replica_set-unified
+      - test-4.2-sharded_cluster-unified
+      - test-4.0-server
+      - test-4.0-replica_set
+      - test-4.0-sharded_cluster
+      - test-4.0-server-unified
+      - test-4.0-replica_set-unified
+      - test-4.0-sharded_cluster-unified
+      - test-3.6-server
+      - test-3.6-replica_set
+      - test-3.6-sharded_cluster
+      - test-3.6-server-unified
+      - test-3.6-replica_set-unified
+      - test-3.6-sharded_cluster-unified
+      - test-3.4-server
+      - test-3.4-replica_set
+      - test-3.4-sharded_cluster
+      - test-3.4-server-unified
+      - test-3.4-replica_set-unified
+      - test-3.4-sharded_cluster-unified
+      - test-3.2-server
+      - test-3.2-replica_set
+      - test-3.2-sharded_cluster
+      - test-3.2-server-unified
+      - test-3.2-replica_set-unified
+      - test-3.2-sharded_cluster-unified
+      - test-atlas-connectivity
+      - test-auth-kerberos-legacy
+      - test-auth-kerberos-unified
+      - test-auth-ldap
+      - test-tls-support-latest
+      - test-tls-support-4.2
+      - test-latest-ocsp-valid-cert-server-staples
+      - test-latest-ocsp-invalid-cert-server-staples
+      - test-latest-ocsp-valid-cert-server-does-not-staple
+      - test-latest-ocsp-invalid-cert-server-does-not-staple
+      - test-latest-ocsp-soft-fail
+      - test-latest-ocsp-malicious-invalid-cert-mustStaple-server-does-not-staple
+      - test-latest-ocsp-malicious-no-responder-mustStaple-server-does-not-staple
+      - test-4.4-ocsp-valid-cert-server-staples
+      - test-4.4-ocsp-invalid-cert-server-staples
+      - test-4.4-ocsp-valid-cert-server-does-not-staple
+      - test-4.4-ocsp-invalid-cert-server-does-not-staple
+      - test-4.4-ocsp-soft-fail
+      - test-4.4-ocsp-malicious-invalid-cert-mustStaple-server-does-not-staple
+      - test-4.4-ocsp-malicious-no-responder-mustStaple-server-does-not-staple
+  - name: ubuntu-18.04-erbium
+    display_name: Ubuntu 18.04 Node Erbium
+    run_on: ubuntu1804-test
+    expansions:
+      NODE_LTS_NAME: erbium
+      CLIENT_ENCRYPTION: true
+    tasks: *ref_3
+  - name: ubuntu-18.04-dubnium
+    display_name: Ubuntu 18.04 Node Dubnium
+    run_on: ubuntu1804-test
+    expansions:
+      NODE_LTS_NAME: dubnium
+      CLIENT_ENCRYPTION: true
+    tasks: *ref_3
+  - name: ubuntu-18.04-carbon
+    display_name: Ubuntu 18.04 Node Carbon
+    run_on: ubuntu1804-test
+    expansions:
+      NODE_LTS_NAME: carbon
+      CLIENT_ENCRYPTION: true
+    tasks: *ref_3
+  - name: ubuntu-18.04-boron
+    display_name: Ubuntu 18.04 Node Boron
+    run_on: ubuntu1804-test
+    expansions:
+      NODE_LTS_NAME: boron
+      CLIENT_ENCRYPTION: true
+    tasks: *ref_3
+  - name: ubuntu-18.04-argon
+    display_name: Ubuntu 18.04 Node Argon
+    run_on: ubuntu1804-test
+    expansions:
+      NODE_LTS_NAME: argon
+      CLIENT_ENCRYPTION: true
+    tasks: *ref_3
+  - name: windows-64-vs2013-carbon
+    display_name: Windows (VS2013) Node Carbon
+    run_on: windows-64-vs2013-large
+    expansions:
+      NODE_LTS_NAME: carbon
+      MSVS_VERSION: 2013
+    tasks: &ref_4
+      - test-4.2-server
+      - test-4.2-replica_set
+      - test-4.2-sharded_cluster
+      - test-4.2-server-unified
+      - test-4.2-replica_set-unified
+      - test-4.2-sharded_cluster-unified
+      - test-4.0-server
+      - test-4.0-replica_set
+      - test-4.0-sharded_cluster
+      - test-4.0-server-unified
+      - test-4.0-replica_set-unified
+      - test-4.0-sharded_cluster-unified
+      - test-3.6-server
+      - test-3.6-replica_set
+      - test-3.6-sharded_cluster
+      - test-3.6-server-unified
+      - test-3.6-replica_set-unified
+      - test-3.6-sharded_cluster-unified
+      - test-3.4-server
+      - test-3.4-replica_set
+      - test-3.4-sharded_cluster
+      - test-3.4-server-unified
+      - test-3.4-replica_set-unified
+      - test-3.4-sharded_cluster-unified
+      - test-3.2-server
+      - test-3.2-replica_set
+      - test-3.2-sharded_cluster
+      - test-3.2-server-unified
+      - test-3.2-replica_set-unified
+      - test-3.2-sharded_cluster-unified
+      - test-3.0-server
+      - test-3.0-replica_set
+      - test-3.0-sharded_cluster
+      - test-3.0-server-unified
+      - test-3.0-replica_set-unified
+      - test-3.0-sharded_cluster-unified
+      - test-2.6-server
+      - test-2.6-replica_set
+      - test-2.6-sharded_cluster
+      - test-2.6-server-unified
+      - test-2.6-replica_set-unified
+      - test-2.6-sharded_cluster-unified
+      - test-tls-support-4.2
+  - name: windows-64-vs2013-boron
+    display_name: Windows (VS2013) Node Boron
+    run_on: windows-64-vs2013-large
+    expansions:
+      NODE_LTS_NAME: boron
+      MSVS_VERSION: 2013
+    tasks: *ref_4
+  - name: windows-64-vs2013-argon
+    display_name: Windows (VS2013) Node Argon
+    run_on: windows-64-vs2013-large
+    expansions:
+      NODE_LTS_NAME: argon
+      MSVS_VERSION: 2013
+    tasks: *ref_4
+  - name: windows-64-vs2015-fermium
+    display_name: Windows (VS2015) Node Fermium
+    run_on: windows-64-vs2015-large
+    expansions:
+      NODE_LTS_NAME: fermium
+      MSVS_VERSION: 2015
+    tasks: *ref_4
+  - name: windows-64-vs2015-erbium
+    display_name: Windows (VS2015) Node Erbium
+    run_on: windows-64-vs2015-large
+    expansions:
+      NODE_LTS_NAME: erbium
+      MSVS_VERSION: 2015
+    tasks: *ref_4
+  - name: windows-64-vs2015-dubnium
+    display_name: Windows (VS2015) Node Dubnium
+    run_on: windows-64-vs2015-large
+    expansions:
+      NODE_LTS_NAME: dubnium
+      MSVS_VERSION: 2015
+    tasks: *ref_4
+  - name: windows-64-vs2015-carbon
+    display_name: Windows (VS2015) Node Carbon
+    run_on: windows-64-vs2015-large
+    expansions:
+      NODE_LTS_NAME: carbon
+      MSVS_VERSION: 2015
+    tasks: *ref_4
+  - name: windows-64-vs2015-boron
+    display_name: Windows (VS2015) Node Boron
+    run_on: windows-64-vs2015-large
+    expansions:
+      NODE_LTS_NAME: boron
+      MSVS_VERSION: 2015
+    tasks: *ref_4
+  - name: windows-64-vs2015-argon
+    display_name: Windows (VS2015) Node Argon
+    run_on: windows-64-vs2015-large
+    expansions:
+      NODE_LTS_NAME: argon
+      MSVS_VERSION: 2015
+    tasks: *ref_4
+  - name: windows-64-vs2017-fermium
+    display_name: Windows (VS2017) Node Fermium
+    run_on: windows-64-vs2017-large
+    expansions:
+      NODE_LTS_NAME: fermium
+      MSVS_VERSION: 2017
+    tasks: *ref_4
+  - name: windows-64-vs2017-erbium
+    display_name: Windows (VS2017) Node Erbium
+    run_on: windows-64-vs2017-large
+    expansions:
+      NODE_LTS_NAME: erbium
+      MSVS_VERSION: 2017
+    tasks: *ref_4
+  - name: windows-64-vs2017-dubnium
+    display_name: Windows (VS2017) Node Dubnium
+    run_on: windows-64-vs2017-large
+    expansions:
+      NODE_LTS_NAME: dubnium
+      MSVS_VERSION: 2017
+    tasks: *ref_4
+  - name: windows-64-vs2017-carbon
+    display_name: Windows (VS2017) Node Carbon
+    run_on: windows-64-vs2017-large
+    expansions:
+      NODE_LTS_NAME: carbon
+      MSVS_VERSION: 2017
+    tasks: *ref_4
+  - name: windows-64-vs2017-boron
+    display_name: Windows (VS2017) Node Boron
+    run_on: windows-64-vs2017-large
+    expansions:
+      NODE_LTS_NAME: boron
+      MSVS_VERSION: 2017
+    tasks: *ref_4
+  - name: windows-64-vs2017-argon
+    display_name: Windows (VS2017) Node Argon
+    run_on: windows-64-vs2017-large
+    expansions:
+      NODE_LTS_NAME: argon
+      MSVS_VERSION: 2017
+    tasks: *ref_4
+  - name: lint
+    display_name: lint
+    run_on: rhel70
+    tasks:
+      - run-checks
+  - name: ubuntu1804-custom-csfle-tests
+    display_name: Custom FLE Version Test
+    run_on: ubuntu1804-test
+    tasks:
+      - run-custom-csfle-tests
+  - name: ubuntu1804-test-mongodb-aws
+    display_name: MONGODB-AWS Auth test
+    run_on: ubuntu1804-test
+    expansions:
+      NODE_LTS_NAME: carbon
+    tasks:
+      - aws-latest-auth-test-run-aws-auth-test-with-regular-aws-credentials
+      - aws-latest-auth-test-run-aws-auth-test-with-assume-role-credentials
+      - aws-latest-auth-test-run-aws-auth-test-with-aws-EC2-credentials
+      - aws-latest-auth-test-run-aws-auth-test-with-aws-credentials-as-environment-variables
+      - aws-latest-auth-test-run-aws-auth-test-with-aws-credentials-and-session-token-as-environment-variables
+      - aws-latest-auth-test-run-aws-ECS-auth-test
+      - aws-4.4-auth-test-run-aws-auth-test-with-regular-aws-credentials
+      - aws-4.4-auth-test-run-aws-auth-test-with-assume-role-credentials
+      - aws-4.4-auth-test-run-aws-auth-test-with-aws-EC2-credentials
+      - aws-4.4-auth-test-run-aws-auth-test-with-aws-credentials-as-environment-variables
+      - aws-4.4-auth-test-run-aws-auth-test-with-aws-credentials-and-session-token-as-environment-variables
+      - aws-4.4-auth-test-run-aws-ECS-auth-test

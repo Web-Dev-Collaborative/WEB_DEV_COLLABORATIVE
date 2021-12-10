@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    "add-module-exports",
+    "lodash"
+  ],
+  "presets": [
+    ["@babel/env", { "targets": { "node": 4 } }]
+  ]
+}

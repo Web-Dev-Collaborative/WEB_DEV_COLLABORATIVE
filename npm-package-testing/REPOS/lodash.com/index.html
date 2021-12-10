@@ -1,0 +1,95 @@
+---
+id: home
+title: Lodash
+layout: default
+---
+
+<section>
+  {% raw %}
+  <div class="highlight js intro"><pre><div>_<span class="delimiter method">.</span><span class="name">defaults</span>({&#xA0;<span class="string">&apos;a&apos;</span>:&#xA0;<span class="numeric">1</span>&#xA0;}<span class="delimiter">,</span>&#xA0;{&#xA0;<span class="string">&apos;a&apos;</span>:&#xA0;<span class="numeric">3</span><span class="delimiter">,</span>&#xA0;<span class="string">&apos;b&apos;</span>:&#xA0;<span class="numeric">2</span>&#xA0;});</div><div><span class="comment">//&#xA0;&#x2192;&#xA0;{&#xA0;&apos;a&apos;:&#xA0;1,&#xA0;&apos;b&apos;:&#xA0;2&#xA0;}</span></div><div>_<span class="delimiter method">.</span><span class="name">partition</span>([<span class="numeric">1</span><span class="delimiter">,</span>&#xA0;<span class="numeric">2</span><span class="delimiter">,</span>&#xA0;<span class="numeric">3</span><span class="delimiter">,</span>&#xA0;<span class="numeric">4</span>]<span class="delimiter">,</span>&#xA0;n&#xA0;<span class="type">=&gt;</span>&#xA0;n&#xA0;%&#xA0;<span class="numeric">2</span>);</div><div><span class="comment">//&#xA0;&#x2192;&#xA0;[[1,&#xA0;3],&#xA0;[2,&#xA0;4]]</span></div></pre></div>
+  {% endraw %}
+</section>
+
+<section>
+  <p id="social"></p>
+</section>
+
+<section>
+  <h2>Download</h2>
+  <ul id="download-links">
+    <li>
+      <i class="fa fa-download" aria-hidden="true"></i><a href="{{ site.links.raw }}/{{ site.release }}-npm/core.js">Core build</a> (<a href="{{ site.links.raw }}/{{ site.release }}-npm/core.min.js">~4kB gzipped</a>)
+    </li>
+    <li>
+      <i class="fa fa-download" aria-hidden="true"></i><a href="{{ site.links.raw }}/{{ site.release }}-npm/lodash.js">Full build</a> (<a href="{{ site.links.raw }}/{{ site.release }}-npm/lodash.min.js">~24kB gzipped</a>)
+    </li>
+    <li>
+      <i class="fa fa-link" aria-hidden="true"></i><a href="https://www.jsdelivr.com/projects/lodash">CDN copies</a>
+    </li>
+  </ul>
+  <p><span class="rwd-line">Lodash is released under the <a href="{{ site.links.raw }}/{{ site.release }}-npm/LICENSE">MIT license</a> &amp; supports modern environments.</span> <span class="rwd-line">Review the <a href="{{ site.links.build_differences }}">build differences</a> &amp; pick one that’s right for you.</span></p>
+</section>
+
+<section>
+  <h2>Installation</h2>
+
+  <p>In a browser:</p>
+  {% raw %}
+  <div class="highlight html"><pre>&lt;script&#xA0;src=<span class="string">&quot;lodash.js&quot;</span>&gt;&lt;/script&gt;</pre></div>
+  {% endraw %}
+
+  <p>Using npm:</p>
+  {% raw %}
+  <div class="highlight shell"><pre><div>$&#xA0;npm&#xA0;i&#xA0;-g&#xA0;npm</div><div>$&#xA0;npm&#xA0;i&#xA0;--save&#xA0;lodash</div></pre></div>
+  {% endraw %}
+
+  <p>In Node.js:</p>
+  {% raw %}
+  <div class="highlight js"><pre><div><span class="comment">//&#xA0;Load&#xA0;the&#xA0;full&#xA0;build.</span></div><div><span class="type">var</span>&#xA0;_&#xA0;=&#xA0;<span class="support">require</span>(<span class="string">&apos;lodash&apos;</span>);</div><div><span class="comment">//&#xA0;Load&#xA0;the&#xA0;core&#xA0;build.</span></div><div><span class="type">var</span>&#xA0;_&#xA0;=&#xA0;<span class="support">require</span>(<span class="string">&apos;lodash/core&apos;</span>);</div><div><span class="comment">//&#xA0;Load&#xA0;the&#xA0;FP&#xA0;build&#xA0;for&#xA0;immutable&#xA0;auto-curried&#xA0;iteratee-first&#xA0;data-last&#xA0;methods.</span></div><div><span class="type">var</span>&#xA0;fp&#xA0;=&#xA0;<span class="support">require</span>(<span class="string">&apos;lodash/fp&apos;</span>);</div><div>&#xA0;</div><div><span class="comment">//&#xA0;Load&#xA0;method&#xA0;categories.</span></div><div><span class="type">var</span>&#xA0;array&#xA0;=&#xA0;<span class="support">require</span>(<span class="string">&apos;lodash/array&apos;</span>);</div><div><span class="type">var</span>&#xA0;object&#xA0;=&#xA0;<span class="support">require</span>(<span class="string">&apos;lodash/fp/object&apos;</span>);</div><div>&#xA0;</div><div><span class="comment">//&#xA0;Cherry-pick&#xA0;methods&#xA0;for&#xA0;smaller&#xA0;browserify/rollup/webpack&#xA0;bundles.</span></div><div><span class="type">var</span>&#xA0;at&#xA0;=&#xA0;<span class="support">require</span>(<span class="string">&apos;lodash/at&apos;</span>);</div><div><span class="type">var</span>&#xA0;curryN&#xA0;=&#xA0;<span class="support">require</span>(<span class="string">&apos;lodash/fp/curryN&apos;</span>);</div></pre></div>
+  {% endraw %}
+  <p><strong>Note:</strong><br>Install <a href="https://www.npmjs.com/package/n_">n_</a> for Lodash use in the Node.js &lt; 6 REPL.</p>
+</section>
+
+<section>
+  <h2>Why Lodash?</h2>
+  <p><span class="rwd-line">Lodash makes JavaScript easier by taking the hassle out of working with arrays, numbers, objects, strings, etc.</span> <span class="rwd-line">Lodash’s modular methods are great for:</span></p>
+  <ul class="chevron">
+    <li>Iterating arrays, objects, &amp; strings</li>
+    <li>Manipulating &amp; testing values</li>
+    <li>Creating composite functions</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Module Formats</h2>
+  <p>Lodash is available in a <a href="/custom-builds">variety of builds</a> &amp; module formats.</p>
+  <ul class="chevron">
+    <li><a href="https://www.npmjs.com/package/lodash">lodash</a> &amp; <a href="/per-method-packages">per method packages</a></li>
+    <li><a href="https://www.npmjs.com/package/lodash-es">lodash-es</a>, <a href="https://www.npmjs.com/package/babel-plugin-lodash">babel-plugin-lodash</a>, &amp; <a href="https://www.npmjs.com/package/lodash-webpack-plugin">lodash-webpack-plugin</a></li>
+    <li><a href="{{ site.links.repo }}/tree/{{ site.release }}-npm/fp">lodash/fp</a></li>
+    <li><a href="https://www.npmjs.com/package/lodash-amd">lodash-amd</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Complementary Tools</h2>
+  <ul class="chevron">
+    <li><a href="https://github.com/smartprocure/futil-js">futil-js</a> is a set of functional utilities designed to complement lodash</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Further Reading</h2>
+  <ul class="chevron">
+    <li><a href="{{ site.links.repo }}/blob/master/.github/CONTRIBUTING.md">Contributing</a></li>
+    <li><a href="{{ site.links.repo }}/releases/tag/4.0.0">Release Notes</a></li>
+    <li><a href="{{ site.links.repo }}/wiki">Wiki (Changelog, Roadmap, etc.)</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Support</h2>
+  <p><span class="rwd-line">Tested in Chrome 74-75, Firefox 66-67, IE 11, Edge 18, Safari 11-12, &amp; Node.js 8-12.</span></p>
+</section>
+
+<script src="/assets/js/home.js" async></script>

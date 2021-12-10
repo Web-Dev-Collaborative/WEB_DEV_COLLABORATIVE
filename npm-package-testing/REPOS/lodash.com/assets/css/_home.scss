@@ -1,0 +1,56 @@
+html.home {
+  &.offline {
+    section:nth-of-type(2) {
+      display: none;
+    }
+  }
+
+  div.intro {
+    font-size: 1.9rem;
+  }
+
+  section {
+    &:first-of-type {
+      background: $codeBg;
+      color: $codeColor;
+    }
+  }
+
+  #download-links {
+    list-style: none;
+    padding: 0;
+
+    li {
+      line-height: 1.75;
+      padding-left: 0;
+    }
+
+    .fa {
+      color: $defaultNearColor;
+      margin-right: 1rem;
+    }
+  }
+
+  #social {
+    margin-bottom: 0;
+
+    &,
+    .btn-gh,
+    .btn-twitter-follow,
+    .btn-twitter-share {
+      height: 26px;
+    }
+
+    .btn-gh {
+      width: 105px;
+    }
+
+    .btn-twitter-follow {
+      width: 120px;
+    }
+
+    .btn-twitter-share {
+      width: 95px;
+    }
+  }
+}

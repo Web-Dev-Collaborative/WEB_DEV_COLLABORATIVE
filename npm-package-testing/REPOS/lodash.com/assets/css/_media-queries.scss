@@ -1,0 +1,159 @@
+@media (min-width: $screen-sm) {
+  html.docs {
+    .mobile-menu {
+      display: none;
+    }
+
+    .toc-container {
+      box-shadow: 0 0 0.5rem $shadow;
+      display: block;
+      flex: 3 3 0;
+      height: auto;
+      position: relative;
+
+      &.open + .doc-container {
+        overflow-y: auto;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs) {
+  html.docs {
+    h3 a {
+      display: none;
+    }
+
+    .doc-container {
+      padding-left: 3.2rem;
+      padding-right: 3.2rem;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .logo {
+    height: 60px;
+    width: 60px;
+  }
+
+  .rwd-line {
+    display: inline;
+  }
+
+  html.docs {
+    .btn-repl {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $screen-md-max) {
+  section {
+    padding: 0.8rem 2.8rem;
+  }
+
+  .container.main {
+    margin: 2rem;
+  }
+
+  html.docs {
+    .doc-container, .toc-container {
+      transform: none;
+    }
+  }
+}
+
+@media (max-width: $screen-lg-max) {
+  html {
+    // Set font-size to 8.75px so body, which is 1.6rem,
+    // will scale to 14px (8.75px * 1.6 = 14px).
+    font-size: 8.75px;
+  }
+
+  html.docs {
+    select,
+    .search input {
+      font-size: 16px;
+    }
+  }
+}
+
+@media print {
+  html.docs {
+    &,
+    *,
+    *:before,
+    *:after {
+      background: transparent !important;
+      box-shadow: none !important;
+      color: #000 !important;
+    }
+
+    body {
+      height: auto !important;
+    }
+
+    a, a:visited {
+      border-bottom: 1px solid #000 !important;
+    }
+
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+
+    a[href^="#"]:after {
+      content: "";
+    }
+
+    h1, h2, h3, h4 {
+      margin-top: 1.6rem !important;
+    }
+
+    h2, h3 {
+      page-break-after: avoid;
+    }
+
+    pre {
+      page-break-inside: avoid;
+      white-space: pre-wrap !important;
+    }
+
+    p, h2, h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    header,
+    h3 a,
+    .btn-repl,
+    .doc-container h3 + p a,
+    .toc-container {
+      display: none !important;
+    }
+
+    .doc-container {
+      h3 {
+        padding: 1.6rem 999rem !important;
+      }
+
+      > div > div {
+        margin-bottom: 1.6rem !important;
+      }
+    }
+
+    .highlight {
+      padding: 0 999rem !important;
+
+      pre {
+        border: 0 !important;
+        font-weight: 700 !important;
+        padding-left: 1.6rem !important;
+      }
+    }
+  }
+}
