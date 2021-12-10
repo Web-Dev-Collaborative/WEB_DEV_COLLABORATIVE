@@ -1,0 +1,45 @@
+- name: OpenX REST API v2 plus
+  descr: "OpenX is a programmatic advertising technology company. In the past, there was a section for open source plugins but now it is changed all and I have not found the code of my integration of OpenX REST API v2 plugin."
+  website: https://www.openx.com/
+  link:
+    - icon: fa-book
+      url: https://docs.openx.com/Content/developers/platform_api/rn_api_main.html
+      title: OpenX Platform API
+  date: 2014
+
+- name: CPAN.org
+  descr: "All program language has a section for sharing your extensions, libraries, modules or packages. The program language Perl has CPAN: The Comprehensive Perl Archive Network. In the past, I used some specific modules, but as they were. I would like to say thank to Ivan Sokolov because without code, he given me all permissions for sharing a my thinking but at the end, I did not contribute because I always changed for choosing a way more easy of Plesk."
+  website: https://www.cpan.org/
+  link:
+    - icon: fa-archive
+      url: https://metacpan.org/pod/API::Plesk
+      title: API::Plesk
+    - icon: fa-user
+      url: https://metacpan.org/permission/author/BILIARDS
+      title: Permission
+    - icon: fa-link
+      url: https://www.plesk.com/
+      title: Plesk
+  date: 2010
+
+- name: MediaWiki
+  descr: "MediaWiki is a free and open-source wiki engine. It is possible to share any extension for any issue. In the past, I used everyday this framework for some websites. So it was routine to use extensions already ready, to integrate them or to improve one ad hoc."
+  website: https://www.mediawiki.org/
+  link:
+    - icon: fa-user
+      url: https://www.mediawiki.org/wiki/User:Bilardi
+      title: My contributions
+  date: 2009
+
+- name: GBrowse.org
+  descr: "GBrowse.org was updated through a mixture of automated and manual mechanisms. Entrez' EFetch utility was used to initially create pages with their genome sequencing status. Each organism's page included links to browsers, downloades, and sites and pages about that organism. If information was available on how the sequence and annotation data was produced then that was included as well."
+  website: https://bilardi.github.io/gbrowse.org/
+  local: projects/talks
+  link:
+    - icon: fa-link
+      url: http://gmod.org/
+      title: GMOD
+    - icon: fa-book
+      url: https://www.ncbi.nlm.nih.gov/books/NBK25499/
+      title: EFetch
+  date: 2008

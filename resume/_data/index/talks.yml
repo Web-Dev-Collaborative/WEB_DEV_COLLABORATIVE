@@ -1,0 +1,61 @@
+- name: "Automation: from local test to production deploy"
+  descr: "The Corley Cloud offered me a space for my talk on Automation where I shared my CI/CD experience."
+  link:
+    - icon: fa-calendar
+      url: https://2020.cloudconf.it/
+      title: CloudConf2020 Streaming
+    - icon: fa-slideshare
+      url: https://www.slideshare.net/AlessandraBilardi/automation-from-local-test-to-production-deploy-20201105
+      title: Pixartprinting
+    - icon: fa-youtube
+      url: https://www.youtube.com/watch?v=hen-zT1Oeos&list=PLMPkObTaj7hOWAw26PZyEyzIn6l04jVTr&index=18
+      title: Talk
+    - icon: fa-twitter
+      url: https://twitter.com/i/events/1324396610206523393
+      title: Tweets
+  date: 2020
+  image: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/resume/talks/CloudConf.2020.jpg
+
+- name: AWS database solutions and open sources
+  descr: "The Corley Cloud offered me a lightning talk on Database and a mentors' session where I shared my AWS experience."
+  link:
+    - icon: fa-calendar
+      url: https://2019.cloudconf.it/
+      title: CloudConf2019 Torino
+    - icon: fa-slideshare
+      url: https://www.slideshare.net/AlessandraBilardi/aws-database-solutions-and-open-sources-20190328
+      title: Pixartprinting
+    - icon: fa-twitter
+      url: https://twitter.com/i/events/1320007049409945600
+      title: Tweets
+  date: 2019
+  image: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/resume/talks/CloudConf.2019.jpg
+
+- name: Managed Relational Databases
+  descr: "AWS Staff invited Pixartprinting to show how we had covered the auto scaling of Amazon Aurora before the official feature release for Black Friday 2017."
+  link:
+    - icon: fa-calendar
+      url: https://aws.amazon.com/it/summits/milan2018/sessioni/
+      title: AWS Summit Milano
+    - icon: fa-slideshare
+      url: https://www.slideshare.net/AmazonWebServices/database-relazionali-gestiti
+      title: Amazon Web Services
+    - icon: fa-slideshare
+      url: https://www.slideshare.net/AlessandraBilardi/evolving-our-datastore-20180327
+      title: Pixartprinting
+    - icon: fa-twitter
+      url: https://twitter.com/i/events/1105920830771470342
+      title: Tweets
+  date: 2018
+  image: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/resume/talks/AWS.Summit.2018.jpg
+
+- name: GBrowse.org
+  descr: "GMOD Staff invited me after some years remote collaboration on GBrowse project to present GBrowse.org."
+  website: https://bilardi.github.io/gbrowse.org/
+  local: projects/project-closed
+  link:
+    - icon: fa-calendar
+      url: http://gmod.org/wiki/August_2009_GMOD_Meeting#GBrowse.org
+      title: GMOD Meeting Oxford
+  date: 2009
+  image: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/resume/talks/GMOD.meeting.2009.JPG

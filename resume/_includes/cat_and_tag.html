@@ -1,0 +1,24 @@
+{% if include.detail.categories.size > 0 and include.hide-cat == false %}
+      •
+  {% for cat in include.detail.categories %}
+    {% assign item-name=cat %}
+    {% assign item-link="#" %}
+    {% for page in site.pages %}{% assign item-page-title=page.title | downcase %}{% if page.layout == "collection" and item-page-title == item-name %}{% assign item-link="" %}{% endif %}{% endfor %}
+    <a class="post-cat {% if include.btn-cat == true %}btn btn-warning{% else %}warning-text-color{% endif %}" href="{{ site.url }}/categories/{{ item-link }}{{ cat }}">{{ cat }}</a>
+    {% unless forloop.last %}
+      <span>/</span>
+    {% endunless %}
+  {% endfor %}
+{% endif %}
+{% if include.detail.tags.size > 0 and include.hide-tag == false %}
+      •
+  {% for tag in include.detail.tags %}
+    {% assign item-name=tag %}
+    {% assign item-link="#" %}
+    {% for page in site.pages %}{% assign item-page-title=page.title | downcase %}{% if page.layout == "collection" and item-page-title == item-name %}{% assign item-link="" %}{% endif %}{% endfor %}
+    <a class="post-tag {% if include.btn-tag == true %}btn{% else %}primary-text-color{% endif %}" href="{{ site.url }}/tags/{{ item-link }}{{ tag }}">{{ tag }}</a>
+    {% unless forloop.last %}
+      <span>/</span>
+    {% endunless %}
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,78 @@
+- name: "Genome-wide analysis of plastome sequence variation and development of plastidial CAPS markers in common potato and related Solanum species."
+  descr: "Gargano, D., Scotti, N., Vezzi, A. et al. Genet Resour Crop Evol (2012) 59: 419."
+  link:
+    - icon: fa-book
+      url: https://doi.org/10.1007/s10722-011-9692-7
+#      url: https://link.springer.com/article/10.1007%2Fs10722-011-9692-7
+      title: Genetic Resources and Crop Evolution
+  date: 2012
+
+- name: "PASS: a program to align short sequences."
+  descr: "Davide Campagna, Alessandro Albiero, Alessandra Bilardi, Elisa Caniato, Claudio Forcato, Svetlin Manavski, Nicola Vitulo, Giorgio Valle; Bioinformatics, Volume 25, Issue 7, 1 April 2009, Pages 967–968"
+  link:
+    - icon: fa-book
+      url: https://doi.org/10.1093/bioinformatics/btp087
+#      url: https://www.ncbi.nlm.nih.gov/pubmed/19218350
+      title: Bioinformatics
+  date: 2009
+
+- name: "Gene prediction platform improved with second generation sequencers"
+  descr: "Vitulo, N and Albiero, A and Forcato, C and Caniato, E and Bilardi, A and Manavski, SA and Campagna, D and Valle, G (2008) [Conference papers] In: ECCB 2008 - European Conference on Computational Biology, September 22-26th 2008, Cagliari, Italy"
+  link:
+    - icon: fa-link
+      url: http://paduaresearch.cab.unipd.it/2082/
+#      url: http://eccb.iscb.org/2008/index_31.html
+#      url: https://www.researchgate.net/publication/37678226_Gene_prediction_platform_improved_with_second_generation_sequencers
+      title: Poster
+  date: 2008
+
+- name: RNA regulators and their target sequences
+  link:
+    - icon: fa-link
+      url: http://paduaresearch.cab.unipd.it/975/
+#      url: https://www.researchgate.net/publication/37678026_Regolatori_di_RNA_e_loro_sequenze_bersaglio
+      title: Thesys
+  date: 2008
+
+- name: "A LRR protein family of Parachlamydia amoebophila UWE25: a genome invasion and highlights to the optimization of the genetic code."
+  descr: "Roten, CA and Barbier, B and Bilardi, A and Favre, A and Eugster, M and Greub, G (2008) [Conference papers] In: Changins meeting 2008 - Genomes, cell biology and human diseases: what can we learn from pathogens?, November, 19 2008, Nyon, Switzerland"
+  link:
+    - icon: fa-link
+      url: http://paduaresearch.cab.unipd.it/2081/
+      title: Poster
+  date: 2008
+
+- name: "Age is a risk factor for maladaptive changes in rats exposed to increased pressure loading of the right ventricular myocardium."
+  descr: "Vida, V., Angelini, A., Ausoni, S., Bilardi, A., Ori, C., Vlassich, F., Zoso, V., Milanesi, O., Sartore S., della Barbera, M., Zaglia, T.,Thiene, G. and Stellin, G. (2007). Cardiology in the Young, 17(2), 202-211"
+  link:
+    - icon: fa-book
+      url: https://doi.org/10.1017/S1047951107000376
+#      url: https://www.ncbi.nlm.nih.gov/pubmed/17381884
+      title: Cardiology in the Young
+  date: 2007
+
+- name: "Solanum tuberosum cultivar Desiree chloroplast, complete genome."
+  descr: "Gargano,D., Scotti,N., Vezzi,A., Bilardi,A., Valle,G., Grillo,S. and Cardi,T. GenBank: DQ386163.2"
+  link:
+    - icon: fa-archive
+      url: https://www.ncbi.nlm.nih.gov/nuccore/261887673
+      title: GenBank
+  date: 2006
+
+- name: "Chloroplast DNA sequence variability in cultivated and wild potato species"
+  descr: "D. Gargano, N. Scotti*, A. Bilardi, T. Cardi. Proceedings of the 50th Italian Society of Agricultural Genetics Annual Congress, Ischia, Italy – 10/14 September, 2006"
+  link:
+    - icon: fa-link
+      url: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/resume/publications/ItalianSocietyofAgriculturalSciences.2006.pdf
+#      url: https://www.researchgate.net/profile/Mario_Pagnotta/publication/266272110_DETECTION_AND_QUANTITATION_OF_WIS2-1A_RETROTRANSPOSON_IN_HULLED_WHEAT_BY_REAL_TIME_PCR/links/54c0ff180cf28eae4a6b6898/DETECTION-AND-QUANTITATION-OF-WIS2-1A-RETROTRANSPOSON-IN-HULLED-WHEAT-BY-REAL-TIME-PCR.pdf
+      title: Poster Abstract – D.37
+  date: 2006
+
+- name: "The plastid genome of potato (Solanum Tuberosum CV Désirée): complete nucleotide sequence and gene organization"
+  descr: "D. Gargano, A. Vezzi, N. Scotti, A. Bilardi, G. Valle, S. Grillo, T. Cardi. Proceedings of the XLIX Italian Society of Agricultural Genetics Annual Congress. Potenza, Italy – 12/15 September, 2005"
+  link:
+    - icon: fa-link
+      url: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/resume/publications/ItalianSocietyofAgriculturalSciences.2005.pdf
+#      url: https://pdfs.semanticscholar.org/8586/bdfd905d91647dc0f858421d61b218c1be1c.pdf
+      title: Poster Abstract - 5.11
+  date: 2005

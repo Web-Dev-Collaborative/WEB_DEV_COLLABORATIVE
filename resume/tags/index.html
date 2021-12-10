@@ -1,0 +1,16 @@
+---
+layout: page
+title:  Tags
+hide-on-sidebar: true
+hide-cloud: true
+collection: tags
+icon:
+#  sidebar: fa-tags
+permalink: /tags/
+---
+
+<div class="tag-list">
+{% for col in site.tags %}
+  {% include collections/tags.html %}
+{% endfor %}
+</div>

@@ -1,0 +1,12 @@
+<ul class="{{ include.class }}-cloud post-navigation">
+{% for col in include.col %}
+  {% assign item-name=col | first | slugize %}
+  {% assign item-link="#" %}
+  {% for page in site.pages %}{% assign item-page-title=page.title | downcase %}{% if page.layout == "collection" and item-page-title == item-name %}{% assign item-link="" %}{% endif %}{% endfor %}
+  <li style="font-size: {{ col | last | size | times: 100 | divided_by: include.col.size | plus: 70  }}%">
+    <a class="post-{{ include.class }}" href="{{ site.url }}/{{ page.collection }}/{{ item-link }}{{ item-name }}">
+      {{ col | first }}
+    </a>
+  </li>
+{% endfor %}
+</ul>

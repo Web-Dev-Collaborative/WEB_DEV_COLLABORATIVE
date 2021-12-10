@@ -1,0 +1,40 @@
+- name: Jupyter
+  descr: "It is very interesting for sketch or proof!"
+  date: 2019
+
+- name: Serverless computing (AWS)
+  descr: "I started with the solutions database as a service, after I continued with the lambda functions, and then I learned to use cloudformation by awscli, sceptre and serverless. It is fantastic to have the focus on solution and not on keeping the infrastructre."
+  date: 2016
+
+- name: Docker
+  descr: "It was love at first sight: did you try it as an alias? And now, why should you have to install anything on the client?"
+  github: https://github.com/bilardi/my-docker-inside
+  date: 2016
+
+- name: Vagrant
+  descr: "This was another road accident: I prefer lxc than vagrant."
+  date: 2013
+
+- name: Virtualenv
+  descr: "It is always perfect for unit test!"
+  date: 2009
+
+- name: Lxc
+  descr: "Containers are the future: yes, it was easy and comfortable to move a virtual server."
+  date: 2009
+
+- name: Linux
+  descr: "I lost the amount of how many distro I tried, but those that I still use are debian and centos as server. Instead for client, I used a lot archlinux and debian."
+  date: 2004
+
+- name: Mac
+  descr: "It was love at first sight: it was only an old version, but it was much more stable than windows."
+  date: 2002
+
+- name: Windows
+  descr: "It was a little bit parenthesis, a road accident. I can say that it is easy to use, challenging to administer and you are sure that you have to restart on the most beautiful."
+  date: 1996
+
+- name: DOS
+  descr: "I started my adventure with one of the first Toshiba laptop. My father was a developer during that time, and it has signed my way."
+  date: 1986

@@ -1,0 +1,46 @@
+- name:  Self-driving car @ Coderdojo
+  descr: "Self-driving car is a vehicle that is capable of sensing its environment and moving safely with little or no human input. It is programmable, so we have to help it to learn the right way!"
+  github: https://github.com/bilardi/arduino
+  link:
+    - icon: fa-slideshare
+      url: https://www.slideshare.net/AlessandraBilardi/line-follower-20200201
+      title: Easy levels solution
+  date: 2020
+
+- name: Rubik's cube @ Coderdojo
+  descr: "Rubik's cube is an interesting way to learn coding and problem solving. So I started to use it for this goal."
+  github: https://github.com/bilardi/cuber
+  link:
+    - icon: fa-slideshare
+      url: https://www.slideshare.net/AlessandraBilardi/rubiks-cube-141034343
+      title: Easy levels solution
+  date: 2019
+
+- name: Arduino @ Coderdojo
+  descr: "Arduino is an open-source hardware and software company. I collected some lessons for primary school."
+  github: https://github.com/bilardi/arduino
+  date: 2018
+
+- name: Microbit @ Coderdojo
+  descr: "The Micro Bit (also referred to as BBC Micro Bit, stylized as micro:bit) is an open source hardware ARM-based embedded system designed by the BBC for use in computer education in the UK. I collected some lessons for primary and secondary school."
+  github: https://github.com/bilardi/microbit
+  date: 2017
+
+- name: Scratch @ Coderdojo
+  descr: "Scratch is a block-based visual programming language and online community targeted primarily at children. I collected some lessons for primary and secondary school."
+  website: https://scratch.mit.edu/
+  link:
+    - icon: fa-user
+      url: https://scratch.mit.edu/users/bilardi/
+      title: My contributions
+  date: 2016
+
+- name: Prototype @ Pandle
+  descr: "Prototype is a collection of basic libraries for high school and the main goal is to present how to write structured code with Test-driven development (TDD) to be submitted to the library of language libraries."
+  github: https://github.com/pandle/materials
+  date: 2016
+
+- name: PandLe
+  descr: "Playing AND LEarning is a place where you find material for learning while you play. It contains collection of materials for secondary school and high school."
+  website: http://www.pandle.net/
+  date: 2013

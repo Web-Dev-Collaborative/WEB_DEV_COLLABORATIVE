@@ -1,0 +1,165 @@
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: My iterative resume
+email:
+description: A simple and awesome iterative resume theme powered by jekyll.
+url: https://alessandra.bilardi.net/resume # the base hostname & protocol for your site
+repository-forked: http://github.com/bilardi/leonids/ # in the footer
+favicon: # links of your favicon
+  - https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/favicon.ico
+keywords: ["resume", "iterative", "jekyll"]
+meta:
+  twitter-image: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/alessandra/index/glider.3d.png # or external link
+  og-image: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/alessandra/index/glider.3d.png # or external link
+home:
+  hide-on-sidebar: false
+#  icon: fa-leaf
+#  icon: fa-home
+readme:
+  hide-on-sidebar: false
+  title: about
+  url: about.html
+navigation:
+  hide-on-sidebar: false
+  hide-on-post: false
+  left:
+#    icon: fa-angle-left
+    icon: fa-arrow-left
+    color: danger
+  home:
+#    icon: fa-leaf
+    icon: fa-home
+    color: warning
+  right:
+#    icon: fa-angle-right
+    icon: fa-arrow-right
+    color: success
+collection:
+  categories:
+    class: cat
+    hide-on-post: false
+    btn-on-post: false
+    hide-on-archive: true
+    btn-on-archive: true
+    hide-on-tags: true
+    btn-on-tags: true
+  tags:
+    class: tag
+    hide-on-post: false
+    btn-on-post: false
+    hide-on-archive: true
+    btn-on-archive: true
+    hide-on-categories: true
+    btn-on-categories: true
+resume:
+  hide-routines: false
+  hide-projects: true
+  hide-skills: true
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          Europe/Rome
+markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /:categories/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+plugins:
+  - jekyll-redirect-from
+#  - jekyll-readme-index
+#  - jekyll-feed
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: My iterative resume
+  author:
+    name: Alessandra Bilardi #your name
+    link: https://alessandra.bilardi.net/ #your homepage
+  avatar:
+  job:
+  bio:
+  email:
+  disqus-shortname:
+  twitter: abilardi #username
+  facebook: #username
+  google:
+    plus: #username
+    analytics: UA-151979312-1
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: bilardi #username
+  gitlab: #username
+  stackoverflow: 1472538 #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: bilardi #username
+  skype: #username
+  xing: #username
+  instagram: #username
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+  500px: #username
+  codepen: #username
+  reddit: #username
+  telegram: #username
+  wikipedia: Bilardi #username
+  custom:
+    - url: https://bilardi.github.io/resume/feed.xml
+      icon: fa-rss
+    - url: https://www.pandle.net/
+      icon: fa-share-alt
+    - url: https://bilardi.github.io/bookmarks/
+      icon: fa-bookmark
+    - url: https://bilardi.github.io/notes/
+      icon: fa-tags
+    - url: http://github.com/bilardi/leonids/
+      icon: fa-code-fork
+
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"
+
+style:
+  text:
+    color: rgba(0, 0, 0, 0.87)
+  author:
+    color: "#fff"
+  background:
+    color: "#f5f5f5"
+    image: https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/alessandra/index/background.jpg #http://domain.name/path/background.jpg
+    size: cover
+  navigation-background:
+    color: "#f6f6f6"
+  color:
+    white: "#fff"
+    primary: "#42b983"
+    secondary: rgba(0, 0, 0, 0.87)
+    success: "#65e892"
+    danger: "#f83e4b"
+    warning: "#F5A623"
+    info: "#09ABF6"
