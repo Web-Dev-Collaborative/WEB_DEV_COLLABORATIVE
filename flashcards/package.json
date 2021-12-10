@@ -1,0 +1,48 @@
+{
+  "name": "Flashcards",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-env": "*",
+    "@sentry/browser": "^4.6.6",
+    "babel-core": "^6.26.3",
+    "babel-loader": "*",
+    "babel-preset-env": "*",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
+    "pug": "^3.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^4.0.3"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node start.js",
+    "start:dev": "BROWSER=none NODE_ENV=development react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "description": "Flashcards App",
+  "main": "start.js",
+  "repository": "https://github.com/Usarneme/flashcards.git",
+  "author": "usarneme",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-register": "^6.26.0"
+  }
+}
