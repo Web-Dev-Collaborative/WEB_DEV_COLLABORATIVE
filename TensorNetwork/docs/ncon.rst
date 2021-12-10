@@ -1,0 +1,4 @@
+Ncon
+------------------
+
+.. autofunction:: tensornetwork.ncon
