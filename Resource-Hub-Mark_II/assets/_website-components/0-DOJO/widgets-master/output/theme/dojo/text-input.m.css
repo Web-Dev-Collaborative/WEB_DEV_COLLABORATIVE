@@ -1,0 +1,122 @@
+.text-input-m__root__2yKLO {
+	font-family: var(--font-family);
+}
+.text-input-m__wrapper__2yH16 {
+	display: block;
+	font-size: var(--font-size-base);
+}
+.text-input-m__input__2OqON,
+.text-input-m__wrapper__2yH16 {
+	line-height: var(--line-height-base);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.text-input-m__input__2OqON {
+	border: none;
+	width: 100%;
+	border-radius: 0;
+	margin: 0;
+	font-size: inherit;
+	height: calc(var(--line-height-base) + 2 * var(--grid-base) + 2 * var(--border-width));
+	padding: var(--grid-base);
+	background-color: var(--color-background);
+	color: var(--color-text-primary);
+}
+.text-input-m__input__2OqON:focus {
+	outline: none;
+}
+.text-input-m__input__2OqON::-webkit-input-placeholder {
+	color: var(--color-text-faded);
+}
+.text-input-m__input__2OqON::-moz-placeholder {
+	color: var(--color-text-faded);
+}
+.text-input-m__input__2OqON:-ms-input-placeholder {
+	color: var(--color-text-faded);
+}
+.text-input-m__input__2OqON::-ms-input-placeholder {
+	color: var(--color-text-faded);
+}
+.text-input-m__input__2OqON::placeholder {
+	color: var(--color-text-faded);
+}
+.text-input-m__inputWrapper__Bf3IL {
+	background-color: var(--color-background);
+	color: var(--color-text-primary);
+	border: var(--border-width) solid var(--color-border);
+	border-bottom-color: var(--color-border-strong);
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-transition: -webkit-box-shadow var(--transition-duration) var(--transition-easing);
+	transition: -webkit-box-shadow var(--transition-duration) var(--transition-easing);
+	transition: box-shadow var(--transition-duration) var(--transition-easing);
+	transition: box-shadow var(--transition-duration) var(--transition-easing),
+		-webkit-box-shadow var(--transition-duration) var(--transition-easing);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.text-input-m__focused__Bz5Ku .text-input-m__inputWrapper__Bf3IL {
+	border-bottom-color: var(--color-highlight);
+	border-color: var(--color-highlight);
+	-webkit-box-shadow: var(--box-shadow-dimensions-small) var(--box-shadow-focus);
+	box-shadow: var(--box-shadow-dimensions-small) var(--box-shadow-focus);
+}
+.text-input-m__inputWrapper__Bf3IL:hover {
+	-webkit-box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow);
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow);
+}
+.text-input-m__input__2OqON::-ms-clear {
+	display: none;
+	width: 0;
+	height: 0;
+}
+.text-input-m__disabled__1KyyV .text-input-m__inputWrapper__Bf3IL,
+.text-input-m__readonly__2dMQl .text-input-m__inputWrapper__Bf3IL {
+	background-color: var(--color-background-faded);
+}
+.text-input-m__disabled__1KyyV .text-input-m__inputWrapper__Bf3IL:hover,
+.text-input-m__readonly__2dMQl .text-input-m__inputWrapper__Bf3IL:hover {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.text-input-m__invalid__wejhD .text-input-m__inputWrapper__Bf3IL {
+	border-bottom-color: var(--color-border-invalid);
+	border-color: var(--color-border-invalid) var(--color-border-invalid) var(--color-error);
+}
+.text-input-m__invalid__wejhD.text-input-m__focused__Bz5Ku .text-input-m__inputWrapper__Bf3IL {
+	-webkit-box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-invalid);
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-invalid);
+}
+.text-input-m__valid__2CP3A .text-input-m__inputWrapper__Bf3IL {
+	border-bottom-color: var(--color-border-valid);
+	border-color: var(--color-border-valid) var(--color-border-valid) var(--color-success);
+}
+.text-input-m__valid__2CP3A.text-input-m__focused__Bz5Ku .text-input-m__inputWrapper__Bf3IL {
+	-webkit-box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-valid);
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-valid);
+}
+.text-input-m__addonRoot__DQCsb {
+	color: var(--color-text-faded);
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	font-size: inherit;
+	line-height: var(--line-height-base);
+	padding: 0 var(--grid-base);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.text-input-m__addonRoot__DQCsb.text-input-m__addonFilled__18Yy8 {
+	background-color: var(--color-background-faded);
+	padding: var(--grid-base);
+}
+/*# sourceMappingURL=text-input.m.css.map*/

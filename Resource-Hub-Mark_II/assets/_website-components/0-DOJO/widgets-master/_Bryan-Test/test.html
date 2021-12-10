@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script async src="./../src/accordion/index.tsx"></script>
+  <title>Document</title>
+</head>
+<body>
+  	<div classes={[theme.variant(), themedCss.root]}>
+			{panes.map((paneName, index) => {
+				return (
+					<TitlePane
+						key={`pane-${index}`}
+						open={openIndexes.has(index)}
+						onOpen={() => {
+							onOpen(index);
+						}}
+						onClose={() => {
+							onClose(index);
+						}}
+						theme={theme.compose(
+							titlePaneCss,
+							css,
+							'pane'
+						)}
+						classes={classes}
+						variant={variant}
+						name={paneName}
+					>
+						{children()[index]}
+					</TitlePane>
+				);
+			})}
+		</div>
+</body>
+</html>

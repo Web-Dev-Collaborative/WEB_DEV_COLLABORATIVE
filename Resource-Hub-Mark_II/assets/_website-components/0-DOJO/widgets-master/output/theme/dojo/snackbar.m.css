@@ -1,0 +1,91 @@
+.snackbar-m__root__3DYwa {
+	display: none;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	pointer-events: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: var(--spacing-regular);
+	font-family: var(--font-family);
+}
+.snackbar-m__content__2dPUv,
+.snackbar-m__root__3DYwa {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.snackbar-m__content__2dPUv {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	opacity: 0;
+	color: var(--color-text-inverted);
+	background-color: var(--color-dark);
+	padding: var(--spacing-regular);
+	border-radius: var(--border-radius);
+	-webkit-box-shadow: 0 3px 5px -1px var(--color-box-shadow), 0 6px 10px 0 var(--color-box-shadow),
+		0 1px 18px 0 var(--color-box-shadow);
+	box-shadow: 0 3px 5px -1px var(--color-box-shadow), 0 6px 10px 0 var(--color-box-shadow),
+		0 1px 18px 0 var(--color-box-shadow);
+}
+.snackbar-m__label__D1Lkn {
+	-webkit-box-flex: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: var(--spacing-regular);
+}
+.snackbar-m__actions__fQHb6 {
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.snackbar-m__actions__fQHb6,
+.snackbar-m__open__1trii {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+.snackbar-m__open__1trii .snackbar-m__content__2dPUv {
+	opacity: 1;
+	pointer-events: auto;
+}
+.snackbar-m__success__FTGZN .snackbar-m__label__D1Lkn {
+	color: var(--color-success);
+}
+.snackbar-m__error__1sGDA .snackbar-m__label__D1Lkn {
+	color: var(--color-error);
+}
+.snackbar-m__leading__342U0 {
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+}
+.snackbar-m__stacked__1Wgqe .snackbar-m__content__2dPUv {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+}
+/*# sourceMappingURL=snackbar.m.css.map*/

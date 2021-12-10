@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/radio-group","root":"radio-group-m__root__3VCTl","legend":"radio-group-m__legend__ZiCRP"};

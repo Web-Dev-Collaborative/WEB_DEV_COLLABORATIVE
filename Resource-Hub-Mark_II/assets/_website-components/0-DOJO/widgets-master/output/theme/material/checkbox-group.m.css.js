@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/checkbox-group","root":"checkbox-group-m__root__2Mtpz","legend":"checkbox-group-m__legend__2F-fF label-m__root__2OcvT mdc-textfield__mdc-floating-label__1r8KC"};

@@ -1,0 +1,34 @@
+.loading-indicator-m__root__1S_Do {
+	background-color: var(--color-background-faded);
+	height: calc(var(--grid-base) / 2);
+	position: relative;
+	overflow: hidden;
+	font-family: var(--font-family);
+	width: 100%;
+}
+.loading-indicator-m__primary__1OxUO {
+	-webkit-animation: loading-indicator-m__progress__EoLqt 2s linear infinite;
+	animation: loading-indicator-m__progress__EoLqt 2s linear infinite;
+	background-color: var(--color-background-inverted);
+	height: 100%;
+	left: -25%;
+	position: relative;
+	width: 25%;
+}
+@-webkit-keyframes loading-indicator-m__progress__EoLqt {
+	0% {
+		left: -25%;
+	}
+	to {
+		left: 100%;
+	}
+}
+@keyframes loading-indicator-m__progress__EoLqt {
+	0% {
+		left: -25%;
+	}
+	to {
+		left: 100%;
+	}
+}
+/*# sourceMappingURL=loading-indicator.m.css.map*/

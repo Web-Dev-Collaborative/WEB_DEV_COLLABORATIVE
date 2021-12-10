@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/text-area","root":"text-area-m__root__2NVkd","input":"text-area-m__input__Vx3AV","disabled":"text-area-m__disabled__ZjqlP","readonly":"text-area-m__readonly__3NoH6","invalid":"text-area-m__invalid__3Z9ZA","valid":"text-area-m__valid__2mAxH"};

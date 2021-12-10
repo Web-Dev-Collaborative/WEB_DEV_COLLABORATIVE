@@ -1,0 +1,75 @@
+.speed-dial-m__root__25wC2 {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.speed-dial-m__up__1Xsxq,
+.speed-dial-m__up__1Xsxq .speed-dial-m__actions__1Vkvy {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: reverse;
+	-ms-flex-direction: column-reverse;
+	flex-direction: column-reverse;
+}
+.speed-dial-m__up__1Xsxq .speed-dial-m__action__5KwHg,
+.speed-dial-m__up__1Xsxq .speed-dial-m__actions__1Vkvy {
+	margin-bottom: var(--grid-base);
+}
+.speed-dial-m__down__3XH-V,
+.speed-dial-m__down__3XH-V .speed-dial-m__actions__1Vkvy {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.speed-dial-m__down__3XH-V .speed-dial-m__action__5KwHg,
+.speed-dial-m__down__3XH-V .speed-dial-m__actions__1Vkvy {
+	margin-top: var(--grid-base);
+}
+.speed-dial-m__left__t60Au,
+.speed-dial-m__left__t60Au .speed-dial-m__actions__1Vkvy {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	-ms-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+.speed-dial-m__left__t60Au .speed-dial-m__action__5KwHg,
+.speed-dial-m__left__t60Au .speed-dial-m__actions__1Vkvy {
+	margin-right: var(--grid-base);
+}
+.speed-dial-m__right__3uqbN,
+.speed-dial-m__right__3uqbN .speed-dial-m__actions__1Vkvy {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+.speed-dial-m__right__3uqbN .speed-dial-m__action__5KwHg,
+.speed-dial-m__right__3uqbN .speed-dial-m__actions__1Vkvy {
+	margin-left: var(--grid-base);
+}
+.speed-dial-m__actions__1Vkvy {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+.speed-dial-m__action__5KwHg {
+	opacity: 0;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+.speed-dial-m__open__e_6NN .speed-dial-m__action__5KwHg {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+.speed-dial-m__actionTransition__3Pc7W {
+	-webkit-transition: opacity 0.5s, -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	transition: opacity 0.5s, -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 0.5s;
+	transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms, opacity 0.5s,
+		-webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+/*# sourceMappingURL=speed-dial.m.css.map*/

@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/accordion","root":"accordion-m__root__1wVz3","paneRoot":"accordion-m__paneRoot__3KHOq title-pane-m__root__1r02A","paneOpen":"accordion-m__paneOpen__2U4m5 title-pane-m__open__2nPrX"};

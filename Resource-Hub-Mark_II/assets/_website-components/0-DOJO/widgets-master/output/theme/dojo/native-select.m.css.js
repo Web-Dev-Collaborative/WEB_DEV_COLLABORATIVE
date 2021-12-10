@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/native-select","root":"native-select-m__root__2A2KN","inputWrapper":"native-select-m__inputWrapper__3v5as","select":"native-select-m__select__7f8t5","arrow":"native-select-m__arrow__3m49y","disabled":"native-select-m__disabled__1TaDk"};

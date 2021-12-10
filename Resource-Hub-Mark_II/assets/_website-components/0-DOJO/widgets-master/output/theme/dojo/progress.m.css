@@ -1,0 +1,18 @@
+.progress-m__root__2XHXH {
+	font-family: var(--font-family);
+}
+.progress-m__output__vKJw- {
+	display: inline-block;
+	padding: var(--spacing-regular);
+}
+.progress-m__bar__sB2fc {
+	border: var(--border-width) solid var(--color-border);
+	height: 24px;
+	border-radius: 3px;
+	background-color: var(--color-background);
+}
+.progress-m__progress__2V0hS {
+	height: 100%;
+	background: var(--color-highlight);
+}
+/*# sourceMappingURL=progress.m.css.map*/

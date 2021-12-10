@@ -1,0 +1,21 @@
+.date-input-m__root__2Yzvp {
+	font-family: var(--font-family);
+}
+.date-input-m__toggleCalendarButton__3qDqH {
+	background: none;
+	border: none;
+	color: inherit;
+	font-size: inherit;
+	min-width: unset;
+	padding: 0;
+}
+.date-input-m__toggleCalendarButton__3qDqH:focus,
+.date-input-m__toggleCalendarButton__3qDqH:hover {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.date-input-m__popup__1ZIaA {
+	display: inline-block;
+	background: var(--color-background);
+}
+/*# sourceMappingURL=date-input.m.css.map*/

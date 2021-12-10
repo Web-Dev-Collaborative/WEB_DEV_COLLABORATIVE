@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/header-card","root":"header-card-m__root__l4KKu","header":"header-card-m__header__3iFIG","headerContent":"header-card-m__headerContent__2Kz4-","avatar":"header-card-m__avatar__kU5oC","title":"header-card-m__title__3M9XE","subtitle":"header-card-m__subtitle__2o1Ge"};

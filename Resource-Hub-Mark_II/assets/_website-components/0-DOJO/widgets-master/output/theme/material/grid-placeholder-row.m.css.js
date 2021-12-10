@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/grid-placeholder-row","root":"grid-placeholder-row-m__root__uhU61 grid-row-m__root__2ChCw","loading":"grid-placeholder-row-m__loading__2uR8n","spin":"grid-placeholder-row-m__spin__7PHtW"};

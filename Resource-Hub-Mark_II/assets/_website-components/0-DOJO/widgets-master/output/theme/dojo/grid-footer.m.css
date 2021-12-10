@@ -1,0 +1,9 @@
+.grid-footer-m__root__3p2-L {
+	background-color: var(--color-background-faded);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	color: var(--color-text-primary);
+	padding: var(--grid-base) calc(var(--grid-base) / 2);
+	border-top: var(--border-width) solid var(--color-border);
+}
+/*# sourceMappingURL=grid-footer.m.css.map*/

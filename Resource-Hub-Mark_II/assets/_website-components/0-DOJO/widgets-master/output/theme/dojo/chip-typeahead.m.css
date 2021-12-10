@@ -1,0 +1,27 @@
+.chip-typeahead-m__root__sjZeg {
+	font-family: var(--font-family);
+}
+.chip-typeahead-m__value__2uqjJ {
+	margin: 2px;
+}
+.chip-typeahead-m__selectedIcon__3Y90y {
+	margin-right: calc(var(--spacing-regular) / 2);
+}
+.chip-typeahead-m__root__sjZeg .chip-typeahead-m__input__2EPdN {
+	-webkit-box-flex: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	min-width: 100px;
+	width: 100px;
+}
+.chip-typeahead-m__root__sjZeg .chip-typeahead-m__inputWrapper__2u6zp {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.chip-typeahead-m__values__ebPIz {
+	margin-top: var(--spacing-regular);
+}
+/*# sourceMappingURL=chip-typeahead.m.css.map*/

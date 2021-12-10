@@ -1,0 +1,15 @@
+.list-m__root__3ee5s {
+	background: var(--color-background);
+	font-family: var(--font-family);
+}
+.list-m__menu___jE2c {
+	overflow: auto;
+	position: relative;
+	border: var(--border-width) solid var(--color-border);
+}
+.list-m__divider__2pf5q {
+	border: solid var(--color-border);
+	border-width: 1px 0 0;
+	margin: 0;
+}
+/*# sourceMappingURL=list.m.css.map*/

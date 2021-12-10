@@ -1,0 +1,39 @@
+.outlined-button-m__root__1j7qa {
+	background-color: var(--color-background);
+	border: var(--border-width) solid var(--color-highlight);
+	color: var(--color-highlight);
+	cursor: pointer;
+	display: inline-block;
+	font-size: var(--font-size-base);
+	font-weight: 700;
+	line-height: var(--line-height-base);
+	min-width: calc(var(--grid-base) * 20);
+	padding: var(--spacing-regular);
+	margin: 0;
+	font-family: var(--font-family);
+}
+.outlined-button-m__root__1j7qa:hover {
+	background-color: var(--color-highlight);
+	color: var(--color-text-inverted);
+	outline: none;
+}
+.outlined-button-m__pressed__2iuy5 {
+	background-color: var(--color-highlight);
+	border-color: var(--color-highlight);
+	color: var(--color-text-inverted);
+}
+.outlined-button-m__root__1j7qa:hover .outlined-button-m__label__SD9Eo {
+	color: var(--color-text-inverted);
+}
+.outlined-button-m__disabled__3POiK,
+.outlined-button-m__disabled__3POiK:hover {
+	background-color: transparent;
+	background-color: initial;
+	border-color: var(--color-border);
+	color: var(--color-text-faded);
+	cursor: default;
+}
+.outlined-button-m__disabled__3POiK:hover .outlined-button-m__label__SD9Eo {
+	color: var(--color-text-faded);
+}
+/*# sourceMappingURL=outlined-button.m.css.map*/

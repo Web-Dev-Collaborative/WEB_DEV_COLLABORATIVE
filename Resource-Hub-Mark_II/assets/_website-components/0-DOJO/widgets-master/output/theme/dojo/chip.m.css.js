@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/chip","root":"chip-m__root__38BHL","label":"chip-m__label__qUnxa","closeIcon":"chip-m__closeIcon__1SV6f","clickable":"chip-m__clickable__1N1eC","disabled":"chip-m__disabled__2k7b5"};

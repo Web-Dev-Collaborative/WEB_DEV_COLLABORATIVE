@@ -1,0 +1,16 @@
+.rate-m__root__QoLbD {
+	display: inline-block;
+}
+.rate-m__icon__1FrCQ {
+	cursor: pointer;
+	-webkit-transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rate-m__checked__2r0oq {
+	color: var(--mdc-theme-gold);
+	fill: var(--mdc-theme-gold);
+}
+.rate-m__focused__2CicC .rate-m__focusedStar__1QCDX {
+	outline: var(--mdc-border-width) solid var(--mdc-theme-secondary);
+}
+/*# sourceMappingURL=rate.m.css.map*/

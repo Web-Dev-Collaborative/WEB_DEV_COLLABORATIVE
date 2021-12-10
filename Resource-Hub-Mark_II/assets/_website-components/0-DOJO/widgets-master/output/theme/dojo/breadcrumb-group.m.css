@@ -1,0 +1,13 @@
+.breadcrumb-group-m__root__2c_G5 {
+	font-family: var(--font-family);
+	background-color: var(--color-background);
+	color: var(--color-text-primary);
+}
+.breadcrumb-group-m__listItem__3N7sj,
+.breadcrumb-group-m__listItem__3N7sj:before {
+	margin-right: var(--grid-base);
+}
+.breadcrumb-group-m__listItem__3N7sj::last-child {
+	margin-right: 0;
+}
+/*# sourceMappingURL=breadcrumb-group.m.css.map*/
