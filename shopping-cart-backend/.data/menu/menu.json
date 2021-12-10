@@ -1,0 +1,26 @@
+{
+  "Pizzas": {
+    "Four Cheese": {
+      "description": "Sh@t ton of cheese",
+      "price": "10.00"
+    },
+    "Meat Lovers": {
+      "description": "Sh@t ton of meat",
+      "price": "18.00"
+    },
+    "Buddha's Delight": {
+      "description": "Sh@t ton of veggies with vegan cheese",
+      "price": "12.00"
+    }
+  },
+  "Sides": {
+    "Garlic rolls": {
+      "description": "Sh@t ton of garlic on bread",
+      "price": "4.00"
+    },
+    "Salad": {
+      "description": "Sh@t ton of lettuce",
+      "price": "4.00"
+    }
+  }
+}
