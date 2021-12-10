@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meditation Web App</title>
+    <link rel="shortcut icon" href="https://nesh.gq/icon.png" type="icon/png" />
+    <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Babel -->
+    <script crossorigin src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js'></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- Material UI -->
+    <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+    <!-- App Scripts -->
+    <script defer src='./js/scenes.js'></script>
+    <script defer src='./js/sceneselect.js'></script>
+    <script defer src='./js/volcontrol.js'></script>
+    <script defer src='./js/buttons.js'></script>
+</head>
+
+<body>
+    <audio loop volume="0.5" id="sfx">
+        <source src=""  >
+    </audio>
+    <audio loop volume="0.2" id="music">
+        <source src="./music/still.mp3"  >
+    </audio>
+    <div id="main">
+        <video autoplay loop muted id="video" type="video/mp4">
+            <source src="" type="video/mp4" >
+        </video>
+        
+        <div id="infoPanel">
+            <div id="infoText">
+                <h1>Headphones Recommended</h1>
+                <i class="fas fa-headphones"></i>
+            </div>
+            
+        </div>
+
+        <div id='container'>
+
+        </div>
+
+        <div class="controls">
+            <div class="sceneSelect">
+                <button onClick="goButton()" id='gobutton'>GO</button>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <a href="https://ganeshh123.github.io">Ganesh H</a>
+        </div>
+    </div>
+    <script defer src='./js/timer.js' type='text/babel'></script>
+    <script defer src='./js/app.js' type='text/babel'></script>
+    <script defer src='./js/uiHide.js' type='text/babel'></script>
+</body>
+
+</html>
