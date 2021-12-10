@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoundationPath", "GoogleTechDevGuide\FoundationPath.csproj", "{990CDFF0-8E85-44A9-A4D5-A4D4A67F83FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoundationPath_UnitTests", "FoundationPath_UnitTests\FoundationPath_UnitTests.csproj", "{836CD12F-C495-427E-BC69-EC95F59D4215}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation Path", "Foundation Path", "{14D928CC-4805-4BCF-95FF-C8AA0BEEB40C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced Path", "Advanced Path", "{108AF23D-9CFC-4E03-8BB6-3DBA734D6531}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedPath", "AdvancedPath\AdvancedPath.csproj", "{EBF87A40-3960-44CE-94BB-A934905FD901}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{990CDFF0-8E85-44A9-A4D5-A4D4A67F83FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990CDFF0-8E85-44A9-A4D5-A4D4A67F83FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990CDFF0-8E85-44A9-A4D5-A4D4A67F83FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990CDFF0-8E85-44A9-A4D5-A4D4A67F83FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{836CD12F-C495-427E-BC69-EC95F59D4215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{836CD12F-C495-427E-BC69-EC95F59D4215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{836CD12F-C495-427E-BC69-EC95F59D4215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{836CD12F-C495-427E-BC69-EC95F59D4215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBF87A40-3960-44CE-94BB-A934905FD901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF87A40-3960-44CE-94BB-A934905FD901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF87A40-3960-44CE-94BB-A934905FD901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF87A40-3960-44CE-94BB-A934905FD901}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{990CDFF0-8E85-44A9-A4D5-A4D4A67F83FB} = {14D928CC-4805-4BCF-95FF-C8AA0BEEB40C}
+		{836CD12F-C495-427E-BC69-EC95F59D4215} = {14D928CC-4805-4BCF-95FF-C8AA0BEEB40C}
+		{EBF87A40-3960-44CE-94BB-A934905FD901} = {108AF23D-9CFC-4E03-8BB6-3DBA734D6531}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B35A3F3-2572-4034-B3BF-780361A1F3E0}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs2015.dev.pinewood.co.uk:8080/tfs/codebase
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = GoogleTechDevGuide\\FoundationPath.csproj
+		SccProjectTopLevelParentUniqueName1 = GoogleTechDevGuide.sln
+		SccProjectName1 = GoogleTechDevGuide
+		SccLocalPath1 = GoogleTechDevGuide
+		SccProjectUniqueName2 = FoundationPath_UnitTests\\FoundationPath_UnitTests.csproj
+		SccProjectTopLevelParentUniqueName2 = GoogleTechDevGuide.sln
+		SccProjectName2 = FoundationPath_UnitTests
+		SccLocalPath2 = FoundationPath_UnitTests
+		SccProjectUniqueName3 = AdvancedPath\\AdvancedPath.csproj
+		SccProjectTopLevelParentUniqueName3 = GoogleTechDevGuide.sln
+		SccProjectName3 = AdvancedPath
+		SccLocalPath3 = AdvancedPath
+	EndGlobalSection
+EndGlobal
