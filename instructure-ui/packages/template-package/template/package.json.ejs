@@ -1,0 +1,35 @@
+{
+  "name": "@instructure/<%= NAME %>",
+  "version": "<%= VERSION %>",
+  "description": "A UI component library made by Instructure Inc.",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "type": "commonjs",
+  "module": "./es/index.js",
+  "main": "./lib/index.js",
+  "types": "./types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui.git"
+  },
+  "homepage": "https://instructure.github.io/instructure-ui/",
+  "bugs": "https://github.com/instructure/instructure-ui/issues",
+  "scripts": {
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix",
+    "clean": "ui-build --clean",
+    "build": "ui-build",
+    "build:watch": "ui-build --watch",
+    "build:types": "ui-scripts --types"
+  },
+  "license": "MIT",
+  "dependencies": {
+<%= DEPENDENCIES %>
+  },
+  "devDependencies": {
+<%= DEV_DEPENDENCIES %>
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

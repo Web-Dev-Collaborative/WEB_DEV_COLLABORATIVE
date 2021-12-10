@@ -1,0 +1,31 @@
+{
+  "name": "@instructure/ui-codemods",
+  "version": "8.3.0",
+  "description": "Codemod scripts to help upgrade Instructure UI libraries.",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "type": "commonjs",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui.git"
+  },
+  "homepage": "https://instructure.github.io/instructure-ui/",
+  "bugs": "https://github.com/instructure/instructure-ui/issues",
+  "scripts": {
+    "test:jest": "jest",
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "jscodeshift": "^0.7.0",
+    "prettier": "^2.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@instructure/pkg-utils",
+  "version": "8.3.0",
+  "description": "Utilities for managing node packages in a monorepo.",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "type": "commonjs",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui.git"
+  },
+  "homepage": "https://instructure.github.io/instructure-ui/",
+  "bugs": "https://github.com/instructure/instructure-ui/issues",
+  "scripts": {
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@instructure/command-utils": "^8.3.0",
+    "@lerna/package": "^4",
+    "read-pkg-up": "^7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

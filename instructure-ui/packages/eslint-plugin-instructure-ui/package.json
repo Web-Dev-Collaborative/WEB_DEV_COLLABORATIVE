@@ -1,0 +1,30 @@
+{
+  "name": "eslint-plugin-instructure-ui",
+  "version": "8.3.0",
+  "description": "An eslint configuration for Instructure UI",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "type": "commonjs",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui.git"
+  },
+  "homepage": "https://instructure.github.io/instructure-ui/",
+  "bugs": "https://github.com/instructure/instructure-ui/issues",
+  "scripts": {
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@instructure/pkg-utils": "^8.3.0",
+    "eslint-module-utils": "^2.4.1",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "peerDependencies": {
+    "eslint": "^5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

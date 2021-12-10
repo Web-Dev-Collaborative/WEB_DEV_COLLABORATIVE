@@ -1,0 +1,38 @@
+import React, { Component } from 'react'
+import { SVGIcon } from '@instructure/ui-svg-images'
+
+class <%= name %><%= variant %> extends Component {
+  static glyphName = '<%= glyphName %>';
+  static variant = '<%= variant %>';
+  static displayName = '<%= name %><%= variant %>';
+  <% if (deprecated) { %>
+  static deprecated = true;
+  <% } %>
+
+  static propTypes = {
+    ...SVGIcon.propTypes
+  }
+
+  render () {
+    <% if (deprecated) { %>
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn('<<%= name %> /><%= variant %> is deprecated. Please use <<%= deprecated %> /> instead.')
+    }
+    <% } %>
+    return (
+      <SVGIcon
+        {...this.props}
+        name="<%= name %>"
+        viewBox="<%= viewBox %>"
+        <% if (bidirectional) { %>
+        bidirectional
+        <% } %>
+      >
+        <%= source %>
+      </SVGIcon>
+    )
+  }
+}
+
+export default <%= name %><%= variant %>
+export { <%= name %><%= variant %> }

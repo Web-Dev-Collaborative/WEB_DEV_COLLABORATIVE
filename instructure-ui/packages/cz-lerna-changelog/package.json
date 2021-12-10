@@ -1,0 +1,33 @@
+{
+  "name": "@instructure/cz-lerna-changelog",
+  "version": "8.3.0",
+  "description": "Prompts for conventional changelog standard in a lerna environment.",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "type": "commonjs",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui.git"
+  },
+  "homepage": "https://instructure.github.io/instructure-ui/",
+  "bugs": "https://github.com/instructure/instructure-ui/issues",
+  "scripts": {
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@instructure/pkg-utils": "^8.3.0",
+    "@semantic-release/commit-analyzer": "^8",
+    "chalk": "^4",
+    "cz-customizable": "^6.2.0",
+    "inquirer": "^8",
+    "inquirer-autocomplete-prompt": "^1.0.1"
+  },
+  "peerDependencies": {
+    "lerna": "^4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
