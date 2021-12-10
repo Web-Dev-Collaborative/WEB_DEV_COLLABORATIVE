@@ -1,0 +1,1 @@
+require(['iframe-driver-test'], window.__karma__.start);
