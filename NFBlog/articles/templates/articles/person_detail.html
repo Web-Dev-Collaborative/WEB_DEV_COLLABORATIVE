@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load markdown_deux_tags %}
+
+{% block extras %}
+  <script type="text/javascript" src="{% static 'js/like.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+  {{person.name}}'s Profile
+{% endblock %}
+
+{% block stuff %}
+  <h1>{{person.name}}</h1>
+  <img src={{person.get_profile_picture}}  />
+  {{person.bio|markdown}}
+  <p>Created by: {{person.creator.username}}</p>
+  {% if can_edit %}
+    <a class="btn btn-primary" href="{% url 'update_person' person.slug %}">
+      Edit
+    </a>
+  {% endif %}
+  <button class="btn" onclick="like('{% url "like" person.slug %}')">
+    <span id="likes_count">{{person.likes}}</span>
+    <span id="heart" class="fas fa-heart {% if is_liked %}text-danger{% else %}text-muted{% endif %}
+    "></span>
+  </button>
+  {% for team in person_teams %}
+    <a href="{% url 'team' team.slug %}">
+      {{team.name}}
+    </a>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base_form.html" %}
+{% load crispy_forms_tags %}
+
+{% block form_header %}Complete Profile{% endblock %}
+{% block form_action %}{% endblock %}
+{% block form-content %}
+  {% if form.errors %}
+  <div class="form-group has-error">
+    <span class="help-block">{{ form.text.errors }}</span>
+  </div>
+  {% endif %}
+  {{form|crispy}}
+{% endblock %}
+
+{% block submit-value %}Save{% endblock %}

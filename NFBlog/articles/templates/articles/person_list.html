@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load components %}
+
+{% block title %}PEOPLE{% endblock %}
+
+{% block stuff %}
+  <div class="col-3">
+    <form method="GET">
+      <div class="form-row">
+        <div class="col-auto">
+          <input class="form-control" type="text" name='search' placeholder="Search posts" value="{{request.GET.search}}">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  {% if user.is_authenticated %}
+    <a class="btn btn-primary" href="{% url 'add_person' %}">
+      Add New Person
+    </a>
+  {% endif %}
+  <ul>
+    {% for person in people %}
+      {% person_card person %}
+    {% endfor %}
+  </ul>
+{% endblock %}

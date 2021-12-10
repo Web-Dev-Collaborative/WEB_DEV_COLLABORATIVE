@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load components %}
+
+{% block title %}HOME{% endblock %}
+
+{% block stuff %}
+  <h1>Special People</h1>
+  <ul>
+    {% for person in people %}
+      {% person_card person %}
+    {% endfor %}
+  </ul>
+{% endblock %}
