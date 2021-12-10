@@ -1,0 +1,98 @@
+
+/*///////////////*/
+/* Dropdown menu */
+/*///////////////*/
+
+#menu {
+  height: fit-content;
+}
+
+#menu .search-btn {
+  display: inline-block;
+  background: #013c80;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0;
+  border: 1px solid var(--mid-grey);
+  transition: all 0.3s ease;
+  width: var(--search-button-size);
+  height: var(--search-button-size);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#menu:hover .search-btn,
+#menu .search-btn.hide {
+  color: var(--mid-grey);
+  border-left: 1px solid transparent;
+  background: #fff;
+}
+
+#menu .search-btn.hide {
+  pointer-events: none;
+}
+
+#menu .list {
+  width: fit-content;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu .list.hide {
+  display: none;
+}
+
+#menu:hover .list {
+  max-height: var(--search-menu-height);
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+#menu .list li.btn {
+  margin: 0;
+  line-height: 1.5;
+  cursor: pointer;
+  background-color: #fff;
+  width: var(--search-button-size);
+  height: var(--search-button-size);
+  border: 1px solid var(--mid-grey);
+  border-top: none;
+  overflow: hidden;
+  transition: all 0.15s ease;
+}
+
+#menu .list li.btn:hover {
+  background-color: var(--lighter-grey);
+  transition: all 0.15s ease;
+}
+
+/*//////////////////*/
+/* Custom scrollbar */
+/*//////////////////*/
+
+#autocomplete > ul {
+  scrollbar-color: #888 #e0e0e0 !important;
+  scrollbar-width: 18px !important;
+}
+
+#autocomplete > ul::-webkit-scrollbar {
+  width: 18px;
+}
+
+#autocomplete > ul::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+#autocomplete > ul::-webkit-scrollbar-thumb {
+  background: #888;
+  border: 3px solid #e0e0e0;
+  min-height: 40px;
+}
+
+#autocomplete > ul::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

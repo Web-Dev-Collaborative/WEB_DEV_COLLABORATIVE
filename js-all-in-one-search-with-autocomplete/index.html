@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>All-in-one Search 🔍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="./styles/autocomplete.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/icons.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/dropdown.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/layout.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/root.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    
+    <main class="wrapper v-align">
+
+      <h2>All-in-one Search <i class="fab fa-searchengin"></i></h2>
+
+      <section class="row">
+        
+        <span class="column-left">
+          <input id="search-input" value="" placeholder="Enter any word..." autocomplete="off" />
+          <div id="autocomplete" class="hide"></div>
+        </span>
+
+        <div id="menu" class="column-right">
+          <span class="search-btn hide"><i class="fas fa-search"></i></span>
+          <ul class="list hide">
+            <li class="btn google-icon"></li>
+            <li class="btn youtube-icon"><i class="fab fa-youtube"></i></li>
+            <li class="btn twitter-icon"><i class="fab fa-twitter"></i></li>
+            <li class="btn instagram-icon"></li>
+            <li class="btn twitch-icon"><i class="fab fa-twitch"></i></li>
+            <li class="btn soundcloud-icon"><i class="fab fa-soundcloud"></i></li>
+            <li class="btn facebook-icon"><i class="fab fa-facebook"></i></li>
+            <li class="btn wiki-icon"><i class="fab fa-wikipedia-w"></i></li>
+          </ul>
+        </div>
+
+      </section>
+
+      <footer class="p-30">
+        <section><span>&copy; Roland Levy <span id="year"></span></span> <a href="https://rolandlevy.co.uk" class="new-tab-icon" target="_blank">see more of my projects</a></section>
+      </footer>
+
+    </main>
+
+    <script src="script.js" type="module"></script>
+
+  </body>
+</html>
