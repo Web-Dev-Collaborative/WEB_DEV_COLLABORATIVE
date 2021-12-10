@@ -1,0 +1,105 @@
+version: '3'
+services:
+  fuseki:
+    image: stain/jena-fuseki:3.14.0
+    container_name: fuseki
+    ports:
+      - "3030:3030"
+    volumes:
+      - /data/fuseki:/fuseki
+    env_file:
+      - ./fuseki.env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "fuseki-log"
+  yasgui:
+    image: erikap/yasgui
+    container_name: yasgui
+    ports:
+      - "3040:80"
+    env_file:
+      - ./yasgui.env
+    depends_on:
+      - fuseki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "yasgui-log"
+  kg-api:
+    image: tbfy/kg-api:0.3
+    container_name: kg-api
+    ports:
+      - "7777:7777"
+    env_file:
+      - ./kg-api.env
+    depends_on:
+      - fuseki
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "kg-api-log"
+  kong:
+    image: "${KONG_DOCKER_TAG:-kong:0.13.0}"
+    user: "${KONG_USER:-root}"
+    ports:
+      - "8000:8000/tcp"
+      - "8001:8001/tcp"
+      - "8443:8443/tcp"
+      - "8444:8444/tcp"
+    env_file:
+      - kong.env
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "kong-log"
+  kg-gateway:
+    image: tbfy/kg-gateway:latest
+    env_file:
+        - kg-gateway.env
+    depends_on:
+      - kg-api
+      - kong
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${KONG_PG_USER:-kong}"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    restart: always
+    stdin_open: false   
+    tty: false
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "kg-gateway-log"
+#  kg-ingestion-service:
+#    image: tbfy/kg-ingestion-service:latest
+#    container_name: kg-ingestion-service
+#    volumes:
+#      - /data/ingestion:/ingestion
+#    env_file:
+#      - ./kg-ingestion-service.env
+#    logging:
+#      driver: "json-file"
+#      options:
+#        max-size: "10m"
+#        max-file: "3"
+#        labels: "kg-ingestion-service-log"
+#    depends_on:
+#      - fuseki
