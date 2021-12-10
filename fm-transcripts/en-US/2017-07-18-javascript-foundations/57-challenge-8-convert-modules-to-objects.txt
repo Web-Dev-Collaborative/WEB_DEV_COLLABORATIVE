@@ -1,0 +1,10 @@
+[00:00:00]
+>> Kyle Simpson: We're gonna finish by giving you some time to work on exercise 8. Exercise 8, I want you to definitely read the readme in it, but in exercise 8, the spirit of what you're doing, let's open up that readme here.
+>> Kyle Simpson: The spirit of what you're doing is to take out all of that module design that you did on app and UI and instead make these into objects that can all virtually compose together.
+
+[00:00:30]
+So we're gonna actually have four different objects. We're gonna have app, UI, helpers, and the instance of our application. We're gonna have all four of those and they're going to virtually delegate together. And that means that we don't have any like, calls where we have to in the app say UI dot, we're just gonna be able to say, this dot and call a method.
+
+[00:00:52]
+And it will delegate to the right context if we need it. Definitely, strongly recommend that you at some point spend some more time working on this. Because it's one of the bigger, I think, one of the bigger payoffs from the workshop is to fully understand now what delegation gives us that even modules don't give us.
+

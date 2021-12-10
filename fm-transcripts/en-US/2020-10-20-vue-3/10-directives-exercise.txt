@@ -1,0 +1,9 @@
+[00:00:00]
+>> Okay, exercise time. So you just learned a bunch of different directives. What you're gonna make is this little calculator. All it's gonna do is it's going to add numbers together. Then we're going to have a little select drop down. And as soon as you click something for the select drop down, you're going to conditionally render something onto the page.
+
+[00:00:25]
+So this will not be rendered onto the page until you've selected something. I've given you a code pen to fork to begin with. If we look at this pen, you have a span for all of these and you can change the tags to whatever you need to. And we have this just hard coded onto the page, but it will eventually will need something else.
+
+[00:00:51]
+And I've even started you off with an app with the kind of basic things that you'll need to get started.
+

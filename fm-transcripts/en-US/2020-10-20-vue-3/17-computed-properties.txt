@@ -1,0 +1,54 @@
+[00:00:00]
+>> Computed properties are calculations that will be cached, and will only be updated when needed. I said before that the model was my favorite. This is maybe my favorite, it is the favorite. Computed properties are so powerful, and I really think that this is one reason why I keep coming back to view it's really highly performance, but use it with some understanding.
+
+[00:00:22]
+So this is the simplest possible computed example I could show you. We're gonna start with really simple and then we're gonna dive into some kind of bigger use cases as well. So if I have this thing called user data, and it's a string, and I have a computed property called greeting.
+
+[00:00:41]
+If I say my name here, the initial entry is Sarah, and the computer value is You're a monster, Sarah! Now what's the difference between these two? The computed property is giving us a new view onto that data. So I'm not mutating user data. I'm not changing user data in any way.
+
+[00:01:01]
+But I'm able to do something with user data and return a different value to it. That's slightly different from what that initial value was. And this greeting will only be recalculated or re evaluated if this .userData changes. So it's really, really performant. The other piece of this, is that let's open it up in CodePen, so you can see it just a little bit better.
+
+[00:01:30]
+The other piece of this is, I'm not using this like a method, even though it kind of looks like a method, actually we'll stay in here. Even though it looks like a method, we have the data, and then we had the methods. And now we have this computed area.
+
+[00:01:44]
+This computed area, even though it looks similar, is returning something that I'm gonna use like I use data. I'm gonna use it in my template somehow. Or I could use it in another function or something else. But the big basic thing here is you're taking a thing and you have a new view on to that piece of data.
+
+[00:02:06]
+So I have my user data, and I have my greeting. And this greeting is returning a different view of that userData. So let's go a little bit further. Computed properties run only when a dependency has changed, so they're really performant. Methods run whenever an update occurs. Computer properties are cached.
+
+[00:02:29]
+And this is really important, because if you start to use them a lot and you want them to be reevaluated all over the place, like why didn't it get re-evaluated? It's because the dependency wasn't changed. So that might not be the right thing. Even though it's really awesome, it might not be the right thing for everything and methods might be what you need, if you need something to not be cached in that way.
+
+[00:02:50]
+Computed properties should be used in place of a property, in place of data. Whereas methods are typically invoked from the on or ad or an event that can be invoked from another thing. They're kind of more like functions. You can use methods in a way that's similar to computer properties, and I'll go into that further later.
+
+[00:03:11]
+But this is not, they aren't really intended for the same thing, right? Computed properties are v-on to that data. By default, the computer properties define a getter only, but you can also define a setter. This will probably make more sense to you when we start to dive into the reactivity section.
+
+[00:03:31]
+And I kind of go into view internals. Whereas methods are getter and setter. So if you want to search a title here, you can do so by saying, How I Met Your Mother, and these kind of things. And you can see how quickly that's updating, right? I didn't add another library for this at all.
+
+[00:03:55]
+If you're familiar with React, there's a library called downshift. You don't have to load a thing like downshift in order to create this. You can see how quickly you can filter through large amounts of data without any dependencies. But this is really a very big strength of computed properties, if we have filtered films.
+
+[00:04:14]
+So the first thing that I'm gonna do is I'm gonna use some RegEx to match. And the reason I'm doing that is because I don't really want case sensitivity here, right? I don't wanna have to say, w with a big W, I wanna be able to match those things regardless of capitalization.
+
+[00:04:32]
+And then I'm filtering to find the matches between this .filterText which is a v-model input. This is an empty string here, so I'm capturing this input. And I'm going to filter all of this data based on how it matches to ratingsInfo. So you can filter large amounts of data really fast and very performantly with a computed property.
+
+[00:05:02]
+It makes for really nice search implementations and things like that. So again, our computed property is in the place of the data. So we have a different view of the data. Previously we had filteredFilms, we were looking through that big array of objects of ratingsInfo. Now we change it to filteredFilms.
+
+[00:05:31]
+So I'm using that computed property in place of that array. Before this table was outputting the ratings info, that huge amount of array. Instead now we're returning these filtered films, and that's what we're outputting onto the page. So here's some just a little bit of review again, just in case.
+
+[00:05:57]
+If we have a counter, that 0, and we have a method that counts up, it just increases. So I'm gonna say @click count up. So now you can see them all together, you can see the data methods computed. I'm returning the counter is 0. I'm gonna count up with the method.
+
+[00:06:16]
+And here, I have this, whatever this .counter is, it's just gonna be that +1. So no matter how many times I change that, that computed property is always going to only evaluate when this .counter changes. And it's going to always return this .counter +1.
+

@@ -1,0 +1,85 @@
+[00:00:00]
+>> Brian Holt: Now, we wanna go make search use this as well, right? So go back to search.jsx, and we have this input here. And first thing I'm gonna do is I'm just gonna pull this input out, and go back to header. So if utilSpace does wanna use the input then it's gonna look like the one that we had there.
+
+[00:00:29]
+
+>> Brian Holt: So it's gonna be a bit of a problem for us because,
+>> Brian Holt: HandleSearchTerm doesn't happen in header. In fact, header has no concept of what handling of search term is. It doesn't keep track of it and that's not important in header, right?
+>> Brian Holt: So we need,
+>> Brian Holt: Let's go ahead and just pull that out and say, Header right, import Header up here.
+
+[00:00:57]
+Import Header from ./Header. And the first thing I wanna say is showSearchTerm or showSearch, right? But the problem is the input that modifies this search term right here lives in Header now, right? So we kinda have this problem because it's not like Header can reach up to the parent and modify its state.
+
+[00:01:26]
+We talked about that right only a component can modify its own state. This is kind of a problem, right? Because we have this encapsulation of state and encapsulation is a good thing, right? Knowing where state gets modified is a big part of debugging. But sometimes other things need to modify each other, right?
+
+[00:01:44]
+Well, there's kind of this escape hatch that you have this handleSearchTermChange, right? This already exists. Why can't we just pass that down to the child? So we can just say handleSearchTermChange = this.handleSearchTermChange.
+>> Brian Holt: So now we're passing this function down into the child, and now the child has a function called this.props.handleSearchTermChange that it can call with whatever is happening, right?
+
+[00:02:24]
+
+>> Brian Holt: The other thing that it's gonna need as well because it needs to display the search terms it's gonna also have to have searchTerm = this.state.searchTerm.
+>> Brian Holt: So can I make this multiple lines? Because it's getting hard to read.
+>> Brian Holt: Nope, won't let me, thanks prettier.
+>> Brian Holt: Right, so we're gonna be passing these things down into header so then headers gonna know what to do with these.
+
+[00:02:59]
+
+>> Brian Holt: So, come back down to header. And now we have a couple more props coming in which are gonna be all maybe types. So handleSearchTermChange? Is going to be a capital F Function. The reason it's not lower case f function is because that's a key word, right? So they use capital F to get around that.
+
+[00:03:22]
+And then searchTerm? Is going to be a string.
+>> Brian Holt: I'm gonna come down here to the default props and handle SearchTermChange is just gonna be by default a noop function
+>> Brian Holt: And search term, if nothing is provided, is going to be an empty string. These are actually not really super important, because we're not going to be careful to not read from these.
+
+[00:03:54]
+But this is just further guarding yourself against runtime errors.
+>> Brian Holt: It's also required by the linters, so that's we're placating the linting gods.
+>> Brian Holt: Okay, so now this input onChange={this.props.handleSearchTermChange}. And values is not going to be this.state, it's going to be this.props.searchTerm.
+>> Brian Holt: I think those are right, let's just run our yarn flow make sure that's correct, no it's not.
+
+[00:04:44]
+Right, the reason why it's not this anymore right? Because header is a functional component it's not this.props, it's just props.
+>> Brian Holt: Okay, now all of the linting gods are happy.
+>> Brian Holt: And so now if we go back to here, and go back just a hard refresh to make sure.
+
+[00:05:15]
+If I type black in here it's still doing our searching, right? So this is the way that you have child and parent components interact with each other is you pass functions up and down, well just down really, right? So the child has to let the parent know hey, parent, I had an event.
+
+[00:05:34]
+This happened but the cool thing is if you go up to here to search, search is still in charge of it's own destiny, right? There's nothing from stopping me from saying like, you know what? I'm not gonna handle that event, right? So the parent is still responsible for modifying it's own state.
+
+[00:05:47]
+It's just the child is reaching up and saying this happened. Now it's your problem right?
+>> Brian Holt: Any questions about that?
+>> Speaker 2: Can you click on the Header?
+>> Brian Holt: Yeah, sure, I'll push a branch right here momentarily as well.
+>> Brian Holt: It's worth talking about this as well, this if statement right here.
+
+[00:06:10]
+This is kind of the way that you do conditionals. Conditionally showing and hiding things. You just create a variable, in this case I called it utilSpace, right? If I'm gonna show search then put this input there, if not show the back button. You can get clever with turn areas, I do not like getting clever with turn areas.
+
+[00:06:29]
+So that's why I do not do it, right? I could do something like props.showSearch, and then, if than then h1 showSearch, else h2 don't show search, right?
+>> Brian Holt: This would work as well, right? Some people like it, it's just I don't like it at all.
+>> Brian Holt: There's an upcoming JavaScript
+
+[00:07:13]
+
+>> Brian Holt: Feature called do expressions, which we're not gonna go over since it's like stage one or something like that. But this would solve a lot of this stuff as well. Basically, the idea is you could say inside of here, do, something like that. And then you can actually write a block of code in here.
+
+[00:07:33]
+And you can do the conditionals in line that way. Again, I think it will look something like this, if (props.showSearch),
+>> Brian Holt: Then h1 here,
+>> Brian Holt: Else,
+>> Brian Holt: H2 show this, right? This is what it would look like with the do expression. It looks weird right, but anyway, that's the way it works.
+
+[00:08:11]
+
+>> Brian Holt: You can ask yourself if you like that better. I'm not sure I do. I like this as well because it's explicit at the top you can say, I have this utilSpace. And when I'm reading this down here it's like okay, either this or this is gonna show up down there.
+
+[00:08:26]
+So up to you.
+

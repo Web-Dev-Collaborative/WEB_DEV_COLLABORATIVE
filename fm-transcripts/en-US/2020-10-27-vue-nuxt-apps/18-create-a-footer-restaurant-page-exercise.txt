@@ -1,0 +1,18 @@
+[00:00:00]
+>> Alright, we have our first exercise. In this exercise first what I'm gonna do is I'm gonna delete this about page. We're not actually going to use this about page. I'm going to delete this about page, move to trash. I'm gonna go to the menu and I'm gonna remove this about page link here.
+
+[00:00:17]
+What I want you to do is I want you to add a new page called restaurants. In that restaurants page, I want you to add that app restaurant info grid and maybe put like an h1 that says restaurants or something at the top. So you're going to create the restaurants page, you're going to add that in, you're going to make sure it's appended to the menu.
+
+[00:00:40]
+And the other thing you're going to do is you're going to make a footer. And you're going to make the footer persist on every page. If we go back to our next food app, oops next food app. You can take a look at what our footer looks like here.
+
+[00:00:58]
+If you use the tag footer it will automatically make it black for you. It'll automatically put that style in and you can put whatever you like in there. I just said copyright information goes here. So create a footer. The sticky will work if you use a footer tag and if it's done outside of the content class.
+
+[00:01:24]
+So if you go back to your layouts, default dot view, we have this content. If it's done outside of the content, it will be sticky. Create the page named restaurants and add it to the navigation menu with the link, add the app restaurant info component. And you can look at the final result to see what you need to create the page.
+
+[00:01:47]
+So the starter for the problem is food app problem one, and then we're going to go over the solution in ten minutes.
+

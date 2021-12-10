@@ -1,0 +1,63 @@
+[00:00:00]
+>> All right, let's get started with Components. I mean, we are getting really far today, so we've done directives, method computed watchers. Now, we're gonna talk about components then we're gonna build something a little bit with a CLI and then talk about Nuxt, which is a meta-framework. Don't worry, I'll go into specific detail about that.
+
+[00:00:18]
+We'll do animations, and we'll do composition API, and custom directives, and then we'll end with Vuex. So when we're talking about components, there are actually multiple ways of declaring a Vue component. It's very flexible in this way. I would say that there is a very simple way of making a Vue component, but it's not that flexible, and it's not that nice to work with.
+
+[00:00:45]
+So we're gonna go from the simplest example that's like not as useful. And we'll go to the most complex example that's much more useful. And by most complex, what I really mean is we're building something with a CLI and a build tool. So it's not actually that complex because Vue offers really, really nice CLI.
+
+[00:01:05]
+So, Templates, Vue.js uses HTML-based template syntax to bind the view instance to the DOM, which is really useful for components. As I mentioned earlier, templates are optional. You can also write render functions and I linked up to the docs there. You can also use JSX. I link up here because we're not gonna go into a huge amount of detail here.
+
+[00:01:28]
+If you're interested, you can definitely check that out. We'll start with strings, which is useful only for really, really small cases. And then we'll move to a script tag. And then we're gonna move to single-file templates in the next section. And that's kind of the most common use case you'll see in a Vue application.
+
+[00:01:48]
+So we'll start with this template. It's okay, but it's not terribly useful. So we've got like our Vue.createApp(App).mount('#app') like we had before. So we've got this div id="app". And we're inserting into that, you might have noticed that we're not even putting anything inside of that, we're able to declare a template.
+
+[00:02:07]
+And then we could say h1, h1, and that changes that tag to an h1. So, I'm putting everything in, through this string. So, I can use a string if I want. And sometimes people get confused because they'll visit the Vue docs and they'll see that and they'll say, I don't wanna write everything as a string.
+
+[00:02:29]
+Don't worry, that's not a common use case. That's just a really simple one if you wanna show some something very quickly. Now why would we use components inside of a Vue app? Well, I'm a bit of a neck beard, back in the olden days of web development, you just throw a lot of HTML on a page and it would be this big honking thing, and you'd have to kind of sort through like, where are everything, where did everything go?
+
+[00:02:59]
+And then eventually we moved to like PHP includes and we started to think about, like, how do we organize this mess? And so probably components are familiar to you if you've been doing front end dev for a while. But just in case, if we have a page that's like an index page, and it has a header and a sidebar where we're looping through a bunch of items, a main area with a blogpost, which is post in posts and a footer, it becomes a lot clear where we're going and what we're doing, right?
+
+[00:03:33]
+If I needed to get into the sidebar and do something, I know immediately when I look at this, I'm going right into the sidebar, I'm gonna look in that blogpost component. So components, you can think of them as a collection of elements that are encapsulated into a group, that can be accessed through one single element.
+
+[00:03:52]
+So if we have this collection of elements a div, p tag, div, p tag, we can access this particular group of elements through a callout component, we just say callout once, and it knows to render all of those things all at once. So it makes our code a lot more legible.
+
+[00:04:12]
+It makes our ability to kind of traverse our code and maintain our code much more legible as well. So let's look at the simplest possible component. I'm always gonna start from like the simplest thing and then build off of that. So we've got our const app. In our data, we've got message hi from parent.
+
+[00:04:30]
+And then we've got our app.component. And this one, again is just a template, hi from child. So if we look at our HTML, what we have is, we're piping in the message here, we're gonna establish a relationship between message and message. And then I'm also going to add a component-a, and that component-a is here.
+
+[00:04:54]
+So we say app.component, because we called it app here, app.component, component-a, and then we have this template. If I wanted to change these tags I could just like in the last example, and in fact, if I wanted to reuse this component, I could have, hi from child, hi from child, hi from child, and then we can output multiple components to that page.
+
+[00:05:21]
+But if I wanted to change this one h1, then you can see multiple h1s coming from that template. So, now we have like the simplest component that we're working with. But this still isn't how we do it in an app. So Vue is a progressive framework, so we support incremental adoption.
+
+[00:05:41]
+We support some adoption as you kind of migrate over. As I mentioned before, you can add a script tag, and then you can get going with that script tag and use it in an existing code base. So components are a collection of elements that can be encapsulated into a group that can be accessed through one single element.
+
+[00:06:01]
+So if we have div and a p tag, and div and p, and all of these collection of elements and we wanted to make sure that we could access that again and again, we can do this callout, and we can say callout anytime we want this specific group of components or elements.
+
+[00:06:18]
+So the simplest possible component that we have is this hi from parent, hi from child. And we can say, we have this message that goes to this HTML element. We have a message here that's coming from the parent. And we said const app. In that app.component has the component-a.
+
+[00:06:40]
+Component-a is accessed here. So, we can say here, hi from child, if I wanted to change the child, I can say h1, h1, and that changes that child's component. So, here we're able to create this app that also creates the ability to access that template. But this still isn't how we actually do it in an app, Vue is a progressive framework, so we support incremental adoption.
+
+[00:07:10]
+So, if you have an existing app and let's say it uses jQuery or Angular or whatever. And you wanted to start slowly using Vue, or migrating to it, because we are able to add it either in a template, or with a script tag, and we don't have to create an entire build process from scratch.
+
+[00:07:29]
+We can support incremental adoption. I wrote this article replacing jQuery with Vue, no build step necessary for Smashing Magazine, because people were asking me how to do that, right? They were saying, like, I have this really old app, I'm using jQuery, how do I just, with a script tag, replace pieces of my functionality from jQuery to Vue and get started using Vue and that walks through that
+

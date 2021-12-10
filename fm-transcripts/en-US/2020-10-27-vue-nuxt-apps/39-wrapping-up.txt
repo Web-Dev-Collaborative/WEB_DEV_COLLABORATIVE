@@ -1,0 +1,27 @@
+[00:00:00]
+>> Okay, so we have a couple of great questions in the chat. One of them was why was TypeScript necessary again? So I mentioned that this is at this state and time, not state like state at this moment in time, view three is just coming out. And view three was a complete rewrite from the base of view.
+
+[00:00:22]
+So like it's a completely different code base and all of that code base was written in TypeScript. So in order for nuxts, to work with it currently at this moment, it needs to load in TypeScript in order to work, but that will change in the future and in fact, l will update our readme and put in a new exercise that's compatible.
+
+[00:00:43]
+That's as soon as that update is made, and so that is the reason why we work with TypeScript in nuxt right now. There was also another really good question of when I recommend using composition API instead of UX. And this is going to be a little bit subjective because a lot of different people have a lot of different thoughts on the matter.
+
+[00:01:05]
+But here's my personal thought and I think some of the view core team share, this, I've spoken to some of them about this. So the times when I want to use view x is when I'm clearly stating that this is the brains of the application and these are the really important bits for every piece of the application to know about.
+
+[00:01:26]
+So it's kind of self documenting in that way. The reason why someone is asking that question is because technically, I could start using composition API Instead of UX for those changes, that is possible. But what I'm going to start doing is I'm going to start using composition API more for the kind of encapsulated logic that I'd like to reuse in different places around the application, like dark mode, like use window width, like all of these pieces of functionality that aren't necessarily tied to templates that I need to reuse in several different places.
+
+[00:02:04]
+And it's becoming kind of standard to place those inside of a composable folder. What I like about keeping them separate is that there's a bit of a legibility of distinction. Yes, both can work for the same thing and I can use composition API for that. But I like the idea that someone could come into a repo that I own and know okay, these things are in the store, these are the things that are getting doled out to many different components all over this app.
+
+[00:02:35]
+And these composable are pieces that I'm probably going to be using over and over again in many different components. So it's a little bit less of can it do it because it absolutely can? And more of a stylistic decision of saying, I want to make sure that my code is as legible to maintainers around me and also future me as possible.
+
+[00:02:56]
+But great question, you did so much today. We made a full game and used view x store. We use view clx for it. In our food next app, we created a whole application with nuxt. We deployed it, we brought in data with an API, we created a bunch of things that were dynamic to that API, like grades that we could filter on.
+
+[00:03:22]
+We also created dynamic pages. And at the very end, we showed how we could use some conditional logic and even getters to show things in our store. Thanks so much for joining me today. This was really a blast.
+

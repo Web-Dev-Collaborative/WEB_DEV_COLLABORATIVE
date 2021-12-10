@@ -1,0 +1,12 @@
+[00:00:00]
+>> We have modifiers in, our @ or v-on, so we have @mousemove.stop is comparable to e.stopPropagation. If you've been coding for a while, you're probably very used to writing stopPropagation over and over again, it's really nice to have a modifier for it. @mousemove.prevent is like e.preventDefault, the same thing.
+
+[00:00:21]
+@submit.prevent is really helpful, because you probably use it a lot in forms, it will no longer reload the page on submission, so I use this a lot. @click.once is not to be confused with the v-once that we just saw. @click.once means the click event will only be triggered once, it doesn't mean it's only rendered once to the page, so anytime you want something to be clicked, and then you don't want them to be able to keep on clicking or they can but it just doesn't keep submitting, then the click.once is really helpful.
+
+[00:00:56]
+@click.native is so that you can listen to native events in the DOM. So like I mentioned before, abstractions are really wonderful, but if you can't dive beneath them, then you get into trouble sometimes. What's really nice about view, is that it lets you dive beneath the abstraction if you need to, so rather than using the virtual DOM and DOM diffing, @click.native allows you to have access to those native events.
+
+[00:01:20]
+You can also use keycodes as a view three, you can no longer use numbers for the key codes. We used to be able to use numbers for the keycodes, and the reason why we're changing that is the HTML spec change. The HTML spec is deprecating the use of numbered keycodes, and so we're moving just along with that HTML spec and we're using two names instead, and if you need more information, I've linked it up here.
+

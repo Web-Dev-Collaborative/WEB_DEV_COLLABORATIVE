@@ -1,0 +1,54 @@
+[00:00:00]
+>> So let's go back to our checklist. All right, we filtered the grid with a reusable component and computed properties, now, we're gonna create a dynamic page. So okay, let's create a dynamic page. We go back over to VS Code. And what we're gonna do in order to create a dynamic page, this part is really cool.
+
+[00:00:24]
+You're gonna be into it. You create a new thing with an underscore. So I'm going to use whatever I think is unique. Remember how we're using keys and before, we wanna use whatever is unique. So whatever is unique about that data, typically it's going to be an ID, but I've seen people use like, post slugs, and all sorts of things.
+
+[00:00:50]
+So I'm gonna say id.vue, I go in the Pages Directory, and then if I want it to be in a subdirectory, I'll say Items. So I'm gonna create a subdirectory directory called items. I typically do that for dynamic pages, because I want it to be very clear that this is a subdirectory, dynamic pages are happening inside here.
+
+[00:01:10]
+And so, I say _id.vue, I save, I say, vbase. And right away what I have access to is, if I make data I can say id: this.$route.params.id. And this will give me access to whichever unique piece of data I'm using at that moment. And sure enough, we're gonna do that pretag up here again.
+
+[00:01:44]
+And I'm going to do the same thing I did last time where I kind of put the data on the page so that I can see it right away. But I wanna have a way to get there too, because I didn't memorize all of those long IDs when I was working with all of this stuff, sorry about that.
+
+[00:02:04]
+So I'm gonna go over to the components, and I'm gonna go to our AppRestaurantInfo. And remember this Ghost button that we never linked up, we wanna be able to access the item from that view item. So I'm gonna say vnuxt l, that's gonna give me the next link.
+
+[00:02:23]
+I'm gonna take this out and wrap this button. And then I'm going to use a template literal. And remember I said Item, I think, items, and then I'm going to pass in menu:item.id, because that's what I used up there was the menu:item.id. The last thing I wanna do is I wanna make sure that I bind this so that it's not just, cuz remember, otherwise it's just going to use a string.
+
+[00:03:01]
+That's all of this and that's going to be garbage, so we definitely want to change that. And for this, we also want to restart the server, so we're gonna go over here. Go restart the server, because it needs to generate all of those pages. So I need to restart the server so it can create all of these dynamic pages for me.
+
+[00:03:27]
+So if I go over to this refresh, then I should be able to go to the page and you'll see localhost items and the ID of the item. And you can see that ID outputted to the page. The last thing we're gonna do before I give you an exercise is, right now I have the ID and that is all I have.
+
+[00:03:53]
+I have the unique ID for the thing. But in that unique ID for the thing, I don't know, all of the other information about it right, I don't know the item title, I don't know the price, I don't know all of these other pieces. So what I'm gonna do is I'm gonna go back and I'm going to make sure that I'm going through all of our food data and I'm grabbing one of those pieces of the array from that ID.
+
+[00:04:19]
+So I'm gonna filter through that information. So I'm gonna go to the ID and I'm going to say, vmapstate, and I'm going to bring in, I always put computed after data. And I'm gonna say fooddata. And now, what I want to do here is I wanna actually make a new thing in computed properties that I'm gonna call currentItem, not cuttent item, currentItem.
+
+[00:04:59]
+Now, here is the thing that I'm going to do that is going to be contentious because I know a lot of functional programmers that would absolutely just use filter for this. But what I'm going to do instead is I'm going to use a nested for loop. And the reason why I'm gonna use a nested for loop instead of a filter is because it's more efficient.
+
+[00:05:16]
+Because in a nested for loop I can break, so I can say, go through all of these until you find a match and then stop. But with a .filter, I can't do that. So what I'm gonna do to keep it efficient, typically I would use filters and things.
+
+[00:05:32]
+But because we're potentially working with a large amount of information, and I'm going to be a little bit performance budget conscious here. So I'm gonna say let result, and then return the results. And I'm gonna say, for (let i = 0: i < this.fooddata.length). Never thought you'd be watching people just code up for loops.
+
+[00:06:07]
+[LAUGH] So here we got the this for loop. And then, so remember, we have that first level of the stores, and then we also have the second level of those menu items. So I need to go through this and say .menu.length, and then I'm gonna change these all to J.
+
+[00:06:29]
+Because that's just kind of industry standard, when we loop through twice. We're looping through first those store pieces, then we're doing the .menu.length. Then we say if all of this, the menu item j.id = this.id, in other words, this.id here. Then we're going to say that the result is this.fooddata.i.menu: J, and then we're gonna say break.
+
+[00:07:14]
+And that's gonna allow us to stop that process when we're done. So now I'm going to output currentItem and see if we did that correctly. Why is it .2, that seems weird. this.fooddata i.j.id, I'm assigning instead of checking a quality. All right, cool, so now I go back, and cool, we have the description, we have the items, we have the image, we have the ID.
+
+[00:07:51]
+We have the price and the add ons, excellent.
+

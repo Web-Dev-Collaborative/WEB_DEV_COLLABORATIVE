@@ -1,0 +1,27 @@
+[00:00:00]
+>> Before, you saw this before, when we did item and items, it loops through a set of values. So you saw that in the first example, but we can also do a static number. So we don't even need anything in our app, right? Here we're just saying create app and grab that piece of, you know?
+
+[00:00:17]
+Grab the div id app and you know? Establish a relationship with it in view, and I'm saying li v4 num in 5 and I'm adding a key of num. This key we didn't talk about before. This is v bind key. So what keys do and if you come from react, you're probably familiar with a concept that's very similar.
+
+[00:00:37]
+What keys allow us to do is it allows view to efficiently track VDOM changes. It can say like, okay, in the virtual DOM, we have this information. And in this other piece, we have this information. Are there any differences between these lists? So it makes more efficient DOM diffing inside of v4.
+
+[00:00:58]
+So key needs to be unique. It's what view uses to track VDOM changes. So we have li v4 and this says num, it could be anything, you could name and you don't have to name it num or number or anything. But whatever this is, I'm saying okay dynamically use this to track which one it is.
+
+[00:01:21]
+And in this case it would be one and then two and then three and then four, and then five. So we're able to kind of piece together for the DOM. Okay, keep track of these as separate pieces. I'll show you another example of this with all of the things that we can output in v4.
+
+[00:01:40]
+So far, we've just looked at v4 and then showing an array but what if I have an object and what if I want to show a bunch of different things? We're typically showing the values of things. So let me move over to this. Actually, let's open this in code pen so you can see it a little bit better.
+
+[00:01:57]
+So far, we've only outputted the value and that's the default, but you can also pass in the key and the index. So you have access to all of those things inside of a v4. You don't need to name them value, key and index, but they will be in that order, value, key and index, as you put them on the page.
+
+[00:02:18]
+And here for the key I used value. So that's what I know is gonna be unique about this is going to be that value so I have here my jokes, what did one baby prototype say to the other? The answer is I'll race you to class. Okay, that's okay the responses have grown as it needs to be.
+
+[00:02:39]
+So what we have is an index right here and we've got our key and then we've got our value. So you have access to all of those every single time you do a v4, especially when you're doing working with objects.
+

@@ -1,0 +1,27 @@
+[00:00:00]
+>> In the repo, we have commenting-solution. For extra credit, you can add uuid and create a new ID for each comment and use it as the key. So if you got through that exercise and you want a new challenge, you can add uuid. So if we go back into this repo and we look at the commenting-solution, I'm actually going to open this up in my VS Code.
+
+[00:00:26]
+And then we'll say, I'll put it in code. So if we open this up, what we have in our div id app is the image that's hardcoded of the woman in her profile and Julianne Delfina, it's lovely after it rains. And we also have a component called individual-comment, where we're looping through and adding comments.
+
+[00:01:03]
+But let's look at our store, so inside store, we have index.js, we saw the importing piece here. We're gonna move the comments array into the state. So now the state owns comments, but you'll notice, I didn't add the comment string that was also a part of that because I'm just using it for that component, and I'll show you what I mean by that.
+
+[00:01:31]
+I also have this mutation where I have a new comment object, and where I add the comment, I've passed in this comment, and I'm going to state.comments.push this new comment object that I've just created. So if we go back over to the app, here is where I'm gonna hold this new comment string.
+
+[00:01:55]
+And the reason why I'm going to hold the new comment string here is, really, all I'm doing with it, it's a placeholder for information. I'm really accessing it from that v-model, and once I have it and once I press Enter, that's when I'm going to do this.store.commit, and send whatever is in this.newComment to the store, right?
+
+[00:02:18]
+I'm not actually doing anything that the store needs to know about with this string. I'm just using it to store data for a second, and then I'm getting rid of it, so I wanna keep that in this component. What I'm moving into the store are the comments array and the ability to add new comments.
+
+[00:02:34]
+So I said this.store.commit ("addComment", this.newComment), so that's whatever this will be. And then we also have, in our computed properties, our comments, we could've also said map state and then added it in that way, either one is fine. Since it's only one property, it's totally fine to just return it.
+
+[00:02:56]
+So we have this.store.state.comment, and the individual comment hasn't really changed because that was kind of a presentational component to begin with. It was really just taking some props and showing some information. So this one doesn't have anything to do with the store, and it doesn't really have that much logic in it either.
+
+[00:03:15]
+It's just showing you that bit of the LI as well.
+

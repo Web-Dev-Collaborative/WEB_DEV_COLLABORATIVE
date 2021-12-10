@@ -1,0 +1,102 @@
+[00:00:00]
+>> So far, all we've been doing ishard coding that kind of manifest all of the food data in but that's not typically how we work with an application, right? What we usually do is we bring things be in via an API. And we're going to use vuex store to do so.
+
+[00:00:20]
+But we're also going to learn a new thing. And that new thing is going to be called a plugin. That plugin is going to allow us to execute logic on the server, instead of calling it on one of the components. So far, we've just been calling things from the component and using them in the store.
+
+[00:00:36]
+But what if we wanted it to build with everything [LAUGH]? And Knox actually allows us to do that. So that's pretty cool. All right, so let's go back here. And we are going to go into our store like we did, we had our main food data. And before it's all hard coded here, and we have this gigantic array of values, I'm gonna actually delete this gigantic array of values.
+
+[00:01:06]
+And we're just gonna have an empty array for now. I'm going to use actions. I think there were some questions about actions, when to use actions and mutations in the chat. Just for review, mutations are the only thing that can change the state. So in our game application, they're synchronous.
+
+[00:01:25]
+They're just gonna change the state. So we're only working with data synchronously. Actions can't change the state, actions can commit mutations that change the state. But actions are good for asynchronous logic. So in this case, what we're going to do is we're going to use an action to do that kind of async stuff, and that action will call a commit in the mutation.
+
+[00:01:50]
+So we're gonna use both of them in this next step, next section. So we have export const actions. I'm going to use async here, and I'm gonna change the name of this to getFoodData. We're gonna pass in not just the commit but the store as well. The state, not the store, sorry.
+
+[00:02:13]
+The state as well because we're gonna use that in just a minute. Now since we used async, we can now use async, wait and I'm gonna use try and catch. I'm gonna catch an error. Don't worry about that commit for now. I'm gonna pull this commit into the try.
+
+[00:02:37]
+But for now, I'm just gonna comment it out because I'm not gonna use it yet. We're gonna use it in just a second. I wanna make sure that I console log or console warn or whatever. My error here in this try, that's where I'm going to call the await part of this.
+
+[00:02:53]
+So I'm gonna do await. And then I'm gonna use fetch and you might be thinking, at the time of this recording, fetch isn't supported in every browser back in all of this stuff. But actually next offers a polyfill so that you can use fetch in within next, and you can know that it's going to actually perform well in other browsers.
+
+[00:03:17]
+Now, we're gonna call out to this API. And let me go back to my slides for a minute. I wrote a tutorial on how to set up DynamoDB, use lambda as a serverless function to pull in the DynamoDB data. And also use API Gateway to offer some a nice API, so that you can call the information that you need.
+
+[00:03:42]
+And it also goes through things like how to do body mapping and a few other things inside of there. It's a very long article. [LAUGH] It's like 32 pages long and the netlify team did a really good job. The netfliy marketing team did a great job of putting it together in a way that you can kind of read through all the sections.
+
+[00:04:02]
+It's out of the scope of the course because it could be [LAUGH] a whole course of its own. But if you wanna dive in and you wanna learn how to make something like that with DynamoDB, Lambda and API Gateway, that article will show you and we actually build this API.
+
+[00:04:16]
+So you can actually build that API if you like. So here's our API. I'm going to grab it, If slides lets me [LAUGH] and then I'm gonna go into VS code. I'm gonna pass this in to fetch. And then I'm also going to create some headers. And the reason I'm gonna create some headers is that I actually want to use an API key for this.
+
+[00:04:43]
+Typically we're gonna be working with API keys. I didn't have to create an API key for this. But that's the way I set up this tutorial because that's kind of how people are often going to be working with it. So we're gonna say content type is application JSON.
+
+[00:05:02]
+And then we're gonna say, x api key. That's what Amazon is gonna expect is, and this is something that NEXT offers us, we can say process.env.awsapi key. This is kind of standard for when you're using a key like this. I mentioned before that I had in the food resources folder, a thing that's like an end file without a dot in front of it.
+
+[00:05:34]
+And that's because that dot file is often get ignored. And so I'm gonna create a .env file at the base of my next food app. And say, yes. And I'm gonna paste in my API key. It's okay if you know my API key. I put a bunch of rate limiting things [LAUGH] on my stuff.
+
+[00:05:57]
+You can play with the API all you want. And so, I'm pasting in the API key. And then, this process .env is going to allow nuxt to know to go grab that env folder. And you can see that it's get ignored because well vs code's showing us all the things that it's kind of lighting up green everything that we haven't committed.
+
+[00:06:20]
+But I would also suggest just as a good [LAUGH] thing to commonly do anytime you add a file like .env to just take a look inside your get ignore file and make sure that .env is get ignored because you don't want that committed to GitHub so that there's memory of your key.
+
+[00:06:40]
+Cool, so, once we do that, we're gonna say .then, and we're gonna pass in the response, and we're gonn return response.json. And the reason we do that is because what we're getting at first from fetch is a response object. It's not actually going to be JSON, we need response.json to actually extract the JSON from that.
+
+[00:07:06]
+And then we're gonna .then again. And we're gonna say, okay, get that data. And now we're gonna do things with that data. And here's where we're gonna be doing things with a commit. So we'll save that. I'm gonna console.log this just for now. We'll remove that later, just so what you can see when things are working.
+
+[00:07:28]
+That commit is gonna be update some value. So I'm gonna say update food data and then the payload is data. Because that's what we're passing in here. Cool, now we're gonna go into our mutations. And we're gonna say updateFoodData and the state and I'm gonna change this to data, state.fooddata.
+
+[00:07:58]
+There you go. So again, what we're doing is we're using an action, which is some asynchronous logic to call a mutation and the mutation is the thing that actually changes the state. That's the reason why we have that separation there. There's one last thing I wanna do. I want to make sure that I'm being as efficient as possible, actually not inside the try.
+
+[00:08:21]
+Let's go above the try. I'm going to say at the top here, that if the state.fooddata has length to it, then return. So if you already got all of this information, then don't go get it again. Cool, we have all of this but we're not calling it yet.
+
+[00:08:45]
+And you might think, well I could go into the index page and I could on a created life cycle method call dispatch this and then populate the store. But the problem with that is what if they come not from the index page, are you gonna then add that into every single page and make multiple calls and things?
+
+[00:09:07]
+What would be much better since we're serving in a kind of jamstacky way. What we're gonna do is we're gonna build and concatenate all of those files. And we're gonna create dynamic routes from all of these pages, but we're also able to do things well, we're creating things on the server.
+
+[00:09:23]
+So what we wanna do is we wanna call it once while the pages are building and do it really efficiently that way, instead of calling it on the client. And then having the person have to wait for information to be loaded. So I'm going to go into a new file here, and I'm gonna call it get food.
+
+[00:09:41]
+[LAUGH] Cuz I just wanna call it get food, I don't know. And I'm going to do this special thing where I say getfood.server.js. And what that allows me to do is tell nuxt, do this on the server. Don't do this on the client. And I'm gonna put this in the plugins folder.
+
+[00:10:01]
+So then I can say, export, default async and then I'm gonna pass in the store. And then here, I'm gonna say awaitstore.dispatch. Remember we dispatch actions, we commit mutations, store.dispatch, what did I call it, get food data? Let's write it and then check, store.dispatch get food data. Yes, get food data.
+
+[00:10:37]
+We have one more step to do. What we have to do now is we have to go into our nuxt config, and let it know that this plugin exists just like we did with the CSS above it. It's very similar. So we're gonna say tilde and then we're gonna say plugins and then we're gonna say, get food.server.js.
+
+[00:10:59]
+Now remember when I said, every time we touch the nuxt configure, make some plugin registered or whatever, we have to turn off the server and restart it. So I'm gonna go over to where our server is. I'm going to turn it off and turn it back on again.
+
+[00:11:15]
+Maybe we should have made sure that everything is saved. All right, we'll check it again if it doesn't work. So we go to localhost:3000 and now we see all of that information coming in. But remember, it's not coming in from that static piece of information. Now it's coming in from our API.
+
+[00:11:44]
+So if we look and the way that we can check that is, remember we console logged? Well, console logging, it's not gonna console log on the, well actually, I'm wrong. It's because in development mode, it's going to, nuxt SSR gives you access to that console. I forgot about that.
+
+[00:12:00]
+But if you deploy this on to a client, this is only gonna happen in development mode, it's not gonna happen in production mode. In here inside of our console, or inside of our server, you can actually see all of that data coming in. Super cool. So now we're bringing all of that in.
+
+[00:12:22]
+So we're bringing things in via API. We have vuex store and a plugin and we did it.
+

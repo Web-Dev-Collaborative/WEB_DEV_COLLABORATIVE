@@ -1,0 +1,15 @@
+[00:00:00]
+>> There's a little bit of sugar that we just introduced, Evan just announced this [LAUGH]. So, previously, we were saying, export default and then we're saying script. Now you can say script, and we were putting a setup function inside of it. Now you are able to say, script set up, so you can do it either way, you can say script and then a set up function.
+
+[00:00:22]
+And that's where you have all of your refs and things, or you can say script set up. So this is what that would look like, instead of putting it inside a setup function, you say script setup. Then you have this const state equals reactive, count to zero, onMounted state.count, and you're returning the state here.
+
+[00:00:42]
+Further resources, we just did all sorts of stuff to document the composition API in the vue 3 docs, there's the link to that composition API documentation. There was also previously, a whole another microsite about the composition API where we were documenting things. This has slightly more information, I'm eventually gonna merge this into here.
+
+[00:01:06]
+But I'm showing both links, for now you might come along in the future and there's just one link here, it's because all of that got merged. There's also this really cool site called Vueuse, and this is really interesting, I'll show it really quickly. So, it's tree shakable, and you can use all of these different kind of composition API functions, use local storage, use session storage, use device motion, use device.
+
+[00:01:38]
+So this is both good for, if you wanna use them in your project as it is, or if you just wanna learn how to work with the composition API. And you wanna dive into the code here, and see how they set everything up. So this is a really good resource for both just grabbing it and using it, or actually learning more.
+

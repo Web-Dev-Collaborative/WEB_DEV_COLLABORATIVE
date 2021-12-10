@@ -1,0 +1,28 @@
+[00:00:00]
+>> Kyle Simpson: I have a section in there that mentions code comments. This is one that people actually thank me for putting in, cuz a lot of people don't actually do this very often, or they don't have this habit very often. But I think it's a habit that you should get into.
+
+[00:00:13]
+If I declare something like var a = 42 in my program, and that's just a number that comes out of nowhere. If I come back later, and I'm like where does that number come from? If I don't remember why I assigned it the value 42, then my program is less understandable.
+
+[00:00:29]
+So a way of making a program more understandable is to write better code, but another way of making a program more understandable is to put code comments in. And what code comments are, are things that are ignored by the JavaScript compiler, the JavaScript engine. And they're only there for a developer to read.
+
+[00:00:49]
+It's like a cheat sheet if you took it into an algebra test, or whatever. It's just there for you. It's not there for the computer. So if I said something like 42 is the meaning of life as a code comment, then later when I come back and I've explained what the heck I was doing her, right.
+
+[00:01:09]
+Code comments are an incredibly important thing to put into your code. They come in two forms, there's the form here where it's a single line comment, there's another form where I can literally put multiple lines into the same comment. So if I had two different statements like b = 12, and I needed to say something longer about it, I could do a multi line comment which starts with /* and I have to have another */ to end it.
+
+[00:01:41]
+And I can have as many lines here as I want. Line 1, line 2 line 3, and the syntax highlighting in my editor suggests to you where those boundaries between comments are. So the slash slash is always a single line. It takes over everything from then on. So I can either have it on its own line, or I can put it on the end of an existing line.
+
+[00:02:06]
+
+>> Kyle Simpson: A multi-line comment can appear anywhere, so I can literally put a multi-line comment right inside of the middle of another statement, if I really wanted to, cuz it can appear anywhere.
+>> Kyle Simpson: So you might do it like that. This would be silly, but you could say something like 42 is,
+
+[00:02:35]
+
+>> Kyle Simpson: The meaning
+>> Kyle Simpson: Of life. You can do it multi-line like that, okay? Well, believe
+

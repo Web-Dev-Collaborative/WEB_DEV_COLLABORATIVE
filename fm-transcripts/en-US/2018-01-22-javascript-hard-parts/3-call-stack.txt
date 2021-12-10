@@ -1,0 +1,101 @@
+[00:00:00]
+>> Will Sentance: Okay, so at this point, we are already feeling, yeah, thank you so much. I could tell straightaway that calling multiplyBy2(4) is going to return an 8 into output. Why have I built all this for that? Well, because there's even more than what's going on behind the scenes here that we need to know.
+
+[00:00:19]
+Those are the heart bits follow more easily. It's known as our, well, what? What is the way we got these execution contexts being created? One here, this one we said closed. Actually now, this one we said closed. And already, I'm kinda struggling to keep track of it, am I in the global one?
+
+[00:00:39]
+Am I in this? What if I ran another function inside of multiplyBy2? What if I ran multiplyBy2 recursively? Inside of here I ran multiplyBy2 and then inside of that I run multiplyBy2. How am I gonna keep track of all these where am I, in my execution? Which function am I being, am I inside at the moment?
+
+[00:00:58]
+How can I keep track of it? Griffin,
+>> Griffin: Is it the state?
+>> Will Sentance: State, Ameen?
+>> Amin: Call stack.
+>> Will Sentance: Call stack, Ameen is spot on. It's called the call stack, call stack, there it is. And it's a special data structure. That just means a way of storing information, of storing data.
+
+[00:01:22]
+Special data structure that allows us to track where am I currently? Where is JavaScript currently? Where is the thread of execution currently in my code? Am I running through line one, line two, line three? Global land, global execution context, am I running inside of a call to multiplyBy2?
+
+[00:01:45]
+The first one, or the second, okay? So it keeps track of it. What does it add immediately when it starts running my code? What's the first execution context on my call stack? Art? Dave, what's the first one of my call stack? Which one do we start in, Art?
+
+[00:02:06]
+Where do we start in our code? Griffin?
+>> Griffin: Global.
+>> Will Sentance: Global, so that's the very first one we add is our global execution context, okay? Now, Shellby, I hit the line multiplyBy2(4), what happens to my call stack do you think Shellby at that point?
+>> Shelby: It goes to local?
+
+[00:02:30]
+
+>> Will Sentance: It goes to local, so what does that mean, Ameen, in terms of my actual call stack? So we said when we entered, we added global to the call stack. Let me just tell you what that means. Whatever is top of the call stack is where JavaScript thread, where is currently is running my code.
+
+[00:02:50]
+Whatever is top, so JavaScript never has to worry where am I. Where am I in the code right now? Whatever is top of the call stack, that's where I am. And a stack is a very good way of storing this, because when I start calling multiplyBy2(4), I add it to the top of the call stack.
+
+[00:03:12]
+And the stack is a data structure of the format, the last thing you put into it is the first thing you take out of it. So when I add multiplyBy2 on to top of global, that means I've started running multiplyBy2. When I finish running multiplyBy2, I close that execution context, I go back to global.
+
+[00:03:35]
+What happens to my multiplyBy2 on top of the call stack, Andrea?
+>> Andrea: It goes away.
+>> Will Sentance: It goes away because it was the last thing that was put in. So it's the first thing that gets taken out. So this is a great format for tracking our execution context and where we are in our code.
+
+[00:03:53]
+Because as soon as I start writing a function, I go inside. When I finish it I close that one out. So I created then it's inevitably the next one I take off. The next one I remove. So last in, first out. It's a stack of calls to functions.
+
+[00:04:08]
+Starts global and then we add multiplyBy2(4). And what's the posh name for adding to a stack? Who knows what the fancy, technical name for adding to a stack is? Andrew? Anyone know?
+>> Clara: Pushing.
+>> Will Sentance: Pushing, Clara is right. We push onto the stack and now we're inside multiplyBy2.
+
+[00:04:28]
+When I finish executing multiplyBy2 and I return that, how do I know I've finished executing a function?
+>> Clara: Return.
+>> Will Sentance: Return, what if it doesn't say return, just a closing curly brace? Means implicit return. An implicit return defaults to returning what? If I don't write the word return, what do I default to, Mohammad?
+
+[00:04:46]
+
+>> Mohammad: The variable?
+>> Will Sentance: What's the default, Griffin, return value of a function if I don't return something explicitly? Clara?
+>> Clara: Undefined?
+>> Will Sentance: Undefined, correct. Exactly, so out I come, and this execution context gets removed, erased, deleted. So it gets taken off the call stack, and we go back to global.
+
+[00:05:11]
+And what's the posh term for being taken off a call stack? Remove from a stack, Clara?
+>> Clara: Popping.
+>> Will Sentance: Popping, I popped the call to multiplyBy2 off the call stack, and where do I go? Where do I go next? We may think, Griffin, I asked you, we finished running multiplyBy2, we go back into global, but JavaScript doesn't know that by default.
+
+[00:05:32]
+It only knows that because, look at that, it got rid of the call to multiplyBy2, and where did it go back to? What's at the top of the call stack now?
+>> Speaker 8: Global.
+>> Will Sentance: Global. So now, let's go back there. But wait, the next line says, spin up a new execution context, because the parens, the parens say make execution context So at this point, what's gonna happen to my call stack, Dave?
+
+[00:05:54]
+
+>> Dave: The local is gonna go to the top of the call stack.
+>> Will Sentance: Very good job, Dave, very nice. I'm gonna add the execution called as the call to multiplyBy2(10) to my call stack. There it is, top of the call stack. All right, then I finish running the call to multiplyBy2.
+
+[00:06:13]
+Matthew, what happens to my call stack? I've finished running multiplyBy2(10). What happens to my call stack?
+>> Matthew: Local is removed, global is-
+>> Will Sentance: It's left, and it's therefore top of the call stack.
+>> Matthew: Right.
+>> Will Sentance: And therefore we know that is where our code is now running. Okay folk, when you execute a function, you create a new execution context, it comprises the thread.
+
+[00:06:40]
+We go through the code inside the function line by line by line by line. And a local memory where anything defined inside the function is stored there, not in global. Anything defined inside the function, do we still result in global? No, we stored it in the local memory.
+
+[00:07:00]
+By the way we stored in the local memory because the call to multiplyBy2, that execution context was top of the call stack, perfect. This top of the call stack means that's where my thread is, and that's where I'm storing myself in memory. Top of the call stack means everything, and when we finish running multiplyBy2(4), we jump back out into global, and we pop off the call to multiplyBy2 from the stack.
+
+[00:07:27]
+Okay, this call stack let's us keep track of all these execution contexts. We have the global one to start, this little baby one here for the running of multiplyBy2, then we have another, then we go back to global. Then we do another little baby one here for running multiplyBy2 again, okay?
+
+[00:07:43]
+This local memory by the way has a very fancy name. Does anyone what the fancy name for the local memory is? Shelby?
+>> Will Sentance: I mean, it's only a knowledge question. You do know this. It's called a variable environment. I like that name, I guess, because it's like the environment of available variants.
+
+[00:08:04]
+Sort of, the environment is the stuff around you. It's the available variables around you, it's the available data. This is live data stored in memory. Sitting there, live in memory, stored inside the running and multiplyBy2.
+

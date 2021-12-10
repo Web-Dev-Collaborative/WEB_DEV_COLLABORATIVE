@@ -1,0 +1,72 @@
+[00:00:00]
+>> We want to start making that grid of information of all of the food right below it, right? We wanna have access to all of that stuff. And right now it's just in that view store. Remember when we looked at the oops. When we looked at the dev tools before, we had, There's food data.
+
+[00:00:26]
+Inside the food data, we have an array. So the array has three things inside of it. It's got an object with delivery time, free delivery. So the first level of this is just stuff about the restaurant. Taco about eating tacos and we have an ID for that restaurant.
+
+[00:00:44]
+But inside of that, we have a menu and in that menu we have a few different things. We have tortilla, we have a taco, of course we have taco. We have quesadilla and we have burrito and each one of these have their own ID too. So what we're gonna do is we're gonna loop through all of that information.
+
+[00:01:07]
+And first we're gonna make sure we're going through all of the restaurants. And then we're gonna make sure we're going through all of the menu items as well. So let's go back to our app. I'm gonna make a new component that I'm gonna call AppRestaurantInfo.view and put that in components.
+
+[00:01:30]
+I say vBase. You might have guessed what our first step is here. Let's go back to our to do list. We've now created our masthead and our index page. So now we're gonna create a grid from the store data. So okay, so we create an app.restaurantinfo.viewpage. You might have guessed the first step here.
+
+[00:01:56]
+The first step here is to use map state, so go grab food data. So that we have access to all of the food data that we're using, right. And I'm gonna put this in a section instead of a div, and I'm gonna give it a class of restaurant info because I'm gonna use that to kind of style it up.
+
+[00:02:19]
+And again I've made a lot of these styles for us today. I've made a lot of these styles for us today but you could see how you might plug in to classes and things like that. So the first thing that we're gonna do is make a div that we can v-for through.
+
+[00:02:33]
+So we're gonna say div v-for, we're gonna say store in food data. And then the next thing we do is the key and remember that each store had an ID. So we're gonna use that unique ID to be our key and unique IDs are the best thing that you can use for keys because we're really trying to make sure that they're unique.
+
+[00:02:55]
+So the next thing that we wanna do is we want to put output the name of the store. So we've got store.name here. Then we've got store.deliveryTime. Oops. And I probably need to tell them that that's fine. It is right deliveryTime here. Make that look more human than JavaScripty.
+
+[00:03:25]
+We've got another one that is gonna be the ratings. So store.rating. So we've got reading. And then the next thing that we have is a free delivery we got like a little label if it has a free delivery it has this like free delivery label. So instead of outputting that what we're gonna do is we're gonna use a PVF.
+
+[00:03:50]
+So we're gonna say p v-if Store.freeDelivery and then class is label. Inside there we're gonna put a spam tag and say, free delivery. All right, we just did some stuff so let's go check out where we're at. We didn't put it on the page, I feel like that's gonna be a theme today.
+
+[00:04:19]
+Let's go add this to the index j.s. So I'm gonna say vimport export, app Restaurant info. And then we can remove this and we see app@restaurant info, we're gonna add this beneath the header, app. Restaurant info. Now let's go back. Cool. What we have outputted now is stuff from the store.
+
+[00:04:53]
+We're saying talk about eating tacos, or real pizza work and all that in dimsum. And we have information that's particular to this restaurant. Now we're gonna make a new div and kind of loop through all of the items so that we can output those in a row as well.
+
+[00:05:10]
+So we'll go back to our VS code and we'll go back to restaurant info. And what we're gonna say now, I'm gonna make a little bit of a break here. And I'm gonna say div class row, which is what we need for it to layout and align that with some CSS I wrote before and then we're gonna say, div v-for menuitem in store.menu.
+
+[00:05:42]
+Because I wanna be explicit that that's now what I'm looping through right is the menu item before I was looping in the store. So that's why I didn't use item in store because I wanna be really explicit to the person coming after me. That that's what I'm doing.
+
+[00:05:56]
+So I say key menuItem.id. Remember we had unique IDs for each one of these. I'm gonna put these on the next row. Stop cancel. And then this here, I also want a class of items. And then we also want to add a bounce style of a background. So I'm gonna write it without the template literal first cuz that's just how my brain works.
+
+[00:06:32]
+But you don't have to write it that way. So, background URL and then it will be like menu Item.image and then it will be like no-repeat center center. Now I'm gonna put it in back clicks, and I'm going to make this passed through the template literal. I think that should be right.
+
+[00:07:02]
+Let's go look. Yay. Okay, now we've got images on here. And then the next thing that we wanna do is we wanna make a little card beneath it with all of the other information here. So the next thing that we wanna do is we wanna go into this div cuz we're looping through inside of this div, and we're gonna say div.Iteminfo, that's the card.
+
+[00:07:26]
+And then we're gonna put inside one div, this piece that has information about the thing on one side. So we're gonna say menuItem.item, and then we've got the price which will be a P. So we'll do menuItem.price, tand then we're also gonna have a button next to it and this item info knows that this is going to be display flex with things pushed to either side.
+
+[00:08:02]
+I'm going to say button class ghost. And we're gonna say view item. We're not gonna link those quite yet. We will in the next section. So let's check it out. Did it work? Yay. We've got tacos, we've got quesadilla, we've got burritos, we've got pizzas. We've got dim sum I'm getting hungry.
+
+[00:08:25]
+[LAUGH] You might notice something that needs a little fixing. It is this piece, right? We've got a taco for 3.45. And that looks okay, but there's no dollar sign and the quesadilla is just like seven. I'm just seven. So we probably want to put like the same kind of toFixed2-ing on each one of these.
+
+[00:08:48]
+Like I mentioned in the last course, I'm not actually gonna use a computed property for this, because I want it to be flexible. I wanna be able to pipe in menuItem.price to each one of them. So I'm gonna say methods, Price formatting and I'm gonna pass in item.
+
+[00:09:13]
+I'm gonna return a $ plus item.toFixed2. And what that will do is make sure that there's two number spaces after a decimal. And I'm gonna make sure that this is called here. So price formatting, pass in menuItem.Price. So if we go back now we can see our beautiful $7 is not just like seven won't.
+
+[00:09:46]
+We have these nicely formatted dollar signs in all of our view items.
+

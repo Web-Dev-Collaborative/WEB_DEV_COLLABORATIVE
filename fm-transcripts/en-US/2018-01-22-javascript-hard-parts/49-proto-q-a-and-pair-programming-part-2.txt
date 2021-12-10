@@ -1,0 +1,95 @@
+[00:00:00]
+>> Will Sentance: All right, let's have thumbs. This is solution two, and by the way, solution three and four, they are only gonna do this stuff. We're gonna see some fancy keywords that you all have heard of and probably tried to use, and use effectively maybe. But those fancy keywords, they're all just gonna take some of these lines that we've handwritten here, and automate them for us.
+
+[00:00:21]
+That's they're gonna do. We have seen here the essence of how OOP is implemented in JavaScript. Using this special prototypo _proto_bond to an object above that JavaScript knows to go and look at, when it hits an object property that ain't there on the object directly. It knows to go check through its prototypal feature, it's prototypal nature.
+
+[00:00:49]
+
+>> Speaker 2: I was kinda wondering if you can have multiple prototypes.
+>> Will Sentance: Great question, so you you're sort of saying could I parse in these function store and then At's function store No you cannot. You can only have one direct parent but, of course, you could then have another parent of that object and another parent of that object.
+
+[00:01:14]
+And you can have multiple different children of different types coming from the same parent that is known as subclassing. We're not gonna cover that today. There is talk I have on that. Maybe one day we'll do it for the Masters. It does sub classing in all of OOP.
+
+[00:01:31]
+It is a brutal talk. There's no way we're gonna do it right now. Because, we are more than doing enough with pure OOP here. But, yes you not have multiple but you can have multiple hierarchically up and they can have multiple descendants out. One can only have one parent, okay, Andrew?
+
+[00:01:51]
+
+>> Andrew: So does it only create the prototype, like that, if you use the object create?
+>> Will Sentance: That's not the only way we can make that bond. Actually, all objects have some automatic bonds. At the top of the chain, so above userFunctionStore, userFunctionStore also has. I don't want to get into this too much, Andrew, but it's a little preview also has a proto bond on it.
+
+[00:02:16]
+Which points up to JavaScript's, for this one, default object. Which has a whole bunch of shared functions of it's own. Things like get prototype of all the functions you could ever call on an object. JavaScript dog foods it's own functionality, it uses it's own built in prototype chain to let.
+
+[00:02:36]
+When you do an array.push, that push is actually stored on any array that gets created it has it's own parent which is all the bonus functionality that we can use on arrays. So when you do an array.push, array is an array. Well that guy here has his own because really an array is just actually an object, has its own proto bond, to the array object, that has all of the shared functionality that all arrays have.
+
+[00:03:14]
+Push, pop, all of these. I won't go into that too much but Andrew, as a preview there, all of these objects have a proto bond by default. What we're really doing here is inserting our own in the way. So there's a default one here which is all objects proto is just the overall object, which has on it's own a bunch of properties like, get prototype of all of these functions can be used on all objects.
+
+[00:03:41]
+Because they are all available up the prototype chain. But we are just inserting ourselves in the way here, to set our own user functions in the entrance, so we check that first. Does that make sense, |I don't want that too much if your mind. I don't wanna go in too much if you don't mind.
+
+[00:04:01]
+But just know that every object has an underscore proto. Underscore is just that we're overriding the standard one here, with our own set of shared functions. All of our objects that were created by user creator have access to, okay, Andrew? There's more clarifications, Katie?
+>> Katie: I'm clarified now.
+
+[00:04:21]
+
+>> Will Sentance: You are, there we go. Griffin first, Griffin first.
+>> Griffin: You says like it's overriding the object one, you can still get to the object, right?
+>> Will Sentance: Because we're overriding it with an object which who's object prototype is?
+>> Griffin: Is-
+>> Will Sentance: The main one yeah, exactly, so it's a chain all the way up.
+
+[00:04:38]
+
+>> Griffin: Okay.
+>> Will Sentance: Great clarification, Griffin, Dave?
+>> Dave: That second line up there, that let new user = object.create user-
+>> Will Sentance: Yeah.
+>> Dave: How do you say that in English-
+>> Will Sentance: What's the right kind of communication?
+>> Dave: Yeah.
+>> Will Sentance: We are declaring. Okay, very nice. I like that question, Dave.
+
+[00:04:51]
+Very thoughtful question. We are declaring an object. We're declaring new user and assigning to it, an empty object with the prototype of it being user function store. Now again, I hate this with the prototype okay, I wish we said with the _proto_ of it being. But _proto_ is the label we give to.
+
+[00:05:18]
+The prototype, we call whatever is here the prototype of this object, but it's not stored in a property called the prototype, it's stored in a property called _proto_. It is what it is but it causes a humongous amount of confusion. I'm gonna see why in a moment, but there is a property called, prototype, and it ain't this one, and it ain't behaving the way this one is behaving.
+
+[00:05:41]
+That's why I don't like the fact we call this guy the prototype of this object, because it's stored in _proto_. It's the _proto_, so I just say it's the object that's one step up the prototype chain. Not exactly a catchy phrase. If you wanted to say that, you could say declare new user, assign to an empty object.
+
+[00:05:58]
+We've view the function store says as the object that's one step up the prototype chain. If you wanna be super intuitive. But the typical ways, we've use the function store as new users prototype. Okay, ask the question, Dave.
+>> Dave: Yeah.
+>> Will Sentance: You wanna try again?
+>> Dave: The distinction between prototype and inherit from-
+
+[00:06:19]
+
+>> Will Sentance: In JavaScript, by the way, I actually wrote a little note to myself when I first started giving this talk. I hate the word inherit, describing what we're doing here. Does inherit make it feel like you've actually copied down the functionality on to the object? It does to me a bit.
+
+[00:06:35]
+This here, increment, so user1 inherits from userFunctionStore, when we say inherit in JavaScript, that is all we mean. Now are we copying those functions down to user1? No, inheritance is a weird ass word to use for this process. What actually happens is when we run User1 with a function reference on it that isn't in user1, we check it's proto, _proto_, where we find this other object, use function store.
+
+[00:07:06]
+And we look up to it and go, there's an increment function there. Now does that mean in a sense that user1 inherits increment function? I guess it feels like it does but that is not being copied down, JavaScript at the run time is going to look up at that stuff and finds it there.
+
+[00:07:26]
+But when you hear people saying user1 inherited increment, that's exactly what it's saying, okay? So we're gonna do another block of pairing, just to cement some of these stuff, and in a moment after that we're gonna come back and say you know what? All this writing, object.create, new user, return new user.
+
+[00:07:44]
+We're gonna automate it all away, with the insertion of a magic key word. What's that magic key word do we think?
+>> Dave: Prototype.
+>> Will Sentance: No. [LAUGH]
+>> Dave: [LAUGH]
+>> Will Sentance: Give me three letters, new, exactly. That's gonna automate a tonne of all these work for us. That work of creating an object, but when it gets returned out give it a label get somehow a special secret bond to the shared store of functions.
+
+[00:08:14]
+We're gonna automate so much of these with the keyword new. But for now folk back to the challenges.
+

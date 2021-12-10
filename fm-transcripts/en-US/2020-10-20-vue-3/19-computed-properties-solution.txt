@@ -1,0 +1,30 @@
+[00:00:00]
+>> All right, we have our exercise. We had our little form here. We have our blog posts. So what we wanted to do was create a form with @submit.prevent instead of putting them on the button, so we have the button type as submit. We have this form, we have some v models, have new title, new author, new label, and then we had add a new label here.
+
+[00:00:26]
+And instead of, we had it hard coded before all of these different labels, it's totally okay if you left it like that. But what I did instead was I moved this over into categories in here, so that I could go option v4 category in categories, in case more categories showed up.
+
+[00:00:45]
+In case I have, you know, it kind of allows it to be a little bit more flexible, but if you left it totally good. So we have this selected. We also have all of these posts in here. We have newTitle, newAuthor and newLabel. As I'm typing here, and I say like, tacos and sdrizzle, like I did before.
+
+[00:01:13]
+And then adding a label, that's not science, we add a new blog post that gets appended to the end. And then we also, so here's the methods for adding a post right. We have the form that's submitting this add post. For added posts, we have this .newAuthor, this .newLabel.
+
+[00:01:35]
+If you did destructuring here, that's awesome. I'm staying away from that a little bit just to keep things clear for people who are at different levels. So we've got our author, we're gonna push it on to the added post. And we're gonna clear out newTitle, newAuthor, newLabel. We are also gonna do filteredByLabel.
+
+[00:01:56]
+And this filteredByLabel is very, very similar to that last Netflix rating table that we saw before. We're gonna make sure that we aren't case sensitive here so we're doing a little regex check. And then we're gonna filter, and see if they matched, and that's what we're gonna show.
+
+[00:02:14]
+But we also have to take this computed property and we need to use it to loop through in here. So instead of looping through posts, we are looping through filteredByLabel. And again here maybe you can see that magic of I didn't have to change post in posts. I didn't have to change the post part.
+
+[00:02:39]
+I can just simply replace the filteredByLabel from the computer property. And now it's filtering all of those. So you're able to push that on to that array. And then you're able to also filter the label. Also, I wanted to show you this example that I made a few years back.
+
+[00:02:58]
+I used to work for Azure and there were a bunch of people speaking at different events that year. So I made it so that you could filter by name. And then you could say Abel, who's awesome. You should definitely follow him on Twitter and Burke and things. But you can see how fast that big table of info, this is actually a pretty large table and it's filtering so quickly because we're using that same concept.
+
+[00:03:22]
+And this is all open source if you want to check out the for it.
+

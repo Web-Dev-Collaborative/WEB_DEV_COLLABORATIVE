@@ -1,0 +1,13 @@
+[00:00:00]
+>> Scott Moss: If you run the test on this, if you check out to this branch less than three, and you run the test, the tests are gonna hang. Just like the stuff hung when you wrote the code. We see right now it's failing, it's hitting Moca's time out limit of ten seconds and it's just failing, right?
+
+[00:00:13]
+So your objective is to get these tests to one, not only not hang, but two, if you can get them to pass, that'd be great too, so try to do that. The command for that is MPM test or yarn test, you should be able to run those pretty easily.
+
+[00:00:29]
+You can also, if you're using yarn you could do --watch. If you're running MPM you gotta do --space--watch and then, you could watch them. It's pretty fast. The test had to compile in Webpack, so it could take a minute, but it's still pretty fast. So I'm gonna go to the exact challenge is what we're doing.
+
+[00:00:49]
+So basically right here, complete controllers on query.js.
+>> Scott Moss: Get the route api specs to pass. They're probably hanging right now. And ignore the model specs. There will be some other tests in here that are failing that has to do with models, ignore those. Don't even care about those.
+

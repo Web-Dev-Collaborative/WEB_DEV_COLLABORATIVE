@@ -1,0 +1,27 @@
+[00:00:00]
+>> So we have the index.view that we went over before. As you might assume, we have a layout.view with an app menu. In our app menu, since we're not doing anything in the app, there's no kind of script stuff going on, it really lays out the same way that it would for a typical view app, an options API app, so nothing new there.
+
+[00:00:26]
+We're pointing to tacofriends. And we have tacofriends.view as our page. So we have this main, we have our tacofriends, and all of this is kind of options API, or not options API, but the directives that you're used to from before. So we've got at click, alertunit. We've got v-for friend in friends, and key is friend.
+
+[00:00:53]
+Now if we go into the TypeScript section, you can see we have that define component. I'm showing you with reactive but like I said, you could have used ref. Because I'm using reactive, I'm going to also use two refs so that I can pass that in and say, state, and not have to say state dot, state dot.
+
+[00:01:13]
+Here inside the state, for reactive, we have list of friends and it's the Sarah likes all tacos, Brian Holt, making fun of Brian Holt, And Shirley, because I love them. Then we have this function called alert unit. And something you might have gotten caught on. I'm not sure if you're familiar with TypeScript is, that this e does need to have a type of property.
+
+[00:01:37]
+So like, if you're familiar working with TypeScript, you will probably use the correct designation here and say, string. But I show with any here, because just in case you're not familiar with TypeScript and you don't want to dive into all of TypeScript, there is a really great TypeScript course on front in masters.
+
+[00:01:56]
+Then use any, for right now, and in the future, this will upgrade so that you don't have to pass a type or use TypeScript. So we're gonna alert e.target.textContent. This is something that hangs off of that target. There's a number of ways we could have done this, right?
+
+[00:02:16]
+We could have actually stored an empty string inside of reactive or refs, and then had that click events pass through, and hold that, and alerted that instead. So if that's what you did, that's totally correct as well. We did that in the game. We also did something like it in the app.
+
+[00:02:35]
+So I'm just showing you another way of working here, but both are valid. And here, of course, this like special composition API thing of needing to pass the reactive state. So we're passing in the state to ref state, and then we're also passing in alert unit. So any kind of functions that we declare or something like that will also be passed in the return.
+
+[00:02:59]
+And again, that return statement is very explicit. It tells any person who comes along later. That is exactly what we're returning here, and that is what you can compose with. So there we have it. We have our app with our, Sarah likes all tacos, and then in home, we have our watch effect.
+

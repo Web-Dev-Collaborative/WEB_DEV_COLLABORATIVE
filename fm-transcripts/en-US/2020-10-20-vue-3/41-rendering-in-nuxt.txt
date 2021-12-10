@@ -1,0 +1,21 @@
+[00:00:00]
+>> So here's an example of bringing in a style sheet. We are gonna load that into the meta, which is the head. And if we wanted to bring in global CSS, I mentioned that array inside the next config we'd say assets normalize, assets main.js, may not CSS, I typically put them in assets.
+
+[00:00:20]
+We're gonna move over to rendering and explaining what rendering is in Nuxt. So, I mentioned that everything is server side rendering and you might have heard of the term hydration before. And we're gonna go over what hydration is so that you can understand what that is in terms of of Nuxt.
+
+[00:00:45]
+It can speed up performance to initially serve raw HTML and CSS. We can do this by server side rendering an app and delivering it statically,. After it's been served vue needs to take over the elements that are dynamic. This is called hydration. Since the market has been rendered, we don't throw that away and recreate it.
+
+[00:01:10]
+Instead, we want to hydrate the DOM and make just the pieces that are interactive. So here the button can now respond to changes and we can now add to the cart. So hydration, lets us deliver fast and secure sites and still have a reactive UI. So that's one thing that Nuxt does under the hood to let us work with things really fast.
+
+[00:01:33]
+So let's get a little bit fancier. I mentioned that we could create an entire store and in fact, I made an entire store. And this is all done with Nuxt. I'm not gonna go through every single piece of this, but this is a resource that's available to you if you'd like to see how a store in Nuxt would be created and how we might make dynamic routes.
+
+[00:01:53]
+All of these items are coming in from a piece of a big manifest and we're creating every single item dynamically with Nuxt as well. And also this cart once we start putting things inside of the cart and adding things and picking a size and adding to the cart.
+
+[00:02:14]
+You can actually, it's actually wired up with surveilance functions that go to stripe. So you can see how you would use an application like this that was built with Nuxt in the ways that you just saw and also how we would work with that with stripe to actually make transactions.
+

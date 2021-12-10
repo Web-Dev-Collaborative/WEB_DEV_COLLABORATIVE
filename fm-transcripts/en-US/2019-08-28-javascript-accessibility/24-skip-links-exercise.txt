@@ -1,0 +1,28 @@
+[00:00:00]
+>> Marcy Sutton: You can choose how you wanna work on this. So you can play around with that onRouteUpdate method in Gatsby and play with it in React. I think success would just look like handling focus somehow. It's up for exploration and playing around. I also have a vanilla.js version here that, because the routing in Gatsby is kinda hidden away from you, I think it can conceptually be a little bit harder to follow what's happening.
+
+[00:00:30]
+So I added this little sandbox that I'm using to debug Gatsby itself, actually.
+>> Marcy Sutton: This little routing prototype, you just can switch between these two routes. It's pretty rudimentary, but it gives you all of the scripts over here for actually rendering the page. So this is like what a JavaScript framework is doing under the hood, is replacing what's on the screen.
+
+[00:00:56]
+And so, this gives us a little more handles to go in and play with focus handling. So I've added a marker where you can go and play with focus. So let's experiment with, as you're changing routes, where focus goes. And make sure that you test it with not just the mouse, but play with the keyboard and see where your focus is.
+
+[00:01:18]
+And I guess the the one last thing I will mention that's different between the two versions is that in this prototype, it's just got the browser default focus. In the Gatsby version, I'm using focus visible, which I'm going to actually show you where that is hooked up. So there's a layout CSS file in that site chrome directory, just if you're curious, that's where I'm handling to specify what the focus should be doing.
+
+[00:01:49]
+So this is doing this for keyboard users. And I believe that in the layout.js file, which is also in this directory, that's just where I'm importing this. I didn't really cover that earlier, so just in case you're curious. So yeah, let's break for 10 minutes or so, and we'll play with routing.
+
+[00:02:09]
+
+>> Speaker 2: Is that JS focus visible class for the poly fill?
+>> Marcy Sutton: Yeah, so that's for a poly fill. Eventually, wouldn't need that, hopefully. [LAUGH] See how long that takes. So yeah, this import is purely just for the poly fill purpose. And then, if I go out to the layout CSS, there is some poly fill remnants here of it adds a js focus visible class to the body, and that's how i can safely use this.
+
+[00:02:38]
+What I wanna avoid is if the poly fill isn't there and it's not supported, I don't want to turn focus off for everyone. That's what I want to avoid, and that's why the poly fill's important.
+>> Marcy Sutton: So yeah, those are the differences between the code pen and the Gatsby version.
+
+[00:02:57]
+So let's go for it.
+

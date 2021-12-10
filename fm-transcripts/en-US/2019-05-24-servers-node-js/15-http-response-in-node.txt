@@ -1,0 +1,95 @@
+[00:00:00]
+>> Will Sentance: Now in the message arrived, nodes done all of its nice setup filled in these very quickly fill them in. Now it better start running that function because we didn't do the set up to try and have to write C++ code to interpret these messages. We wanna have these messages available to us up here.
+
+[00:00:20]
+We don't actually get them directly. We get one of them stored all this data on an object, and the other one, a bunch of functions that will give us access to.
+>> Will Sentance: When they're run, update this data on the response message. So how do we get access to these?
+
+[00:00:36]
+They're auto-inserted into the auto run function. So let's get auto running up function. We are gonna run the function which has what name on it?
+>> Student1: Do on incoming.
+>> Will Sentance: Do on incoming and I should actually show you my green pen is gonna represent time. This is like a day later, that this request came in after we set up this code.
+
+[00:01:00]
+It has just been running there for a day with nothing, just waiting. This is like a day later. One day, later. Here we go. Very precise, very precise. All right, one day later. What gets run it's doOn Incoming. I'm gonna write its name. You can do this in black or purple.
+
+[00:01:27]
+I certainly know the peren, the running of it is purple, because that's added, it's being executed by node. So, everybody, we as it to function as you know, Sarah rose I thought executing a function I create a brand new,
+>> Sarah Rose: Execution.
+>> Will Sentance: Fantastic, everyone together a brand new execution contest.
+
+[00:01:48]
+Everyone in online like to shower backpack online, I think very funny. No, its execution context online audience. Here's one of the key words parentheses return. JavaScript doesn't do much stuff so you have to say the same words again and again. Everyone's do an incoming. It's got a local memory, local memory.
+
+[00:02:11]
+Everything in purple is all being done by node. It's a day later we didn't sit there waiting to run this code for a day. Come in, run the code. No, no, no. We rely on no to do it. And it has got two parts. Here'r our inserted arguments, the first one is this one, the second one is this one.
+
+[00:02:29]
+For once just because I wanna leave this is a nice record for all of us who were repairing. I'm actually gonna put them in up here. So you can see, I'm actually stored or being inserted. I can hear whispering. For sure I knew it. [LAUGH] And this is a object full of functions like end and right.
+
+[00:02:57]
+Okay, there they are, and they get inserted. They don't get any names, so how do we use them? What word allows us, what thing in JavaScript allows us to prepare variable names without data and rely on when we run code inserting the data? What are they know as?
+
+[00:03:16]
+
+>> Class: Parameters.
+>> Will Sentance: Parameters, exactly. Place holder parameters, spot on, exactly. I call them place holder, they call them parameters. The first one here is, everyone together.
+>> Class: Incoming data.
+>> Will Sentance: Incoming data and the second one here is?
+>> Class: [CROSSTALK]
+>> Will Sentance: My very long semantic, which means, semantic means they have meaning in their words.
+
+[00:03:39]
+Semantic style parameter names, so we can't ever lose track of what they're doing. And everyone getting tired of this at this point. Yes, but man, isn't it fun? There we go, URL and method. I'm being extra precise this time so we have a nice record on the white board of exactly, no confusion, no hard to read stuff and write, there they are and there's a bunch of other functions in there.
+
+[00:04:10]
+And then the data slash tweets slash three and get. Lot of progress made here. Lot of progress. And so now we're gonna go into our function being executed, do an incoming. We're in there. We've inserted our data. Now we're going to investigate this object which has what label?
+
+[00:04:42]
+Incoming data. And we're gonna use functions on this object which has what label?
+>> Class: Functions of [INAUDIBLE].
+>> Will Sentance: And runs one of those functions to set the data send back. Which we're gonna do, depending on what is in this incoming data object. So let's see what it says.
+
+[00:05:01]
+Let's get going, people. So, we're into doing incoming. Next line, Roman, left hand side, says to do what?
+>> Roman: Declare tweetNeeded?
+>> Will Sentance: Yep, exactly, tweetNeeded. And I'm just gonna expand this execution context space so we can really spread ourselves out here. TweetNeeded ig going to be whatever incoming data.url.slice(8).
+
+[00:05:28]
+So incoming data.url is what? Sam.
+>> Sam: Slash tweets slash three.
+>> Will Sentance: Slash tweets slash three. Fantastic, that's that portion here. Slice is a billion jobs a method that allows us in JavaScript to grab, well, whenever we pass it is the character zero indexed,
+>> Will Sentance: Zero indexed. Our own words that we're gonna grab the characters.
+
+[00:05:59]
+So if it's 3, if it's 35, whatever we're gonna grab that. That final character after position 8. So slice of tweets slash 3 gives us out the number, 3. 3- 1 is 2, and so we're gonna start in tweetNeeded we gonna need tweet 2. We take one off it because, one, two, three.
+
+[00:06:23]
+The third tweet is at position index too because JavaScript is a zero index as zero index erased. I mean the first index, the first position is number zero, 0th, 1th, 2th. Okay, now we're gonna use that to get tweets. Tweet needed number 2, which is what Michael which string?
+
+[00:06:42]
+Tweets.
+>> Class: Hello.
+>> Will Sentance: Hello. Fantastic, okay and so we're gonna do, functionsToSend. OutgoingData, which function, Sam, do we need off that object in order to access and set our outbound data?
+>> Class: End.
+>> Will Sentance: End, and we're gonna pause to it. Position tweetNeeded, which is 2, which is 0, 1, 2, which is Hello.
+
+[00:07:12]
+And end doesn't do anything in JavaScript really, instead it's going to end node set outbound http message data and add to it the tweet.
+>> Will Sentance: Hello, and then we're gonna rely on UV to grab this message, n says to node don't worry. We're done with the message, here's the data.
+
+[00:07:45]
+Send it back. Will it fit in? That's not a thing, [LAUGH] obviously. It fits in and out it comes I am joking, obviously that is the other thing. Okay, Erica, I wish comes back as the response message to Michael's Mac and there he gets Hello. The exact tweet he needed.
+
+[00:08:09]
+We introspect did the inbound messages, representation in a note in a JavaScript object form, grab the URL specifically we needed discover we need a tweet number 3, which was index number 2, grabbed hello and attached using the other auto inserted object that one that gives us access to the response message.
+
+[00:08:32]
+HTTP message, and it added Hello to it, automatically sent back. So this is a full server. Everything else now that LinkedIn does, that Uber Eats, the Twitter Lite, that Netflix does with Node is just this, but maybe we're being a little more sophisticated about how we're sending the data back and forth between the computer's internal features and JavaScript.
+
+[00:09:04]
+Maybe we're being a little more sophisticated about which properties we're grabbing from the incoming data object, maybe we're being a little more sophisticated about where we're getting our data to send back from probably not local JavaScript memory, little mini JavaScript data or maybe from the file system or from another computer, but it's all.
+
+[00:09:24]
+Look at this object. That's auto-created with properties. Look at the function, look at the object that's auto-inserted with the functions and let it set the outbound message again and again and again.
+

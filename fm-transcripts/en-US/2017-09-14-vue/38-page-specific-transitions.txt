@@ -1,0 +1,27 @@
+[00:00:00]
+>> Sarah Drasner: We can also make a page specific hooks. So sometimes, we want one page to transition out a certain way, and another one to transition in a different way. In that case, in our export default for that page, remember how our pages are just view files in that page's directory, we would write export default, and then, we would say transition, whatever.
+
+[00:00:21]
+Another name, and then, we have that name for the hook, instead. I could have the page bounced out like we had the ball bounced out, we shouldn't do that. But, [LAUGH] I'm just saying that that is a possibility, you could plug into animate.css stuff if you so desire.
+
+[00:00:39]
+So then, we have fadeOpacity-enter-active, fadeOpacity-leave-active. We can even scope it if we want to. We don't necessarily need to, because it's just applying to that page as it is. So there we go, and then, this one will fade instead. So the other ones are going like this, and then, that one in specific is going to use a different type of animation.
+
+[00:01:03]
+Page-specific JavaScript hooks, that's really where the good stuff is at in my mind. We have all of that goodness available to us. But the way that we're going to plug into it, is going to be the way that they have for us, like exactly on that export default.
+
+[00:01:25]
+So instead of writing a transition component, we're not actually wrapping things in a transition component. We're going to say transition, and then, we're going to say mode, out in. We're gonna say css false, we're gonna say beforeLeave, leave, beforeEnter, enter, and all these things so we can cancel all of those.
+
+[00:01:47]
+And these are all just available to us on each specific page, or in that default layouts. Remember, we had the default layouts area where we could designate things? So if we look at some of the code that it took to power that max transition page, we have a beforeEnter, that looks very similar to our beforeEnter from before.
+
+[00:02:09]
+We have enter, the el, and done. In this case, I'm using TweenMax, not timeline, so I can just say done, instead. And I can have a bunch of different code. Here, this is ridiculous, don't ever do this. I'm just showing you that a lot of things are possible here, [LAUGH].
+
+[00:02:28]
+It's sometimes fun to make dumb things for other people [LAUGH]. So I had some single elements in there. I can plug into single elements, as well. Probably good to use a refs, to use refs in this instance. So you could say this dot refs on the components. So if you're used to react, that's a really quick way of referring to that DOM element, but some of these libraries allow you to access that DOM node directly, and it's a little bit redundant.
+
+[00:02:58]
+So for green sock, I'm just plugging into that h1. And I can also plug into Lifecycle Hooks, like I did before, as well.
+

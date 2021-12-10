@@ -1,0 +1,92 @@
+[00:00:01]
+>> Kyle Simpson: Without any further ado I probably should have started off with this but, I'm Kyle Simpson, getify, known as getify online, you can follow me on Twitter if you're into that whole online stalking thing. Getify.me lists all the different places online. Essentially I'm getify everywhere, from Gmail, to everything else that you can imagine.
+
+[00:00:18]
+If there isn't a getify registered somewhere then that site just doesn't matter. I'm kidding of course.
+>> Group: [LAUGH]
+>> Kyle Simpson: But all the places that I can be found, I can be found under Getify. I will mention a couple of things. So, I said earlier that I teach for a living and that means that I'm available for teaching.
+
+[00:00:37]
+If you have an event, if you have company, an organization, a club, that would like to bring me in to teach something related to JavaScript, related to the language itself, I'd love to do that, so please feel free to reach out. I'm always looking for more opportunities to spread that.
+
+[00:00:52]
+I'm sort of a, so my self title, since I'm self employed, my own made up title is Open Web Evangelist. That's one of the best parts about being self employed is that you get to make up your own title, and it can be as fluffy as you want it to sound.
+
+[00:01:05]
+So open web evangelist, I just made up, and essentially what that is intended to imply is that my goal is to evangelize the open web platform to as many people as possible. And by evangelizing, that means both inspiring and teaching, and those goes hand-in-hand. I hope through the teaching it inspires you to learn more and do more with the web platform, and so those are sort of two sides of that same coin, if you will.
+
+[00:01:31]
+So open web platform and any of its associated technologies with a particular focus on JavaScript is what I spend most of my time trying to figure out. And I will fully disclose, that even with all of my experience, I don't know JavaScript. And that's why I called that book series that we'll talk about in a moment, I called it You Don't Know JS, because I think all of us are in various states of coming to terms with what we don't know, trying to figure out what we need to learn next.
+
+[00:01:56]
+So it's an ongoing process rather than a fixed point in time. So, in addition to being in classrooms and teaching corporate workshops or speaking at conferences of whatever, I do a fair amount of open source development. Most of my open source development these days is designed to aid in my teaching but I'll just quickly highlight a couple of projects.
+
+[00:02:16]
+So you can get a sense of the code that I try to write, and I open-source pretty much all the code that I write. So LABjs is a script loader, dynamic script loader for performance optimization. Purpose is it's just designed to replace the script tag with something that will load it more performantly and give you more control over the loading profile.
+
+[00:02:34]
+A lot of people think that script loading is sort of a dead or dying sort of technology. I predict that there are changes that are happening with the way our industry works right now. Script loaders are gonna have a renaissance, they're gonna make a comeback. And I'd say within the next 12 to 18 months you're gonna see more attention given to that topic than has been given over the last several years.
+
+[00:02:54]
+LABjs has been around for almost six years now, stable for four. That's its most important feature is that it hasn't changed cuz it hasn't needed to. Although it will, if these changes coming down the pike necessitate it. And it's been battle tested on the big sites like Twitter and Vimeo and Zappos and so forth.
+
+[00:03:11]
+So you can know and rely upon that technology. Grips is a templating engine. And actually the second half of the second day, when we get into shared JavaScript between client and server, and talk about that, when we get to that part of the course, we're gonna talk slightly more about grips.
+
+[00:03:30]
+But, it's a templating designed to approach this problem differently than what I've seen almost every other templating engine do, cuz most fall into two extreme categories, either it's all about no logic, zero logic like mustache, or it's all about a full programming language inside of the templating engine.
+
+[00:03:49]
+And both of those have significant drawbacks to them. And so, to try to address some of those drawbacks, I tried to ask, I think, a better set of questions about templating. I don't propose that grips is the best solution, that it's the right answer. But I think it's the right set of questions to be asking about what we should expect from templating.
+
+[00:04:09]
+How we should organize our approach to templating. And I am approaching that not only from the text and HTML sort of templating world, but I'm also approaching CSS pre-processing from the same perspective. So there is CSS preprocessing somewhat like less that's built into that whole concept. So if those are pain points that you've ever dealt with, you might check out grips.
+
+[00:04:28]
+Yeah.
+>> Speaker 3: Did you say you're gonna discuss that tomorrow?
+>> Kyle Simpson: We'll just briefly talk about it, cuz it is one of the technologies that we'll use in the demo tomorrow here. [COUGH]
+So even if you look at it and you hate the syntax or the actual approach that I took, I think those questions are the right questions.
+
+[00:04:45]
+How can we find the right balance between those two extremes? And finally asynquence, this won't be something we cover in this course, but I do have other courses that cover asynchronous programming. This is a little library that I built to weave together lots of asynchronous flow. Concerns, like promises, and generators, and higher-level patterns like reactive programming, and things like that, they're all sort of lightly woven into this little, a single library, instead of having to get lots of different libraries all paired together.
+
+[00:05:14]
+So that's just a quick summary of some of the stuff I work on. There's probably about two dozen projects that I've gotten up on GitHub in various states. I do a lot of conference speaking as well, so I'm not gonna talk at all about these conferences. But there's lots of videos, and other things, the slides are all up at my speaker deck.
+
+[00:05:36]
+There's also on my lanyard account, there's lots of Links to videos and audio recordings and things like that from these conference talks. So if you'd like to hear more about some of the stuff that I've talked about at conferences, there's probably two dozen different talks that I've given over the last six or seven years out there.
+
+[00:05:54]
+I've mentioned several times now, so we'll specifically talk about the You Don't Know JS book series. If you go to YouDontKnowJS.com, it redirects to the repo for the book series, cuz I'm writing all of these books in the open for free to freely read and access. And they are also being professionally edited and produced and published through O'Reilly, so you can purchase the e-book or print book form of the books if you prefer.
+
+[00:06:19]
+And I always appreciate that. But I encourage you to check out the content first to see if you like it. It's a series of books, six books in the series. Five of them are done, four and a half of them are on shelves. So the up and going one, the one that we're talking about, will literally be on shelves in the next few days.
+
+[00:06:36]
+It's already been off to the printers for a couple weeks. So five books done, the sixth book, which is talking about ES6, the new changes to the language and beyond. ES6 and Beyond is about 50 to 60% done. Of course, you can see it online, it's about 50, 60% done.
+
+[00:06:52]
+And I expect it to be on shelves, my goal is to have that on shelves around the middle of June, which coincides with the final ratification vote for approving ES6 from the Ecma committee. So hopefully this book will land at exactly that same period of time on shelves.
+
+[00:07:09]
+So that's the book series, the goal of this book series was to try to attack this mindset. And if you're just starting to learn, please don't adopt this habit. You will see lots of people in this industry that take the habit that all I need to do is learn just enough to get this one feature down so my boss is happy and then I don't go any further.
+
+[00:07:28]
+And I know we can chuckle about and say yes, but there is truth to this, that in our part of this industry that in the JavaScript world, there is a lot of that mindset that prevails. In fact our industry rewards that type of mindset. Just learn enough about this framework to get a feature done.
+
+[00:07:47]
+And that's when you get rewarded by bigger and bigger projects, and promotions at work, and better and better job titles, and things like that. And there isn't a built in reward for truly learning the thing, there's a built in reward for applying the thing. So my goal with the books, with the trainings, with everything I do basically as a career, is to try to provide or fill in that other side of the puzzle, to provide deep learning.
+
+[00:08:09]
+That's what these books are about, that's what the trainings are about. So if you were try to compare, for example, the You Don't Know JS book series to something more well known like Douglas Crockford's The Good Parts. I would say, essentially, by the way that's a great book I'm not knocking the book at all.
+
+[00:08:28]
+We owe a lot of our industry to the fact that that came out at a really critical time when JavaScript could have been forgotten. And Doug Crockford's a big reason why JavaScript survived and began to thrive. So all due to credit to it, but it also taught an entire generation, and now we've got a second whole generation of developers, at least, maybe more, that have come along with this perspective that You only need to know a little bit of language to be productive.
+
+[00:08:53]
+And my approach is the opposite. You need to know all the language. So, if you're looking for comparison instead of The Good Parts, You Don't Know JS is the opposite, it doesn't mean it's the bad parts, it's means it's all the parts. Looking at all the parts of Java Script and making proper use of those through real understanding.
+
+[00:09:10]
+Okay.
+

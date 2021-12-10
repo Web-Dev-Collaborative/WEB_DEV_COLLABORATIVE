@@ -1,0 +1,21 @@
+[00:00:00]
+>> Let's check out our solution. Okay, so we took that components exercise from CodePen, and we're putting it into a brand new Vue CLI app. So, what differences would we make, what would we change here? So the first thing that we're gonna do is we're gonna make sure that that data goes into the App.vue.
+
+[00:00:18]
+So we've got Moscow, Paris, Rome, Paris. And we have all of that location data stored in this array in the data at the topmost level, at the App.vue. Then what we're going to do is we're gonna go through and we're gonna say v-for="location in location". So we're gonna loop through that location data.
+
+[00:00:40]
+And we're gonna pass in that AppPlace. Now, previously, when we were working in CodePen, we had that script x template. And when you were working with it, it was hard to tell which template was referring to which piece of the component. But here, you can see that in the App.vue, we have all of the template associated with the data that it provides.
+
+[00:01:05]
+And then we're bringing in a component. So we have import AppPlace, @/components/AppPlace.vue, and components: { AppPlace }. So, we're making sure that we're bringing in that component. Then we have this component with location is location, so that we're passing that in as a prop. We also have a slot here.
+
+[00:01:24]
+That's like location is name, in that h2. If we go over to AppPlace, we have a component of its own. And don't worry about it if you didn't do this, but extra credit if you figured out to do this, that place is something that's very special to this component.
+
+[00:01:43]
+So if you brought over this class places styles as well to the laying CSS scope. So, if we scoped that places styles, that makes a lot of sense, because we're not using it in App.vue in that component. We're using it in the AppPlace, so we put all of the associative styles in here.
+
+[00:02:04]
+We're bringing in the props of location, just like we did in the pen. And then we have the image, the slot and the location. So we now have the App.vue that has kind of the main brains, right? It's got the locations, and then it gives it out. And we have multiple components for that AppPlace.
+

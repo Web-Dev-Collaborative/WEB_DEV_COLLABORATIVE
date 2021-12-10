@@ -1,0 +1,30 @@
+[00:00:00]
+>> Let's connect things to interaction really quick. So we have this little Wally, he has his cockroach friend, and he looks around. So we're going to go over to our little, you controlled Wally. I'll move this over and I'll say So he's like, looking around and bopping around, and he's gonna try to reach out to him.
+
+[00:00:24]
+And then every time I pass this point, he's gonna say wow. And basically the way that this is done is well first of all, if I stopped moving the cockroach around, you might notice that he does this little and then he blinks a little bit and he does some other things.
+
+[00:00:41]
+That's because living, breathing things, move and blink, even when they're sitting still, they don't ever just sit completely still even little robots. So, I have a repeated timeline that does that on a loop. And I call that on the mounted hook. So as soon as this component is mounted, I set a timeline to do all sorts of like movie little Bobby things in this Yo Yo True in G SAP will allow me to repeat things.
+
+[00:01:17]
+You can also see that when I pass a certain point his head turns around. This is done by setting I have I'm capturing mouse move coordinates like I did before earlier. And once it gets to a certain point in the screen, what I'm doing is transform translating his eyes.
+
+[00:01:39]
+So I'm binding a style that transforms his eyes this way instead of this way. So that's that's bound here. And the last piece of this is that we're scrubbing his arms across the page. And what I did was I made a timeline of him going like this. And as I mentioned before, with green sock, you can create a timeline.
+
+[00:02:00]
+And then you can actually access that timeline and access the progress. So I'm mapping that progress to the coordinates. So if you look at methods, we've got the arms timeline. So that's that whole timeline where I'm moving the arms. And then in coordinates I'm passing in the E and here we have this startArms, which was that, that animation timeline.
+
+[00:02:28]
+And I'm saying, pause it, but allow me to scrub it across the screen. So you can make all sorts of cool interaction between view and green sock this way. So @mousemove="coordinates", and we're flipping that head by binding the class. So we've got this flip is false, and then we're binding it to the false.
+
+[00:02:52]
+And then we've got this getBoundingClientRect for the Walle. I'm detecting when we're crossing that BoundingClientRect. Then I'm plotting the progress of the arms. And again, in the mounted hook, as soon as that component is mounted, I have these repeated things that are fired over and over again. I made this big, crazy site that's like one it's a giant view x or as a giant view view animation that's like one big SVG.
+
+[00:03:26]
+And it uses scroll trigger, and G SAP to coordinate all of these different animations. And you can also turn the animations off using a view x store and it will turn all the animations off in case of motion sensitivity. If you're interested learning about how that was done.
+
+[00:03:42]
+I wrote a making of post and also, it's all open source. So you can check out the little GitHub icon there if you want to learn how to how to coordinate scroll with you as well.
+

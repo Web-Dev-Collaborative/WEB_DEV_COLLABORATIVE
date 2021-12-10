@@ -1,0 +1,42 @@
+[00:00:00]
+>> Let's go over where we've been, where we're going. We did pause on the deploy so that we could check things out and do a few other things. And we had to kind of re-instantiate that deploy because I forgot to put in the yarn add node sass. But now it is fully deployed.
+
+[00:00:19]
+And we have our Nuxt Food App. It is now at food app frontendmasters.netlifyapp. So that is fully deployed application, and what's nice is, you can see that this failed a couple of times, but you can see all of the logs, and if I wanted to roll back to a previous version, I can with a click.
+
+[00:00:38]
+So that's pretty cool. So we are done with the deploy. We are also about to go over the exercise of putting the content into the dynamic page. So let's check it out. If we look at our Localhost, here's what we've got. We've got our soup dumplings, and it's nice grid and we have our add-ons.
+
+[00:01:01]
+And this detail section, it just makes this nice style for us. I didn't do that. [LAUGH] That's like an HTML spec thing. So if we go look at that _id.view. Let's look at all of the things that we did to make that work. We have a few different sections.
+
+[00:01:20]
+We have that main container that I mentioned before. So we've got main container, and we have a few sections. We have section where we have all of our the kind of like images and things like that. And then we have our details, and we have our options. If we look below, we have a container with a bunch of grid template, Pixels, and,1fr, fr is like a fraction unit.
+
+[00:01:51]
+And then, we have image, detail, and options that are kind of powering that grid. Then if we expand these, for this section we're doing that thing that we did a couple of other times where we are binding the style, and we're passing in a template literal, this like current item.image, we have access to that current item through that filter that we created before.
+
+[00:02:18]
+So this is current item. And we're looping through there, and we've got that current item. So this is the one that we're working with that image. And so that first section which is our image. Then we have our details, No VS code No. We [LAUGH] have our details, where we have our h1 for the current item, the price.
+
+[00:02:39]
+In this case we're saying price to fix to, I'm showing the price using the price a few different ways through the course. That methods way is nice where you can pass things through, but you could also just pass $ sign. If you made a computed property for this, that's awesome as well.
+
+[00:02:59]
+We're also capturing quantity, and like I said with the field sets, we have a few of these field sets on it makes that nice little border, if we go back around here we've got that add-ons, this little border, that's just because I'm using that field set. And we are using that web aim way of using field sets as well.
+
+[00:03:19]
+So we're binding all of these radios. We're using radios for options, and the check boxes for add-ons, and the reason why there's this distinction is for options. Not everything has options. So like only the Mexican food where we have the tacos and burritos and things where we really need to decide if we're gonna get a burrito, that's polio or carnea sada or alpa store or something like that.
+
+[00:03:52]
+We can't order a burrito without knowing which one of those that is, whereas when you're ordering some dimsum we have some add-ons that are just literally add-ons. We don't have any, you are ordering that steamed dumpling but there's not the it's like a shrimp shuma, there's no options.
+
+[00:04:12]
+So, we also have this kind of like, we're making sure that we have the radio that can select just one, and then we have the add-ons. So, here if we go back the soup dumplings have the add-ons, and we can select our add ons, but if we go back to the restaurants, and we look at our case ideas, we have options and add-ons.
+
+[00:04:38]
+So that's a slight difference between the two of them, I have to decide if I want a plane or a carnea sada case idea, but if I want I can get guacamole and people are the guy and well I shouldn't be able to use none but you get the point.
+
+[00:04:58]
+So we're working through all of that, cool.
+

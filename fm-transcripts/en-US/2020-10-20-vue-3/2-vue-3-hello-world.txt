@@ -1,0 +1,45 @@
+[00:00:00]
+>> Well, without further ado, let's get started learning Vue. I'm such a nerd. I made this because I love you so much. [LAUGH] So I'm really excited to talk to you about Vue today, thanks. All right, let's start with the first section of directives and data rendering. Before we start, in case you skip the intro, I do that sometimes.
+
+[00:00:21]
+[LAUGH] There is a GitHub link here to the repo, which is sdras/intro-to-vue. We have a lot of links in that Readme. And here are the devtools that we're working with today. So let's talk about the Vue instance. We have this kind of obligatory Hello world example here. So we've got this div id app with a message in Mustache templates and it says Nice to meet Vue.
+
+[00:00:48]
+So if we go over to our Babel babble, we can see our JavaScript tab. We can see what we're doing is we're mounting to a div id of app. And then we're passing in message. Inside data, this message is getting piped in. So it's saying Hello world. I could also say Hello folks.
+
+[00:01:09]
+And as soon as CodePen updates, we'll update to Hello folks. So really we're establishing a relationship with whatever we're holding here in Vue and this HTML. And it's not necessarily important that it's an app right? I could say robot face, and then robot face, And it will go and grab that piece.
+
+[00:01:35]
+Of course, the styling fell off. But you can see right here that you can really establish a relationship with any piece of that app. So you could use any kind of selector. I like to use an ID because you only really want one instance of that. But it's really flexible that way.
+
+[00:01:51]
+I'm bringing this up in part because it is called the progressive framework in part because it's easy to migrate to. You can literally just add a script tag, grab an ID, and start working with Vue the way that in the olden days we might have worked with jQuery or something like that.
+
+[00:02:06]
+You don't need a build process necessarily. So let's do a light comparison, Vanilla JavaScript versus Vue for conditional rendering. So in Vanilla JavaScript, let's say we have this array of items in this array. It could be a manifest file that's coming in from a server, who knows, and it's a really important array of items.
+
+[00:02:28]
+It's thingy, other thingy, lots of stuff, yada yada. And I have this function that's listOfStuff. I'm gonna build the full_list. So I'm gonna map through all of these and create a new array of lis. And then I'm going to go into the DOM, find the document.querySelector. I'm gonna find something called the container and then in that contain.innerHTML, I'm gonna output that ul with a bunch of lis.
+
+[00:02:55]
+Then I call that function. And I also have to put the container on the page so that I have something to access. And that yields ta-da, this amazing list of stuff, right? In Vue, let's look at what that would look like. In our app, we have data where we're returning a bunch of items.
+
+[00:03:14]
+So we have those same items, but this time, we're holding those items. We're holding the state of those items in data. In our HTML, we have our div id app, a ul, and we say li v-for item in items. And that yields this. What I love about this is how declarative it is.
+
+[00:03:35]
+When you look at that code, it's immediately legible what's going on. I'm holding an array. I'm outputting it to the page, and I know exactly where it's being inserted. The other thing about it that I really like is we're holding a state. Unlike in olden days where the DOM would hold the state and you're kind of always pinging the DOM like, hey, what's going on?
+
+[00:03:55]
+Did you change this? Hey, what's going on? Did this update? We're holding a state instead. And we're telling the DOM what to do with that. So we really have better finite control over what's going on with the state of our application and where that is getting added to.
+
+[00:04:13]
+So I like it because it's clean. I can really write semantic HTML very easily because I'm still working with those HTML tags in a way that is kind of still those HTML right directly in the HTML templates. It's really declarative. I mentioned that before. It's super legible. And because of that, it's easy to maintain.
+
+[00:04:36]
+It's also reactive. We're gonna go into this whole section about what reactivity means and why that's different in Vue 3. But what you need to know for now is reactivity is really helpful because a lot of premises and reactivity is responding to changes. And that's what a lot of application development is.
+
+[00:04:53]
+It's responding to changes in a state. So we've got these directives. So here are some of the directives that Vue offers us. If you came from an Angular background, again, this will probably look very familiar to you. And for each one of these, I linked them up to the part of the docs in case you need to know more.
+

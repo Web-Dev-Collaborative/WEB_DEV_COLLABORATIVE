@@ -1,0 +1,30 @@
+[00:00:00]
+>> One thing that I wanna make mention we're talking about Vue 3 today. And Vue 3 is not so different from Vue 2, in that the surface API is the same. In this next section, we're gonna be talking about what the reactivity system is and that is all different in Vue 3.
+
+[00:00:17]
+But the surface API is the same, but there are a few minor differences. One is that we deprecated filters. Another one is a lot of people are probably here because they want to learn the composition API, which is an additive new feature, that's an advanced feature that we'll talk about.
+
+[00:00:32]
+But in case you're coming from Vue 2, I'll discuss filters really quickly. Filters were dropped between Vue 2 and Vue 3, because you can do everything with a computed property. And I'll show you what I mean by this. In Vue 2, if we wanted to show a tip or something that's slightly different from the original value, I would use a pipe.
+
+[00:00:56]
+And I would say filters and I would parse in the value and then I would return [value* .2].toFixed(2). Which would yield this Tip Calculator that has the total and it's 20%, and then it shows what that value is. So this is Vue 2, that's why this syntax looks a little bit different too that we changed the kind of Vue instance as well.
+
+[00:01:21]
+The mounting. And here you see this customer total, I'll open it up And the pipe. And that's how we would use filters. But you might understand that we can actually do the same thing with computer properties. And the reason why it's important to deprecate features like this that you can actually do the same thing in, is we wanted to make Vue 3 super small.
+
+[00:01:45]
+Vue 3 is really, really tiny comparatively and it offers really great performance. And part of the reason is that we're making sure that surface area of the API is slender. So if we wanted to do a similar thing, I could say, data customer total one, tip20, return customertotal* 2}.toFixed(2).
+
+[00:02:06]
+And I could return that as a computed property, right? So I could offer the same thing. Now, you might notice one small difference here, which is that I wasn't able to parse a parameter. And I'm not able to do that and compute it, it's tied now to customer1total.
+
+[00:02:21]
+But you can do that with methods, and we're gonna go over that when I do the building web apps with Vue, we're gonna create some with methods instead of filters. So you'll be able to see those more in action. But you can use computer properties or methods for the same functionality, so that was dropped.
+
+[00:02:39]
+Some other examples that you might use computer properties for, are adding currency signs. If you have to say 1st, 2nd, 3rd place, something like that, to that effect, if you're adding in a two you probably always want to prepend it with and, [LAUGH] and so on and so forth.
+
+[00:02:58]
+Those kind of simple explanations. For more complex ones, you can filter large amounts of data that we just showed, or you can create dazzling data visualizations. Let's say you have a map of the United States and you wanna show only some units based on a condition. That's a really good example of using computer properties.
+

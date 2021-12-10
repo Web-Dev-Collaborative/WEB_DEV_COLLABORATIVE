@@ -1,0 +1,851 @@
+WEBVTT
+
+1
+00:00:00.500 --> 00:00:03.070
+&gt;&gt; Kyle Simpson: Conditionals are how
+you make decisions in programs, and
+
+2
+00:00:03.070 --> 00:00:04.260
+they're incredibly important.
+
+3
+00:00:05.490 --> 00:00:08.550
+They show up in more places
+than just the if statement.
+
+4
+00:00:08.550 --> 00:00:11.980
+The if statement is the most common
+place that you see a conditional.
+
+5
+00:00:11.980 --> 00:00:14.050
+But there's other places
+that conditionals are used.
+
+6
+00:00:14.050 --> 00:00:18.720
+For example, I mentioned earlier loops,
+like the while loop.
+
+7
+00:00:18.720 --> 00:00:23.890
+The while loop tests
+this as a conditional,
+
+8
+00:00:23.890 --> 00:00:25.230
+the same way an if statement does.
+
+9
+00:00:25.230 --> 00:00:27.210
+And it tests it every time,
+
+10
+00:00:27.210 --> 00:00:32.110
+it's gonna keep repeating itself
+until the thing tests false.
+
+11
+00:00:33.840 --> 00:00:37.360
+So, this brings us now into
+a discussion of loops.
+
+12
+00:00:37.360 --> 00:00:41.770
+And here's one of those places where
+when I describe to you what a loop does,
+
+13
+00:00:41.770 --> 00:00:45.930
+it may be slightly conceptually different
+than what you've thought of before.
+
+14
+00:00:45.930 --> 00:00:52.587
+So, a lot of people intuit
+that a loop does something,
+
+15
+00:00:52.587 --> 00:00:55.970
+like if I say while a is greater than ten.
+
+16
+00:00:57.080 --> 00:01:00.180
+A lot of people interpret this as saying,
+
+17
+00:01:00.180 --> 00:01:05.260
+that it is while the thing is.
+
+18
+00:01:05.260 --> 00:01:09.290
+I'm going to try to figure
+out how to say this,
+
+19
+00:01:09.290 --> 00:01:12.230
+when the thing becomes false,
+stop doing it.
+
+20
+00:01:14.340 --> 00:01:18.570
+Or another way of looking at it is,
+while the thing is true, keep doing it.
+
+21
+00:01:20.060 --> 00:01:23.740
+And those two conceptual As, that's
+two different sides of the same coin,
+
+22
+00:01:23.740 --> 00:01:25.600
+the end result is the same.
+
+23
+00:01:25.600 --> 00:01:28.160
+But the way you think about
+it can actually be different,
+
+24
+00:01:28.160 --> 00:01:31.700
+depending on the different
+loop forms that you try.
+
+25
+00:01:31.700 --> 00:01:34.840
+So, there's a loop form called the for
+loop.
+
+26
+00:01:36.240 --> 00:01:38.350
+And this is a highly compressed loop, and
+
+27
+00:01:38.350 --> 00:01:42.290
+I'm gonna show you the version,
+it's a highly compressed syntax form.
+
+28
+00:01:42.290 --> 00:01:45.320
+I'm gonna show you the three
+parts to how the for loop works.
+
+29
+00:01:45.320 --> 00:01:49.400
+But then I'm going to show you
+conceptually how the for loop works.
+
+30
+00:01:49.400 --> 00:01:54.102
+So this for loop,
+I can have a thing like a = 5.
+
+31
+00:01:54.102 --> 00:01:58.860
+That first clause,
+
+32
+00:01:58.860 --> 00:02:02.700
+this first expression, is what we
+call the initialization expression.
+
+33
+00:02:06.360 --> 00:02:11.460
+The second clause in a four loop, is
+what we call the conditional expression,
+
+34
+00:02:11.460 --> 00:02:13.260
+or the test expression.
+
+35
+00:02:13.260 --> 00:02:21.790
+So a&lt;10, every time I run the loop
+I'm gonna do that conditional.
+
+36
+00:02:21.790 --> 00:02:24.780
+And if that conditional is still true,
+I'm gonna keep going, and
+
+37
+00:02:24.780 --> 00:02:26.540
+if it's no longer true, I'm gonna stop.
+
+38
+00:02:28.180 --> 00:02:28.820
+The third and
+
+39
+00:02:28.820 --> 00:02:34.860
+final clause in a four loop declaration,
+is what we call the update clause.
+
+40
+00:02:34.860 --> 00:02:38.810
+So I say [COUGH] I can say
+something like a = a + 1,
+
+41
+00:02:38.810 --> 00:02:43.910
+which is to say increment
+it by 1 each time.
+
+42
+00:02:47.330 --> 00:02:52.300
+A lot of people shorten a = a + 1 to this
+short hand operator the ++ operator.
+
+43
+00:02:52.300 --> 00:02:57.100
+It's gonna accomplish the same goal here,
+
+44
+00:02:57.100 --> 00:03:00.370
+it's gonna update a or
+it's gonna increment a by 1 each time.
+
+45
+00:03:00.370 --> 00:03:05.520
+I'll leave it in the more verbose form,
+just so we don't lose track.
+
+46
+00:03:05.520 --> 00:03:09.390
+So, if I make that for loop,
+let's think about what it's gonna do.
+
+47
+00:03:09.390 --> 00:03:14.130
+It's gonna start a at the value 5,
+and each time the loop finishes,
+
+48
+00:03:14.130 --> 00:03:16.640
+it's gonna update a by 1.
+
+49
+00:03:16.640 --> 00:03:21.260
+And if a is still less than 10, it's
+gonna do the loop again, and again, and
+
+50
+00:03:21.260 --> 00:03:26.556
+again.
+&gt;&gt; Kyle Simpson: So if the statement
+
+51
+00:03:26.556 --> 00:03:31.581
+inside of here was a console.log
+statement, try that,
+
+52
+00:03:31.581 --> 00:03:36.619
+try putting that into your browser,
+into your console.
+
+53
+00:03:44.312 --> 00:03:44.844
+&gt;&gt; Kyle Simpson: You'll
+
+54
+00:03:44.844 --> 00:03:49.100
+notice that I printed up the value 5,
+the value 6, the value 7,
+
+55
+00:03:49.100 --> 00:03:53.520
+the value 8 and the value 9, but
+I didn't print out the value 10.
+
+56
+00:03:53.520 --> 00:04:00.560
+And the reason I didn't is that
+when a got to 10, that is,
+
+57
+00:04:00.560 --> 00:04:06.810
+after this loop iteration,
+I updated the a value by adding 1 to it.
+
+58
+00:04:06.810 --> 00:04:11.610
+And when I did that,
+a became 10, is 10 less than 10?
+
+59
+00:04:11.610 --> 00:04:12.684
+Clearly no, so
+
+60
+00:04:12.684 --> 00:04:18.711
+that's when we stopped the loop.
+&gt;&gt; Kyle Simpson: Try
+
+61
+00:04:18.711 --> 00:04:20.810
+to let that set in for a moment.
+
+62
+00:04:20.810 --> 00:04:26.930
+Essentially, we were waiting for something
+to tell us when to stop the loop,
+
+63
+00:04:26.930 --> 00:04:29.520
+and the thing that told
+us when to stop the loop,
+
+64
+00:04:29.520 --> 00:04:34.180
+is when A got too big.
+&gt;&gt; Speaker 2: You said that a equals
+
+65
+00:04:34.180 --> 00:04:38.026
+a plus 1 is the like the update.
+&gt;&gt; Kyle Simpson: It's called the update
+
+66
+00:04:38.026 --> 00:04:38.981
+clause, mm-hm.
+&gt;&gt; Speaker 2: Okay,
+
+67
+00:04:38.981 --> 00:04:40.686
+what are the other two called?
+&gt;&gt; Kyle Simpson: The first one is
+
+68
+00:04:40.686 --> 00:04:42.050
+called the initialization clause.
+
+69
+00:04:44.040 --> 00:04:47.400
+The second one is called
+the test clause or
+
+70
+00:04:47.400 --> 00:04:54.200
+the conditional clause, and
+the third one is called the update clause.
+
+71
+00:04:54.200 --> 00:05:01.970
+In for loops, all three of clause are
+optional, that is you can have all three.
+
+72
+00:05:01.970 --> 00:05:06.990
+Or any combination of two of them, or
+just one of them, or none of them.
+
+73
+00:05:06.990 --> 00:05:12.470
+In other words, you could write
+although it would be silly,
+
+74
+00:05:12.470 --> 00:05:17.330
+you could write four and
+then put a block on it.
+
+75
+00:05:19.750 --> 00:05:23.740
+And leave those clauses out,
+you wouldn't do any initialization.
+
+76
+00:05:23.740 --> 00:05:25.890
+You wouldn't do any testing and
+
+77
+00:05:25.890 --> 00:05:30.250
+you wouldn't do any updating,
+but it'd still run.
+
+78
+00:05:30.250 --> 00:05:33.408
+In this case,
+this is a loop that's gonna run forever,
+
+79
+00:05:33.408 --> 00:05:38.658
+why is it gonna run forever?
+&gt;&gt; Kyle Simpson: This
+
+80
+00:05:38.658 --> 00:05:42.170
+is the major conceptual observation
+I wanna make out of this section.
+
+81
+00:05:42.170 --> 00:05:44.613
+Why would this-
+&gt;&gt; Speaker 3: Because the condition will
+
+82
+00:05:44.613 --> 00:05:46.287
+never be met.
+&gt;&gt; Kyle Simpson: It's because
+
+83
+00:05:46.287 --> 00:05:47.928
+a conditional would never fail.
+
+84
+00:05:47.928 --> 00:05:49.790
+That's why, okay?
+
+85
+00:05:49.790 --> 00:05:53.910
+So this loop is not running because
+a conditional always stays true.
+
+86
+00:05:55.280 --> 00:05:59.029
+It's running forever, because there's
+never a conditional that fails.
+
+87
+00:06:02.060 --> 00:06:06.870
+Let me say that again, this loop would
+run forever, but it doesn't run forever,
+
+88
+00:06:06.870 --> 00:06:08.810
+because a conditional is always true.
+
+89
+00:06:08.810 --> 00:06:12.290
+For example,
+if my test was the value true.
+
+90
+00:06:13.490 --> 00:06:16.083
+This one's gonna run forever because
+the condition's always, always,
+
+91
+00:06:16.083 --> 00:06:19.149
+always, true.
+&gt;&gt; Kyle Simpson: This one,
+
+92
+00:06:19.149 --> 00:06:22.247
+there is no condition.
+&gt;&gt; Kyle Simpson: And
+
+93
+00:06:22.247 --> 00:06:26.590
+it's still gonna run forever,
+so why does it run forever?
+
+94
+00:06:26.590 --> 00:06:30.170
+Conceptually the reason it
+runs forever is cuz there's no
+
+95
+00:06:30.170 --> 00:06:33.480
+conditional that fails that
+tells it to stop running.
+
+96
+00:06:36.270 --> 00:06:39.240
+This is different than how almost
+all developers that I come across,
+
+97
+00:06:39.240 --> 00:06:41.140
+think about what a loop really means.
+
+98
+00:06:41.140 --> 00:06:47.208
+So what I want to illustrate
+is that this loop compared
+
+99
+00:06:47.208 --> 00:06:54.180
+to this loop, the difference is that we
+filled in a clause here that can fail.
+
+100
+00:06:55.440 --> 00:06:56.540
+It doesn't have to fail.
+
+101
+00:06:57.690 --> 00:07:00.822
+What would happen if I said a = 6?
+
+102
+00:07:03.840 --> 00:07:05.520
+With this loop run forever?
+
+103
+00:07:05.520 --> 00:07:09.960
+&gt;&gt; Speaker 4: Yes.
+&gt;&gt; Kyle Simpson: Of course.
+
+104
+00:07:09.960 --> 00:07:12.480
+It would run forever because
+the first time we would run it,
+
+105
+00:07:12.480 --> 00:07:15.340
+we would set it to six,
+and we'd print out six.
+
+106
+00:07:15.340 --> 00:07:21.300
+And then we'd add one to it, and
+then we would say, is seven less than ten?
+
+107
+00:07:22.370 --> 00:07:26.370
+Of course it is, so we'd run the loop
+again which sets a back to six, and
+
+108
+00:07:26.370 --> 00:07:27.780
+we'd print six again.
+
+109
+00:07:27.780 --> 00:07:29.860
+Update it to seven, seven's less than ten.
+
+110
+00:07:29.860 --> 00:07:33.100
+And we'd just keep going forever and
+ever, so this loop would run forever.
+
+111
+00:07:33.100 --> 00:07:34.480
+Because there's no way for
+
+112
+00:07:34.480 --> 00:07:38.722
+this to ever fail.
+&gt;&gt; Kyle Simpson: We're forcibly making it
+
+113
+00:07:38.722 --> 00:07:43.300
+so that thing can't fail, so
+that loop that I've written there.
+
+114
+00:07:44.580 --> 00:07:48.290
+If we're trying to think about
+the conceptual of what a loop means,
+
+115
+00:07:48.290 --> 00:07:53.230
+I think it's more appropriate not to say,
+a loop runs while something is true.
+
+116
+00:07:53.230 --> 00:07:54.720
+I think it's more appropriate to say,
+
+117
+00:07:54.720 --> 00:07:59.960
+a loop runs until something is false,
+until something stops it from running.
+
+118
+00:07:59.960 --> 00:08:04.050
+Its natural state is to go forever
+until something tells it, stop going.
+
+119
+00:08:05.240 --> 00:08:07.887
+And the way I could write
+that is with a while loop.
+
+120
+00:08:10.390 --> 00:08:11.817
+&gt;&gt; Kyle Simpson: A while true loop,
+
+121
+00:08:11.817 --> 00:08:16.499
+would that loop run forever?
+&gt;&gt; Kyle Simpson: Unless
+
+122
+00:08:16.499 --> 00:08:18.860
+something stopped it,
+that loop would run forever right?
+
+123
+00:08:20.250 --> 00:08:23.640
+There are ways to stop a loop,
+which we're gonna show here in a moment.
+
+124
+00:08:23.640 --> 00:08:29.770
+But let's conceptually think about
+how to make this loop that's on top,
+
+125
+00:08:29.770 --> 00:08:31.910
+using only a while loop.
+
+126
+00:08:31.910 --> 00:08:36.150
+So we need an initialization clause,
+so we could do that at the beginning.
+
+127
+00:08:36.150 --> 00:08:37.641
+We could say a = 5.
+
+128
+00:08:37.641 --> 00:08:42.156
+Then we need a test clause
+to let us know when to stop.
+
+129
+00:08:43.410 --> 00:08:50.020
+So one way of writing that test clause,
+is to invert the A less than 10.
+
+130
+00:08:50.020 --> 00:08:57.770
+I can say if negation of A less than 10,
+
+131
+00:08:57.770 --> 00:09:03.080
+which looks really weird and complicated.
+
+132
+00:09:03.080 --> 00:09:09.300
+So I could say, if a &gt; 10,
+actually a negation is &gt; or = to 10.
+
+133
+00:09:09.300 --> 00:09:14.041
+Does everybody see why that is my
+condition, that would let me know it's
+
+134
+00:09:14.041 --> 00:09:19.780
+time to stop?
+&gt;&gt; Kyle Simpson: So how do I stop a loop?
+
+135
+00:09:20.800 --> 00:09:28.149
+The break statement.
+&gt;&gt; Kyle Simpson: So
+
+136
+00:09:28.149 --> 00:09:32.130
+I'm gonna test to see whether or
+not I should stop the loop.
+
+137
+00:09:32.130 --> 00:09:36.540
+And if I do wanna stop the loop,
+I call break, which stops it immediately.
+
+138
+00:09:36.540 --> 00:09:41.950
+If I don't wanna stop the loop,
+what do I do next?
+
+139
+00:09:41.950 --> 00:09:44.270
+Let's take out that a = 6 part,
+because we don't want that there.
+
+140
+00:09:44.270 --> 00:09:45.815
+What do we do next?
+
+141
+00:09:45.815 --> 00:09:52.863
+We console.log,
+&gt;&gt; Kyle Simpson: a.
+
+142
+00:09:52.863 --> 00:09:58.338
+And what's the very last thing that we do?
+&gt;&gt; Kyle Simpson: a = a + 1,
+
+143
+00:09:58.338 --> 00:10:00.535
+we do the update clause.
+
+144
+00:10:07.608 --> 00:10:09.361
+&gt;&gt; Kyle Simpson: This conceptually is how
+
+145
+00:10:09.361 --> 00:10:14.040
+a for loop actually works, and
+it's actually how all loops work.
+
+146
+00:10:14.040 --> 00:10:20.060
+They run until something tells
+them to stop running, now,
+
+147
+00:10:20.060 --> 00:10:22.599
+I am not endorsing writing
+your loops like that.
+
+148
+00:10:24.460 --> 00:10:27.520
+That loop is more
+complicated to understand,
+
+149
+00:10:27.520 --> 00:10:30.040
+if you already understand how loops work.
+
+150
+00:10:30.040 --> 00:10:33.810
+The only thing that I'm doing here,
+is to illustrate to you the concept
+
+151
+00:10:33.810 --> 00:10:36.150
+that a loop runs,
+until something stops it from running.
+
+152
+00:10:38.100 --> 00:10:41.150
+There's lots of ways to
+make a loop stop running.
+
+153
+00:10:41.150 --> 00:10:46.340
+You can throw an error, you can break,
+you can call continue to an outside label.
+
+154
+00:10:46.340 --> 00:10:49.265
+There's lots of ways to stop
+a loop from running, but
+
+155
+00:10:49.265 --> 00:10:53.755
+however you stop a loop from running,
+that's the same thing as the test failing.
+
+156
+00:11:00.039 --> 00:11:01.511
+&gt;&gt; Speaker 3: Can a person put a semicolon
+
+157
+00:11:01.511 --> 00:11:04.460
+on the end of the incremental?
+&gt;&gt; Kyle Simpson: You're
+
+158
+00:11:04.460 --> 00:11:05.245
+not supposed to.
+
+159
+00:11:05.245 --> 00:11:05.836
+&gt;&gt; Speaker 3: Okay.
+&gt;&gt; Kyle Simpson: It's not allowed.
+
+160
+00:11:05.836 --> 00:11:10.984
+[COUGH] So, once you learn the concept of
+
+161
+00:11:10.984 --> 00:11:16.760
+what it looks like on lines 5 through 12.
+
+162
+00:11:16.760 --> 00:11:21.259
+Now writing the for loop in a more
+compact fashion is much more attractive.
+
+163
+00:11:23.640 --> 00:11:25.960
+I think the reason, the thing that
+I'm trying to get across here,
+
+164
+00:11:25.960 --> 00:11:28.580
+is that a lot of people skip to
+writing these loops with for
+
+165
+00:11:28.580 --> 00:11:32.310
+loop syntax, without understanding
+how it actually works.
+
+166
+00:11:32.310 --> 00:11:36.730
+And then you run into off by one errors,
+and all kinds of other things like that.
+
+167
+00:11:36.730 --> 00:11:40.250
+So I think it's better to start
+by thinking about the concepts as
+
+168
+00:11:40.250 --> 00:11:41.020
+expressed here.
+
+169
+00:11:42.270 --> 00:11:45.282
+Because they illustrate what
+to do with the for loop.
+
+170
+00:11:45.282 --> 00:11:46.815
+What do we do first?
+
+171
+00:11:46.815 --> 00:11:47.740
+We say a = 5.
+
+172
+00:11:47.740 --> 00:11:49.830
+What do we do next?
+
+173
+00:11:49.830 --> 00:11:54.210
+We start running, and we're going to keep
+going forever, so that's the wild truth.
+
+174
+00:11:54.210 --> 00:11:55.300
+What do we do next?
+
+175
+00:11:55.300 --> 00:11:58.760
+We check to see if this is false,
+which is another way of inverting it.
+
+176
+00:11:58.760 --> 00:12:01.140
+We can say a greater-than-or-equal to 10.
+
+177
+00:12:01.140 --> 00:12:05.490
+If it's false, we stop,
+we don't do the loop.
+
+178
+00:12:05.490 --> 00:12:07.430
+It it's true, we keep going.
+
+179
+00:12:07.430 --> 00:12:12.165
+We do the loop body, and finally after
+the loop is successfully process through,
+
+180
+00:12:12.165 --> 00:12:13.136
+then we update.
+

@@ -1,0 +1,123 @@
+[00:00:00]
+>> Scott Moss: So was everybody able to see their docs rendered on the page, all right? It's actually really confusing because they decided to call graphiql with an i, very similar to GraphQL. Literally, the only difference between it is the i after the h. That's the only difference. So I'm sorry, it can be confusing.
+
+[00:00:18]
+But they couldn't resist the pun on the word graphiql like you had to do it, right? What else are you gonna call it? So it's really good. Let's just walk through what that would look like just in case anyone didn't get to it, and did not look at the branch.
+
+[00:00:32]
+So if you were to go to the index file of the API, you would see that we're exporting out that graphiql router that was already created for you. And then inside the server.js, you would import that graphQLRouter, and then you would mount it at /graphql. Not graphiql, no i here, graphql.
+
+[00:00:53]
+And you would just place that router exactly the same you would do the rest router. And then the other directions were to mount the graphiql, with an i, on the path of docs, right? At the last minute, I showed you that there was a graphiqlExpress package from the apollo-server-express module.
+
+[00:01:16]
+And then if you did some digging, you would find out that you needed to supply it with an endpointURL pointing to the relative path of your GraphQL API. The way this works is this graphiqlExpress when invoked returns a router. It returns an express router so you have to invoke it first of all.
+
+[00:01:36]
+If you don't invoke this, if you just pass it in like this. It'll just hang, you won't get anything. So we did that, and it didn't do anything. That's because, by default, you have to actually invoke it, for it to return the router that you want. And then it takes in an option, this option makes sense.
+
+[00:01:51]
+Because what graphiql does is, it actually returns a React App. If you go look at the source code, is this a React App? Which your docs is just a React App, it returns that, and then that app needs to know what is your GraphQL API that I need to hit to actually do the documentation?
+
+[00:02:08]
+So that's what the endpoint is, and it could be relative because it's from the same server, so it'd be relative. It does this thing called introspection. Introspection is a query, it's basically like query that you can send to your GraphQL API that will convince your GraphQL API to return everything associated with it.
+
+[00:02:31]
+Every single thing associated with your GraphQL API. All the types, the names, queries, the mutations, every single thing. One query hits your GraphQL API and it gives you everything. And graphiql takes advantage of that and builds an app around it. That's how you get all the completed. That's how you see all your docs.
+
+[00:02:47]
+It does one query and I can show you what that will look like. So let's save this, start this up.
+>> Scott Moss: And then if we go to mydocs here.
+>> Scott Moss: What you should get back is, you would see this. This is GraphiQL, with an i. And it's just a React App.
+
+[00:03:14]
+And then if you did it successfully, and this would render and if you didn't give it, if you just invoke the graphiqlExpress app, this will render. If you didn't give endpointURL, this will still render. You just won't have any docs over here, this looks to be blank. So this is a confirmation that is pointing to the correct graphql, we can verify that by clicking Query.
+
+[00:03:33]
+And we see that one query that we do have which is in the user graphql file which is getMe. That's the only query that we have right now. So you'll see that. So that's a verification. Now, the whole introspection thing, if you open up the network tab, click on Network, you refresh this, and then if we go look at graphql XHR.
+
+[00:03:58]
+Is it this one?
+>> Scott Moss: Here we go, so if we go look at a graphql call here you can see this query being called, Introspection. We can just go look at this query right quick. It's a pretty big query. Actually, this one's not that big cuz our stuff is pretty small.
+
+[00:04:15]
+But you an think of it as like a recursive query that hits our graphql. And it returns back every single thing associated with our GraphQL API which right now is like almost nothing. We only have like three types and one query so it's like nothing. This introspection can be used for a lot of things.
+
+[00:04:33]
+There is tools out there that will use this introspection query. And have you ever used like one of those GUI's where you can build database tables and set up relations? One of those table builders, schema builder, it'll generate that based off this. Which was really cool. So you can see the relations of how your graph interacts with each other, it's really cool.
+
+[00:04:51]
+I mean we can actually attempt to find it, let me see, control inspection, graphql.
+>> Scott Moss: Okay, I don't know the name. Was it?
+>> Scott Moss: Okay, that's totally not it. Well, there's a tool that will do introspection and like do some really cool stuff. Maybe I'll find it later, but it will put it together for you so you can see how your stuff relates to each other.
+
+[00:05:21]
+So using the introspection you can build some pretty good tools. There's some other great alternatives to GraphiQL out there. I know GraphiQL has a really good one that they have, they call it the GraphQL Playground, which is like a better version of GraphiQL's. You can build a lot of stuff from this IntrospectionQuery.
+
+[00:05:36]
+I mean, you get to imagine the types of interactive documentations, or visualizations you can build to explore your API using this query that returns pretty much every single thing that you need about your API. So you can see your return says JSON right here. That is all the information about every single thing that you can do in your API.
+
+[00:05:55]
+And then, you can use this information to build an application that allows you to explore it. Pretty cool.
+>> Scott Moss: Any questions about this?
+>> Scott Moss: Now, if you took it a step further and you actually tried to query getMe. Who tried to do that? Right, it broke, right? Do you know why it broke?
+
+[00:06:14]
+
+>> Scott Moss: Cuz it's there, we didn't talk about resolvers but if you wanted to look at the resolver file that functions there. And it is actually returning something, so why did it break?
+>> Scott Moss: This is so meta, like if you get it it's awesome, but you do have the information to know why it did break, because we built it yesterday.
+
+[00:06:34]
+But basically, let's see if anybody can figure it out. So if I do getMe, and I say give me the id of me, and the username, before I run this, notice I did not pass in an id here. The getMe doesn't take an id. So how does it know who me is?
+
+[00:06:48]
+Right, JSON Web Token. We have JSON Web Token, right? But I didn't pass in a JSON Web Token anywhere. That's the problem. I also didn't set up JSON Web Token decoding anywhere inside the GraphQL that we mounted. This resolver if you were to look at it is expecting the user to already be there.
+
+[00:07:05]
+And if you did some more digging, you would see that in a graphql router it's expecting the user to be on the request object which is put there by the middleware for JSON Web Token which you did not add here. So therefore rec.user is undefined inside this is are words that I did not teach you about.
+
+[00:07:27]
+This is undefined, this user is undefined. And because user from getMe cannot be null, it breaks because that's null. So that's why you get that error, cannot return null for non-nullable field, Query.getMe. Just makes you send, whatever getMe returned was null, and it can't be null.
+>> Speaker 2: Larger font.
+
+[00:07:52]
+
+>> Scott Moss: A larger font, okay, that's what that needs, all right? [LAUGH], okay, all right, I know what that, I thought you wanted me to clap. I was like, I'll clap, okay?
+>> Scott Moss: There we go. So, yeah, it's a very hard thing to follow, very meta, but that's what that means right there.
+
+[00:08:12]
+It's like that's a non null error, you're supposed to put no there. Just to show you that, we can satisfy it right quick. If I go into resolver, and return a fake user right quick. A user has what, an id, username, it has all this, so I'm just gonna return a fake one.
+
+[00:08:27]
+And you'll see that it will totally be fine. So id is whatever, username is hello. CreatedAt is sure, yes. So, I'll save that. And now if I go back and I rerun this query. Let me refresh it actually.
+>> Scott Moss: I guess I need commas, [LAUGH]
+>> Scott Moss: There we go.
+
+[00:09:04]
+Now if I refresh this, and run that I get back the user, right? So that's how that works. And just to play with this a little more if we were to look at the user, the id has to be non-null. There has to be a id there, right?
+
+[00:09:22]
+So let's say, I took away the id. We expect to see an error, right? Because I'm running this and it's like, cannot return non-nullable field User.id. But if I don't ask for the id, and I'm not returning an id it's totally fine. I didn't ask for it, so it didn't even try to get it.
+
+[00:09:43]
+Does that make sense? It's only gonna validate, it's only gonna try to retrieve something that you ask for. It doesn't try to retrieve everything. If I didn't ask for an id, it doesn't try to get an id. Therefore, it didn't know it wasn't null. But as soon as I ask for the id, it tried to get the id, and then it was like, wait, that's actually null, it's not there, because I got rid of it back here.
+
+[00:10:05]
+The other magical thing that's happening right now that we did not talk about is that and we're gonna get to this in reslovers, which is coming up next. But I'm just gonna talk about it now, because I have the context is when you return an object from your resolvers, and the properties match up with the types in your graphql.
+
+[00:10:24]
+See for instance, we have a property called id, we have a property called username, createdAt, updatedAt in my resolver, they have the same property names, graphql just takes it from there. If you don't have property names that line up, you need to write another resolver to resolve that field.
+
+[00:10:38]
+By default, it'll take the object that you gave it and just match the property names one by one, like here's an id, here's an id. Username, username, cool. But let's say, user also takes in a othername, which is a string. But I don't have the other name here, all right?
+
+[00:11:00]
+And then the client ask for other name. How do we tell graphql to resolve other name? You write a resolver for that, and that's where about to get into. So that's a nested resolver, property level resolver. So basically, that's what I was saying, your graphiql types start off the same as your Mongoose schemas, but then they branch off to stuff completely different.
+
+[00:11:19]
+They can do whatever they want. But they usually start off that way. But I can put GitHub here, and have a function that goes to GitHub, and fetches a GitHub thing. It will do whatever I want, and only for that one property, and only when you ask for it.
+
+[00:11:31]
+If you don't ask for it, it doesn't do it. It doesn't make the call. When you ask for it, it'll do it.
+>> Scott Moss: Okay,
+

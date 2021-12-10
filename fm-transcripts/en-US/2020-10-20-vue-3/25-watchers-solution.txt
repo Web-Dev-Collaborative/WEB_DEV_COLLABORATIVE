@@ -1,0 +1,15 @@
+[00:00:00]
+>> Alright, let's go over the solution if we just review what we had at first for a moment, you had at click, and then a get taco, which was an empty method right here. And the where is my taco that's hard coded with order status as a string and order submitted as no and you had to use a washer.
+
+[00:00:21]
+So if we go to the solution. So here we have click me to order a taco with get taco. In the get taco method, we're going to go to this order status. And instead of it being an empty string, we're gonna start with where is my taco? And we're gonna put that instead in here.
+
+[00:00:44]
+So instead of hard coding, where is my taco and swapping things out in a go find that kind of way we're gonna make a kind of dynamic relationship between order status. Order status starts off with where is my taco and then when you click that, this order status updates to the taco with exclamation point.
+
+[00:01:06]
+There are a number of ways that you could have done this. This is one way that I'm doing it in order to kind of hook into a watcher. So, for the watcher what I have, Is this order status so I'm gonna watch order status change. As soon as it goes from where is my taco to the taco I'm watching order status and the new value and old value.
+
+[00:01:32]
+And I'm gonna say this order submitted which is no turns into your order was submitted. And then I have a set timeout that turns this .order submitted back into null after 1000 seconds or 1000 milliseconds which is a second. So, there's a lot of different ways that you could have done this but this is definitely one way was to watch that order status change and then do something else based on that change.
+

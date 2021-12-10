@@ -1,0 +1,42 @@
+[00:00:00]
+>> Usage in components. For state we'd say this.store.state.nameofthing. So this is a read, so we can actually just access the state directly. We can access getters directly. We could say this.store.getters.nameofthing. For mutations, we would say this.store.commit.nameofthing, just like we just did in that action. So if we were in a method, and don't worry, we'll do this in a method in just a second, we can call a mutation from a component.
+
+[00:00:29]
+And we can access it that way. Actions are also write, this.store.dispatch.nameofthing. So if we wanted to show this in a component, typically what you would do is, you'd use it in a computed property. And the reason why is, we're really trying to use this as efficiently as possible and we wanna cache this and not update it until the dependency is changed.
+
+[00:00:55]
+So computed properties are really good for this. So in the computed properties we would say count is this.$store.state.count. Triple counter is this.$store.getters.tripleCounter. In methods, if I went and clicked a button and I wanted something to fire in the store I would say, add click increment. It would call this increment and we'd say this.store.commit, increment and pass in something.
+
+[00:01:20]
+Same with asyncIncrement, this.store.dispatch, asyncIncrement. And move that forward. So in the repo, you have an application that's set up for you. And it's called vuex-example, and it does this, what it's showing on the page. So we have the state from the store. We have a getter from the triple counter from the store.
+
+[00:01:43]
+Let's increment two from a mutation, let's increment by two with an action async. And what I've done here is I've moved each type of these things into its own component, so that you can see them separately. So you can see a getter by itself, you can see a mutation by itself.
+
+[00:02:05]
+So if you go into vuex-example, and in that source you can see a store that looks just like what we just showed in that last slide. And then if you go back to the components, you can see AppGetter, AppMutation and AppAction, and I'll walk you through each one of them.
+
+[00:02:28]
+So in the store, it's what we just talked about with the state.counter. In the main app, we've got the state from the store is state. And we have, as a computed property, state return this.$store.state.counter. I could have also called this counter, and then this would be called counter.
+
+[00:02:48]
+So that's how I would use state directly. I'm also importing these components, Getter, Mutation and Action. Getter, Mutation and Action. And then I call them above, Getter, Mutation, Action, I put them on the page. So here's the Getter. I say the Getter for the triple counter from the store is triple in computed, I say triple, and I say return this.$store.getters.tripleCounter.
+
+[00:03:11]
+And, remember, that's corresponding to this in store.js, getters, tripleCounter, return state.counter. A mutation, I say, let's increment by one with a mutation and I have at-click increments. And in my methods I have increments, and I say, this.$store.commit, increment, I'm passing a payload of 1. So here that payload is represented by num, I say state.counter.
+
+[00:03:41]
+So anytime I click this button, its gonna call this method that commits this mutation. So that's how I'm changing things in the store. I'm able to change things in the store from the components. If I wanted to dispatch an action, it's the same. I can say a button at click, and I have async increments.
+
+[00:04:02]
+So wait a second and add 10. It will say this.$store.dispatch and pass in a parameter of 10. And if we look at the actions, it's incrementAsync. And we said, we're passing in the number, we're waiting for a second and we're gonna commit that increment that you saw before in the mutation.
+
+[00:04:30]
+There's shortcuts all over the place vuex. This is a shortcut that I really like. It's called mapState, or you could say map getters or map actions or any of those things. So you can use this thing called import mapState from vuex, and then you spread mapState. And now I can go grab all the state from the store.
+
+[00:04:50]
+I don't have to say, count, return this.$store.state.count, posts, return this.store in our computed. I can just say, get the count, get the post, get the items and map them to count, post, items. And then I can use them directly. So using mapState can really help because you're just like, I probably need a couple of things from the store.
+
+[00:05:14]
+I'm just going to use them really fast. So, that's one way of doing that. So this still allows us to make our own computed properties if we wish to.
+

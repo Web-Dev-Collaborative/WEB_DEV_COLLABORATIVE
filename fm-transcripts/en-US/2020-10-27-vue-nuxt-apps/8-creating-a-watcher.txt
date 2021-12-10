@@ -1,0 +1,57 @@
+[00:00:00]
+>> We have to do a few things here. One is we want that needle to give some visual indication of whether or not we are actually advancing the way that we want to or not. And we'll also check the needle to see if it's kind of going off or if it's rotating the right way.
+
+[00:00:18]
+We're gonna use a watcher for this. We're also gonna use a library called GSAP, which I use quite frequently, and you could do this with transforms, with CSS transforms. But what I found is transformation origin, which we'll use in this, is not really super consistent across browsers, and GreenSock stabilizes that.
+
+[00:00:37]
+Because we're using a transform, I'm gonna actually load GSAP to make sure that we have a consistent way of transforming that across every browser and every device. I might also, if you wanted to take it a step further, you could feasibly fork this and then add animations in places and things like that too.
+
+[00:00:58]
+So that's pretty fun. So okay, we're gonna go back to our terminal in this tab, I'm going to say, yarn add gsap. Cool, now let's go back over and we're gonna go to our VS code tab and we're gonna go over to this score. In this score, I mentioned we have the rainbow and the bad and the good and the needle.
+
+[00:01:25]
+The first thing we need to do is import gsap. And I actually use it so much that I just have a snippet for it. And then I'm also going to say vmapstate and I'm gonna grab the score, because we're gonna make sure that we're watching the score. And one thing about the watch, you don't have to just watch a data property that's in the component.
+
+[00:01:48]
+You can watch things that are computed values from stores. You can watch any kind of dependency here, anything that's brought into that component. And since we're bringing in score, we can watch score. So we're gonna say watch. Whoops, helps us to spell it right. And then we've got the score.
+
+[00:02:08]
+And here we're going to, so we're gonna update the score based on any time it changes. And we wanna pass in newValue, we're gonna pass in newValue and oldValue just so that you can see that you can have both of those, but really, all we need is newValue.
+
+[00:02:22]
+So that's kind of unnecessary. So we were gonna say gsap.to, and it allows me to grab something out of the DOM. So I'm gonna say we're gonna go grab needle. And I'm gonna pass in an object, and in that object, I can set a duration. And the nice thing about GSAP's API is it's really consistent.
+
+[00:02:45]
+Once you learn the surface layer of the API, it's very repetitive. At first, I'm gonna just say 0.3, because typically, if we're not moving something that much in the DOM, anywhere from 0.2 seconds to 0.3 seconds tends to be a very good default. When you start to move it across the screen or do some other kind of interaction, that's when we're gonna start to work with bigger durations.
+
+[00:03:12]
+But you can kind of guesstimate that the duration of 0.3 is gonna be in the right range and then adjust from there. So duration is gonna be 0.3. I'm gonna say that the rotation is newValue. Because really, what we're starting off with is zero. Any time we do a transform, we're starting at zero and then we move it up and down and left and right.
+
+[00:03:39]
+And I don't have to pass in pixels to GreenSock. It will know to append that. So I can just pass in newValue. And then I'm also going to say transformOrigin, which I mentioned is the thing that we, that helps again to spell it right, the thing that we really want here.
+
+[00:03:57]
+And then the way that transform origin works is it doesn't, you'd think that every default is like the center of something. So if you rotate it, it's rotates from the center, but the default is actually 0%, 0%, the top left. What we wanna do, and you can think of everything in the browser as a box, what we wanna do is go into the middle, into the bottom right, because that needle has to rotate on the axis of the bottom.
+
+[00:04:21]
+So it's gotta go 50%, 100%. So I'm gonna say 50%, 100% for now, and we'll kinda see how that goes because maybe that's not exactly the right value, but let's try it out. So now if we refresh, we go back to, let's pick artist and then do baker because then we can kind of see if it's working or not.
+
+[00:04:43]
+It's rotating incorrectly. So let's go back to the here. We've got, we wanna say transformOrigin and spell it correctly, cuz now it's rotating from the top left, right, because I didn't set anything because I spelled it wrong. It's using the top left. So let's go back here. We refresh, we're gonna pick artist, and then I'm gonna select baker.
+
+[00:05:10]
+And now you can see that needle turning. But if I keep going, first of all, what we might notice is we're almost at the end of the question index and we haven't gotten all the way to poor, right? We keep going all the way over, but it hasn't reached all the way down to poor.
+
+[00:05:30]
+So that's one adjustment we need to make. We also need to make it, it's not quite at 100, I think. It's gonna go a little bit above. So let's go back to two places. One is the store, we're gonna increase this rotation by a little bit, 13 instead of, 15 might be too much, let's try it with 13.
+
+[00:05:51]
+And then one other thing, if we go into score, I'm gonna make this 80 instead of 100. Let's see where that is. So we've got the baker. Now we're gonna pick the wrong one, pick the wrong one. It's better, but it's not quite, we could probably adjust it down a little bit from here.
+
+[00:06:15]
+But you can see the amount that we're changing it, by that 13, it's generally where we want it to be, right? We got to that poor state from there. So let's do 87 or something. Try one more time. We've got baker, and then we select artist, artist. That looks pretty stable now, right?
+
+[00:06:42]
+Pretty good.
+

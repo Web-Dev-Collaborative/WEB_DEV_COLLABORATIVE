@@ -1,0 +1,62 @@
+[00:00:00]
+>> Brian Holt: Let's go ahead and make hot module reload work with our server. Again, just what I was explaining earlier, I would typically leave server side rendering for production only and have a separate config for dev right? Often times you're gonna end up with two Webpack configs. One for dev and one for production.
+
+[00:00:17]
+We're not gonna do that today but that's a normal thing to encounter.
+>> Brian Holt: But what I want you to do first is I want you to open your web pack config.
+>> Brian Holt: And instead of having all of this stuff, we're gonna do just one and it's gonna be webpack-hot-middleware/client.
+
+[00:00:51]
+
+>> Brian Holt: And then you're gonna say, path equals__Web Pack_hmr&timeout=2000. So instead of orienting webpack to read from the dev server, we're going to orient it to read from our API server. Or, not our API server just the normal server that we wrote.
+>> Brian Holt: Okay, so that's all you need to do here.
+
+[00:01:23]
+Now I want you to open your server.js.
+>> Brian Holt: And up here we're going to do a couple more imports. We're gonna say const,
+>> Brian Holt: webpackDevMiddleware = require("webpack-dev-middleware"). This is going to take care of the actual, like, feeding new pieces of code into your module. And then your also going to meet the HotMiddleware.
+
+[00:02:01]
+So webpackHotMiddleware. And that's = require('webpack-hot-middleware');. Then you'll also have to bring in webpack as well. So const webpack = require('webpack'). And down towards here, you're gonna have to read your webpack config cuz we're gonna have to feed that in as well. So we'll config =
+>> Brian Holt: I guess I can do this up here.
+
+[00:02:43]
+
+>> Brian Holt: Require ./webpack.config. Okay, so now I got those and now what I have to do,
+>> Brian Holt: Before public, we're going to say const compiler = webpack(config), so we're instantiating our webpack. Underneath that, we're going to say, server.use. And then here we're going to say, webpackDevMiddleware(compiler, ) is the first argument.
+
+[00:03:32]
+The second one is an object, and we're gonna say, publicPath config.output.publicPath.
+>> Brian Holt: And then underneath that, we're gonna say sever.use,
+>> Brian Holt: (WebackHotMiddleware), and pass that to config as well. Sorry, the compiler.
+>> Brian Holt: Okay, so now basically we've set up the same server to do server side rendering, and worry about hot module replacement.
+
+[00:04:26]
+So now if I come back here and refresh yeah you are gonna have to stop your server again. So little pro tip here, its annoying to have to restart and stop your server every single time so I use a model called node demon. Think we talked about this a little bit earlier in the day, and this is just going to start and stop your server every single time I change something.
+
+[00:04:53]
+So notice it says this right here, and then if I come in here and save this again it's gonna say something changed. I'm gonna restart your server again for you. So super useful. That's just something I do. Okay, now if I come here and refresh,
+>> Brian Holt: It's gonna take a while cuz it's gonna build on the first time that you make a request to it.
+
+[00:05:17]
+And now it works and it's gonna say how module replacement is connected and everything is gonna work just the way you anticipated.
+>> Brian Holt: Any questions about that?
+>> Brian Holt: So again I'm gonna tell you that this is not typically what I would do. I typically reserve server side rendering just for production, and then I leave the rest of it just like the def config.
+
+[00:05:48]
+Because it's a lot less of a problem to mess around with in development. I'll just use the web pack development server, but there are occasions where you'll have problems specifically with server site rendering. So it's good to take a look at this, but I wouldn't say it's my go to dev process, but I wanted to show you how just in case that you wanted to.
+
+[00:06:13]
+It is possible. Yeah?
+>> Speaker 2: What stops hop module replacement from running outside of development?
+>> Brian Holt: The node environment. So if you say node m equals production, hot module replacement disables itself automatically. And actually, I'll show you here just a second when we get to code splitting, you can actually just come into your config, right?
+
+[00:06:43]
+Your web pack config,
+>> Brian Holt: And say like, if I'm in development then add this to the entry right? If not, then don't add it right? Cuz you don't wanna send down that hot module reload code, unless you're actually in development right? So you can just mess with this config based on what environment it's being run in.
+
+[00:07:07]
+
+>> Brian Holt: But I'll show you that in just a sec.
+>> Brian Holt: So I'm gonna push here real quick, another branch. And then I'm gonna go back to the def config because it's gonna be a lot easier in the next section if we do it that way.
+

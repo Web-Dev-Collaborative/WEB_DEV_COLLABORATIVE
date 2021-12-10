@@ -1,0 +1,61 @@
+[00:00:00]
+>> Scott Moss: What you're gonna be doing is pretty much just writing the resolvers for the song type and the playlist type. So if you check out to lesson 11, you should see the ones for the user type already filled out.
+>> Scott Moss: So if you go to user.resolvers.
+>> Scott Moss: That's just a basic resolver in there, right?
+
+[00:00:36]
+So we need to do the same thing for the playlist type,
+>> Scott Moss: And the song type. Now as far as what resolvers need to write, I want you to think about what we did yesterday with REST. Think about all the things we did with get, remember what we did with get yesterday?
+
+[00:00:51]
+We did getOne, and getAll. For each type, I want you to write two resolvers. One that gets one song and then one that gets all songs, and also do it for the playlist.
+>> Scott Moss: Does that make sense? So I'm gonna do with song right quick, just so you can see.
+
+[00:01:09]
+So let's walk through the whole flow of what you have to do. The first thing you would have to do is you have to come here,
+>> Scott Moss: Then you have to make a query. But you can not put type Query, because we already made a type called Query, this'll break.
+
+[00:01:21]
+You actually have to extend the type, Query. Query was already defined in the user, so use the keyword extend in front of type, otherwise its going to try to make a new type called Query, which was already defined here. You cannot make another type of the same thing, it'll break.
+
+[00:01:39]
+Query was already defined so therefore we need to extend it. This is just like a merge in GraphQL, that's all this is. It's like I'm merging the two query types together, that's all this is doing. So for song, let's say we wanna get one song. For me I like to follow the convention of using the name of the type, for getting one.
+
+[00:01:54]
+So I'll say song, it takes an id, whose type is ID, and it returns a song that is not null, so I would say that. I'm gonna pull this up side by side to the resolvers, that I did not make. So you will have to come in here and make another file for song.resolver.
+
+[00:02:15]
+
+>> Scott Moss: And then I'm gonna make a function called.
+>> Speaker 2: Should be plural, resolvers.
+>> Scott Moss: Thank you.
+>> Scott Moss: Resolvers, and I'm gonna make a function called, you can call it whatever you want, it's just however you export it, it better be called capital Song. So I'm gonna call it just like getOneSong, and it's just going to take in a root value which is nothing.
+
+[00:02:46]
+It is gonna take an id as the arc, and that's really all I need. Then I need to import the song model from song.model,
+>> Scott Moss: Which is what we used in our controllers yesterday. And I'm just going to just query and get one song, so I'm just gonna say return.
+
+[00:03:01]
+Song.findById, cuz we have an id here, pass an id, call exec, and that will get one song. And then only thing I gotta do now is export this,
+>> Scott Moss: SongResolvers,
+>> Scott Moss: And I need to export it on my Query. Remember, cuz I'm merging the query yype, and I have a query called Song, whose value is that getOneSong function.
+
+[00:03:35]
+So now that I have that, the next thing I need to do is export these resolvers onto the graphQLRouter, like this, but in order to do that, I need to export it.
+>> Scott Moss: Did I already export it, where's it at? Okay, yeah, so all I have to do is just import that there from the graphQLRouter.
+
+[00:04:01]
+And then you can just copy this from users, you can do the same thing. You could say, songResolver,
+>> Scott Moss: There you go. And then you would need to add in the songResolvers down below.
+>> Scott Moss: There you go, and I think the last thing I need to do is make sure that this is exported from the index, so lets see how we did that in user.
+
+[00:04:29]
+Actually no, it's already good cuz it's in the router. You gotta export it in the router, so export star. I'm sorry, export songResolvers from song.resolvers.
+>> Scott Moss: There we go, and if you were to run this,
+>> Scott Moss: Duplicate decloration, song, I got that in there twice..
+>> Scott Moss: Right here, there we go.
+
+[00:05:02]
+So it'd be to run this, and then re-refresh this.
+>> Scott Moss: We should look at Query and there should be Song right there. So I want you to do the getOne, getAll for Song, getOne, getAll for Playlist. And then hook them up. I'm gonna write that down on the slides, I don't know why it's not there.
+

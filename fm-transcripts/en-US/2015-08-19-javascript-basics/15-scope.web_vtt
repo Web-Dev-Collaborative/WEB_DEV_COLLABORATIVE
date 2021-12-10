@@ -1,0 +1,230 @@
+WEBVTT
+
+1
+00:00:00.630 --> 00:00:03.290
+&gt;&gt; Kyle SImpson: Can I give
+a default value to the parameter?
+
+2
+00:00:03.290 --> 00:00:08.310
+In JavaScript ES6,
+that's the coming version of JavaScript,
+
+3
+00:00:08.310 --> 00:00:11.620
+we do have a syntax for
+default parameter values.
+
+4
+00:00:11.620 --> 00:00:13.680
+That doesn't exist in your
+current JavaScript, but
+
+5
+00:00:13.680 --> 00:00:17.090
+the next version has it.
+&gt;&gt; Speaker 2: And
+
+6
+00:00:17.090 --> 00:00:20.860
+do you have another course on that?
+&gt;&gt; Kyle SImpson: There is a course on ES6,
+
+7
+00:00:20.860 --> 00:00:22.080
+so.
+&gt;&gt; Speaker 2: You're asking about
+
+8
+00:00:22.080 --> 00:00:25.174
+a function callback.
+&gt;&gt; Kyle SImpson: That's more than we'll
+
+9
+00:00:25.174 --> 00:00:25.844
+get into right now.
+
+10
+00:00:25.844 --> 00:00:29.230
+We'll probably come back
+to that after lunch.
+
+11
+00:00:29.230 --> 00:00:30.870
+But that's more than we'll get into now.
+
+12
+00:00:30.870 --> 00:00:35.428
+What I wanna do in our last couple
+minutes is talk about the difference
+
+13
+00:00:35.428 --> 00:00:39.908
+between this variable a which exists
+outside of the functions, and
+
+14
+00:00:39.908 --> 00:00:44.730
+this variable b which exists
+only inside of the function.
+
+15
+00:00:44.730 --> 00:00:47.656
+You'll notice I have another
+variable called b here, and
+
+16
+00:00:47.656 --> 00:00:49.398
+these bs are entirely different.
+
+17
+00:00:49.398 --> 00:00:51.230
+Does everybody see that?
+
+18
+00:00:51.230 --> 00:00:54.450
+There's a variable b,
+it's almost like there was a var in here.
+
+19
+00:00:54.450 --> 00:00:56.910
+There isn't, but
+it's almost like there was a var in here,
+
+20
+00:00:56.910 --> 00:00:59.890
+that declarative b that exists
+only inside of that function.
+
+21
+00:00:59.890 --> 00:01:05.788
+So if I took this part out,
+and I just tried to access b,
+
+22
+00:01:05.788 --> 00:01:10.918
+what we expect to have
+happen is an error because
+
+23
+00:01:10.918 --> 00:01:17.178
+there is no b available to line 9.
+&gt;&gt; Kyle SImpson: The b
+
+24
+00:01:17.178 --> 00:01:20.900
+exists only inside of the function,
+not outside of it.
+
+25
+00:01:20.900 --> 00:01:25.910
+Identically, too, if I said var c = 42,
+
+26
+00:01:25.910 --> 00:01:30.440
+if I put a variable inside of my function,
+it's not available outside.
+
+27
+00:01:30.440 --> 00:01:34.932
+And if I said var c,
+if I take that program and I run it,
+
+28
+00:01:34.932 --> 00:01:42.560
+we're gonna expect to get a reference
+error because c doesn't exist.
+
+29
+00:01:45.490 --> 00:01:48.542
+And in fact, we get a reference
+error that c is not defined,
+
+30
+00:01:48.542 --> 00:01:52.722
+okay?
+&gt;&gt; Kyle SImpson: So
+
+31
+00:01:52.722 --> 00:01:59.180
+putting a variable outside versus inside
+a function changes where it is scoped.
+
+32
+00:01:59.180 --> 00:02:04.450
+Scope is this technical term for, you can
+think of it as sort of there's a bubble
+
+33
+00:02:04.450 --> 00:02:06.710
+around the internal contents of foo,
+
+34
+00:02:06.710 --> 00:02:11.440
+and then there's another bubble around
+the outer contents of our whole program.
+
+35
+00:02:11.440 --> 00:02:13.590
+Those are two different scopes.
+
+36
+00:02:13.590 --> 00:02:15.840
+There's one scope here and one scope here.
+
+37
+00:02:15.840 --> 00:02:20.300
+Notice that there's no a inside of our
+foo, and yet we didn't get a problem.
+
+38
+00:02:21.780 --> 00:02:25.280
+And the reason for
+that is that you can always
+
+39
+00:02:25.280 --> 00:02:29.419
+access variables above you or
+outside of your scope.
+
+40
+00:02:30.560 --> 00:02:33.530
+But you can never reference
+variables that are further down.
+
+41
+00:02:33.530 --> 00:02:35.030
+So that's a one-way street.
+
+42
+00:02:35.030 --> 00:02:35.930
+When I ask for
+
+43
+00:02:35.930 --> 00:02:41.650
+a here, it first looks to see if it
+sees an a inside of foo, but it doesn't.
+
+44
+00:02:41.650 --> 00:02:45.320
+And so where it goes next is it
+goes out one level of scope.
+
+45
+00:02:45.320 --> 00:02:47.520
+And it finds an a there,
+so it's able to use it.
+
+46
+00:02:49.960 --> 00:02:52.510
+But the reverse was not true.
+
+47
+00:02:52.510 --> 00:02:55.306
+We could not take a variable
+that was inside of it and
+
+48
+00:02:55.306 --> 00:02:56.875
+access it from the outside.
+

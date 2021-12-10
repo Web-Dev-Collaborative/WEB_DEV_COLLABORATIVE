@@ -1,0 +1,48 @@
+[00:00:00]
+>> So, we're going to. If you don't have Vue CLI installed already, you're gonna npm install -g, that's global, @vue/cli, or yarn global add @vue/cli. And then, from there I'm gonna call it vue create aliengame, but you could call it whatever you want. So if I go into my terminal and I say, vue create aliengame.
+
+[00:00:30]
+I have a bunch of different options. You might have seen these in the other course, that we can pick different options, we can also manually select features. I'm gonna manually select some features, I want these. And I can select things based on whether I'm hitting spacebar or not, so we're gonna just start off with something like this.
+
+[00:00:49]
+I'm gonna use node-sass, I'm gonna use package.json. I'm not gonna set it for a future project. And now it's going to initialize that repository in that directory that I started in. I should make the drum roll [SOUND], and then we can go [SOUND] when it's done [LAUGH]. Cool.
+
+[00:01:11]
+So, while it's doing that, we can talk through the guide to resources. I wrote out what each one of these are, in case you forget later. And in this Resources folder, we have the alienzombie source.svg, that's that original SVG that you saw before, before it was optimized. You can go to SVGOMG by Jake Archibald, that is a great way to optimize an SVG.
+
+[00:01:36]
+And what's really nice is, you use a service workers. So, if you go to it, and at any point in time, let's say you're on a plane later, you still have access to it later, that's really cool. We have the questions.js, which were the questions for the game.
+
+[00:01:51]
+The main.scss, which is all of the base css. The intro, which is the introduction modal. The Components folder, which was all of those grouped components. And the Graphics folder, which are all of the graphics. Let's check out where we are, great. It even tells us where we're supposed to go, so I can say, cd aliengame, and I can say yarn serve.
+
+[00:02:17]
+So it's starting up a folder. I'm gonna open up a new tab meanwhile, and I'm gonnao open this in VS Code. And I'm gonna be switching things around in my screen with shortcuts. That's because I use this tool called BetterSnapTool, which allows me to kind of expand and contract, and move things into different sections on my screen, which is really nice.
+
+[00:02:44]
+Okay, so, we're now on localhost. And notice that there's also a network one, which is really nice if you need to check responsive. So, when we first start up any Vue application, here's what we will have. What's really nice about it is, it immediately sets up a component and things like that for us, so we can kinda see some nice defaults, and I'll show you what I mean here.
+
+[00:03:06]
+So, if we look into this index.html file, we'll see a pretty standard index.html file, right? We've got some meta tags. We've got some link tags. You could see where you might need to add a font, which we'll do in just a moment. And we also have things that are static, like a favicon.
+
+[00:03:23]
+Then, if we open the Source folder, we have things like our Assets folder. Our Assets folder can hold things like images, it can hold things like global styles, it can hold your typical assets. We also have a Components folder. And, in that Components folder we have that HelloWorld.vue, which you saw is the bottom part of that page, where we have all of the links.
+
+[00:03:48]
+So you can immediately see what a component might look like. And it's being brought into this app. So you can see that HelloWorld right here, and that is brought in by that import of the Components folder of HelloWorld, and then this Components of HelloWorld. This name app is optional.
+
+[00:04:08]
+It's not required to run the application. If you look in the Vue Style Guide you can see that, anything that is kind of like a global style for the application, either needs to be put in something like a main dot. It's not required, but it's highly suggested that you either put it in a main.scss folder, or main.scss in Assets, or you put it at that top level app.vue.
+
+[00:04:35]
+So you can see some of that top level app.vue that is not scoped, that goes for the entire application. Now, if you're using it inside of a component like this HelloWorld, that's where you would start using scoped styles. So it limits this CSS to this component only. Then, in the Store we have this index.js file.
+
+[00:05:05]
+You see that we're importing Vue, we're importing Vuex. We have that export default new Vuex.Store, and then we've got state, mutations, actions, modules, things like that. So we have everything set up for us, this kind of boilerplate. If you forget to load Vuex, and part of the CLI, or you have an existing project, and you're bringing in Vuex, you can manually add it.
+
+[00:05:30]
+What you would do is, you go into this main.js file. You yarn add ,or npm-i Vuex, and then you would import Store from Store. And then you would add Store here. This is using destructuring, so really it's saying, Store. Sorry, my computer's a little bit slow. Store, Store, and that is the equivalent to Store.
+
+[00:05:58]
+Cool, but here it is all set up for us. Also, if you're bringing in a Store and you don't have the boilerplate in my Vue Snippets, you can write v-store and it will output this automatically for you.
+

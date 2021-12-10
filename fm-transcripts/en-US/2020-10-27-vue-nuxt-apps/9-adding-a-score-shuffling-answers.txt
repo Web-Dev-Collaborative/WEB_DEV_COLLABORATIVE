@@ -1,0 +1,45 @@
+[00:00:00]
+>> Okay, from here, we wanna do a couple of things. We wanna say if the game state, if we get to the end of that array of questions that once we get to the end of the question index, that we wanna tell the UI state, you either won or you lost.
+
+[00:00:21]
+And so we're gonna pass that in as a string. So let's go back to the store. And we're just going to say, okay, keep going until you can go no further. But else, let's say let's check if the state.score is greater than 0. And we're gonna use another ternary here.
+
+[00:00:43]
+And then we're gonna set the state of the UI, uiState to 1 if it is greater, or state.uiState = 'lost'. There's one more thing I'm gonna do here. I'm going to say Math.sign because I have done this a few times, and I know that JavaScript likes to coerce things and it likes to do funny things with numbers.
+
+[00:01:13]
+In TypeScript, you would be literally setting it to number and making sure of that. But a quick way of doing this here is to say Math.sign. And what that's gonna do is it's gonna convert this to a solid number. It's gonna take it, make sure it's a number and convert it to a solid number.
+
+[00:01:27]
+So I definitely know that it's not like 0.00002 or something silly like that. Okay, so now let's play again. We've got our baker, we can go through, and I'm gonna lose intentionally. We're losing, we're losing, we're losing, we're losing. And then if I look in here, you can see that uiState has now updated to lost.
+
+[00:01:56]
+So that's good. There's one more thing we've gotta do and then I'm gonna give you an exercise. This is always the same. If you're smart, you'll probably figure out that that ordering actually matters. And we wanna make sure that that ordering does not matter. We wanna shuffle all of the things in that array.
+
+[00:02:15]
+So what we're gonna do is do this in the component not in the store. Because it's really something that needs to be updated within this component here. You might be tempted to use a computer property here. And you totally could because you could use this dot characterChoices and create a shuffle based off of this.
+
+[00:02:36]
+But what I've noticed in game logic is that I use shuffle quite often. And it might be better to be able to pass in something. So rather than using a computed property for this, I'm gonna use a method because I wanna be able to pass in characterChoices. So that someday maybe I wanna shuffle something else, I still have that parameter.
+
+[00:02:55]
+I can't pass in a parameter with a computed property. So what I'm gonna do is I'm gonna make a method called shuffle. And with shuffling an array, you could do this really quick check, that's like checking if it's above 0.5 or not. But that's not a perfect algorithm for checking a shuffle.
+
+[00:03:19]
+There's a few different like schools of thoughts in computer programming about shuffles. Lodash uses a really good shuffle. Under the hood, it's called Fisher-Yates. The type of shuffle that Lodash uses is Fisher-Yates. I use shuffle so much when I make games that I actually have a snippet created for it.
+
+[00:03:40]
+So I'm gonna go in here, I have all of these snippets that I use pretty often. I'm gonna collect my fisher-yates shuffle, and I'm gonna paste it in here. And instead of saying function shuffle(array), I'm gonna say shuffle(array). I'm gonna return that array. And now I can use this method, that's the Fisher-Yates shuffle, for everything.
+
+[00:04:00]
+I don't have to load in Lodash. It's kind of like too few lines of code to load in Lodash. I could just load in that method, but it's also just four lines of code. So, I have this shuffle(array), and now I can, in my character choices, say, shuffle and pass in characterChoices.
+
+[00:04:22]
+And now let's check it out. Because the way that we can test this is, if I answer with baker, it should keep winning if it's in the same position. If I just keep on selecting the first one, it should win if we're not shuffling. So are we winning?
+
+[00:04:38]
+No, we're losing. We're winning. It's all over the place, which is exactly what we want. We want to be able to win and lose and win and lose. So currently, the state that the application is in right now is we are able to select our character. We are able to move the needle based on our score.
+
+[00:04:58]
+We're able to go through all of the questions. We're able to even find out if we win or lose through this entire application. So we did a lot.
+

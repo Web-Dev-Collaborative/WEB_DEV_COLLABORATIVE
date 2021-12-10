@@ -1,0 +1,48 @@
+[00:00:00]
+>> We are going to get into the nitty gritty of building a food app with nuxt. This is going to be building a real life application with an API and we're going to work with view x store and learn all sorts of stuff. So, why are we talking about Nuxt?
+
+[00:00:16]
+Nuxt is kind of this meta framework on Vue. If you're familiar with react has nuxt and vue has nuxt. So, without further ado, today, we're gonna talk about, Nuxt, [LAUGH] I use this code pen as an example because there's also now next few other things. I know that that's very confusing but you can think of it as comparable to react nuxt, truthfully though, they've kind of branched off from each other.
+
+[00:00:48]
+I think it kind of started that way. But now nuxt has its own community and makes its own technical decisions. And it's no longer just working off of what nuxt js does anymore. But you can similarly think about it as a metaphor framework, it's using view under the hood.
+
+[00:01:03]
+And then it's making some kind of configuration assumptions for us and it makes some things a little bit nicer to work with and you'll see why in just a minute. So why are we working with it? It has excellent performance, I kind of covered this in the other course.
+
+[00:01:19]
+It does this thing called treeshaking. It does things like code splitting. I'll explain tree shaking in a moment. It makes sure that your code is as optimized as humanly possible. It also allows us to kind of decide what are compilation targets are, right? We're able to say, okay, we're gonna make a static build of this or we're gonna use it from a server or we're gonna use an SPA type of view.
+
+[00:01:42]
+And we're still going to make sure that everything is server side rendered, that everything is minified and concatenated. And that we have some nice development things that we can work with on the surface. There's automatically generated dynamic routes now, this is actually a newer feature. We It used to be that we would create dynamic routes.
+
+[00:02:01]
+So you always couldn't make dynamic routes with nuxt. But you'd have to kind of describe in a function like what shape of that data you would like it to hold? How you would like it to generate? And at this point, what it does now is if you choose the target static, it will take all of those routes.
+
+[00:02:20]
+If it sees a particular page which will build, it will actually create those for you dynamically, which is really nice. It creates automatic routing. So even just between from page to page, it will create a page for you. And we're gonna be, I'll walk you through that and show you what that looks like.
+
+[00:02:39]
+It does SSR and jamstack and SPA rendering. I should also mention that it is able to use the composition API after we build this food app. Later on today, we're gonna see the composition API from view three in an app also. So we're gonna look at the nuxt app built with the composition API and we'll do an exercise with that as well.
+
+[00:03:03]
+So after we get all done with this options API view of nuxt, we'll use view three composition API and nuxt, It has some really elegant defaults there. We're gonna go into how it uses pages and layouts and things like that. And what I really like about it is, when I was a contractor, I used to get clients that were working with things in totally different ways.
+
+[00:03:27]
+And their code bases were set up in totally different ways. Because it has some elegant defaults and default configuration, I could jump into a next project and immediately know where everything is. It's kind of similar how when you're working with you, you can see the legibility of the distinction between methods computed and watcher.
+
+[00:03:44]
+And you know exactly what those things are. Nuxt has some defaults like that to, where you can jump into the code base. And be like, this is a plugin, it's registering some JavaScript that's going to be activated. You're even gonna see how we can call things on the server or the client from a plugin.
+
+[00:04:03]
+We're gonna do all sorts of things where you can see exactly by which directory which are well named, what we're extending this view framework to do with next. It has great organization and that was kind of like what I was explaining before you can jump in and you can see exactly where everything lays.
+
+[00:04:24]
+I did mention that we use treeshaking. And I just wanna give a small example of treeshaking. I mentioned this in the other course but it bears repeating if you didn't watch the other other course. So let's say I'm working with lodash, and lodash has all of these nice methods, that we're allowed to use in it.
+
+[00:04:42]
+Now, if I'm using lodash, and I'm really only using tall and union, I can use treeshaking to get rid of all of the methods that I'm not using anymore. This is really important because as a nuxt app grows, it's going to always make sure that you're only using the bits that are absolutely necessary to you.
+
+[00:05:01]
+And it's gonna remove anything that you're not using, the second you're using it, it's still available to you. And the new version of view has been written in a way that everything is tree shakable. So the combination of both is pretty powerful.
+

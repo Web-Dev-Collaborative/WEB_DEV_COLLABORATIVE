@@ -1,0 +1,86 @@
+[00:00:00]
+>> Brian Holt: Coming back here, our application hopefully still works. What I wanna show you now are the Redux DevTools, which are pretty cool. So unlike the React ones, where they just kind of works as soon as you install the extension. With the Redux ones you actually have to hook into the libraries, you have to actually write your own debug code.
+
+[00:00:18]
+And it's not too bad. So go to store.js. And in addition to createStore, I want you to import compose,
+>> Brian Holt: So const store is gonna be createStore with reducer, and then you gotta do after that,
+>> Brian Holt: Compose and what we're gonna do, is we're gonna say, if type of window is object.
+
+[00:00:52]
+This is basically saying, if I'm in the browser, so this will still run in node, so we can still do our service side rendering and that's fine.
+>> Brian Holt: And,
+>> Brian Holt: Typeof window.devToolsExtension is not equal to undefined.
+>> Brian Holt: By the way, I just totally grabbed these from the Redux website, so I did not write this.
+
+[00:01:34]
+So if both of those things are true, then what we're going to do is we're going to enable the dev tool extension here.
+>> Brian Holt: Else, we're just going to give it a function that does nothing, which is f that returns f.
+>> Brian Holt: This is called an identity function in case you're wondering.
+
+[00:02:11]
+
+>> Brian Holt: So again, I just grabbed this from the DevTools website.
+>> Brian Holt: Basically it's saying, if I'm in the browser, and if I can find the Redux DevTools extension, then use that. Otherwise, do nothing.
+>> Brian Holt: Okay? Now Google Redux DevTools
+>> Brian Holt: And if you're on Chrome, it's this one.
+
+[00:02:50]
+
+>> Brian Holt: Mine's already added to Chrome, so I don't need to do anything. But if you need to, it's right there. And the Firefox ones are here.
+>> Brian Holt: Those of you that went into the actual browser extensions, the nice thing about the Redux DevTools is because they're written in React you can actually render it inside of the browser.
+
+[00:03:16]
+So say you're doing React native stuff. You can actually include the DevTools inside of React native, which is pretty cool.
+>> Brian Holt: Okay, so now that I do that you can see up here it's kind of hard to see but there's a little icon up there that's lit up.
+
+[00:03:36]
+It will not be lit up on other pages. It's only gonna be lit up on pages that it's actually been engaged. If I click it, I'm gonna get these DevTools out and I can see that it's already done a init action here, right?
+>> Brian Holt: So let's see.
+>> Brian Holt: So I can come in here and I can write, black and that dispatched five actions, right?
+
+[00:04:04]
+Cuz every single time the user types it dispatches an action to Redux so if I open my DevTools again, you're gonna see all of those actions, right? One for each letter that I typed. Now let's get into why Redux devtools are really, really impressive to me. I can actually travel backwards in time.
+
+[00:04:22]
+So I'm gonna say you know what, disable that one.
+>> Brian Holt: Let's see, let's actually do it this way, you can actually open from up here, as well.
+>> Brian Holt: So this is the inspector, okay and that's what I wanted. I wanted the log monitor.
+>> Brian Holt: And here I can start actually, so if you're looking up here in the top.
+
+[00:04:52]
+I'm disabling these actions piece by piece and I can go backwards and forwards in time, right?
+>> Brian Holt: And I can reset everything and we can go back to the initial state.
+>> Brian Holt: And let's see, there's also the inspector, is that the one? So the inspector's cool and then the chart is also pretty cool cuz you can see those as they come in as well.
+
+[00:05:24]
+
+>> Brian Holt: And you can inspect the state tree of your app. Ours isn't particularly interesting because we have just the one piece of state being modified. But let's go back to log monitor.
+>> Brian Holt: There we go.
+>> Brian Holt: Nope, that's something I'm looking for either.
+>> Brian Holt: So anyway, you can pop it out and do different things.
+
+[00:06:00]
+You can also inspect what the actions looked like. So in this particular one, you can see this is what the action looks like. This is what this state ended up being afterwards. You can actually go disable, like what would happen if this particular one in the middle was never dispatched?
+
+[00:06:15]
+The answer to that question is nothing, right? Because each action is sending the full search term every single time, so it's completely overwriting. But right now this middle one is not actually happening. So this is called time travel debugging and because of the way the Redux is written, it lends itself very well to this.
+
+[00:06:35]
+Now, what's really cool about this, is you can actually dump the state of your Redux and send that off to your developer. And say, here is a perfect repo case for this particular bug. They can download your Redux state and see how you got into this state, and then they can go backwards and forwards in time to kind of understand how this happening, right?
+
+[00:06:54]
+You can actually automate that process, yeah.
+>> Speaker 2: Could you do this on production? So if you have like a customer that's running into an issue, they could send you a log and you could go through it step by step?
+>> Brian Holt: Absolutely.
+>> Speaker 2: Yeah?
+>> Brian Holt: Yeah, totally.
+>> Speaker 2: Sweet.
+
+[00:07:06]
+
+>> Brian Holt: You could just have them dump their Redux state, and then send it off to you. And then like I was saying here, you could automate that process. So like the user crashed the app, let's dump Redux and send it to back to development. So this affords some really cool things.
+
+[00:07:25]
+Like, I find this pretty entertaining. We can actually have like a timeline here that you can go backwards and forwards in time with. And in fact you can even press play. It'll actually just automatically show you step-by-step what's happening.
+>> Brian Holt: I find this very entertaining personally.
+

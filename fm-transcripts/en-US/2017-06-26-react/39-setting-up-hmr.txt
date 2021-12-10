@@ -1,0 +1,209 @@
+[00:00:00]
+>> Brian Holt: Let's go into plugins in our BabelRC file.
+>> Brian Holt: So, right now, we're already have babel-plugin-transform-class-properties.
+>> Brian Holt: And we're going to add this one as the first one which is going to be react-hot-loader/babel. This is going to do a Babel transformation that basically is going to make the joints that the hot module replacement knows where to cut off and reinsert itself into.
+
+[00:00:38]
+It just does that all for free for you behind the scenes. Thanks to Babel. Okay, now I want you to go in to your webpack config. We're gonna have to make it a tiny bit more complicated. First thing is we're gonna import webpack as well.
+>> Brian Holt: I should say that this is a feature that was already built into webpack and React is just kind of the first one to take advantage of it.
+
+[00:01:13]
+But webpack was already armed with this ability with webpack 1 I believe. It's just no one was really taking advantage of it yet. Until the same guy that wrote Redux and now he works on the React core team, Dan Abramov said, I should do this, and so he did.
+
+[00:01:33]
+So the first thing we need to change here is entry. This is now gonna have to be an array because we have to give us some additional code so it knows how to do the hot module replacement.
+>> Brian Holt: Okay, and we're gonna do, first one is gonna be react-hot-loader/patch.
+
+[00:01:56]
+I will say that the order here is critical so make sure you get it in the right order. webpack-dev-server/client. And then you need to give it some.
+>> Brian Holt: You need to give it the URL that it's going to live on. So we'll do localhost 80, 80.
+>> Brian Holt: And then we're gonna do webpack/hot/only-dev-server.
+
+[00:02:33]
+There are several types of hot reloaders and I went through them and chose this one and I do not remember why.
+>> Brian Holt: But feel free to go check out the webpack docs. There are a couple of different types of the way it does hot reloading.
+>> Brian Holt: Okay?
+>> Brian Holt: So make sure you're doing cheap-eval-source-map.
+
+[00:02:59]
+Something I need to tell you about hot module reload is that, again, it's kind of a new thing so browsers haven't totally caught up that this is happening. So the first thing you're gonna mess up is your source maps. Your source maps, upon hot reload, they're not going to necessarily follow along.
+
+[00:03:15]
+It's a bug with the browser. I know Chromium as of last week is working on it and Firefox just says, that seems like a problem. And that's about all we've gotten out of them, so.
+>> Brian Holt: It'll eventually get fixed, I'm sure, just not today. Okay, so under devServer, you just need to say, hey I need this to be a hot server.
+
+[00:03:44]
+
+>> Brian Holt: Okay? And now I want you to go down to [INAUDIBLE], we'll do it there. There's another thing called plugins. This is augmenting the abilities of webpack. So we need to give it two plugins here. One of them is new webpack.HotModuleReplacementPlugin and new webpack.NamedModulesPlugin.
+>> Brian Holt: So, I'm sure you can imagine why we have HotModuleReplacement, that's just giving it the additional abilities to insert those hot connectors, and named modules.
+
+[00:04:43]
+It's going to send down the names of whatever modules you are replacing, so at least if something goes wrong it's going to tell you something went wrong with search, right? That's the named modules plugins does for you, is it just sends down the names as well for debugging purposes.
+
+[00:05:06]
+
+>> Brian Holt: Okay, we are not done yet [LAUGH]. The problem that we have now, if we go to clientapp.jsx is what happens if app changes. We have no way to, because this is the entry file, we have no way to replace it. And so we actually have to enable our code to be replaced.
+
+[00:05:33]
+So what we're gonna do it we're going to split client app into a separate file and then we're gonna have a client app.jsx which will be an entry point for hot module reload. This will also be useful later for several purposes, one of which is code splitting and one of which is server-side rendering.
+
+[00:05:51]
+So we would have to do this anyway eventually, so it's okay. I see some looks of like, I don't wanna do that. [LAUGH] I get it, but believe me, overall this is gonna be a positive thing. So I want you to create a new file called app.jsx. And this is going to be a file that can also be used server-side rendered and all that kind of stuff, so it's good.
+
+[00:06:15]
+So in app.jsx we're gonna have to basically take most of this.
+>> Brian Holt: We're gonna have to take the browser outer, we're gonna have to take. React, basically everything but the render statements. That's gonna stay here. So we're gonna pull that out and go to app.jsx. We're gonna pull copy react cuz we need it in both places.
+
+[00:06:42]
+
+>> Brian Holt: And then down here, we're gonna pull out FourOhFour and App.
+>> Brian Holt: And we're going to put that in here.
+>> Brian Holt: Then down here we're going to export, default App.
+>> Brian Holt: And I think that should be enough for this.
+>> Brian Holt: Now if we come into clientapp.jsx, we're going to import app.
+
+[00:07:22]
+
+>> Brian Holt: ./app. So now this should work again, right? Now, we have apps split out as a separate component and all client app does is render it out. But we wanna make this a little bit more smart. We want this to be a little hot reload, so what we are gonna do is we’re gonna make a function called renderApp.
+
+[00:07:44]
+
+>> Brian Holt: It's gonna be a function that all it's gonna do is to render(<App /> document getElementById('app')); okay?
+>> Brian Holt: It's basically what we have down here. And then the first thing we're gonna do is we're gonna call renderApp so it gets rendered for the first time. And then down here we're gonna say if (module.hot) Which will only be available in dev, right?
+
+[00:08:24]
+So this will not be enabled in production. We're gonna say module.hot.accept('./App', () => { and then renderApp. So what this is really doing.
+>> Brian Holt: If hot module replacement is enabled for this particular build, it’s gonna say, okay I see that hot module.hot exists, right. So if module.hot exists you can be assured that you're in development.
+
+[00:09:08]
+And then it says every time that you tell me that app has changed I need to call this function, right. So any time that app changes just re-render the whole app. Everything else, because there is those joints that we did with the Babel plugin, they know how to replace themselves.
+
+[00:09:26]
+It's just the top level of component that you need to give it a little extra help to be able to know how to replace
+>> Brian Holt: Doing this, some people get worried about this calling render multiple times, it's okay. React knows how to handle that, that's the preferred way that if you need to force to re-render the top level component, this is the way you're supposed to do it.
+
+[00:09:47]
+It'll do the same virtual DOM diffing, it just works like a normal replacement, right, so that's okay. You can definitely do that.
+>> Speaker 2: In the module variable, where is that coming from?
+>> Brian Holt: Webpack, it's a webpack thing. It's specific to webpack.
+>> Brian Holt: Any questions before we go see how awesome it is?
+
+[00:10:14]
+
+>> Speaker 3: Could you show the app file again.
+>> Brian Holt: Sure, app, that one. It's pretty much what we had before, it's just not doing any client-side rendering. So, again I wanted to emphasize this is a good pattern to split out app.jsx, which has no necessarily browser concerns of it's own, right?
+
+[00:10:37]
+So now this can be run in node. You have to take care of browser router, but there's a way to do that, so don't worry about that.
+>> Brian Holt: In fact, we'll do that later.
+>> Brian Holt: And then clientApp here. If you need to do anything specifically for the browser like model.hot, this is where you would do it, right?
+
+[00:11:01]
+Or, let's say you needed to, I don't know.
+>> Brian Holt: Mess with the document somehow, right? You can be assured that if you're inside of clientApp and you wanted to do something only in the browser and not in node, that this is the place that you would do it, right?
+
+[00:11:15]
+So clientApp is the place for your browser code.
+>> Brian Holt: If you need to fire off like Google Analytics, right, you would only wanna do that in the browser, this would be the place that you'd wanna do that.
+>> Brian Holt: And people get a little upset. They're like well this is dev code that I'm gonna be shipping down to the client.
+
+[00:11:37]
+I don't wanna do that. If you really don't wanna to do that there's a tool called Groundskeeper that you can remove code before you send it down in production. You can do that. But this is gonna end up being like a few bytes. So it doesn't bother me, but it might bother you.
+
+[00:11:54]
+Okay, so let's restart webpack since we messed a bunch with it.
+>> Brian Holt: And then once this hopefully works I will push a branch for you.
+>> Brian Holt: It will take a second for a webpack to build. Okay?
+>> Brian Holt: That's a good sign. You can see here that it's including some webpack hot stuff.
+
+[00:12:27]
+So the one thing, this is gonna balloon your dev build even bigger than it was before, which is okay. As none of this will get shipped down to production. So, now, if you come back here and if you look at your console, you can see what it's getting back from the devServer.
+
+[00:12:47]
+It's gonna say hot module replacement enabled and then, hopefully. So I'm gonna go change this. So first of all, I'm gonna give this from state, right? So if there was a hard refresh on state, if there was a hard refresh the state would be blown away. I guess it's gonna be anyway, doesn't matter anyway.
+
+[00:13:07]
+So, if we come in here to like search and modify svideo and have this be something else.
+>> Brian Holt: All right, let's try that again.
+>> Brian Holt: Let's do it with
+>> Brian Holt: Let's do it with Landing. Okay, so, at the Landing, we're gonna change this to be yet different.
+>> Brian Holt: It's doing hard refreshes.
+
+[00:13:48]
+That's kind of annoying.
+>> Brian Holt: Okay.
+>> Speaker 4: People are asking where is module coming from?
+>> Brian Holt: Webpack. Webpack injects that.
+>> Speaker 4: So you don't need to import it?
+>> Brian Holt: Nope.
+>> Brian Holt: All right, verbose.
+>> Brian Holt: Let's see.
+>> Brian Holt: Preserve log, that's what I wanted.
+>> Brian Holt: So clear. And we'll change this to be Landing.
+
+[00:14:41]
+
+>> Brian Holt: So that's what I wanted to see. It's for whatever reason 404-ing on the hot updates. Says it cannot find update needed before reload.
+>> Brian Holt: So, let's try. Why are you doing a full reload? So, go to webpack config, it's a very delicate balance to get this tool to work.
+
+[00:15:10]
+You need to do here in.
+>> Brian Holt: So it need to require webpack, need additional files output. Yeah, that's what I messed up. So here in output, you need to make the output aware of where it's going to be served from, right. Cuz those hot.json files are going to be served from the same directory.
+
+[00:15:37]
+So we're gonna have to do output, yep, sorry, publicPath inside of the output object. Which should be the same as, cuz there's gonna be a publicPath both in output and devServer.
+>> Brian Holt: Okay, try that again.
+>> Brian Holt: Okay, fingers crossed.
+>> Brian Holt: Okay, so hot module replace is, all right, in effect.
+
+[00:16:13]
+Go to Landing, change this back to something yet else.
+>> Brian Holt: There we go. It worked! [LAUGH] Cool, so if you look down here, you can see it says, hot update, checking for updates on the server. Updated the modules, and then it did something different. So if I go back here and change this to svideo.
+
+[00:16:39]
+
+>> Brian Holt: It'll actually change it without actually doing a hard refresh on the page, which is pretty cool.
+>> Speaker 5: So this is primarily just for development to-
+>> Brian Holt: It's only for development. You would never, ever, ever, ever want to do this kind of production.
+>> Speaker 4: Can you show having state then?
+
+[00:16:59]
+
+>> Brian Holt: Yeah, let's do that. So, if you go to search.jsx. So we have something else right here, right. I'm going to do black right here. And if I change something else to be back to what it should be, which is svideo. Notice that black state here in svideo was able to change.
+
+[00:17:19]
+
+>> Speaker 4: So, you can write code with state?
+>> Brian Holt: And it just, it'll constantly be replacing itself
+>> Brian Holt: So this is a huge win, in my opinion, for developer productivity, right? It's just a really tight feedback loop. And I think that's something that Facebook does a really good job of putting emphasis on, is the tighter you make that feedback loop, the faster you can go as a developer, right?
+
+[00:17:47]
+Cuz how many times like you save something and you have to wait even 30 seconds for something to run. And before long, you're just on Twitter and you waste 10 minutes on Twitter. At least that's exactly what I do. I'm projecting myself on you, right?
+>> Speaker 4: And then you hit refresh, and then you have to click three buttons to see if that bug was fixed.
+
+[00:18:06]
+
+>> Brian Holt: Yeah, which ends up to me ten more minutes, [CROSSTALK] news.
+>> Speaker 4: Yeah.
+>> Speaker 6: [LAUGH]
+>> Speaker 4: Ten more [INAUDIBLE]. It seems like a good place to push a branch.
+>> Brian Holt: Yeah, totally, I changed a lot of stuff to get that to work.
+>> Brian Holt: So it is really fun, it's really cool.
+
+[00:18:25]
+The thing with hot module reload is it doesn't really play well with some of the newer technologies. Like it's doable with, well, so you have hot module replaced, you have server-side rendering and you have code splitting. And it's pretty much a choose two scenario. Getting all the three to work at the same time, as far as I know is actually impossible.
+
+[00:18:46]
+
+>> Speaker 4: [INAUDIBLE] Asking if I was using import to import CSS files, would I be able to edit the CSS and have that update without having to reload?
+>> Brian Holt: If you're using CSS modules with hot module reload, or refresh, replace? I don't know. I think-
+>> Speaker 4: It seems like they're using a CSS and JavaScript solution like-
+
+[00:19:10]
+
+>> Brian Holt: Status components for show or, like no issue for sure. But if you're actually usiing CSS Imports, I'm gonna go with a strong maybe. [LAUGH] I think so but I'm not positive. Well.
+>> Brian Holt: Yeah, maybe. Maybe is my best answer to that.
+>> Brian Holt: v3-13
+>> Brian Holt: v3-13.
+>> Brian Holt: Cool, v3-13 is now up and available.
+

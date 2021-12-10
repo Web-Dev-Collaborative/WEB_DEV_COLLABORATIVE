@@ -1,0 +1,51 @@
+[00:00:00]
+>> The next thing that we wanna do, is we wanna send that to the store, right? When we go send it to the store, we're gonna do a few things with it. We're gonna take that character and we're gonna say, is the character is the one that we're passing the one that we chose?
+
+[00:00:14]
+Does it match? Because if it does match your score is better. But if it doesn't match the score is worse. So we wanna make sure that we're updating the score based on whether or not you got the character or not. The other thing that we're gonna do is we're gonna say, go through the index like every time you select something, go to the next question, right, because we don't wanna stay on this question once it's selected.
+
+[00:00:39]
+Once it's selected, we wanna go to the next question. So we're gonna update that question index. So we'll start there and we're gonna add a little bit more logic to. So we've got, update UI state, pick character. We're in index.js. Sorry. We've got our pick question. And what we wanna do is we want to do like we did here where we're committing something to the store.
+
+[00:01:05]
+And in that store, we're gonna say like pick question. Let's just make a pick question mutation in the store that kinda matches. So pick question. And we're gonna pass in the states and we're gonna pass in the character. So when once we have this, we'll be able to do some things with it, but first let's wire it up.
+
+[00:01:30]
+So we've got This.store.commits, Pick question and we're also gonna pass in character, which is what we're gathering here. Now inside of this index, we've got, let me make sure that I have my commas and things. We're actually not gonna use actions in modules. In this one we will use actions in the next piece of this course.
+
+[00:02:05]
+So, once we move over to that, then you'll see like how actions can be used to commit a mutation. But for now, we're just gonna use mutations in this one because everything happens automatically. We don't need anything kind of async functions. So what we're gonna say is, we're gonna check if the character is the right character.
+
+[00:02:24]
+So we're gonna say, is the character the State.character? [LAUGH] I'm gonna use a ternary operator. So you can think of it like, is it? If so, then we're gonna say, state.score. And we'll give it like, I don't know, 10 or something like that. And then otherwise we'll say state.score.
+
+[00:02:52]
+And we're going to decrement it by 10. So we're giving them a better or worse score depending on how that's going. The next thing we wanna do is we wanna say if we have more questions to go, if the if the question index isn't at the end yet, increase the question index.
+
+[00:03:13]
+Otherwise we're gonna figure out if we won or loss. So we're gonna say like if the state of the question index is less than state questions.length minus one. So if we still have more questions to go, if we haven't reached the end of the index there, then we're gonna say state.question index ++.
+
+[00:03:45]
+So we're gonna say yeah, if you have more to go, let's keep going. So let's just see that in action before we do anything else. Let's go back over here. We'll refresh again, we've got a mechanic. And right now, you might catch something. It's always gonna be an order over here, right?
+
+[00:04:05]
+We've always got the baker, then the mechanic, then the artist. So I can even check how this score is working very quickly with that. We're gonna use it to our advantage at first and then we're gonna fix it. So right now we've got the character chosen. So if I choose Wolfgang Puck, you can see that that UI state is updated.
+
+[00:04:33]
+The question indexed and get better. Let's see what what we need to do here. State.question index ++, if state.question index is less than state.question index.length, let's just refresh and go back. So we've got our baker. We're picking a character. We're loading that UI state. And I'm passing that in.
+
+[00:05:04]
+Let's also make sure that I'm actually calling what I think I'm calling. If I go here, it's not, I think it's not actually calling this. Go back over to VS code. Cool. We've got pick question state character. And then we've got in our app, pick question. Pick question and we're passing in character.
+
+[00:05:35]
+So let's console log, Character to make sure that we are selecting that correctly. We've got mechanic. We're loading the states, cool. We picked the character and are we console logging we are console logging baker. Okay. So we're console logging baker. Let's see in this, kinda shows debugging too.
+
+[00:06:07]
+We're not updating the question index. So we need to make sure that we are updating the question index correctly. So in this pic question, we have this console log and we say character is state,we check if the state.character is the character, and we update the score, and we're also gonna advance the question index.
+
+[00:06:31]
+So let's take a look, If I refresh this and I give myself the baker, we can see now that question indexes updating it's saying, okay, are we, have we already answered that? Great. And if I keep selecting the wrong one, so I'm gonna select artist, which is the lowest one.
+
+[00:06:51]
+And if I keep selecting the wrong one, what happens to the score? If I go into view, then I can see in that view x score. We now have a score of negative 30. Right? We're like lowering the score because I keep picking the wrong one which is good.
+

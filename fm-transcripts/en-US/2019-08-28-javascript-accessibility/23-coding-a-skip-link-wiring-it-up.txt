@@ -1,0 +1,75 @@
+[00:00:00]
+>> Marcy Sutton: So that should be it for this custom route heading. And now, I'm gonna go implement it. So I've still got an import here. It's looking for it in the better directory. So we're in the right spot. It's grayed out, because I haven't actually referenced it yet. But I'm just gonna grab that component name, and I'm gonna change this h2 to route target heading opponent, I'm gonna pass in a level of two.
+
+[00:00:29]
+So it'll give me that h2. And a quick note about headings, is that we want to start with h1 on a page, and go in order. So the h1 on our app is this top level accessibility in JavaScript applications. Sometimes, you wanna change the h1 to be the name of the page.
+
+[00:00:48]
+You can play with the heading levels a little bit. Just, I think, the most important thing is that they go in order, so that you don't skip levels. So I'm not skipping straight to h2. I already have an h1 elsewhere. So I've got that. The other property to pass in, is target ID, and I'm just gonna say navigation.
+
+[00:01:07]
+And if we go, I think, I need the back here in my site chrome directory, I have a navigation snippet. So what's nice about working with react components, is you can break up different parts of your site chrome into different components. They're reusable, but also you can just focus on that one part of your site, or that one part of your application.
+
+[00:01:30]
+And this is where my navigation lives, and there is an ID of navigation here. I've also got a visually hidden heading here in the nav section, so in that left sidebar, there is a heading here that says navigation. But the part that I really wanna focus on, are these demos.
+
+[00:01:48]
+If I'm coming from the drop down link here in the left, and I wanna send focus into its matching content, and then, I wanna skip back, I think the most appropriate place, is to focus on these links where it came from. So that's why I'm putting the ID right here.
+
+[00:02:05]
+So navigation that will match this use case. So I'm actually gonna copy this, because we need this on all of our pages. I've just used h2s here. I'm gonna go change these real quick, so that when I'm clicking around, they match, and it won't matter what page I'm on, so I'm gonna change all these.
+
+[00:02:26]
+And hopefully, we can just automate this stuff. So it's easier, and you don't really have to think about it. But for now, this will work. I mean, this is how frameworks get made. We prototype it, we see if it works, we get more user testing, which is something I'm doing.
+
+[00:02:39]
+And then, we see how can we make that easier for everyone, so RouteTargetHeading, and you can honestly call this whatever you want. Naming things is one of the hardest things in computer science, so maybe the name will change. Maybe it makes sense to me, and no one else.
+
+[00:02:57]
+I think I've got two more here. I kept the imports in there, so it should, should be fine. The semantics pages an example for you all to use later. Rep target heading is not fine. Okay, so I do need to import that somewhere. Let's see, which one was complaining, the Index page.
+
+[00:03:21]
+So I'm just gonna paste this import, so it knows where to find that component. So now, if I would hover here, I've got this little anchor thing that shows up. It looks kinda funky, because there's a carrot and an underline. So I'm actually gonna go turn off the underline.
+
+[00:03:40]
+For this case, it's an interactive thing, I really recommend keeping underlines on for regular text links. This is sort of a special case. So I'm gonna say text-decoration, none, for this one little interactive thing. And probably, I would use it a more graceful arrow, but that's what I had, [LAUGH], on the top of my head.
+
+[00:04:03]
+So I think the other part that I need to hook up, is back in Gatsby browser. So I guess, let's go, what I'm gonna do here, so at this level, this API method, doesn't really, I don't really have insight into what's inside my application. And frankly, I don't really wanna know.
+
+[00:04:22]
+I just wanna go look on the page, and see, is there a skip link, kind of like the one I'm looking for. I'm just gonna write it like that, if, let's go see, I'm gonna do set a variable, and call it skip link. And I'm just gonna go look for it, document.query.selector.
+
+[00:04:41]
+And it was called route skip link was the CSS class that I added in here, route skip link. So if, if there's a skip link on the page, I don't wanna error out if there isn't one. And if there isn't one, it will fall back to reach router, doing some routing focus handling for us.
+
+[00:05:01]
+But if there is a skip link, I'm gonna say skiplink.focus. And so, this will go look for that component. In the event that there is a previous location, because we've navigated, that'll be null on the first load of a page, cuz you're just getting there, there isn't a previous location.
+
+[00:05:22]
+So now, if I use, let's go see, I have an error. And by the way, if you see this unchecked run time last error message in the dev tools, I see that all over the web. It might be from your browser extension or something, it doesn't actually have anything to do with this application, so don't worry about that.
+
+[00:05:42]
+So I don't think I got my conditional right here. So I'm actually gonna do a little bit of logging, and say, console log location, prev location. And we'll just go make sure that this method is working. So yeah, we've got a location, and null here for, when there is a different one, I was on the drop down page already, I think, maybe some styling to indicate to me that that's the page I'm on would have hoped.
+
+[00:06:14]
+So it's actually working, because this showing our little route skip link. So I'm gonna do that with the keyboard. I'm gonna close the Dev tools. And that was our focus outline on the navigation. So it's actually working. So I can go back and forth. It's working better than kicking me all the way back to the top of the application.
+
+[00:06:36]
+So I'm pretty happy with that. I can go on one of these links with the keyboard, hit the enter key, it sends my focus to skip link that it doesn't take up much space on the screen. I could opt to style that however I want. I can make it look like an icon button, and give it an accessible name.
+
+[00:06:55]
+I could make it look like an actual skip link, and say, skipped navigation, so there's some subjectivity involved with the design, but it functionally serves purposes. We're not just sending focus to this rapper element, and then, being like, all right, you're on your own, go tab around and figure out where you are.
+
+[00:07:16]
+This link is actually useful. It serves a purpose, and so, through research, I've found that that just made a lot more sense. That's for where we skipped back to, we could play with that a little bit. I'm sending focus back to the wrapper element of the nav, maybe, I should send it back to the link I came from?
+
+[00:07:35]
+That's an improvement that we could make, potentially. But that's how I would build this component. I guess, one more thing we should look at, is the accessible name of this, just to make sure that we've got that working. So I'm gonna focused on this and the DevTools. I'm gonna go over the accessibility inspector, and it says, skip to navigation.
+
+[00:07:56]
+So the aria label is stomping over the contents of that pseudo element. Because aria label on the parent will take preference over whatever's inside of it. So something good to know about that, and I can, I can see in this accessibility inspector how the accessible name calculation is like, what's winning, if I have multiple things, trying to like give it a name.
+
+[00:08:19]
+I love this tool, because it will show me which one wins. That can get a little tricky sometimes. And so, I love that it shows what's crossed out, and what's actually going to be exposed to assistive technology.
+

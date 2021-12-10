@@ -1,0 +1,98 @@
+[00:00:00]
+>> Will Sentance: So you love that function, you'll love this function even more. copyArrayandDivideBy2, copyArrayandMultiplyBy2. I'm going to point out my little thing. Look at that. Pointing at copyArrayandMultipleBy2 and copyArrayandDivideBy2. Such a unique and different function. Look.
+>> Group: [LAUGH]
+>> Will Sentance: Exactly. Look at this, your negative function. Okay, but we're gonna walk through it line by line to feel the pain.
+
+[00:00:33]
+To feel why we might have an alternative approach to this. Can people already spot what principle we're breaking? Don't say it, just think it. I was trying to be funny but okay we're gonna go through the code line by line. Lindsay, line one. And the nice thing about this is for us, even though it's going to be frustrating, we're also getting a practice to talk through our code really precisely.
+
+[00:00:55]
+So Lindsay, line one, actually we'll switch out the bits that change. Line one, what are we doing?
+>> Lindsay: Declaring a function copyArrayAndDivideBy2.
+>> Will Sentance: DivideBy2, so I'm just gonna switch out our word here. I'm actually gonna use a different color pen so we can really appreciate just how redundant so much of what we're doing here.
+
+[00:01:16]
+So this function here takes in an array, empty output array, iterates through the input array, takes each element, divides it by two. Pushes the divided element into the output array, returns that new array full of the divided elements. Feels very similar. Okay, declared, next line, Lindsay?
+>> Lindsay: Declares my array.
+
+[00:01:39]
+
+>> Will Sentance: Good as the array 1, 2, 3.
+>> Lindsay: 1, 2, 3.
+>> Will Sentance: Okay, good. Barb, next line, we got that already, nothing to change. Go to next line, Barb.
+>> Barb: We declare results and call the function.
+>> Will Sentance: Aha, so we declare result, what do we initially assign to the variable result, Barb?
+
+[00:01:59]
+
+>> Barb: [INAUDIBLE]
+>> Will Sentance: Do we know yet what we're gonna store there? You might think we sort of assign copy, rend, divide by. No, we don't even know we're gonna store there. So what do we temporarily assign there?
+>> Barb: Undefined.
+>> Will Sentance: Undefined. JavaScript's default, you could think it would be null.
+
+[00:02:15]
+JavaScript default is undefined for anything where you don't have an actual value associated with it. So we've now gotta go do the work of calling that copyArrayAndDivideBy2 function. Do all the code inside it. Whatever gets returned out, that's what's gonna be stored in result in the end. So all together, recalling a function.
+
+[00:02:36]
+We're executing a function copyArrayAndDivideBy2. Barb, how do I know we're executing a function? Remind me.
+>> Barb: Parentheses.
+>> Will Sentance: Parentheses. There are certain things I'm gonna drum into us. Because by the way, seasoned developers get thrown by this stuff. And when we get to closures, knowing what calls a function, what refers to a function and what defines a function are vital distinctions to know.
+
+[00:02:57]
+So calling a function. We are therefore invoking or executing a function. If we execute a function, we create, everyone together, a brand new?
+>> Group: Execution context.
+>> Will Sentance: Clara, we created a brand new?
+>> Clara: Execution context.
+>> Will Sentance: Excellent, Clara. Everyone else was right, Clara just looked disappointed. All right, there we go, exactly.
+
+[00:03:19]
+A new execution context. We don't yet know what's gonna be stored on result, and so we create a new execution context to find out. To go run the functionality and find out. There it is, copy array, divide by two, passing one two three, which is the value associated with my array.
+
+[00:03:34]
+We just skipped a step there. We actually parse in my array directly, but I just sort of live turned it into the one two three. It actually gets parsed in and we go we declare. What do we do first, Art? What do we do first when we start calling copy array and divide by 2?
+
+[00:03:52]
+What do we do before we do our output declaration?
+>> Art: Context parameters.
+>> Will Sentance: Aha, talk me through it.
+>> Art: So we would go for that array length, and go for each one, and then take that array value.
+>> Will Sentance: No, what's the first thing we do, dude? We do output.
+
+[00:04:09]
+We do something else. What's the first we do when we start calling a function? We fill in our place holders, don't we?
+>> Art: Yep.
+>> Will Sentance: So talk me through that.
+>> Art: So variable would be 1, 2, 3.
+>> Will Sentance: Array would be 1, 2, 3, got it. So our parameter array takes the argument 1, 2, 3.
+
+[00:04:27]
+Okay. Well, myArray, which is 1,2,3. Now, everywhere inside that function, array is 1,2,3. Okay, Clara, next we declare outputs in empty Array. What do we do now when we hit the body of this for loop, Clara? Try to be as precise as possible.
+>> Clara: So you assess the i.
+
+[00:04:46]
+You declare i.
+>> Will Sentance: Yeah.
+>> Clara: Set to be 0. You start sorting.
+>> Will Sentance: Yep, you take an array sub zero which is what?
+>> Clara: Yep, which is 1.
+>> Will Sentance: 1 and we do what with it?
+>> Clara: You divide it by 2.
+>> Will Sentance: And get?
+>> Clara: And get half and then you-
+
+[00:05:04]
+
+>> Will Sentance: Also known as nought .5 in British English.
+>> Clara: Yes, American.
+>> Will Sentance: Because what's an incredibly tough conversation about equity in the company after telling someone they got. No, I can't, mate. It was so embarrassing, cuz they didn't know what nought meant. They thought it meant like five or something.
+
+[00:05:21]
+It was really phew a tough day. All right, okay, and then what do we do with that nor, with that 0.5, Clara?
+>> Clara: That's pushed onto outputs.
+>> Will Sentance: Good, there it is. And we do that a few more times. We take sub 1, we get the 2. We divide 2 by 2.
+
+[00:05:37]
+We get 1, 0.5, 1, 1.5. And then Clara, we hit the all important return expression.
+>> Clara: Yep, return statements and your data is returned to your global-
+>> Will Sentance: Execution context, where it is assigned to result. We didn't do our call stack, we forgot to, but copy rate divided by two is added, pushed and then popped off.
+

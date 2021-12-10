@@ -1,0 +1,12 @@
+[00:00:00]
+>> We have our final exercise, our composition API problem one. Create a page similar to the index page. So take that comp API, compapi-start, create a page with a list. And show it in the page and add that page to the menu. Also create a method to show a display and the clicked list item in an alert.
+
+[00:00:26]
+And I'll show you what I mean by that, because that sounds like a lot. So I've deployed this composition API demo. I have this increased count here just like we had before. And then I have our taco friends page. So in our taco friend's page, we have Sarah likes all the tacos, Brian Holt likes whiskey more than tacos.
+
+[00:00:49]
+Brian, Shirley Wu likes tacos as much as Wonder Woman. So you wanna click on one of these friends and have it execute something like this. Brian Holt likes whiskey more than tacos. So you wanna make a list. You can use ref, or you can use reactive, it's up to you.
+
+[00:01:07]
+But you wanna execute a function where if you click something, it's actually alerting that to the page.
+

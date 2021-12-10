@@ -1,0 +1,36 @@
+[00:00:00]
+>> Lifecycle Hooks. Hooks are named the same but prefixed with on in camel case. And if you come from react, this will look familiar to you. So here we've got on mounted and we've got console.log state.count. So, it's similar in the sense that we're still just calling mounted as a function, right?
+
+[00:00:21]
+And this time we're really calling it as a function is not even a method, it's a function. And we're saying on mounted and we, create a function and then we're able to access or create things. It's really good, composition API is really good for reusable objects. So, some examples if we wanted to extract just the logic without the template, we might use it for getting the dimensions of a viewport in a component.
+
+[00:00:49]
+We might use it for gathering specific mousemove events. We might use it for the base elements of charts. We might use it for clip boards, or media queries, or dark mode. So here are a couple of examples of where we might want to encapsulate that logic, and use it in a few different places among different components.
+
+[00:01:08]
+But we just want the logic part, we just want that piece of it. So we are able to do that. So a couple people might ask, how do I merge the older API with the newer API? And I didn't find a good example online, so I made one, that showed options API and composition API.
+
+[00:01:30]
+So here's a CodeSandbox which is similar to code creates an entire application that you can use and share. So if I have that app that we are used to and we have things like our components, like we were used to right we have that app.view. We have a components folder where we can put components that we're using in this application.
+
+[00:01:58]
+This first app.view, is using the options API. In other words, it's got, the import and then we've got the data. But if we wanted to merge the two what I would do is, I would say, and we've got computed and we've got methods, I would say set up inside here.
+
+[00:02:15]
+And here we have a new folder called composable. And this is becoming kind of our standard, for how we're going to define when we're using a composition API. So I wouldn't put it in components, I would put it in a folder called composable. And let's say I wanted to use window width, like I wanted to find the value of a window width.
+
+[00:02:37]
+And I wanted to just encapsulate that bit of logic, I don't want a template, I'm not using a component. I just want that little bit of logic in a JavaScript file. What I would do is say at import ref unmounted. At this point we're gonna say at view composition API.
+
+[00:02:53]
+This will change coming up as we move into, view becoming stable. We say export function use window width, we've got a ref. We've got our mounted hook, where we calculate the window inner width, and we're gonna plot that window inner width to this ref, which you can think of as data, width equals zero, right?
+
+[00:03:22]
+And we're returning the width, that's the thing that we're getting. If we go into the app into the setup, we're bringing in use window width from the composable folder and we're saying const width equals use window width. Remember, that's what we export default we export it, and we're returning width and now we can use width, inside of our template.
+
+[00:03:49]
+We could say, this.width times two, we could use it in methods. And it's still that this dot width right, that this dot width is now available to us in the options API, so you can absolutely use them together. So that is reporting an alert, that we captured using the options API in that encapsulated bit of logic.
+
+[00:04:12]
+You can also use them with templates, but this is kind of like how we thought about mixings, right? We're thinking about just encapsulating a bit of functionality that we would like to use in other places in our application.
+

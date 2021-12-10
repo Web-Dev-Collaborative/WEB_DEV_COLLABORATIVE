@@ -1,0 +1,19 @@
+[00:00:00]
+>> Will Sentance: I will say there's a solution four, it is now fairly clean of an implementation. But under the hood, my God. [LAUGH] I feel like I've been on one of those crazed, you've been in a kind of zone artistically and then you look back and you're like, shit, what happened here?
+
+[00:00:19]
+[LAUGH] So solution four, it is cleaner. The code is pretty clean. But folks, to debug it effectively, we have to still know that all of this is going on under the hood. Cuz imagine you came to JavaScript from Java and you thought this was emulating Java or Python under the hood.
+
+[00:00:39]
+I mean you would just be left with a complete blank. And a complete inability to go and actually debug and write clean code long term. We now have, I hope, the tools under the hood to know exactly what a class is. To know exactly what extends is doing, and where it comes in with super.
+
+[00:01:00]
+And where it comes in with our proto reference to our prototype object, with its proto referencer this prototype object. We know every last piece. So what I'm this was even more demanding than hard parts, the new hard parts. That is pretty demanding. But I'm very, very impressed that you all followed along, so, thank you, so much.
+
+[00:01:25]
+Thank you to our wonderful online audience, it's been a pleasure having you. If you did stick it out, and I know some of you are around the world, and it's now the new, early morning in Indonesia, where I know some of you are. It has been a delight to have you on, as well.
+
+[00:01:39]
+And so, thank you, so much, everybody, and now, we wrap. Thank you everybody.
+>> [APPLAUSE]
+

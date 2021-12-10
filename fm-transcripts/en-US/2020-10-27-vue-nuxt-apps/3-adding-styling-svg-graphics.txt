@@ -1,0 +1,42 @@
+[00:00:00]
+>> So I'm not going to use this hello world. So I'm going to get rid of this component. I'm also gonna get rid of things that are inside this app. And I'm also gonna add a class of contain, because I know that I'm gonna be using some CSS that allows me to do some relative positioning, so that the other things are positioned absolutely within them.
+
+[00:00:23]
+I'm also gonna go over to my resources. So I'll go look at my game resources. And then I'll say, okay, here's my main.CSS. I'm gonna grab all of the main.CSS here and dump it right into my top level app component. I'm doing that right now because it's not that much styles actually.
+
+[00:00:46]
+It's a very small amount of styles. But in the next thing that we're doing with the food app, we're going to bring it in as an asset and I'll show you how to wire that up with knuckles config. So I'm showing you both ways. I'll be showing you both ways of a bunch of different things through the day.
+
+[00:01:04]
+So we've got our body, we're bringing this in, we need to bring in our font. So if I go back to the browser, and don't worry about that I just deleted a component that it's looking for, but that error will go away in just a second. If we go to fonts.Google, I'm gonna actually use a font called recursive because we're programmers and why shouldn't we use something called recursive?
+
+[00:01:26]
+That's a great name. That's the whole reason [LAUGH] why I chose this was basically just cuz I like the name. So I'm gonna grab my link here, and I'm gonna go back to my application. And I'm gonna go into our index.HTML. And I'm going to add this link into my index.HTML and that will give me that recursive piece.
+
+[00:01:51]
+So if I go back into here, you can see I have the font family recursive lined up. And just to check things out, I could also say, hi there and see how that's loading. So let's go back over here and we can refresh. And I didn't add in.
+
+[00:02:17]
+This is a good one so that you can see. When we add in SCSS, we also don't have the assets of the background. When we add an SCSS to the SAS loader, sometimes we have to run node. So we have to run NPM or NPM I node, SAS Loader.
+
+[00:02:43]
+Or in our case we're using yarn. So we would say yarn add node sass sass loader, all right? Now if we wanna load that background SVG in, we would dump it into this awesome assets folder that we mentioned before. And we're already making a relationship with that inside of the app.view.
+
+[00:03:10]
+So let's go back to what we've got here. So we've got the whole background loaded, and we've got that kind of position, the background size, position cover. So it's kind of filling up the whole screen and you can see that Hi there and we can also see that our font is now loading.
+
+[00:03:27]
+Awesome, okay, so we're gonna bring over a few other assets. I mentioned before that we have some components and they're pieces of an SVG. So I'm gonna bring these components into the components folder, right here. I'm also going to delete the hello world, as I'm no longer using it.
+
+[00:03:48]
+Cool, we also have this base SVG, but we'll come back to that in just a second. We have our questions as well. And all of these questions are the questions that we're gonna kind of loop through and use as a kind of manifest file for the whole game of all of that game state.
+
+[00:04:06]
+So right now I'm going to grab questions. And I'm gonna go into the store into the index js file. And in state, I'm gonna load those questions but this is an object, right? And it's not an array like in this file. So, what we do is we say questions with a colon and now we're loading all of our questions.
+
+[00:04:33]
+Excellent, we can make sure that this is loaded by coming back to this game state, refreshing the page. And then in our view area we've got our route app, which has, nothing going on yet. We didn't store any data yet. And then if we look in the view x tag, I can load state and you can see that questions array with all of those objects.
+
+[00:04:57]
+So if you wanted to see the difference between the components and the view x, you can go into that area and we can see that everything's loading properly.
+

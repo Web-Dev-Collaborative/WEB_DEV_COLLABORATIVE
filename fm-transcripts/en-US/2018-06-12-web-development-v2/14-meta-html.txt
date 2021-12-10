@@ -1,0 +1,105 @@
+[00:00:00]
+>> Brian Holt: So hopefully you've absorbed a little bit about HTML and kinda what the uses are. I feel pretty good about where we are with HTML, and how much you've been taught and how much you can understand about it. We're gonna have another brief maybe ten minute lesson kinda more about the meta level of HTML, just structure and kinda the boring parts of it, if we're being completely honest.
+
+[00:00:28]
+And then we're gonna get into some CSS, which will start, I think, being a little bit more fun, I think. So we are on the Meta HTML section, section 6.
+>> Brian Holt: So mostly what I've been trying to show you so far is visual and concrete. And things that are a little bit more, it's easy to see if I change this, then I can see this.
+
+[00:00:53]
+What we're gonna do now is gonna be a little bit more subtle in how it affects your documents that you're creating here. So let's just start with the bare bones basic skeleton of an HTML document. Right now everything we've been doing is just kind of in the confines of these little playgrounds, right?
+
+[00:01:14]
+But that's not usually actually how you're writing code, right? Normally you're in your editor, and you're creating index.HTML, and it has a bunch of stuff, right? And there's a certain amount of just base layer stuff that you need, the term for that is boilerplate. Do not know why it's called boilerplate.
+
+[00:01:31]
+But when someone says boilerplate, it means just like this repeated stuff that you kind of always have to have,right? Basically it's like what you copy and paste from the last project to get started on the next project, because we all do it. [LAUGH] And that's okay, I do it every time I start a new project.
+
+[00:01:48]
+So this is right here that I have these ten lines. This is the base layer of what it takes to have a basic HTML document. And we're gonna dissect it line by line, so you understand what's going on. So if you can see all these 10 lines of code, all that comes out of here is Check this out.
+
+[00:02:11]
+That's it, which is the h1, right? But let's talk about the rest of it here. So the doctype HTML, the very, very first thing right here. I was talking about it before, this is HTML5.1 that you're learning here. HTML5 has been out for a decade, I'm gonna guess.
+
+[00:02:35]
+It's been out a decent amount of time. It's to the point that HTML5 is not even a thing that we really say anymore, it's just HTML now, right? That's just kinda the base layer assumption that everything is HTML now. So the reason why we have this thing right here is we need to let the browser know we're doing HTML5.
+
+[00:02:55]
+We're doing the latest version of HTML, and that's what this thing right here, the doctype, as it's called. You can give it other docktype headers to use older versions. But I do not understand why you would ever want to do that to yourself. But there's like strict HTML, blah, blah, blah.
+
+[00:03:12]
+I can't even remember what they are, because it's been so long since I've worked with it. It's been literally since the beginning, my first job that I've done anything else besides doctype HTML. And they look more or less all like this. It does have to be literally the first line of the code.
+
+[00:03:26]
+You can't even do a space here. It has to be literally the first line. So that always should be there. The next thing that you're gonna have is this HTML tag that's closed down here. That's just like everything that goes inside your HTML tag. That's just the way that works.
+
+[00:03:49]
+It's letting you know the beginning and the ending of your doc. And then, it's gonna have this lang=en, en as you may have guessed stands for English and you're just letting the browser know like, hey, I'm sending an English document down. You can put es there, which would be Spanish.
+
+[00:04:09]
+You would send whatever language you're putting that in there so that the browser knows, cool you're about to receive Japanese, be prepared to receive Japanese. Like that kind of stuff right?
+>> Brian Holt: Also just kind of as a side note your browser has a language that's set for it, it's usually set by, I downloaded this browser in America.
+
+[00:04:31]
+It just assumes that I want to speak English and it assumes that I will change it if I don't want to speak English. So my browser is actually requesting English from whatever website I go to and then it's receiving English back. So that's done through headers which we will talk about headers in a little bit.
+
+[00:04:48]
+But basically it's meta information that I'm sending from my browser saying like hey, do you have any English documents? And then it sends back and with this it says yes, here is your English document. So again, again we'll get more into headers later in the course. So that's the HTML lang equals that, okay?
+
+[00:05:07]
+We're gonna talk about head here for a second which is this one right here. Now keep in mind that there is a header and a head and they are different. So we're talking about head at this moment in time, just so you know.
+>> Brian Holt: Every HTML document has a head and has a body.
+
+[00:05:24]
+And in the head goes all the meta information about your document. So in this particular case, we're just putting the title. And the title is like if you Google something, let's just Google something. If I Google Frontend Masters. So this part, right here, is what's in their title, right?
+
+[00:05:52]
+So it's the title of the document. That's what goes in title. It's also, if I click on this, notice when I click on it it's gonna be what's up here in the tab? So it's also what goes right there. Right? That is the title.
+>> Brian Holt: That's weird. I'm gonna watching myself [LAUGH].
+
+[00:06:13]
+Okay so that's what the title goes in there? It's whatever you should it call whatever the name of the document is. It's like this one's called Intro to Web Dev V2. That makes sense so that when someone navigates to another tab it's like okay, there's my Web Dev document.
+
+[00:06:25]
+I'm just gonna click back on that one. So that should always be there. There are lots of other things that can go in head, you can configure like the view port for example. So the view port is like, how do I wanna explain that? If I'm on a mobile phone, do I want the website to shrink to the size of the phone or do I want it to continue like so they have to scroll side to side to see the whole thing?
+
+[00:06:51]
+You can configure that, those sorts of things inside of the head. It's just like that meta information that the user doesn't necessarily see, but still needs to be configured. That stuff all goes in head. All of your CSS Links all go in the head as well. There's some other things as well.
+
+[00:07:12]
+So basically if it's a thing that's not shown to the user but it's used to configure your website, those sorts of things go in the head. Body, so the things that go in body is what we've been writing so far. It's all your divs, spans, etc, etc, right?
+
+[00:07:26]
+All that stuff is gonna go inside of your body. That's the step that people are going to see. So that's where our H1 went, I put a comment in there, yeah.
+>> Brian Holt: And then, that is like, this is the bare minimum stuff that you need to run a website.
+
+[00:07:47]
+
+>> Brian Holt: There's actually a couple other things that probably should be in there. But we're kind of ignoring for now which is okay.
+>> Brian Holt: Cool, so last thing I want to talk about are script, style, and link. So Script is how you link JavaScript files into your HTML. Because your HTML and your JavaScript files are going to be separate files, you are not gonna put them together you gonna separate them and believe me it's gonna end up being better.
+
+[00:08:23]
+So that's gonna be linked in via script tag. And it's the same thing with link. Link is how you bring in all of your CSS. And then again and your CSS isn't gonna live in a different file and you're gonna be brought in via a link tag. Today we're gonna be using a lot of Style tags, just because I want you to be able to see your HTML and your CSS at the same time and be able to edit them.
+
+[00:08:46]
+That´s not typically how you´re gonna do things. You typically are gonna have a link tag with a separate CSS file that's gonna be brought in. But just for today, just for demonstration purposes, we´re gonna be using style tags. So we'll get more into that when we kind of get there but just so you know this is a typical, you definitely you don't wanna use style text normally.
+
+[00:09:07]
+So what a style tag is can actually put CSS inside of the style tag, it will work. We'll see what that looks like in the next section. So any questions about this Meta HTML? It's kind of again nebulous because it's hard to visualize. So, it's one of those things that you just like, you just kinda have to do it and you forget that you do it and it's fine.
+
+[00:09:34]
+[LAUGH] Because normally you don't have to change it very much.
+>> Speaker 2: What does meta mean?
+>> Brian Holt: What does meta mean?
+>> Speaker 2: Yeah.
+>> Brian Holt: How do I want to explain that? It's a good question.
+>> Brian Holt: In this particular case, I don't know, I'm not gonna define meta because I'm probably not gonna get it right, but in this particular case it means something that you are doing that is not necessarily going to be displayed on the page.
+
+[00:10:08]
+It's not necessarily going to have like an immediate concrete effect. So if I change what the title is is not gonna change the way that my page looks. But it's still affecting my page and probably more subtle always. That changes the way the page just, works, right? Like if I changed the DOCTYPE, it would change the way that the page was rendered.
+
+[00:10:30]
+It would use a different rendering engine underneath it, which would change, how things were laid out, and how they were what colors and, I don't know, things of that nature. So they're more subtle changes. So, it's a sufficiently vague answer. It's kind of difficult to define. But, I mean, it's a good question.
+
+[00:10:52]
+Yeah, of course.
+

@@ -1,0 +1,1048 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.020
+&gt;&gt; Brian Holt: So hopefully most of you
+were able to get this integrated into
+
+2
+00:00:03.020 --> 00:00:04.310
+your editor.
+
+3
+00:00:04.310 --> 00:00:06.100
+That'll be super helpful as we keep going.
+
+4
+00:00:07.460 --> 00:00:11.247
+Throughout the course today,
+I will be pushing out branches so
+
+5
+00:00:11.247 --> 00:00:13.467
+that you can kind of see where we are.
+
+6
+00:00:13.467 --> 00:00:16.868
+And if you get lost or fall behind,
+this is a really easy way to catch up so
+
+7
+00:00:16.868 --> 00:00:18.820
+you don't have to stay behind, right?
+
+8
+00:00:18.820 --> 00:00:26.300
+So I just pushed up v3-1,
+right there, you can see that.
+
+9
+00:00:26.300 --> 00:00:30.452
+And as we keep going I'll just keep
+incrementing that second number.
+
+10
+00:00:30.452 --> 00:00:37.588
+So yeah, you're welcome to go fetch v3-1,
+check it out and then you can start going.
+
+11
+00:00:37.588 --> 00:00:41.168
+So just to show you how that works if
+you're not super familiar with Git.
+
+12
+00:00:41.168 --> 00:00:47.290
+You would say, making sure that
+you're let's key, git remote -vv.
+
+13
+00:00:47.290 --> 00:00:50.861
+So making sure that your URL looks
+something like this for origin,
+
+14
+00:00:50.861 --> 00:00:55.220
+that you're pointed at
+btholt/complete-intro-to-react, right?
+
+15
+00:00:55.220 --> 00:01:00.911
+Then you're gonna say git fetch
+
+16
+00:01:00.911 --> 00:01:05.552
+origin v3-1, right?
+
+17
+00:01:05.552 --> 00:01:09.337
+And then you're gonna say
+git checkout v3-1 and
+
+18
+00:01:09.337 --> 00:01:13.210
+that'll switch you on to
+the branch that has all that
+
+19
+00:01:13.210 --> 00:01:20.476
+code.
+&gt;&gt; Brian Holt: And
+
+20
+00:01:20.476 --> 00:01:22.585
+again, you can do that throughout
+the day as I keep pushing
+
+21
+00:01:22.585 --> 00:01:27.569
+branches.
+&gt;&gt; Brian Holt: And for those of you
+
+22
+00:01:27.569 --> 00:01:31.073
+that are watching right now, and they're
+here, if you fall behind, just ask me to
+
+23
+00:01:31.073 --> 00:01:35.904
+push a branch, I'm happy to do that.
+&gt;&gt; Brian Holt: Okay,
+
+24
+00:01:35.904 --> 00:01:41.700
+so, let's go back to my notes here.
+
+25
+00:01:41.700 --> 00:01:43.930
+Hopefully you got it
+integrated into your browser.
+
+26
+00:01:43.930 --> 00:01:48.802
+The notes that I have there in my
+particular notes are for Sublime, so
+
+27
+00:01:48.802 --> 00:01:53.254
+if you're not using Sublime these
+are not super useful to you.
+
+28
+00:01:53.254 --> 00:01:58.063
+But hopefully the different editor
+integrations are pretty, hopefully their
+
+29
+00:01:58.063 --> 00:02:03.569
+notes were useful for how to do it.
+&gt;&gt; Brian Holt: There
+
+30
+00:02:03.569 --> 00:02:07.480
+was a couple of people here that
+had issues with yarn global adds.
+
+31
+00:02:07.480 --> 00:02:11.340
+I've had this issue as well and
+I do not remember how I solved it.
+
+32
+00:02:11.340 --> 00:02:16.040
+It's typically a problem if you
+install node via MVM or N or
+
+33
+00:02:16.040 --> 00:02:17.830
+one of those node version managers.
+
+34
+00:02:19.070 --> 00:02:24.735
+So what I'm going to tell you to do
+right now to get around this issue,
+
+35
+00:02:24.735 --> 00:02:28.600
+is just say npm install --global and
+just use that for
+
+36
+00:02:28.600 --> 00:02:34.430
+all of your global installs and then later
+look up how to fix yarn global adds.
+
+37
+00:02:34.430 --> 00:02:36.440
+So this is how you would do it for
+prettier.
+
+38
+00:02:38.040 --> 00:02:39.900
+Yeah, for now, so that we can keep going,
+
+39
+00:02:39.900 --> 00:02:46.393
+just do npm install --global.
+&gt;&gt; Brian Holt: Great,
+
+40
+00:02:46.393 --> 00:02:50.602
+any other questions before I move forward?
+&gt;&gt; Mark: And also when you do git checkout
+
+41
+00:02:50.602 --> 00:02:55.430
+v3-1 and if you're getting errors and you
+wanna just blow out your local changes,
+
+42
+00:02:55.430 --> 00:02:57.898
+it can just add a -f.
+&gt;&gt; Brian Holt: Yep.
+
+43
+00:02:57.898 --> 00:02:58.564
+&gt;&gt; Mark: And then,
+
+44
+00:02:58.564 --> 00:03:03.476
+of course and.
+&gt;&gt; Brian Holt: So git checkout-
+
+45
+00:03:03.476 --> 00:03:05.028
+&gt;&gt; Mark: Yeah, fetch there.
+
+46
+00:03:05.028 --> 00:03:10.093
+&gt;&gt; Brian Holt: Checkout v3-1 --force.
+
+47
+00:03:10.093 --> 00:03:16.390
+Just, anytime you're using get and
+--force, just exercise extra caution.
+
+48
+00:03:16.390 --> 00:03:20.778
+That's only the other thing
+I want to caution you.
+
+49
+00:03:20.778 --> 00:03:26.080
+Okay, so we're good with prettier-
+&gt;&gt; Mark: People
+
+50
+00:03:26.080 --> 00:03:30.110
+are saying that in the x.html
+on that branch is actually not
+
+51
+00:03:30.110 --> 00:03:33.418
+pointing to the ClientApp.jsx.
+&gt;&gt; Brian Holt: It's not, yeah,
+
+52
+00:03:33.418 --> 00:03:35.350
+I know I broke it, for sure.
+
+53
+00:03:35.350 --> 00:03:37.700
+We're going to unbreak it.
+&gt;&gt; Mark: All right.
+
+54
+00:03:37.700 --> 00:03:38.441
+&gt;&gt; Brian Holt: This is the workshop of
+
+55
+00:03:38.441 --> 00:03:43.403
+breaking and unbreaking things.
+&gt;&gt; Brian Holt: But that's astute,
+
+56
+00:03:43.403 --> 00:03:47.386
+I would say the best way to code is
+have 300 people watching while you do
+
+57
+00:03:47.386 --> 00:03:52.046
+it.
+&gt;&gt; Brian Holt: Or 200,
+
+58
+00:03:52.046 --> 00:03:54.517
+I think that's where we were at.
+
+59
+00:03:54.517 --> 00:03:57.750
+Okay, so we're gonna move onto ESLint.
+
+60
+00:03:57.750 --> 00:04:02.042
+We shouldn't have to mess with
+Prettier for the rest of the time,
+
+61
+00:04:02.042 --> 00:04:04.318
+it's just gonna work magically.
+
+62
+00:04:04.318 --> 00:04:09.373
+Sometimes, for example this is kind of
+something that's easy get thrown off.
+
+63
+00:04:09.373 --> 00:04:13.073
+Let's say I have invalid JavaScript here,
+right?
+
+64
+00:04:13.073 --> 00:04:16.964
+So say if I am I don't know,
+say I have this right, so
+
+65
+00:04:16.964 --> 00:04:20.689
+I would expect this to fix with Prettier,
+right?
+
+66
+00:04:22.500 --> 00:04:27.170
+And it's not if say it right now, because
+this is not valid JavaScript right now, so
+
+67
+00:04:27.170 --> 00:04:31.150
+if you have syntax errors,
+Prettier can't fix everything, right?
+
+68
+00:04:31.150 --> 00:04:35.410
+So, it's gonna depend on
+your various editors,
+
+69
+00:04:35.410 --> 00:04:37.160
+how you know that that's happening.
+
+70
+00:04:37.160 --> 00:04:39.110
+It's kinda hard to tell with Sublime,
+
+71
+00:04:39.110 --> 00:04:44.149
+with sublime you actually have to open
+the console which I think is Ctrl+Tilde.
+
+72
+00:04:44.149 --> 00:04:45.590
+Yeah, and so
+
+73
+00:04:45.590 --> 00:04:52.150
+you can see here Prettier returned with
+2 which means it didn't exit correctly.
+
+74
+00:04:52.150 --> 00:04:56.110
+So you can see right here,
+syntax error, unexpected token.
+
+75
+00:04:57.770 --> 00:05:01.086
+So, you have to make sure that
+you have valid JavaScript or
+
+76
+00:05:01.086 --> 00:05:02.987
+else Prettier is not gonna work.
+
+77
+00:05:02.987 --> 00:05:04.863
+So now as I fix it then
+it fixes everything and
+
+78
+00:05:04.863 --> 00:05:09.051
+everything works well.
+&gt;&gt; Brian Holt: So
+
+79
+00:05:09.051 --> 00:05:12.920
+this will only be a problem temporarily
+because we're gonna put in ESLint and
+
+80
+00:05:12.920 --> 00:05:16.081
+ESLint will first tell that it
+failed before Prettier fails.
+
+81
+00:05:16.081 --> 00:05:21.792
+So,
+&gt;&gt; Brian Holt: Okay,
+
+82
+00:05:21.792 --> 00:05:25.616
+so ESLint.
+&gt;&gt; Brian Holt: So
+
+83
+00:05:25.616 --> 00:05:29.520
+Prettier is just gonna take care
+of stylistically things, right?
+
+84
+00:05:29.520 --> 00:05:34.829
+It's not actually gonna handle code style,
+I guess what I'm trying to say there is.
+
+85
+00:05:36.080 --> 00:05:40.820
+It's gonna handle syntax things,
+spaces, how many characters go in line?
+
+86
+00:05:40.820 --> 00:05:43.668
+That's all that Prettier worries about,
+it doesn't actually worry about things
+
+87
+00:05:43.668 --> 00:05:47.081
+like,
+&gt;&gt; Brian Holt: Not using old JavaScript
+
+88
+00:05:47.081 --> 00:05:51.028
+features that you don't wanna use, or
+enforcing ES6 rules or things like that.
+
+89
+00:05:51.028 --> 00:05:54.304
+So we are gonna bring in other tool called
+ESLint to kind of help out with some
+
+90
+00:05:54.304 --> 00:05:54.989
+of those rule.
+
+91
+00:05:56.370 --> 00:05:59.760
+And again, previously in this class,
+we had used something called standard,
+
+92
+00:05:59.760 --> 00:06:03.750
+this is driven my desire
+to never write semicolons.
+
+93
+00:06:03.750 --> 00:06:09.010
+And in fact, I got a lot of blow-back for
+not continuing to use standard, but
+
+94
+00:06:09.010 --> 00:06:13.940
+the reason being is that the Airbnb ESLint
+configurals have really matured to
+
+95
+00:06:13.940 --> 00:06:17.860
+the point where I feel like I don't
+have a good reason not to use them.
+
+96
+00:06:17.860 --> 00:06:21.210
+Because it catches so many bugs and
+it enforces really good code style.
+
+97
+00:06:22.270 --> 00:06:26.450
+So, today we're gonna be using the AirbnB
+config together with Prettier and
+
+98
+00:06:26.450 --> 00:06:28.370
+I think that's a really
+winning combination.
+
+99
+00:06:30.330 --> 00:06:35.411
+So the first thing we're gonna do
+now is we're going to create a file
+
+100
+00:06:35.411 --> 00:06:41.522
+called .ESLint,
+&gt;&gt; Brian Holt: RC.json,
+
+101
+00:06:41.522 --> 00:06:46.562
+and we are going to put
+this in the root directory
+
+102
+00:06:46.562 --> 00:06:52.632
+of our project.
+&gt;&gt; Brian Holt: So
+
+103
+00:06:52.632 --> 00:06:57.600
+just use that, so this is going
+to be the config for our ESLint.
+
+104
+00:06:59.550 --> 00:07:03.460
+And we're gonna put some
+configurals in here.
+
+105
+00:07:04.520 --> 00:07:10.383
+So the first one is extends,
+&gt;&gt; Brian Holt: And
+
+106
+00:07:10.383 --> 00:07:13.420
+the order here is important, so
+make sure you put these in this order.
+
+107
+00:07:15.290 --> 00:07:21.720
+The first thing you wanna put is airbnb,
+the second one is prettier, and
+
+108
+00:07:22.750 --> 00:07:27.840
+the third one is prettier/react.
+
+109
+00:07:27.840 --> 00:07:31.120
+Now, why are we pulling in Prettier?
+
+110
+00:07:31.120 --> 00:07:35.231
+Well, the reason why we're pulling in
+Prettier is that Prettier actually
+
+111
+00:07:35.231 --> 00:07:38.699
+invalidates some of the things
+that Airbnb check for, right?
+
+112
+00:07:38.699 --> 00:07:42.516
+Airbnb will check for things like too many
+characters on a line, it's gonna check for
+
+113
+00:07:42.516 --> 00:07:45.870
+things like semi-colons, it is gonna
+check for thing like white spaces.
+
+114
+00:07:45.870 --> 00:07:50.650
+This is not actually useful for Airbnb
+like the ESLint to check for anymore.
+
+115
+00:07:50.650 --> 00:07:55.640
+So these prettier and
+prettier/react actually disable a bunch
+
+116
+00:07:55.640 --> 00:07:59.630
+of rules just to make sure that Prettier
+can run without ESLint yelling about it,
+
+117
+00:07:59.630 --> 00:08:01.330
+does that make sense, right?
+
+118
+00:08:01.330 --> 00:08:02.248
+It's just getting rid of a lot of
+
+119
+00:08:02.248 --> 00:08:07.410
+the noise.
+&gt;&gt; Brian Holt: Okay, the next thing we're
+
+120
+00:08:07.410 --> 00:08:12.538
+going to put is plugins.
+&gt;&gt; Brian Holt: And
+
+121
+00:08:12.538 --> 00:08:16.024
+we're just gonna have one which is
+gonna be the prettier plugin, so
+
+122
+00:08:16.024 --> 00:08:20.290
+that we can run those rules.
+&gt;&gt; Brian Holt: And
+
+123
+00:08:20.290 --> 00:08:29.185
+then we're gonna put some parserOptions.
+&gt;&gt; Brian Holt: And
+
+124
+00:08:29.185 --> 00:08:34.963
+ecmaVersion,
+&gt;&gt; Brian Holt: I have 2016 on here,
+
+125
+00:08:34.963 --> 00:08:37.880
+I think that was the latest one
+I was working when I wrote this.
+
+126
+00:08:37.880 --> 00:08:43.710
+It might be later now, but as long s
+you're past 2015 you should be golden.
+
+127
+00:08:45.340 --> 00:08:49.060
+Source type, so
+
+128
+00:08:49.060 --> 00:08:55.490
+we're gonna be using ES6 modules today,
+that particular way of writing JavaScript.
+
+129
+00:08:56.700 --> 00:09:00.764
+So we're not going to use CommonJS in
+other words, so that's what that means.
+
+130
+00:09:03.096 --> 00:09:06.460
+&gt;&gt; Brian Holt: And then ecmaFeatures,
+
+131
+00:09:06.460 --> 00:09:12.225
+we want to tell it that
+it needs to pass JSX,
+
+132
+00:09:12.225 --> 00:09:15.600
+which is true, it does.
+
+133
+00:09:16.920 --> 00:09:22.010
+And then the last thing is env, which
+
+134
+00:09:22.010 --> 00:09:28.570
+is just telling it what environment,
+what global variables to not fail you on.
+
+135
+00:09:28.570 --> 00:09:34.830
+So es6, so this will tell it not to fail
+on things like symbol for example, right?
+
+136
+00:09:34.830 --> 00:09:36.730
+Symbol is only available in ES6.
+
+137
+00:09:38.070 --> 00:09:44.131
+Browser, this is telling it not
+to fail in things like Window and
+
+138
+00:09:44.131 --> 00:09:50.189
+document and things like that.
+&gt;&gt; Brian Holt: And
+
+139
+00:09:50.189 --> 00:09:54.713
+lastly, node, so this is telling it to not
+fail in other things like process.env,
+
+140
+00:09:54.713 --> 00:10:04.163
+right, which is only available in Node.
+&gt;&gt; Brian Holt: Okay,
+
+141
+00:10:04.163 --> 00:10:06.998
+and this should be our Airbnb config,
+this should work for a while,
+
+142
+00:10:06.998 --> 00:10:11.080
+we'll have to modify it later to
+accommodate more features as we add them.
+
+143
+00:10:11.080 --> 00:10:20.093
+But this should be enough for now.
+&gt;&gt; Brian Holt: So,
+
+144
+00:10:20.093 --> 00:10:24.169
+now we can come back
+here to our command line,
+
+145
+00:10:24.169 --> 00:10:29.318
+I have ESLint installed here,
+but if you don't then feel
+
+146
+00:10:29.318 --> 00:10:34.813
+free to do yarn global add or
+npm install -- global eslint.
+
+147
+00:10:40.906 --> 00:10:45.171
+&gt;&gt; Brian Holt: And I'm going to say eslint
+
+148
+00:10:45.171 --> 00:10:49.252
+**/*., either js or
+
+149
+00:10:49.252 --> 00:10:54.688
+jsx.
+&gt;&gt; Brian Holt: And I want
+
+150
+00:10:54.688 --> 00:11:04.021
+it to be quiet.
+&gt;&gt; Brian Holt: So
+
+151
+00:11:04.021 --> 00:11:07.271
+this is gonna run the rules
+we just barely brought in and
+
+152
+00:11:07.271 --> 00:11:11.200
+is running on ClientApp.jsx, and
+it has these two violations.
+
+153
+00:11:11.200 --> 00:11:16.110
+It says ReactDOM is not defined,
+and React is not defined, right?
+
+154
+00:11:16.110 --> 00:11:20.697
+Which would make sense if we
+go back to our ClientApp.jsx,
+
+155
+00:11:20.697 --> 00:11:28.340
+we're referring to React, and,
+&gt;&gt; Brian Holt: ReactDOM down here.
+
+156
+00:11:29.660 --> 00:11:32.735
+And they're being brought in
+via those script tags, but
+
+157
+00:11:32.735 --> 00:11:38.479
+we actually haven't,
+&gt;&gt; Brian Holt: We haven't
+
+158
+00:11:38.479 --> 00:11:42.745
+set those apart as global variables.
+&gt;&gt; Speaker 3: Did you install ESLint?
+
+159
+00:11:42.745 --> 00:11:47.379
+&gt;&gt; Brian Holt: I did, so I did npm install
+
+160
+00:11:47.379 --> 00:11:52.313
+--global eslint
+&gt;&gt; Speaker 3: Okay, yeah.
+
+161
+00:11:52.313 --> 00:11:53.296
+&gt;&gt; Speaker 4: I think we missed that step.
+
+162
+00:11:53.296 --> 00:11:54.028
+&gt;&gt; Speaker 3: We missed that
+
+163
+00:11:54.028 --> 00:11:54.737
+step.
+&gt;&gt; Brian Holt: Okay.
+
+164
+00:12:08.096 --> 00:12:10.033
+&gt;&gt; Brian Holt: And, yeah go ahead Mark.
+
+165
+00:12:10.033 --> 00:12:11.187
+&gt;&gt; Mark: Doug's asking if you
+
+166
+00:12:11.187 --> 00:12:14.523
+can elaborate on the difference
+between Prettier, ESLint,
+
+167
+00:12:14.523 --> 00:12:16.734
+and Airbnb?
+&gt;&gt; Brian Holt: Sure, so
+
+168
+00:12:16.734 --> 00:12:21.603
+Prettier is a formatter, so
+all it does it takes your code and
+
+169
+00:12:21.603 --> 00:12:26.769
+it rearranges it into a nicely
+formatted piece of code, right?
+
+170
+00:12:26.769 --> 00:12:32.019
+It doesn't do any checking for style,
+it doesn't do any checking for,
+
+171
+00:12:32.019 --> 00:12:35.470
+like for example we have,
+if we run that again.
+
+172
+00:12:37.350 --> 00:12:39.420
+This is what ESLint's checking for,
+it's checking for
+
+173
+00:12:39.420 --> 00:12:42.610
+more things like did you use
+something that was undefined?
+
+174
+00:12:42.610 --> 00:12:46.970
+Are you calling functions
+that don't exist, right?
+
+175
+00:12:46.970 --> 00:12:48.165
+It's gonna check for
+
+176
+00:12:48.165 --> 00:12:54.120
+more of those sorts of things.
+&gt;&gt; Brian Holt: Whereas Prettier is
+
+177
+00:12:54.120 --> 00:12:58.530
+just taking one blob of text, reformatting
+it and then printing it back out.
+
+178
+00:12:58.530 --> 00:13:01.587
+Doesn't change anything
+else about your code.
+
+179
+00:13:01.587 --> 00:13:06.953
+Airbnb, so it's actually
+eslint-config-airbnb is what it's
+
+180
+00:13:06.953 --> 00:13:12.084
+called.
+&gt;&gt; Brian Holt: So
+
+181
+00:13:12.084 --> 00:13:15.877
+this is a specific
+configuration of ESLint, right,
+
+182
+00:13:15.877 --> 00:13:22.194
+that's all it is.
+&gt;&gt; Brian Holt: So
+
+183
+00:13:22.194 --> 00:13:27.113
+yeah, that's the difference,
+one formats, one checks for
+
+184
+00:13:27.113 --> 00:13:31.378
+style, and
+one is just the configuration of ESLint.
+
+185
+00:13:31.378 --> 00:13:35.426
+It's a good question.
+&gt;&gt; Brian Holt: Do you have a question?
+
+186
+00:13:35.426 --> 00:13:40.188
+&gt;&gt; Speaker 5: I'm getting an error ESLint.
+
+187
+00:13:40.188 --> 00:13:41.900
+&gt;&gt; Brian Holt: What error are you getting?
+
+188
+00:13:41.900 --> 00:13:42.749
+&gt;&gt; Speaker 5: Argument list too long.
+
+189
+00:13:45.433 --> 00:13:47.698
+&gt;&gt; Speaker 6: So I'm having one that says
+
+190
+00:13:47.698 --> 00:13:52.917
+it's looking for ESLint,
+hyphen plugin, hyphen prettier,
+
+191
+00:13:52.917 --> 00:13:57.300
+when I try to run the ESLint quite.
+&gt;&gt; Brian Holt: Yeah,
+
+192
+00:13:57.300 --> 00:14:01.837
+it should be in here.
+
+193
+00:14:01.837 --> 00:14:08.815
+I guess more package.json.
+&gt;&gt; Brian Holt: Eslint-config-prettier
+
+194
+00:14:08.815 --> 00:14:10.073
+right there.
+&gt;&gt; Speaker 6: And
+
+195
+00:14:10.073 --> 00:14:12.025
+I'll try reinstalling it.
+&gt;&gt; Speaker 7: It was
+
+196
+00:14:12.025 --> 00:14:14.800
+plugin-prettier.
+&gt;&gt; Brian Holt: Did you miss
+
+197
+00:14:14.800 --> 00:14:20.794
+the plugin-prettier part?
+&gt;&gt; Speaker 7: Potentially.
+
+198
+00:14:32.525 --> 00:14:34.115
+&gt;&gt; Brian Holt: So what we're gonna do now
+
+199
+00:14:34.115 --> 00:14:39.043
+is we're gonna take this eslint part right
+here, this command that we just ran.
+
+200
+00:14:43.834 --> 00:14:45.250
+&gt;&gt; Brian Holt: I want you to copy that.
+
+201
+00:14:47.510 --> 00:14:52.196
+Now, [COUGH] we'll eventually fix
+the errors that are coming out of it,
+
+202
+00:14:52.196 --> 00:14:55.410
+like the arguments list is too long and
+all that.
+
+203
+00:14:55.410 --> 00:14:59.950
+Cuz we're gonna blow away all the code
+that we wrote anyway and write new code.
+
+204
+00:14:59.950 --> 00:15:01.280
+So I'm not super interested in fixing it,
+
+205
+00:15:01.280 --> 00:15:05.870
+but we're going to put
+the lint in here as well.
+
+206
+00:15:07.140 --> 00:15:13.831
+So lint and we're going to do that.
+&gt;&gt; Brian Holt: So
+
+207
+00:15:13.831 --> 00:15:17.893
+again, this is if your companions
+don't necessarily want
+
+208
+00:15:17.893 --> 00:15:22.740
+to,
+&gt;&gt; Brian Holt: Integrate ESLint into their
+
+209
+00:15:22.740 --> 00:15:25.090
+editor and all that kinda stuff.
+
+210
+00:15:25.090 --> 00:15:28.500
+You can put this in and
+it can also run continuous integration.
+
+211
+00:15:28.500 --> 00:15:32.983
+So if for example you fail your ESLint
+pass, it would fail the build and then
+
+212
+00:15:32.983 --> 00:15:39.312
+they have to go back and fix it, right?
+&gt;&gt; Brian Holt: So
+
+213
+00:15:39.312 --> 00:15:44.446
+now we've done that which I just
+put into this line right here.
+
+214
+00:15:44.446 --> 00:15:50.526
+Then I'm gonna say,
+&gt;&gt; Brian Holt: yarn lint and
+
+215
+00:15:50.526 --> 00:15:53.090
+it should work.
+
+216
+00:15:54.320 --> 00:16:01.614
+Reason why we did quiet, just so you know,
+is we want it to only show errors and
+
+217
+00:16:01.614 --> 00:16:05.992
+not warnings.
+&gt;&gt; Brian Holt: Again,
+
+218
+00:16:05.992 --> 00:16:07.830
+that's typically for
+a continuous integration.
+
+219
+00:16:07.830 --> 00:16:10.710
+You don't wanna fail your build just for
+warnings, you wanna fail it just on error.
+

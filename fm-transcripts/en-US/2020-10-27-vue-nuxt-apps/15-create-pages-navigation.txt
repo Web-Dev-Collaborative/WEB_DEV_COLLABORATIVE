@@ -1,0 +1,42 @@
+[00:00:00]
+>> So we set up our next config. Now we're gonna create some pages and what we're gonna do well, you already saw us create one page, right? You we already, so far created our index page. If we wanted to make an about page, we would make, we would call it about.view, we would make sure it's in the pages directory.
+
+[00:00:22]
+We would say V base and I could say hy from about page. Save that off, and then I go back. And now if I go to localhost 3000 I'm at that index page right here. And if I wanted to say, about. Now I'm at the about page. So, you can actually see that this is routing.
+
+[00:00:52]
+We want to make a navigation though, right? We don't want to manually say, about or the index page. But this is pretty cool. We didn't have to create a router or anything, just simply. By putting a new page, the new view file inside pages, we made a brand new page.
+
+[00:01:09]
+[LAUGH] It's awesome, okay? So now, what we wanna do is we wanna make navigation. So I'm gonna close out our things that we're not working with right now. And our config, okay? And we're not gonna need that, all right? So now, I'm gonna say app. Menu.view. And we're gonna go into the next food app.
+
+[00:01:31]
+We're gonna say components. Here, we're gonna say the base again. I'm gonna change this to nap. Have, because that's kind of typical. And then, I'm gonna say ul, li, and nuxt has a special type of link for when it's routing. So you're not gonna use an a tag, where you're gonna say is I have a snippet for it, V next L is going to say nuxt link to page.
+
+[00:01:57]
+So in this case, it's the homepage. So it's just going to go that backslash and I'm going to say home. But I also have to say exact because it needs to know there's a lot of things that match this. I think in newer versions of nuxt it's not gonna need that anymore.
+
+[00:02:13]
+But for now, we'll just leave it. And so you might be working with a version that doesn't need that anymore, cuz they said that they were going to work on that. So, in V nuxt l, we say about; And then I'm gonna say about here. And then we can come back refresh.
+
+[00:02:33]
+The server might need to, we didn't actually add it to anything. We need to go into the default page. Remember I mentioned that in that default page, that's where we can have headers and footers and things persist. So I don't have to add it to the bout in the Index page every time if I have something that's repeated like that.
+
+[00:02:50]
+So I'm going to add in a script tag. And I'm gonna say, the Import Export and say app menu. And then above this nuxt tag, I'm going to say AppMenu. I'm also going to put this in a class of content. And I'm going to put this in a div and I'll explain why in a bit here.
+
+[00:03:16]
+Well, I'll just say its first sticky footer. Like I'm going to add this content and you're in an exercise you're going to add a footer below this and then it will be sticky. So if I added in that app menu, if I go back now I can see that I have a menu, and it persists on each page.
+
+[00:03:33]
+I don't have to add it to the about page but I can go on route from about to home and back again. Cool, so if we go back to our to-do-list now we've created pages and we've created a menu and we've explained a bit what next layouts do.
+
+[00:03:52]
+So again, they're all single file components. We use default.view and you can persist headers. I did an example where I use those persisted have headers to create these kind of native like animations between pages because I'm able to persist that state across different pages. So if you're interested in that I linked up the course or they linked up the article in the demo.
+
+[00:04:21]
+If you want to learn how to do that. You can also create new ones we're using the default. But let's say you had a layout of a blog. You could totally let add in a different layout style a little bit differently. Maybe you have an aside that persists on every blog page.
+
+[00:04:35]
+And you have many blog pages, you can make that really easily. And then inside the export defaults of that page, you would say layout is blog. So if you need more information about that, that's where that lives.
+

@@ -1,0 +1,39 @@
+[00:00:00]
+>> The next thing that we're gonna do is we're going to deploy and set up some environment variables. So we're gonna deploy. What we're gonna use for nuxt generate, what we're is called nuxt generate. And as I mentioned before, this is new, it newly sets up dynamic routing for you.
+
+[00:00:20]
+In order to deploy it, what I'm gonna do is I'm going to, am I in the right place, I need to make a new tab. And I'm in next food app. I'm gonna use that tool I mentioned in the beginning of the class that's called hub to create GitHub repos on my command line.
+
+[00:00:38]
+So I can say hub, create if I wanted it to be public, I could say just hub create and it will use the name of the directory. But in this case I'm gonna make it private. I'm gonna say dash p. And it will do its magic, it's updating origin.
+
+[00:00:57]
+If you're not using nuxt, you would have had to run git init first, but nuxt will assume that eventually you want to create a git repository. So will already install that, it will already do that for you, which is pretty cool. So I'm gonna do my normal git add a git commit, dash m, initial, commit.
+
+[00:01:25]
+And then git push, dash u, origin master. So now it's compressing, getting everything done. It's gonna push it up, Awesome. So now I can go to gives me a little link here. Now I can go to nuxt food app and I've got a private repo. Yay, and now I'm gonna log into Netlify, I login here.
+
+[00:02:02]
+And I'm gonna say new site from Git, GitHub. I'm gonna make a relationship you could do Git lab as well. Authorised Okay, usually this closes but let's try it again. Cool. And I think I called it nuxt food app. What did I, is that what I called it?
+
+[00:02:31]
+What do I call it? Nuxt food app. Okay. And it's thinking, there it is. I grab that. We're gonna go from the master branch, And again, if you're ever confused as to what your build command is you can go over to your README file or your README at the base.
+
+[00:02:56]
+And it says, install dependencies yarn dough and then serve with hot reload at yarn Dev. And then we've got these yarn build yarn start and yarn generate is for a static project, that's what we're gonna do. So I go over, back over to here, my build command is yarn generate.
+
+[00:03:15]
+My public directory is dist, and we're gonna deploy the site. Now this first deploy, don't worry about it. We're not going to, it's going to be okay, but it doesn't have the environment variable yet. Remember, we didn't, we're not pushing up that dotenv. So what we need to do is we need to go into the settings and we need to go to build and deploy and then we go down to where the environment variables live.
+
+[00:03:43]
+And I need to go back over to my env file and grab that key, and I need to name it the same. I need to name it, AWS API key. So edit variables. I'm going to paste this in here. I'm using a Chrome extension I built called phi masker.
+
+[00:04:12]
+It just masks in case I'm working with sensitive information in front of people. AWS, API, key, save, okay. Now I'm gonna go over here and this is gonna fail at first, don't worry. What we're gonna do is we're going to go to the deploys, and I'm going to say retry deploy.
+
+[00:04:41]
+So it's gonna start up, and we'll come back to this in a second to see how it did. Cool. All right, let's look at what's next. And we can also change the name inside of Netlify as well. So actually maybe we should change the name. Let's do that.
+
+[00:05:06]
+We go over to Site Settings and it gives you this wonderful Carson something or other and I'm just gonna call it food app. Nuxt food app, frontend masters because I already did nuxt food app before. So we're gonna save that and we're working on the building, cool.
+

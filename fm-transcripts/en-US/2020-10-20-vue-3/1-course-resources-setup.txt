@@ -1,0 +1,33 @@
+[00:00:00]
+>> We also are using the Vue devtools 3 beta at the time of recording of this. We just came out with view three. So there's Vue devtools, which is the kind of standard devtools. And this is the beta version that we're working on currently. So I'm gonna be using these today.
+
+[00:00:18]
+But it's missing a couple of features, you might notice that when I move over to next, this won't work anymore. And when we're working with knucks, this would actually be the better version, but we're going to really be working with this. In the future, this will be the only version of vue devtools that you'll need.
+
+[00:00:35]
+Also when I'm working with VS code, I'm going to be using Vetur, Vetur allows us to use single file components in VS code and get syntax highlighting and error handling and all the things that you're used to. I also created Vue VS code snippets. And those are really handy for drumming up boilerplate and things really quickly as you're working.
+
+[00:00:59]
+We're also gonna work with CodePen a bit today. So I wanted to give you a couple of little starters just so that you know your way around CodePen if you're not familiar, so you can either click Pen to create a new pen, or you can click View Pen.
+
+[00:01:12]
+So I'll show you the differences between these. If I clicked on Pen I can change the view to make these go the HTML, CSS and JavaScript go to the top instead of the side. I have an HTML, CSS and JavaScript panel. If I click this here, you can see that you can add whatever you need here so you could save Vue.
+
+[00:01:34]
+This will go to the two version of Vue and all the pens have the view next version of Vue so you can just fork one of those pen I'm also using bait babble babble one of those two as a as a preprocessor. I'm using some pre processors and CSS I like to use SCSS normalise autoprefixer, but that's up to you.
+
+[00:01:53]
+You can use whatever you like. In terms of the HTML tag, you can use pre processors. I'm also gonna add for Fonts into the head right here. So that's how we work with that. As we're working with exercises today, if you see an exercise and I say like work with this exercise and fork this pen, what you're going to need to do is save it to an account.
+
+[00:02:15]
+So I suggest that you make a free account with code pen so that you can save it because if you refresh the page and you don't then your work will be lost. You also notice that I use this extension called code open. So if I save this as private, and then I hit code open, what it does is it opens a debug window.
+
+[00:02:35]
+This debug window will allow me to see my pen without any iframes. These are all built with IFrames. So I can actually traverse this quite easily and see all of my elements on the page and things like that way. If I went back to CodePen, and I click the drop down and I click Vue, you can see that I'm actually getting a single file template.
+
+[00:03:00]
+And this is what a single file template looks like. I have a template area where I put my HTML, I have my script area where we put my script. And I have my style area where I put my style. So there are a couple pens that we'll be using today that have this.
+
+[00:03:15]
+It's a newer feature of CodePen.
+

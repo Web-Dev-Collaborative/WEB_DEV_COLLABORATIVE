@@ -1,0 +1,24 @@
+[00:00:00]
+>> v-once and v-pre, I mentioned before that I have my favorites. These are my less than favorites. I mean, they're okay but they're just not quite as useful. v-once will not update once it's been rendered to the page and v-pre will print out the inner text exactly how it is, including code.
+
+[00:00:16]
+And I will show you an example so that you can see that with some clarity. So if I say what, is my favorite kind of taco, and I say I like Al Pastor tacos, I'm gonna say, I like Carne Asada tacos. You can see that that first v-once, which has the mustache templates, didn't change, right?
+
+[00:00:36]
+It outputted to the page what I had initially, which was I like Al Pastor tacos, but as soon as I updated it, it didn't change at all. So that's useful sometimes, sometimes. I also show you v-pre next to pre because I think it's important to know that there's this distinction there, sometimes people get caught up in like, I thought it was gonna do this.
+
+[00:00:58]
+The pre tag is just a basic HTML pre tag that's outputting kind of pretty printed code to the page, whereas the v-pre isn't doing quite the same thing. The v-pre is taking whatever I have in here and it's not evaluating anything the typical view way. So rather than evaluating those mustache templates to tacos, like we did above, it's just going to show you that moustache template is just gonna show you a string.
+
+[00:01:26]
+And the reason why we have something like this is it's really useful for documentation. So if you're working on a doc site and you need to show people, no, literally, this is exactly what this is, this is a really good way of doing that. And beneath, I'm using this opportunity in showing you pre to show you a cute little debugger thing.
+
+[00:01:47]
+This dollar sign, when we use it in view, often is referring to the view instance itself. It's a special thing the view is giving us to dive into some of the internals. And here what we're saying is dollar sign data, which is a relationship with this. So it will print whatever I have in data to this page.
+
+[00:02:07]
+It will say hi, and it will literally say hi beneath. Now, you know that we have those view dev tools that we've been working with, but there might be some instances where you don't wanna go back and forth to a dev tool, or you just wanna see something really quickly.
+
+[00:02:23]
+Or you're trying to get a response from a server and you just wanna check something really fast. This is really useful for that.
+

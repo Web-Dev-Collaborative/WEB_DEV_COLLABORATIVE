@@ -1,0 +1,27 @@
+[00:00:00]
+>> Let's talk about this final solution. And then, I'm just gonna show you how you could validate. That we're not gonna do all of the kind of live coding bits, but I'm gonna walk you through in review what validation would look like in an app like this. So, here and then at the very end of the course, we're gonna go into the composition API, and do a really small example of how you can currently use composition API in next.
+
+[00:00:28]
+So, right now, if we look at the solution, basically what we're gonna have in here is I mentioned using a getter so we're gonna use a getter if you didn't call it cart count, that's fine. I called mine cart count. And it's very similar to that total price cart count, right, we're using a reduce we need to return 0 if we don't have anything.
+
+[00:00:52]
+And then we're gonna take all of the state of the cart, we're gonna go through all of the counts for all of the indexes. And we're gonna create one number out of all of those numbers. And that is the thing that we've got inside the cart count. And, the area that we're using it is gonna be inside our components, and organist go into app menu.
+
+[00:01:18]
+In app menu, remember I mentioned if you put it down div class of small num, I got your back. So above this next link we have a div class of small num, and we're saying v if the cart count is greater than 0, so in other words, if the cart count is 0, don't put a little 0, that's kinda awkward.
+
+[00:01:37]
+[LAUGH] But do bring in the cart count and of course we have to bring that in from view x. So, you could have either done that with computed saying like cart count this return this .store.getters.cart count. Or you could say, map getters and grab the cart count. Either one is totally fine.
+
+[00:01:57]
+So then, if we go to our local server, if we add in a bunch of stuff, 5, then we got to 5 up in that corner there, right? Now if I refresh, and I go to the cart, or what we have is this final state. So, inside the cart, so the next thing that we wanna do is we wanna go into the cart, and we wanna say, section v if cart.length.
+
+[00:02:32]
+So if the cart has some length show this cart, and otherwise, we wanna show this AppEmptyCart.view. So, I also put a conditional on this to see if the cart had no length. Don't ever show it because it's always gonna be an app empty cart state. So, in the AppEmptyCart.view, what we've got is this section, and then we've got this SVG.
+
+[00:03:00]
+Remember I said that I wanted us to do an aria labeled by hungry role presentation hungry man. So what we've got is an associative aria labeled by hungry and hungry. We have a role presentation and that's gonna skip over these paths so that we're not reading them out to blind people.
+
+[00:03:20]
+We're gonna say your cart is empty. And, we're saying next exact to fill it up and that exact too is gonna go back to the homepage.
+

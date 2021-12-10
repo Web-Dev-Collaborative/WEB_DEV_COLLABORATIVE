@@ -1,0 +1,24 @@
+[00:00:00]
+>> Will Sentance: Clarification, throw it out there. Dave has one. Andrew, do you want to go?
+>> Andrew: So if I were to take, after you say, let my new function equal outer and then I say let my new function two equal my new function, would that be-
+>> Will Sentance: They're both labels to the same function, with the same backpack, yeah.
+
+[00:00:20]
+And by the way, what about this cool one? What if I were to return out not a function but an object for the methods? They all share the same reference the same persistent local memory from where they were born, very, very cool, okay. All right, I'm gonna leave it at that for now, we're gonna come back together in about ten minutes after you've done some pairings through these challenges and talk about what this empowers us to do.
+
+[00:00:47]
+This allows us to have functions that remember the previous time they were run. Functions aren't just functions with some static text in them. Now, they're functions with some static instructions to be run, and a persistent store of data on their back. Before we do the actual I wanna add one more thing, what if I had defined counter not here, not here, but instead counter equals 0 globally?
+
+[00:01:13]
+And I ran my new function, my new function, other function, other function. Assign it globally, what would I see at the end Andrea?
+>> Andrea: It would be four.
+>> Will Sentance: Four, one, two, three, four. Spot on, what if I define counter inside of increment counter? So when I run my new function, before I do counter plus plus, I do counter equals zero, counter is zero.
+
+[00:01:35]
+What would I see then Katie, if I ran my new function, my new function, my new function, my new function?
+>> Katie: It would be one.
+>> Will Sentance: One, one, one, one, exactly. I'd never even reach my back, even if I define my backpack version I never even reach it.
+
+[00:01:45]
+As soon as JavaScript would hits it, it's found a variable with that name, done as you go out the chain. All right, I wanna add that point, for now folk, back to your pairing and in about ten minutes, we'll talk about what this empowers us to do.
+

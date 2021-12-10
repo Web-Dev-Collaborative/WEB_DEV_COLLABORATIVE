@@ -1,0 +1,81 @@
+[00:00:00]
+>> So again, not using the state of the parent, child:count, without that v-bind:. Using the state of the parent is going to say child, and then this colon, and then we're passing in some bit of JavaScript here. And in this case, it's that dynamically-bound value from the parent.
+
+[00:00:18]
+Each component instance has its own isolated scope. And data must be a function. So far, all day long we've been returning data as a function, but this is just worth calling out. It used to be in Vue 2 that you could write data as an object and not a function, and then it wouldn't have its own isolated scope.
+
+[00:00:35]
+But it will error now. In Vue 3, we just say, data must be a function. So there's this great doc's example that kind of shows if you don't make data a function, it will retain the state from all of them. And you definitely don't want that if you have multiple components that need to have different pieces.
+
+[00:00:58]
+Camel casing will be converted. This is really cool, because in JavaScript a lot of times we want to use camel casing. That's kind of like a typical thing that we do in JavaScript, is use camel casing for values. So we have some boolean value here, but Vue knows that in HTML we don't usually use camel case values.
+
+[00:01:16]
+There are no camel case attributes in HTML. So it will convert boolean value to kebab-case. It will make sure that there's a line here. So in case you're wondering what's changed between two things. You're still able to use it in JavaScript, but in HTML, it will automatically convert it for you, which is nice.
+
+[00:01:39]
+So let's refactor something into a component. I mentioned that for this commenting, for this, add a comment, I like tacos, cuz I'm that random person who says stuff that's not related to your post. If we look at that earlier example, and we look at it on CodePen, what we had before is this comment in comments comment.
+
+[00:02:02]
+And then we have this input. And it's all one component, right? Now let's say we wanted to create a component out of these li's, because I'm gonna use them somewhere else in the application. They're gonna be styled the same, and I need to use them again and again.
+
+[00:02:20]
+And it makes more sense for me to make them reusable as a component. So a bit of a contrived example, [LAUGH] but this is a simple example that we can work with. So we would still, in the parent component, have newComments as a string, comments as an array.
+
+[00:02:39]
+And then we say add comment, and we say this.comment.push(newComment). But here, we're gonna render that individual comment, and that template's gonna be an li. And we can say, from here, I want up props, which is comment.post. I'm just gonna call it comment.post. So here, whenever I wanna use this template, that's what it will render.
+
+[00:03:04]
+And now instead of ul, li, now I can say v-for comment in comments, and I can pass the key. And I say the comment post is the comment. I'm binding that prop, which means that I can use an individual comment elsewhere in my app, right? If I needed to use that li somewhere else, I could use it somewhere else.
+
+[00:03:27]
+But let's make it a little bit better. So okay, here's the example in the CodePen version. So we've got, This comment in comments, You can see here, Individual comments. So I'm using this component of individual comment instead of inserting that li directly. So I've got that app.component. By the way, the ordering does matter here.
+
+[00:04:00]
+So I can't put the app.component before I declare the Vue.createApp. And this ordering is actually different between Vue 2 and Vue 3. So if you're coming from Vue 2, that's something to watch out for. But let's make it one step better. Because what usually happens when we're commenting on something isn't just a list of things, because I don't know who that came from, right?
+
+[00:04:26]
+And it makes a lot more sense if I have something like this, to make it into a component of its own. Because it has an image that we're rendering, it has a user that we're rendering, it has the comment that we're rendering. And if I wanted to say something like I like tacos, which I definitely do, there I am, Mr. Magoo, and now I'm able to create this piece.
+
+[00:04:48]
+So let's look at this as like a more interesting comment. Because you could see, if I had this comment form here, or maybe I have a comment on a blog post somewhere else in the app, I could reuse this piece. So again, here, now comments has a little bit more information because we've got not just the text, but the author and the author image.
+
+[00:05:11]
+And so we've got the text, author, and image. Here, this is hard coded, but you could see if you're working with an API that knows who your user is, that this would not be hard coded. And so we're kind of adding that piece. But, interesting, here we don't have in the template, some hard coded template of div and p tag or whatever.
+
+[00:05:35]
+We're not passing that all into a string. What we're doing instead, Is we have this thing called script type="text/x-template". And I have an id on it. So this is going to be the individual comment component. And as you can see, it's much easier to work with. In the sense that I'm not passing a bunch of li's and images and small and whatever into a big string of things.
+
+[00:06:00]
+And here I've got syntax highlighting. Here, I can work with it a little bit differently. So if I can't work with a single file component, if I can't work with it in that way and I just need to add a CDN link to something, this is a more comfortable way of adding components to something.
+
+[00:06:18]
+You can declare them in script type="text/x-template" with the id of common-template. And you can name your component differently from that template. What you're saying here is, whatever your template is, go grab that id on the page where you find it. So this comment-template has a relationship with this, just like the app has a relationship with that div id app above.
+
+[00:06:43]
+See, and we're passing in the props of commentpost. So now you can see that this is much more interesting and useful. I'm passing in commentpost, which is an object that has the author image, the author, the text. And then I'm now able to create this unit that's really composable and useful for all over my app.
+
+[00:07:08]
+Let's look at this backpack example again. So if we're looking at this backpack, it's a similar kind of thing, right? We've got our item is a backpack. Our URL is this image. We've got an app.component, which again, has a template that we're associating things with. But this time, it has its own data, and that's okay.
+
+[00:07:29]
+You can pass props in and have this one have its own data. And we might wanna do that if we are gonna gather the data from this thing and post it somewhere else that has nothing to do with we're getting it from the parent, right? So I just wanted to show that you don't necessarily have to do everything in props.
+
+[00:07:48]
+You can totally pass things down and the component can be smart, right? Sometimes we call components dumb components, meaning that their job is only to render things. But in this case, you can add more functionality. I can add methods, computed, watchers, all that I want. So if we look at what we have here, let's look at it in CodePen, We've got our app-child in our div id app.
+
+[00:08:15]
+It passing in the item, counter, and url. That's all it's really doing. It's only responsible for adding in this app-child, and then that component itself is actually doing all the hard work, right? That component itself is rendering the backpack and giving us the click events and things like that.
+
+[00:08:35]
+And we're working with that data. Now, why would I show you this again? I'm showing you this again in part because building off of this you can make a whole functional ecommerce store. So let's say we had a big manifest of information. We have a big API and it gives us all this data about what our items are and what images we're using and all of this stuff about each unit, how many sizes, everything.
+
+[00:09:04]
+Now we can pass it in, And we've got this manifest that's, here again, hard coded, but, again, on Friday, I'm gonna live code from a real API and things. And we've got that template child. This is just the same as you saw it before, but this time we're passing things in as props and I'm able to reuse them.
+
+[00:09:28]
+I'm able to reuse each one of these a little bit separately. And you could see how something like that could turn into a whole store, a whole shopping experience. So that's really cool. So here, again, is the app with the manifest that has some information. Then we're passing it in.
+
+[00:09:48]
+item is unit.item. url is unit.url. I'm showing you it this way because last time I just pass the whole object in. I'm also showing you that if you wanted finite control, rather than pass the whole object, you could pass in individual pieces as well. And so here we've got this component, and here's where all of the component stuff lives.
+

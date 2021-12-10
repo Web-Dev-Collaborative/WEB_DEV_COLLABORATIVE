@@ -1,0 +1,45 @@
+[00:00:00]
+>> Even with all of that, that's not exactly how we work with you in a typical app, what we usually do is we create an app with either Vue CLI or Nuxt. And don't worry, I'll explain what Nuxt is in just a moment. And we create an entire application that allows us to have a really nice build process.
+
+[00:00:18]
+And so let's go into what that looks like. So I'm gonna open the deck here. Vue CLI and Next, I think once you start working with this you'll see how great the developer ergonomics are. I really enjoy working with both of them. So why would we do something like this?
+
+[00:00:40]
+Why would we use a CLI to build our projects instead of kind of adding a CDN and creating these script templates? Well, some build processes allow us to use great features like ES6 and have it supported on every browser, SCSS or less or any kind of style, and it's easy to npm install libraries.
+
+[00:01:02]
+We're gonna build and concatenate single file templates, which are awesome with all the trophies, all the trophies, but I'm totally not biased at all. And we don't wanna load all of our files on startup, but sometimes we want to kind of lazy where we have the ability to lazy load components, especially in Nuxt, in Nuxt it's really easy as well.
+
+[00:01:21]
+We wanna do things like server side rendering, or code splitting, or have good performance metrics for what we're doing. There are some ways that we can even monitor whether or not we added too many libraries or how much we're creating on every builds. It's also so that we can build in prod versions.
+
+[00:01:39]
+So I mentioned before, you can do X, but it will start to alert you or give you errors or warnings. If you're using development and production, two different types of builds, then what you can do is in development, you can see all of those errors, you can get console logs, you can get dev tools.
+
+[00:02:01]
+And then for production, it will make it so that it's minified and concatenated, and serve the smallest amount possible. And you no longer have access to the dev tools, is no longer erroring which is good because you probably don't want all those arrows showing up for a client if you had one.
+
+[00:02:17]
+So I mentioned single file templates, we sort of looked at them in code pen before, but let's do a deeper dive into what single file templates are. We have this template area, and inside the template area you write your HTML with Vue in here. So just standard HTML and then you can add your directives and things like that.
+
+[00:02:39]
+In the script area, we're gonna say export default and you write your Vue component logic here. And of course, above this export default is where you would import a library. Let's say you say import dollar sign from three and then you can use three JS or something like that.
+
+[00:02:55]
+And then for this area, we have our styles, and you can write your styles for the component in here. It does not need to have this scoped attribute on it. But the scoped attribute allows us, as I said before, it's a little bit like CSS modules, where it allows us to write very particular styles for that one component in there will not leak out any other pieces of your application.
+
+[00:03:20]
+What I really like about it is that I'm not context shifting. As I'm working with the component, everything that I need in that component is right there with me, right? I've got my HTML, my JavaScript, my CSS, I'm not actually moving from file to file and then trying to remember what I did.
+
+[00:03:37]
+Are you the kind of person who like opens a tab and then goes, wait, what was I gonna look up? [LAUGH] If so, you're gonna probably really like single file templates because you're literally just scrolling within the same file. And I did a link up in my intro to Vue, I have this Vue extension pack for VS code which has the tour my snippets, a bunch of other things.
+
+[00:04:02]
+I also use things like bookmarks and jumpy, which allow me to make bookmarks and just say like go from here to here in the file. And then I can jump through the same file and kind of never lose my place so I can code super fast and kind of create all of those pieces.
+
+[00:04:20]
+So before in order to add that component, we said app.component, all this stuff, if we're gonna add a component with the Vue CLI, what we would do is we'd say import new from components new or whatever the name of the component is. And we'd say export default, new, and we would declare that component this way.
+
+[00:04:43]
+Now really, you can name it something else, something other than what is written. What this new is doing is it's destructuring new new, it's really saying new colon new, but this is destructuring. So it's just saying new, but if you wanted a different name, you could totally use a different name here.
+

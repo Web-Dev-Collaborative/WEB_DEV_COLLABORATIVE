@@ -1,0 +1,6 @@
+[00:00:00]
+>> Okay, exercise time, refactor this example to the composition API. You remember this comment form, this one is the simple one that's just an array. So I say I like tacos and you can look at it here. So here's how it was done before. We had that new comments, the comments array, we were adding a comment that pushes and turns this into an empty string.
+
+[00:00:27]
+I also put this little watch in here because I want you to practice using a watch in the composition API. You can use watch or watch effect for this, either one is okay for this exercise.
+

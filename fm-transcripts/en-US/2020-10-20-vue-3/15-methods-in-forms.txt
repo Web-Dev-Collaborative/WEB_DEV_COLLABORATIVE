@@ -1,0 +1,39 @@
+[00:00:00]
+>> Methods and forms because like I mentioned, we're [INAUDIBLE] developers, we write a lot of forms. [LAUGH] So what we're gonna do is we're going to create a form that posts to a server called Typicode JSONPlaceholder. It's a really nice thing if you need to get some fake server responses and just make sure that everything is evaluating correctly.
+
+[00:00:20]
+So I'm gonna write my name here. And I'm not giving anything away or doxxing myself with my email. It's my name. You could probably figure it out. And then I'm gonna say, how do I turn off caps lock? I don't know. And then I submit. And then the response from the server that I get is the data with my name, my email, caps, and then I'm also adding an ID.
+
+[00:00:44]
+And so then we've got a bunch of headers and things like that and information about the request. So let's take a look at this pen. So far what we've got, you might have guessed that what we're doing is we're saying form @submit.prevent. Now remember, that prevent modifier is going to do that e.preventDefault so it's gonna keep that form from reloading the page on submission.
+
+[00:01:08]
+So we've got @submit.prevent, and we're gonna call a method called submitForm. In this submitForm, and I'm using Axios for this and I'm writing it as simply as I possibly can with promises. So we've got axios.post, and we're posting to this JSONPlaceholder. I'm gonna pass in name, email, caps.
+
+[00:01:33]
+And that has a relationship with the name, email, caps that you can imagine, have the models on them, name, email caps, and so on. And right now, I'm just writing a required which is a piece of HTML5 native things. Typically, I'll use Vuelidate for validation. But this is just a quick way of getting a little bit of validation.
+
+[00:01:59]
+And we've got these kind of required. If you remember, we also did that binding of that ternary to turn on an active class. So I don't want an activeClass on that button until I have something in this first input, right? So I am using that to create that relationship and say the activeClass is active, which is similar to that button that we saw earlier.
+
+[00:02:25]
+So you can go in here and you can see the active has a background of a primary color from our code base. So we have name, email, caps. I also have an empty string for the response from the server. That's not gonna have a V model on it.
+
+[00:02:43]
+As soon as I submit this, so I'm going to say axios.post. I'm gonna post all of these things. And then I say this.response = JSON.stringify(response, null, 2), which just allows me some basic formatting. It's going to allow that to instead of being a big clump of information, it's gonna pretty print it to the page with two spaces.
+
+[00:03:04]
+And so I'm saying this.response equals this so that I can output it to the page. So that you can all see what that response might be when we get the response from the server. Pretty cool, again, not a lot of code to make all of that work. We've got a bunch of labels and inputs.
+
+[00:03:22]
+And by the way, if you're making inputs, you should create labels. This label has for that has a relationship with name that'll allow a screen reader to speak out this name. And we have typed text. So this is kind of normal HTML that we have here and then we're establishing a relationship with name.
+
+[00:03:43]
+I should mention also, we're using a lot of templates today in this course. You can also use JSX if you're more comfortable with JSX. Vue does support JSX. We're doing a kind of while in Rome philosophy. A lot of you developers use templates and single file components to write their code and so I'm gonna show you that way of working.
+
+[00:04:04]
+But just know for yourself that JSX is totally available to you as well. So we have all of these pieces. And that's what it takes to submit that form. So here is that @submit.prevent that's on that top level form, and all of the things that we're capturing here.
+
+[00:04:24]
+And here is all of the JavaScript that it takes to power that. So again, not too much code to make all of that happen.
+

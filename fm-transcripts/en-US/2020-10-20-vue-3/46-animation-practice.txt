@@ -1,0 +1,6 @@
+[00:00:00]
+>> And part of the reason why I mentioned this is because I'm going to give you an exercise and I want you to be able to spin a ball or do something else. So, fork this pen and create either a transition or an animation that addresses the entrance or the exit or both.
+
+[00:00:18]
+I don't have a solution to this one because everyone is going to do a different thing with that transition. There was kind of creativity suggested in doing that exercise.
+

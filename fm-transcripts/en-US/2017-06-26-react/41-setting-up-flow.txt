@@ -1,0 +1,79 @@
+[00:00:00]
+>> Brian Holt: Let's go ahead and just kinda jump in so we can start seeing how this is gonna help us. First thing we're gonna do here, is we're gonna say yarn flow. So we don't have flow in our scripts, but flow is actually being included already. In fact, if you go ./node modules .bin.
+
+[00:00:21]
+There's a flow in there, which I had forgotten about this trick until just right now. You can actually just say yarn flow, and it's gonna go find that in your node modules and run it for you. So we're going to yarn flow -- --init. Is it just init?
+
+[00:00:39]
+Okay, I don't think you need to dashes. There we go, okay? So yarn, flow, dash, dash, init. Okay now if you look in your directory it created this file here called, .flow config. But this is kinda, a lot of the times you don't need anything other than just having a flow config, even if it's totally empty.
+
+[00:01:05]
+It's just that you're acknowledging at that point this is now a flow project. Now the reason why I learned flow in the first place and like flow, it's very easy to introduce flow slowly into a mature code base, right? Cuz flow is opt in, so you have to go in and opt in to every file.
+
+[00:01:23]
+So you just kind of slowly start going and opting in files, and eventually your entire project will become typed, right? I think typed can do something similar to that, I just, again, I don't have the experience to speak to that, but I know for a fact that that was a strength for flow in my opinion.
+
+[00:01:49]
+
+>> Brian Holt: Something else we're gonna do now is, I want you to add a global called yarn global add flow-typed. You can also do npm install dash dash global. I just need you to get this CLI called flow typed, yeah go ahead.
+>> Speaker 2: What was the previous command for flow init?
+
+[00:02:12]
+
+>> Brian Holt: Yarn flow dash dash space init.
+>> Brian Holt: So add the flow type.
+>> Brian Holt: So now you should have a CLI thing called flow-typed. What this is going to do is this is gonna go out to their repo and bring in types that your project is currently using. So, for example, we're using, React is a bad example.
+
+[00:02:41]
+Let's say.
+>> Brian Holt: Well, something like enzyme, for example. Enzyme has a specific API. And someone went through and actually wrote the types for Enzyme, so if you try and call like enzyme.method that does not exist, and you try and call that. It's gonna say hey you're trying to call a method that doesn't exist right?
+
+[00:03:10]
+So that's what Flow Type is gonna do, it's gonna go out and grab those type definitions for you and bring them into your project. In an automated fashion which is my favorite way of doing it. So we're gonna say flow-typed install.
+>> Brian Holt: And it's just gonna go out and grab all the types for the things that you've installed.
+
+[00:03:30]
+There's gonna be a bunch of red output, this is just saying hey, you have babel-core, and I don't know what that is, and that's okay. But if you scroll up above all that, you're gonna see it brought in express, redux, flow, lodash, jest, enzyme, react-router-dom, axios, prop-types, react-addons-perf, and react-redux.
+
+[00:03:50]
+So we got all those typings for free, which is a-okay by me.
+>> Brian Holt: Also just so you know, you can look here inside of your flow typed directory that it just added for you. And you can actually go look at these type definitions which is super useful. So for example, I don't know how Jest is working, so I can click into this I can actually go through all of these types.
+
+[00:04:21]
+In fact, it's like if you're on a plane and don't have access to the documentation, it's a pretty good way of looking at it. Right? You can see that jest actually does a ton of stuff. So this is pretty recent, and to me this is a huge addition to flow, so I'm very grateful to the community for doing that.
+
+[00:04:43]
+
+>> Brian Holt: Okay, any questions so far?
+>> Brian Holt: So right now if we go and say yarn flow I think it's just gonna, not really do a whole lot.
+>> Brian Holt: Because we don't have any files that are being opted in for it to being stat, look, it is doing some stuff.
+
+[00:05:06]
+So God bless style components. I love them. But for whatever reason they have interior errors for flow, and so you have to go in and tell it specifically do not type check inside of the styles components directory. That was super weird so let's go ahead and do that.
+
+[00:05:25]
+Do I have that in here?
+>> Brian Holt: Yeah I do. So go into your flow config file that it generated for you. And the very first thing that you're gonna want to do is ignore styled components. So you're gonna say PROJECT_ROOT/node_modules/styled components/ star. So it's just saying anything coming out of styled components I do not care.
+
+[00:06:06]
+You don't want to ignore all of node modules. Because you actually do care about the types that are coming out, right? The outputted types. Anyone, flow will be able to follow those where it can. So, you want it, for the most part, leave node modules in. Here's type checking.
+
+[00:06:23]
+Just, for whatever reason, as of the today, it doesn't work.
+>> Brian Holt: Something to note, that Flow already understands React out of the box. It doesn't need any Flow typings for that. The reason being was that Flow was written for the React team at Facebook, so they just kind of built it in.
+
+[00:06:48]
+So you get all that stuff just for free. Okay, so now if we try and do this again and say yarn flow.
+>> Brian Holt: It's gonna go do that again and no errors as far as it knows but nothing is actually being opted into being checked. But it's good to know that we're starting from no errors upfront.
+
+[00:07:14]
+
+>> Brian Holt: The flow is written in Ocaml. So it is relying on that particular typing system. Basically as far as I understand it's converting your JavaScript types into an analogous Ocaml type. Doing all this type checking with the really robust OCaml typing system, and then spitting out those errors back to JavaScript for you.
+
+[00:07:35]
+But that's why it's really fast, right? If we were trying to write a typing system in JavaScript, one that seems like an ill-advised idea, it would go a lot slower. So, that's when you see the flow is still initializing and all this stuff. It's actually running a background process in Ocaml, feeding stuff into it and waiting for it to come back out.
+
+[00:07:55]
+
+>> Brian Holt: And the same thing if you look in your processes and you see some random Ocaml process called flow, that's what it is.
+

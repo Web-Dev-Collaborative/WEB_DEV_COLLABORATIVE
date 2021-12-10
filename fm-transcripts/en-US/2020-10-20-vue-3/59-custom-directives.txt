@@ -1,0 +1,66 @@
+[00:00:00]
+>> Let's go over custom directives really quickly. They are really awesome. I mean, if you remember all of the interesting, fun things that we could do with directives really quickly and declaratively. You might run into a time when you're like, I want to do this one thing pretty commonly.
+
+[00:00:18]
+Or I want to plug into this piece of HTML often, but there isn't a directive for it. Well, you can make your own, and that's so cool. So, if I'm using this pinned example, I'll say v-pin, I will now be pinned onto the page. I have my app.
+
+[00:00:36]
+And then I say, remember how we said app.component? We will say app.directive, we will call it pin. It will always start with a v dash, and whatever the name is, just to be consistent with all of the other directives. So it will be v-pin. And we say mounted, we pass in the el and the binding.
+
+[00:00:54]
+And I can say, el.style.position.fixed. So basically all this is doing Is adding a style of position fixed to whatever the element it's resting on. That's cool, but it doesn't do much right? I might as well have just written a style for that in a global stylesheet, it doesn't necessarily need to be a directive.
+
+[00:01:15]
+So let's take it a step further. And in order to take it a step further, let's talk through these directives little bit at a time, so you understand what these arguments are. So the example like you just saw will instantiate a directive but doesn't accept any arguments. So without passing a value, it's pretty brittle, it's not very flexible.
+
+[00:01:32]
+But you could still hang some piece of functionality off of the DOM element. Here's one step further, v-example="value". Remember, v model and we're connecting to something. This will pass a value into the directive, and that directive figures out what to do based off of that value. So div v-if example, and then that's evaluating to true or false or something like that.
+
+[00:01:55]
+So that was how that one was made. v-example is string, note the font's a little strange, but you can see that there's a string passed into that string. This will let you use a string as an expression, like we saw with v-html, where we could pass in a link or strong tags, or something of that nature to v-html.
+
+[00:02:17]
+V-example:arg="value". This is like the v-bind or v-on that we saw before where we have v-example, and then we add a colon and value. This allows us to pass in an argument to the directive. In the example below we're binding to a class, and we'd style it with an object stored separately.
+
+[00:02:40]
+So we're saying v-bind, and I'm saying class or I could say style. So I'm passing this piece in, that's an argument. I could say class, style, whatever it is, and some class object. v-example:arg.modifier.value, this allows us to use a modifier. The example below allows us to call preventDefault() on the click event.
+
+[00:03:06]
+So, what's nice about Vue 3 is previously, when we were working with custom directives, they had all of their own life cycle methods and hooks. In Vue 3, we just change them to be the same as the component life cycle methods, which is nice. Because now you don't have to learn a whole other thing in order to work with directives.
+
+[00:03:26]
+They use beforeMount, mounted, beforeUpdate, updated, beforeUnmount, and unmounted. This makes it much more simple to understand what's happening when we're mounting and unmounting elements into the DOM. So v-pin, this was our first example. It's got that el.style.position. As we said, not very good. Our next one is v-pin 70.
+
+[00:03:50]
+So I'm gonna say pin me 70 pixels from the top of the page. So I'm passing in mounted, because I'm grabbing that el. I'm saying el and binding, I'm saying the position is fixed, and the top equals binding.value + pixels. So that's a little bit better. If we look at this, we're scrolling down the page.
+
+[00:04:15]
+So what it's doing is, it's styling that element. It's making its position fixed. And whatever we pass in here, it will add pixels at the end and create that top, right? So now we're able to pin it and able to do that a little bit better. Now we can pass an argument.
+
+[00:04:33]
+So let's say we wanted to pin it, but we might want to pass in multiple directions. So we might want to say top and left and up and down or whatever. So I could have wrote left here, but I'm going to show you one step further. Let's say direction was something that's dynamic too.
+
+[00:04:50]
+So, inside the Vue app, what we could do, is we could pass in that direction and that 200 pixels. So now I can say, all right, position fixed. If nothing is declared, just make it top, but if something is declared, make it whatever direction we have, and then the binding.value.
+
+[00:05:13]
+So if we look at this pin, stick me 200 pixel pixels from the right of the page. And if we look in the JavaScript here, you can see the direction is right. I could also say direction is top here. And now it will stick from the top of the page instead of to the right of the page.
+
+[00:05:35]
+So that makes it able to be dynamic in multiple directions. I can now pass it in and stick it 200, 300 wherever and also change the direction, super cool. We could also make it really dynamic in binding. I could say the direction, I could say the pin padding, and I could say both the mounted and updated.
+
+[00:05:59]
+And why I'm saying both mounted and updated is the mounted hook is only firing right when that thing is first coming onto the page. But now I'm saying do it all the time [LAUGH]. Go and grab it anytime something is updated, go and update this as well. So this allows me to make really dynamic arguments.
+
+[00:06:20]
+And you can make all sorts of Vue directives that do all sorts of things. So let's do something really fun. We're going to hook into a scroll event. We can use libraries like ScrollTrigger. There's a really great library from GreenSock that handles scroll events, and things like that.
+
+[00:06:37]
+But maybe we should just make one with a directive that's a scroll. So we're binding to the event listener of scroll, and then we're able to say like, okay, if the scroll top is at this point, then fire this animation or do something else. So we can create a directive that allows us to hook into scroll.
+
+[00:06:56]
+So we have this v-scroll handleScroll, that method has that animation logic. And now when I scroll, that comes up. And I didn't have to load it. I mean, I'm using GreenSock, but I'm not loading any plugins or any extra stuff. I could have used Waypoints and all these other libraries, but I can really just create as much as I want with that directive.
+
+[00:07:20]
+So I'm using this to create this data visualization that does these kind of scrolly telling things with D3 where we can tell a story about fireballs. And I don't know much about fireballs, so right now it's lorem ipsum. But [LAUGH] eventually this will have real data and I will open source it.
+

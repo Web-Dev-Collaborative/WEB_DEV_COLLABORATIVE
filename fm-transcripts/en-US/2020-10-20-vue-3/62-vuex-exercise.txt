@@ -1,0 +1,6 @@
+[00:00:00]
+>> So exercise time, we are going to take this CodePen with these individual comments. Remember, I like tacos, and we had this Mr. Magoo guy show up with a new tacos. Right now all of the logic that we have is in our top most app component. We have the comments, we have the new comment, we've got the methods that we're adding a comment.
+
+[00:00:31]
+What I want you to do is to create an application with and make these components and put that logic into the store instead. So the component will have a little bit of state of its own, but really what it's doing is letting view x store all of that data and also update all of that data.
+

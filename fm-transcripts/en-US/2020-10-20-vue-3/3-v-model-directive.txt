@@ -1,0 +1,36 @@
+[00:00:00]
+>> So v-model. This is one of my favorites. I love v-model. You got to have a favorite. It creates a relationship between the data and the instance or component in a form input so you can dynamically update values. A lot of what we do in front end development has to do with building forms.
+
+[00:00:15]
+[LAUGH] So this allows us to capture form inputs or capture differences between v-model inputs or text areas or things like that very quickly. It's called two way binding. So we're accepting user input and managing it in a responsible manner. We saw that message before that we're returning in data.
+
+[00:00:36]
+And we're saying this is a good place to type things. That's what we're starting with. So if I have a typical text area here, this is actually just plain HTML aside from the v-model. So we've got text area, class, rows, max length, that's a typical text area. And we have this v-model message that is establishing a relationship between what we're holding in data and what we're kind of gathering from the user in that text area.
+
+[00:01:03]
+And here we can output that onto the page in this p tag. So we've got these mustache templates where we can output it to the page. So here if we have this demo, where we say, hello there everyone, and I say I like tacos, and then you can see it directly outputting to the page very, very quickly.
+
+[00:01:22]
+I can type anything, and it's storing that data and outputting it as soon as I type. I didn't have to set state anywhere. I didn't have to gather anything about it. I didn't have to ping anything in order to find that information. So I just say, message, hello there everyone, and I mount the app.
+
+[00:01:42]
+And then in that text area, I established a relationship with message. So that means we can do really crazy things like I could do something like this, where I say write me, and then all of a sudden things scatter onto the page as I type things, or I can say, I like tacos, and I'm not afraid to show it.
+
+[00:02:05]
+And I can erase this and write it, and you already know how half of that demo was created. And in a little bit, you'll know how the other half is created, because we'll go into an animation section that shows how to do enter and leave animations as well.
+
+[00:02:22]
+Tada, cool. All right. So if we wanted to do something other than a textbox, let's say we wanted to do checkboxes or radio buttons or something like that, what we would do is we'd make Checkednames an array. And then we add that v-model to every input that we want to add to that array.
+
+[00:02:41]
+So I can say, John, Paul, George, Ringo, and take them off as well. And so if we go into our dev tools here, if we go into code pen, and then we can actually look at this in the view dev tools. We have our root, we have our Checkednames array.
+
+[00:02:59]
+And as I click on these, you can see things appending to that array. Cool. Now let's say you don't know how many of these items that you're gonna wanna put on the page. Let's say I'm a really big Beatles fan, and I'm super hard core, and I think, well, actually Pete Best was the fifth Beatle.
+
+[00:03:22]
+So then I could come in here, and I could add another value. And I could say Pete, and it's automatically appended, because what I did was I used that v4 that we saw earlier, and I'm looping through these options. And I'm establishing a relationship with those Checkednames. And we're about we're about to cover this bind right here.
+
+[00:03:46]
+So we're binding to the value, and then I'm able to just keep updating that. So that means I don't have to keep on copy, pasting inputs and labels and things like that. I can actually just dynamically create them from whatever happens on the server.
+

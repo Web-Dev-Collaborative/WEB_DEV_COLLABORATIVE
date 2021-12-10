@@ -1,0 +1,18 @@
+[00:00:00]
+>> So here, we created a dynamic page. Your next exercise, Is, and I talked a little bit about dynamic pages here. Just like we create things dynamically with directives, computed, watchers, we can create dynamic pages in our app. And our next exercise is we've made dynamic routes based on ids and brought in the computer property.
+
+[00:00:25]
+It has all the data for them. It's now your job to add and style the item to give them user information. So you can look at this final result Here and kind of see what sections and things are laid out in the page, right? But you can't actually see it because it's prod, you can't see all of the components or anything, but you can kinda see where I used what kinda styling tags and things, details, options, things like that, add to cart and things like that.
+
+[00:01:02]
+Don't worry about the Adding to cart functionality yet, but I do want you to see if you can gather some data in so that we can put it to the cart. So start to think about like if you have three in the count that this number gives you a combined price and things like that so that we can add that to the cart.
+
+[00:01:25]
+So I have a few hints here, that's you can look at the styles there and you're on the hook to building the grid part of this because I want you to get used to that. So I did make you a CSS Grid Generator. So you can use the CSS Grid Generator to create grids and columns.
+
+[00:01:47]
+You can even make special things like that and then I say please get some code and you can copy to clipboard shows you all of that stuff. So I tried to make it a little easier for you where you can generate that stuff and don't forget accessibility. When we're working with the form, use some accessibility bits.
+
+[00:02:06]
+Okay, so in this next section, you're going to fill out that ID page with the information given to you from all of those pieces that we have. We have all of the pieces that you need to get started.
+

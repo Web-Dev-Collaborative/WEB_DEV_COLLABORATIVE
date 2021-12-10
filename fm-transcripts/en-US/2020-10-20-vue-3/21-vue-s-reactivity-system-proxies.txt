@@ -1,0 +1,93 @@
+[00:00:00]
+>> All right, watchers and vue's reactivity system. Now, we're going to use this opportunity to dive a little bit deeper. And for the first part of this, I'm not gonna talk about something that's on the surface of the API. I'm gonna talk about watchers in a minute and how you use them.
+
+[00:00:18]
+But before we talk about watchers, I want to talk about how vues three uses reactivity and dive into what that means a little bit. Because even though it's not necessarily super important in order for you to use vue it's a little important because if you're debugging or if you're curious how something is working, or you don't know how did this update automatically, I want to give a couple of examples.
+
+[00:00:45]
+So for this part, you can kinda sit back a little bit, I'm not gonna be teaching you something that you immediately have to work with. Don't worry, I'll sound the alarms when I start talking about watchers and that's something that you're gonna be working with again. But for this part, maybe just sit back and learn a little bit about the vues reactivity system.
+
+[00:01:02]
+So what is reactive? We've heard reactive programming and people talk about reactive programming a lot lately and sometimes people think, well reactive programming is RXJs. And they're not wrong. RxJs is reactive programming. But reactive programming is a type of programming it's a large umbrella and RxJs is one library that uses reactive premises.
+
+[00:01:26]
+Angular and vue use reactive premises mobX uses reactive premises. But before we dive into how vue does that, let's talk about what that is. Reactive programming is programming with asynchronous data streams. Now that still sounds confusing, so let's break it down a little bit further. A stream is a sequence of ongoing events ordered in time that offer some hooks with which to observe it.
+
+[00:01:53]
+If I'm giving a really basic example. If you had a hover state that had some transition on it, there's the moment that you start hovering on it. There's the transition state in which it's changing. And then there's that end state and you have hooks with which observe this part, the transition part, the end part.
+
+[00:02:17]
+So that's a really basic example but obviously when we're building company applications it gets more complex. When we use reactive premises for building applications, it means it's very easy to update state and reaction to events. And this is awesome because most of what we're doing with application development is reacting to state changes.
+
+[00:02:36]
+We're mostly reacting to things changing an application. Andre salts has a great post that goes into tons of depth. As I mentioned before, I'm gonna go over these premises, but I'm also gonna link off to other people who are going into different areas so that if you want to dive further you can.
+
+[00:02:53]
+So let's look at the canonical example. This is an excel spreadsheet if we have in this area two, and three and we have a sum of five. If we have that sum unit in that three area, it will automatically update if we update the first right. We didn't have to do anything or say anything, in order for that to automatically know that that needs to be updated.
+
+[00:03:19]
+This isn't actually how JavaScript typically works. If we have a value of two and a value of three and then a sum and let's say we change that value of three. If we write some, it's still five, right? That's not JavaScript doesn't work that way because of the way that the compiler is working because it's compiling in a different order than that.
+
+[00:03:40]
+So let's talk about how we could potentially make that change. So I made this animated example that you'll also find in the view documentation. We start with an object. We add a handler and proxy the object. In this case, it's the same. But look, we can intercept the object with a proxy.
+
+[00:04:10]
+And here's the cool part. If we change the first object, the proxied object still up updates accordingly without adjusting the handler. With reactivity, we can respond to changes instantly and don't worry, I'm gonna dive that was pretty quick. I'm gonna dive into all of those pieces a little bit more as well.
+
+[00:04:29]
+So how does vue 3 do this? I'm gonna break it down into little bits. How would we make something reactive? Well, we need to detect when there's a change in one of the values, we need to track the function that changes it. And we need to trigger the function so that it can update the final value.
+
+[00:04:46]
+Proxies in JavaScript are a newer feature. In vue 2, we use object defined property which is an, it's predates ESX, it's ES five. Whereas proxies are something that is newly available to us. It's an object that in cases another object or function and allows you to intercept it.
+
+[00:05:07]
+So here's the most basic new proxy target handler. So if I have a dinner, which is of course gonna be tacos, I can create a handler and say get in the target and the prop and I return target prop. And so basically I'm saying, return that piece to me and I say calm, const proxy is new proxy and I pass in the dinner object and the handler.
+
+[00:05:35]
+And if I console dot log proxy dot meal, what I'll get is tacos. Because I'm returning target prop. So I've passed that in and that's what I'm returning. If I have that same dinner object, and let's say this time, I'm doing the same thing of returning target prop, but I wanna do something else I can say console dot log intercepted.
+
+[00:05:59]
+And if I do the same thing, I'll get intercepted and then tacos. So this is really cool. We can still have a different view onto that same, we talked about computer properties different view onto that same data. Here, we have the ability to add some special things to that first object.
+
+[00:06:22]
+Now, we don't actually have to return target prop. If we wanted to, we could return something totally different. And I'm showing you this to say, you have to return target prompt in order to make that proxy work the way that you think it is, it doesn't automatically return that.
+
+[00:06:40]
+So if I wanted to say console dot log, we swapped out your dinner. I think there's a little bit that's missing here and return burger which would be terrible. Then we pass in dinner and handler and we get we swapped out your dinner burger. So it doesn't necessarily return that we would have to be sure to return that.
+
+[00:07:01]
+This is actually called the trap. [LAUGH] Cuz it's a trap. I don't want someone to return my burger. The ability to do that in JavaScript is called a trap. So here we got our original object as well. We go back to returning that and we get tacos. There's another argument that we can pass here that proxies let us do.
+
+[00:07:29]
+We can say target prop and we can also say receiver and we can return reflect.get and this is something that's a native JavaScript, all the spread of the arguments. And what it allows us to do is the same thing. So why would we do this? It's because reflect binds this properly and you noticed how we were binding this, this counter and methods, we need to make sure that we're binding this properly.
+
+[00:07:59]
+So here, if we wanted to track the things that are changing, we could intercept and say, okay, I want to still return that. But I also want to track the properties that are changing. I want to make sure that I have a function that's collecting that information, and I'm gonna call it track.
+
+[00:08:17]
+So then we're returning the same and we get the same thing. And this track, you'll find is really interesting when we start talking about watchers because we want to track what dependencies are changing during that process. What is as we're changing things around what is changing about it.
+
+[00:08:35]
+So track in vue saves any changes and I'm giving you the names of things so that if you wanted to dive into the code base you could find stuff. So if we have a get an asset, so are getting things and setting things remember I mentioned, computer properties are get only not set.
+
+[00:08:52]
+So we've got target prop receiver return, reflect, get pass in the arguments, return reflects set, passing arguments. And then we're able to track all of the properties that are changing and then trigger a new function that will update things accordingly. So trigger and vue runs the changes. And this is the last slide.
+
+[00:09:17]
+I know this is a lot of code, but really what this is doing is making sure that if the value is the same, don't do stuff. [LAUGH] Basically let's save some time. And if the things are the same and nothing's changed, don't change things around very much. So we want it to detect if there's a change in one of the values, which in track the function that changes it.
+
+[00:09:40]
+And trigger a function so that it can update the final value in order to make things reactive. We don't have to detect when there's a change in one of the values. Because proxies are already doing that for us automatically. We can track the function that changes it using track and we can trigger a function that updates the final value in trigger.
+
+[00:10:00]
+So if you wanna explore these packages right now, in vue 2 another big change is that everything was in one place. In vue 3, everything became very tree shakable and we're code splitting and doing a few other things. So what that means is everything exists in separate packages.
+
+[00:10:19]
+So even the reactivity system in and of itself exists in a completely different package than some pieces of the templates. And you might see that things like transition that we'll use in the animation section that's in a totally different package as well because in case you're not using transitions, it will get rid of it that and then you can have a smaller build.
+
+[00:10:40]
+So if you want to explore the reactivity package, this is where this lives right now in the vue next repo. In the future if you're watching this a year in advance, this will probably just save you or vue j s. But for now, we're keeping this for a few months, maybe a year to view next.
+
+[00:10:59]
+As I mentioned before, proxies are ES6 previously it was object defined property and Avenue has a workshop where he goes into all these advanced concepts on Frontend Masters where he describes all of that object defined property. This is all new stuff with the proxies.
+

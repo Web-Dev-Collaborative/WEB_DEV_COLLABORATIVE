@@ -1,0 +1,24 @@
+[00:00:00]
+>> So, you'll start off with an app file and a component. This is really nice because then you get to see how these files and imports and exports might work. So Vue kinda sets that up for you directly with the CLI. Let's go over that Vue. We went over this Vue file extension for a moment.
+
+[00:00:17]
+And I also mentioned that We're working within vscode. I highly suggest you get Vetur for vscode. Vetur will give you syntax highlighting within vscode for that .vue component. I created some snippets, there are other snippets out there that are more based off of the API. I wrote these snippets to be what you need, based on the boilerplate that you typically write.
+
+[00:00:43]
+So, and you might have noticed for that component, when we imported and exported, I made some default so that you can type multiple things at once and it kind of autofills a bunch of them at once, so you can move pretty quickly. So I also have an article on how to globally import styles, and scripts, and things like that.
+
+[00:01:04]
+So, this is where you can access that file. And again, that style scoped is really just going to be for anything that's particular styles for that component. So, it really allows us easily to scope the styles for the component and only this component. You may, if you didn't, at first add in SCSS or SASS in your Vue CLI while you are building everything.
+
+[00:01:31]
+No worries, you can do yarn add or NPMI node-sass, sass-loader, and then you can use lang= scss. And it will build properly. So if you ever find an error where it's like sass, not found and bla bla bla bla bla, just run this command, and you'll be golden.
+
+[00:01:51]
+Let's go look over here, we have a published app. Let's click on this link. And here is our stuff, live online. And I can even go back here, say Site Settings, Change the site name to setup1. I'm not sure if that will be taken or not. Is it taken?
+
+[00:02:08]
+It's not, cool. And then we click setup1. Now you can all go to setup1.nullify.app, and you can see that thing that used to be a code pen deployed online pretty simply. So that's pretty cool. Awesome. So this is a good way of getting applications from one state to a full other state.
+
+[00:02:30]
+We can create full applications and get them online really quickly with Vue CLI.
+

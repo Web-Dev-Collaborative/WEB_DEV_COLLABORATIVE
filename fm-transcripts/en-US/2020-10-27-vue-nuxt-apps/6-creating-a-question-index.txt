@@ -1,0 +1,51 @@
+[00:00:00]
+>> All right, we did a lot so far. So we have this kind of functioning UI state that tells us whether it's starting, we can pick a character. And then as we pick a character, we're conditionally loading just a piece of this SVG, right? Just a group that this component of Baker, and we know because we're using SVG that everything stays really stable.
+
+[00:00:26]
+We don't have to like keep on messing around with CSS positioning and things like that. Which is the reason why there's just not a lot of CSS for this project. It's mostly using SVG's coordinate system to place these components in different areas. And you can see that we're also saying that we have a baker.
+
+[00:00:44]
+But next, we wanna be able to ask the person questions right? We'd have that list of questions that were ridiculous and we want the friend, the friend is skeptical that this is really their friend. And so they're gonna be asking a bunch of questions and there's gonna be a bunch of selections for answers, and you have to kind of decide which one you want.
+
+[00:01:06]
+So, the next step here is we're going to start to ask those questions. And what I mentioned before, we're gonna use a question index for that. So if I open up the state, I'm going to set the question index at 0 and then I'm also gonna give us a score.
+
+[00:01:29]
+Because what we wanna be able to do is score them based off of whether or not they picked the right one. If they said that they're a baker and they gave the baker answer, then they get a higher score. And if they said the oddest answer, they get a lower score.
+
+[00:01:45]
+So cool, let's go back into our app dot view and we've got some bubbles for our friends. We've got a section that's conditionally loaded now, and not within the SVG. But rather on top of the SVG in kind of HTML land that's positioned absolutely. We're gonna do a friend talk, not friend and a zombie talk.
+
+[00:02:23]
+Cool, now in that friend talk, we have access to UI state questions character choices character. What we don't have is that question index, that we just mentioned previously. So, let's bring in the question index and what we're gonna say here, and we want it to be like a little bit bigger.
+
+[00:02:46]
+We want like an h3 maybe and in this h3, what we're going to output is we're gonna go grab that questions array. And we're gonna use square bracket notation to gather the questions in their array. We have a bunch of objects, right? We're gonna gather the zeroeth degree of the question so that the first item in that array.
+
+[00:03:19]
+And then we also wanna say dot question, because if you look back at the store, we have that questions array. We're getting this index, and then we're gonna grab dot question as well. So I go back into here, and let's go look at what we've got, if I say I'm a mechanic.
+
+[00:03:39]
+You can see the friend is like curious and so he's asking what's your dog's name? Now the next thing we wanna do is we wanna make sure that we have some buttons and things so that we can answer these questions. So in zombie talk, what we're gonna do is we're going to say like p v for, like we did earlier.
+
+[00:03:57]
+So we're gonna use a p to loop through some options here and we're gonna say character in character choices. And the key that's unique will be character cuz we only have one of each character. Then inside of here, we're gonna make a button and I'm not gonna make the click event yet.
+
+[00:04:19]
+We'll do the click event in just a second but what we wanna output for now. As we wanna say questions, and then we wanna say, question index. And then we wanna say character because the character was actually, a part of that object, right? It was a property on that object, we had baker, mechanic, artists.
+
+[00:04:41]
+So we wanna loop through and we wanna use that question to output it to the page. So we've got questions, question index and character, let's see how we're doing. There we go, we have a button for each one of these. And now we wanna make that click event, right?
+
+[00:04:58]
+Because we wanna make sure that we're able to pick our characters. So I'm gonna say at click equals pick character and I'm gonna pass in whatever character we have going right now. We also have to make sure so that it doesn't air that we have an associative pick character to even test.
+
+[00:05:21]
+So in methods, sorry, not pick character, like maybe we shouldn't name it something else cuz we already did pick character. We'll do pick question here. Cool, that's better, we don't need two of these. We've got pickQuestion and we're gonna pass in the character. And right now, let's just console log to make sure that, that works.
+
+[00:05:52]
+Cool, so let's go back, we're gonna refresh. We say artist, pick the character and I'm going to pick something here, I'll pick woofgang puck. And what it was was baker, and the reason I know that is well, first it's woofgang puck. And that's obviously a baker, where like Salvador Doggy is probably obviously an artist, if you like punts.
+
+[00:06:19]
+And then if you go into these questions, we've got baker, mechanic, artist. So we know that we've got woofgang puck and that is the one that we selected, so working as expected.
+

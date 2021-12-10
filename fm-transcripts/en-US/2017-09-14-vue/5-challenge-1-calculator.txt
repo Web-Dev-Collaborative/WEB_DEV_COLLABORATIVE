@@ -1,0 +1,9 @@
+[00:00:00]
+>> Sarah Drasner: All right. It's an exercise time. What I need you to do is create a calculator and it's just gonna be simple addition. We have two number values, three and eight is 11 and we're adding these. And then, we also have this select that will conditionally render based on your selection, my favorite kind of taco is blank.
+
+[00:00:26]
+So the thing that I'm gonna give you is this CodePen. All we have in the CodePen are these SPAN tags. And you're gonna attach directives to these SPAN tags. And then we have this piece, I didn't even put that select in there, because I want you to get use to writing that select with the V model on it.
+
+[00:00:49]
+I gave you something away. Well, you probably got that part. So I'm gonna give you ten minutes for this, if you feel like you need a little bit more time, I can give you a little bit more time. But just a really quick directives exercise, kay.
+

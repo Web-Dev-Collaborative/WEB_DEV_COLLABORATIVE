@@ -1,0 +1,42 @@
+[00:00:00]
+>> The last thing that we're gonna cover in this animation section is a Nuxt page transition. I mentioned Nuxt offers us like all of these really amazing things right out of the box. One of them is just assumes that you might wanna transition component for a page so you're immediately able to make transitions.
+
+[00:00:18]
+So for review, we have these enter and leave states, it's always gonna use page hooks. So it's basically assuming that transition component is called page. And so you can say, page-enter-active, page-leave-active page-enter-from and to, and you can state these things in any CSS file. So we can create animation for our pages.
+
+[00:00:45]
+And then we can have pages slide across. Don't make pages slide all the way across. It's a goofy animation but it's for the purposes of demonstration. But you don't have to do anything in order to have those hooks, they already have the hooks available to you in that page-enter-active and page-leave-active, which is so nice.
+
+[00:01:09]
+That's really, really cool. You can also make page specific animations as well. So let's say you want all pages to animate a certain way, but there's one page you want to animate a different way. You can say transition fadeOpacity. And then declare that either in assets or in a scoped style within that same page template.
+
+[00:01:31]
+And then we can do this and then if we click on the Contact page, you can see that that one fades instead of goes across. So we can do different ones for that. We also have page specific JavaScript hooks, which is really awesome. So it to remember there's like before enter, enter leave all of these things.
+
+[00:01:53]
+And this is how we typically declare it. In Nuxt.Js for that page, what we would say is transition in an object. And we could state things, we have transition modes even, we could say, wait for this one page to move out, and then let the other page move in.
+
+[00:02:13]
+That's typically really hard to do, because routing usually doesn't wait for one state or another. So in this case, we have CSS false mode out in. And then you can work with things the way that you would have worked with them when you were working with JavaScript took in a transition component.
+
+[00:02:32]
+So I can do all sorts of kind of fancy GSAP things, do not ever do this [LAUGH] series. So you could do really goofy things. But you could also do things that are really more seamless and nice. So, what about that single element that I flipped upside down?
+
+[00:02:52]
+You can still plug in to that page specific hook and access different properties if you want. You don't have to pass in, you pass in the EL, you could pass in a selector. You could pass in a ref, which accesses the DOM nodes or you could add it to a lifecycle hook.
+
+[00:03:09]
+So the sky is endless, open, can of worms is open, something to that effect, you have a lot available to you. Now if I was gonna plan, something that would be coordinated in a really slick way across all of these different Nuxt positions, remember the things that stay constant, can live in layouts/default.view.
+
+[00:03:32]
+So I have that Nuxt component but remember I added that navigation component. So I was able to add a navigation, above that next component. It's stayed stable on all the pages. So let's get fancier. What we could do is we could be alerted to when something's changing in that header, that navigation is the same for our application.
+
+[00:03:55]
+It's not being reloaded or re rendered. So I could transition pieces of that application in next as I change each page. So I have this demo app, you can go check out all of the code here. And there's the live version here if you want to check it out.
+
+[00:04:16]
+So this whole header is one unit that uses the same piece. I'm just plugging in slightly different pieces as I transition. So, if I go to this page, she changes position and we move components around. And we can move from page to page because remember, transitions just take one state and go to the other state.
+
+[00:04:38]
+It doesn't matter what order they are in. So I can create these kind of native like page transitions. And it can even be dynamic. So, I switched to this woman instead and now it goes to this woman and I can change the state of the application and make native like animations.
+

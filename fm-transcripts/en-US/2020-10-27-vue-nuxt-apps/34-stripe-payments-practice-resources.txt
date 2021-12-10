@@ -1,0 +1,15 @@
+[00:00:00]
+>> That was a lot we covered so much in that territory. What we didn't do that we mentioned before was submit payments. So if you want to take this a step further and do a bonus exercise, you can set up payments with Stripe and Serverless. I deployed with netlify, if you wanna create a function to submit to Stripe, you can create a function in a functions folder.
+
+[00:00:25]
+With functions/index.js and in netlify.toml [build] ,functions = "functions", and that will immediately give you a Serverless function that you can execute, right inside of that same codebase. I have a talk that walks you through how to set all of this up, we have stripe docs that show you how to build this integration.
+
+[00:00:46]
+I tend to use the Vue Stripe Elements Plus as a piece of a component that you can use to hook into that. And I have an example all set up for you, that does a whole ecommerce site, it has a kind of similar experience to the next app but then it also allows you to, submit to Stripe as part of it.
+
+[00:01:13]
+So here's is the cart and then I have this view Stripe Elements Plus Component, and it goes to Stripe with a testing key all of the code is here on Github if you want to explore it. This should [LAUGH] have gone to, I think it's the other link in here.
+
+[00:01:33]
+If we go here, open source in Github, that's where the link is, and you can check out all of the code here. And get started and look at all of these functions and see how you would hook that up with a Stripe payment.
+
