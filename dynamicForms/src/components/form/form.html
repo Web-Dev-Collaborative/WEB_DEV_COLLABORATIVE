@@ -1,0 +1,33 @@
+<form novalidate [formGroup]="form">
+  <ion-list>
+    <div *ngFor="let input of inputsForms">
+      <!-- Input Text -->
+      <ion-item *ngIf="input.type == 'text'">
+        <ion-label>{{ input.label }}</ion-label>
+        <ion-input type="text" [formControlName]="input.name"></ion-input>
+      </ion-item>
+      <!-- Input Password -->
+      <ion-item *ngIf="input.type == 'password'">
+        <ion-label>{{ input.label }}</ion-label>
+        <ion-input type="password" [formControlName]="input.name"></ion-input>
+      </ion-item>
+      <!-- select -->
+      <ion-item *ngIf="input.type == 'select'">
+        <ion-label>{{ input.label }}</ion-label>
+        <ion-select [formControlName]="input.name">
+          <ion-option [value]="option.value" *ngFor="let option of input.options">{{ option.label }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <!-- Radio -->
+      <ion-list radio-group *ngIf="input.type == 'radio'" [formControlName]="input.name">
+        <ion-list-header>
+          {{ input.label }}
+        </ion-list-header>
+        <ion-item *ngFor="let option of input.options">
+          <ion-label>{{ option.label }}</ion-label>
+          <ion-radio [value]="option.value"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-list>
+</form>
