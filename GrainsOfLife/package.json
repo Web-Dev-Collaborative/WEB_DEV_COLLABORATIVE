@@ -1,0 +1,29 @@
+{
+  "name": "grains-of-life",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "echo 'please select start file'",
+    "test": "nodemon -x mocha ./tests/index.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Octowl/GrainsOfLife.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.9.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "chai": "^3.5.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Octowl/GrainsOfLife/issues"
+  },
+  "homepage": "https://github.com/Octowl/GrainsOfLife#readme",
+  "dependencies": {
+    "timbre": "^14.11.25"
+  }
+}
