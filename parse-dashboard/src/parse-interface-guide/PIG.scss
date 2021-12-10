@@ -1,0 +1,113 @@
+/*
+ * Copyright (c) 2016-present, Parse, LLC
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ */
+@import 'stylesheets/globals.scss';
+@import 'stylesheets/fonts.scss';
+
+.sidebar {
+  position: fixed;
+  background: white;
+  width: 300px;
+  padding: 10px;
+  border-right: 1px solid #b0b8bf;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+
+  a {
+    display: block;
+    margin-bottom: 6px;
+    color: #169cee;
+  }
+
+  .active {
+    color: #1F62B1;
+    font-weight: bold;
+  }
+}
+
+.iconWrap {
+  margin: 10px 0 20px 15px;
+}
+
+.iconLabel {
+  vertical-align: top;
+  position: relative;
+  top: 6px;
+  left: 16px;
+  font-size: 25px;
+}
+
+.searchField {
+  width: 230px;
+  height: 44px;
+  font-size: 20px;
+  padding: 0 10px;
+  border-radius: 5px;
+  margin: 0 0 30px 10px;
+}
+
+.content {
+  margin-left: 300px;
+  padding: 20px 10px 10px 10px;
+  min-height: 100vh;
+}
+
+h1 {
+  width: 90%;
+  font-size: 32px;
+  font-weight: 400;
+  margin: 10px auto;
+  color: $secondaryTextColor;
+}
+
+.component_name {
+  color: $mainTextColor;
+}
+
+.table {
+  margin: 10px auto 40px auto;
+  width: 90%;
+  overflow: hidden;
+}
+.header {
+  background: #169cee;
+  color: white;
+  font-weight: 700;
+  height: 30px;
+  line-height: 32px;
+  padding: 0 10px;
+}
+.row {
+  border-color: #b0b8bf;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  padding: 10px 9px;
+
+  p {
+    margin: 10px 0 0 0;
+  }
+}
+.prop_name {
+  font-size: 22px;
+  color: black;
+  font-weight: 700;
+  vertical-align: bottom;
+}
+.prop_required {
+  @include DosisFont;
+  font-size: 14px;
+  color: #767580;
+  margin-left: 10px;
+}
+.prop_type {
+  @include DosisFont;
+  font-size: 14px;
+  color: #a5a5b4;
+  margin-left: 10px;
+}

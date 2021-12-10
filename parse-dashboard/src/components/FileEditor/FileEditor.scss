@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) 2016-present, Parse, LLC
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ */
+@import 'stylesheets/globals.scss';
+
+.editor {
+  background: white;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  padding: 6px;
+}
+
+.delete, .upload, .download {
+  @include DosisFont;
+  display: block;
+  cursor: pointer;
+  color: white;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.delete {
+  background: $red;
+}
+
+.upload, .download {
+  position: relative;
+  overflow: hidden;
+  background: $blue;
+  margin-bottom: 6px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    width: 100%;
+  }
+}

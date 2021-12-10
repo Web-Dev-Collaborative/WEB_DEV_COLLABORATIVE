@@ -1,0 +1,144 @@
+{
+  "name": "parse-dashboard",
+  "parseDashboardFeatures": [
+    "Data Browser",
+    "Cloud Code Viewer",
+    "Cloud Code Jobs Viewer and Runner",
+    "Parse Config",
+    "REST API Console",
+    "GraphQL API Console",
+    "JS Custom Query Console",
+    "Class Level Permissions Editor",
+    "Pointer Permissions Editor",
+    "Send Push Notifications",
+    "Logs Viewer",
+    "Push Status Page",
+    "Relation Editor"
+  ],
+  "description": "The Parse Dashboard",
+  "keywords": [
+    "parse",
+    "dashboard"
+  ],
+  "homepage": "https://github.com/ParsePlatform/parse-dashboard",
+  "bugs": "https://github.com/ParsePlatform/parse-dashboard/issues",
+  "version": "2.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ParsePlatform/parse-dashboard"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "files": [
+    "Parse-Dashboard",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@babel/runtime": "7.13.10",
+    "bcryptjs": "2.3.0",
+    "body-parser": "1.19.0",
+    "codemirror-graphql": "github:timsuchanek/codemirror-graphql#details-fix",
+    "commander": "6.2.1",
+    "connect-flash": "0.1.1",
+    "cookie-session": "2.0.0-beta.3",
+    "copy-to-clipboard": "3.2.0",
+    "create-react-class": "15.7.0",
+    "csurf": "1.11.0",
+    "express": "4.17.1",
+    "graphql": "14.6.0",
+    "graphql-playground-react": "1.7.20",
+    "history": "4.10.1",
+    "immutable": "4.0.0-rc.9",
+    "immutable-devtools": "0.1.5",
+    "js-beautify": "1.11.0",
+    "json-file-plus": "3.2.0",
+    "package-json": "6.5.0",
+    "parse": "2.19.0",
+    "passport": "0.4.1",
+    "passport-local": "1.0.0",
+    "prismjs": "1.23.0",
+    "prop-types": "15.7.2",
+    "query-string": "6.14.1",
+    "react": "16.14.0",
+    "react-ace": "9.3.0",
+    "react-dnd": "10.0.2",
+    "react-dnd-html5-backend": "10.0.2",
+    "react-dom": "16.14.0",
+    "react-helmet": "6.0.0",
+    "react-json-view": "1.21.3",
+    "react-redux": "5.1.2",
+    "react-router": "5.1.2",
+    "react-router-dom": "5.1.2",
+    "regenerator-runtime": "0.13.5",
+    "semver": "7.3.4"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.7",
+    "@babel/plugin-proposal-decorators": "7.8.3",
+    "@babel/plugin-transform-regenerator": "7.8.7",
+    "@babel/plugin-transform-runtime": "7.8.3",
+    "@babel/preset-env": "7.9.0",
+    "@babel/preset-react": "7.8.3",
+    "babel-eslint": "10.1.0",
+    "babel-loader": "8.1.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "core-js": "3.6.5",
+    "cross-env": "7.0.2",
+    "css-loader": "3.5.2",
+    "eslint": "6.8.0",
+    "eslint-plugin-jest": "23.8.2",
+    "eslint-plugin-react": "7.19.0",
+    "file-loader": "6.0.0",
+    "http-server": "0.12.0",
+    "jest": "24.8.0",
+    "marked": "0.8.2",
+    "node-sass": "4.13.1",
+    "null-loader": "3.0.0",
+    "parse-server": "github:parseplatform/parse-server#master",
+    "path-to-regexp": "3.2.0",
+    "puppeteer": "3.0.0",
+    "react-test-renderer": "16.13.1",
+    "request": "2.88.2",
+    "request-promise": "4.2.5",
+    "sass-loader": "8.0.0",
+    "style-loader": "1.1.2",
+    "svg-prep": "1.0.4",
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.10"
+  },
+  "scripts": {
+    "dev": "node ./Parse-Dashboard/index.js & webpack --config webpack/build.config.js --devtool eval-source-map --progress --watch",
+    "dashboard": "node ./Parse-Dashboard/index.js & webpack --config webpack/build.config.js --progress --watch",
+    "pig": "http-server ./PIG -p 4041 -s & webpack --config webpack/PIG.config.js --progress --watch",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/production.config.js && webpack --config webpack/PIG.config.js",
+    "test": "cross-env NODE_PATH=./node_modules jest",
+    "lint": "eslint . --ignore-path .gitignore --cache",
+    "pretest": "npm run lint",
+    "generate": "node scripts/generate.js",
+    "prepare": "webpack --config webpack/publish.config.js --progress",
+    "server": "node server.js",
+    "start": "node ./Parse-Dashboard/index.js"
+  },
+  "bin": {
+    "parse-dashboard": "./bin/parse-dashboard"
+  },
+  "engines": {
+    "node": ">=8.9"
+  },
+  "main": "Parse-Dashboard/app.js",
+  "jest": {
+    "roots": [
+      "src/lib"
+    ],
+    "transform": {
+      ".*": "<rootDir>/testing/preprocessor.js"
+    },
+    "unmockedModulePathPatterns": [
+      "react",
+      "react-dom",
+      "react-addons-test-utils",
+      "fbjs"
+    ]
+  }
+}
