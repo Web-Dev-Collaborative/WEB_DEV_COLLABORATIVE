@@ -1,0 +1,6 @@
+#!/bin/bash
+/usr/local/bin/meld $2 $5 
+# meld $2 $5
+# emacs -nw --eval "(ediff-files \"$1\" \"$2\")"
+# /Applications/Meld.app/Contents/MacOS/Meld $1 $2
+# /Applications/Meld.app/Contents/MacOS/Meld $2 $5

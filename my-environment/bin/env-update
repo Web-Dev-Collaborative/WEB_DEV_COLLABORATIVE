@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# initialization
+smb=$1
+smbpath=$2
+
+# helper
+function help {
+    echo
+    echo Usage: bash $0 smb smbpath
+    echo Example: bash $0 //srvfile01.pixartprinting.local/users$ Alessandra.Bilardi/my-environment/
+    echo
+    exit 1
+}
+
+# check
+if [ -z $smb ] || [ -z $smbpath ]; then
+    help
+fi
+
+# mount smb
+if [ $(which mount_smbfs | wc -l) -eq 0 ]; then
+    echo Missing command mount_smbfs!
+    exit 1
+fi
+cd ~/
+echo Mount $smb
+if [ $(mount | grep -c srvfile01) -eq 0 ]; then
+    mkdir -p smb
+    mount_smbfs $smb smb
+else
+    echo Already mounted!
+fi
+
+# copy configurations to $smbpath
+cd smb/$smbpath
+echo Copy main configuration to ~/
+cp -v .bash* .git* ~/
+cp -v .aws/c* ~/.aws/
+cp -vrf bin .emacs* .tmux* .ssh ~/
+echo Copy additional software configuration to ~/Downloads/
+for filename in authenticator.chrome.txt authenticator.chromium.txt bookmarks.chrome.html bookmarks.chromium.html tool.configuration.backup.connections.zip; do
+    if [ -e ~/Downloads/$filename ]; then
+        cp $filename ~/Downloads/
+    else
+        echo smb/$smbpath$filename not found
+    fi
+done
+cd -
+
+# umount smb
+umount smb && rm -rf smb

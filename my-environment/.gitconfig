@@ -1,0 +1,37 @@
+[user]
+	name = Alessandra Bilardi
+	email = alessandra.bilardi@pixartprinting.com
+[core]
+	editor = emacs -nw
+	excludesfile = /Users/alessandra.bilardi/.gitignore_global
+[diff]
+#	tool = ediff
+	external = /Users/alessandra.bilardi/bin/git-meld
+[color]
+	ui = true
+	status = auto
+	branch = auto
+[format]
+	pretty = medium
+[alias]
+        tree = log --graph --decorate --pretty=medium --abbrev-commit
+
+## test hook
+# [merge]
+# 	tool = /home/alessandra/bin/git-merge
+
+## per l'upload
+# [gc]
+# 	reflogExpire = 0
+# 	reflogExpireUnreachable = 0
+# 	rerereresolved = 0
+# 	rerereunresolved = 0
+# 	pruneExpire = now
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[credential]
+	helper = cache
