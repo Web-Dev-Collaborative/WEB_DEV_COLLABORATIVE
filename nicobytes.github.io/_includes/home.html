@@ -1,0 +1,25 @@
+<section class="section" id="cover-home">
+  <div class="container">
+    <div class="row">
+      <div class="photo">
+        <amp-img src="https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/DSC00733.JPG?alt=media&token=2348371c-71c6-46ac-bd42-bf56e5522293" alt="nicobytes" width="800" height="878" layout="responsive"></amp-img>
+      </div>
+      <div class="bio">
+        <span class="greet">Hi!</span>
+        <h1>I'm Nicolas Molina <small>(@nicobytes)</small><a class="btn" href="{{ site.twitter }}" target="_blank">
+            <i class="icon-twitter"></i>
+          </a></h1>
+        <h3>Software Developer</h3>
+        <hr/>
+        <p>I am a GDE (Google Developer Expert) in Web Technologies and Angular. I love to be a developer and to create software. Currently, I'm a Tech leader and work mainly in single page applications with Angular and Ionic for frontend, NodeJs /Python for web services with GraphQL.</p>
+        <p>I love to share my knowledge with the community across meetups, workshops, courses, videos, articles and, conferences. I'm co-organizer in Angular Bolivia and creator of the NG Classroom.</p>
+        <p>Recently I'm a dad and when I'm not coding share time with my baby and wife.</p>
+      </div>
+    </div>
+    <div class="social">{% for social in site.social %}
+      <a href="{{ social.link }}" target="_blank">
+        <i class="icon-{{ social.icon }} fa-2x"></i>
+      </a>{% endfor %}
+    </div>
+  </div>
+</section>

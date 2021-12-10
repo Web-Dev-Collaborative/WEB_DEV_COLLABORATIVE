@@ -1,0 +1,610 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: nicobytes
+logo: nicobytes
+email: nicolas.molina.monroy@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Desarrollador de software y organizador de comunidades, apasiado por javascript y front-end
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://nicobytes.com" # the base hostname & protocol for your site
+twitter: "https://twitter.com/nicobytes"
+
+permalink: /:categories/:title/
+
+sass:
+  style: compressed
+
+links:
+  - title: 'Home'
+    url: /
+    target: '_self'
+  - title: 'Talks'
+    url: /talks
+    target: '_self'
+  - title: 'Youtube'
+    url: 'https://www.youtube.com/c/nicobytes'
+    target: '_blank'
+  - title: 'Blog'
+    url: 'https://blog.ng-classroom.com/blog/authors/nicobytes/'
+    target: '_blank'
+
+social:
+  - link: "https://twitter.com/nicobytes"
+    icon: "twitter"
+  - link: "https://github.com/nicobytes"
+    icon: "github"
+  - link: "https://www.youtube.com/c/nicobytes"
+    icon: "youtube"
+  - link: "https://co.linkedin.com/in/nicobytes"
+    icon: "linkedin"
+  - link: "http://stackoverflow.com/users/6420164/nicolas-molina"
+    icon: "stack-overflow"
+
+talks:
+
+  - title: "InspireTech: DataViz Art meets science"
+    type: 'conf'
+    text: "In this conference, I explain the process for data visualization with IBM's guidelines. The process, check charts models, best practices in visualizations, interaction, style, and animation. Finally, we watch tools and libs to build quickly visualizations."
+    date: '2019-03-07'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2019-03-07.jpg?alt=media&token=8f34744c-053d-423c-9e0d-634144a9b9c3'
+      width: 1280
+      height: 960
+    location: 'Bogotá, Colombia'
+
+
+  - title: "Ng Bogotá: Unit tests with Angular"
+    type: 'meetup'
+    text: 'Check unit tests for Angular and view best practices to write test cases for components, pipes, services, directives and how to use spies in tests.'
+    date: '2019-02-22'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2019-02-21.jpg?alt=media&token=0189ebee-0fc5-40a7-a8fe-6320011db0a6'
+      width: 2048
+      height: 1536
+    location: 'Bogotá, Colombia'
+    link: https://www.meetup.com/NgColombia-Bogota/events/258763226/
+
+  - title: "Angular Colombia: Analyzing your bundle size"
+    type: 'meetup'
+    text: 'We review practices to analyze the bundle size and the import for quickly load in Angular apps, check the sizes the libs inside app with bundlephohia tool and use webpack bundle analyzer, then use import cost in VSCode and talk about the impact the Angular Ivy in bundle size.'
+    date: '2019-01-22'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2019-01-22.jpg?alt=media&token=63f92c32-37da-40af-900c-26a452ce5558'
+      width: 1080
+      height: 1080
+    location: 'Bogotá, Colombia'
+    link: https://www.meetup.com/Angular-Colombia/events/258124821/
+
+  - title: "QA Bolivia: Coverage report"
+    type: 'meetup'
+    text: 'We analyze coverage report in Angular App, I talk about the coverage criteria like measure used to describe to the degree the source code is executed when test cases run.'
+    date: '2018-12-01'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-12-01.jpg?alt=media&token=0c9c9135-94c2-4231-9b92-ecbd8e0dbb0f'
+      width: 1728
+      height: 1152
+    location: 'Cochabamba, Bolivia'
+    link: https://www.facebook.com/events/350369469054567/?active_tab=about
+
+  - title: "Ng Girls Bolivia 2018"
+    type: 'conf'
+    text: 'I participated as a co-organizer and mentor in the first Ng Girls in Bolivia, the event focus on women in Tech.'
+    date: '2018-11-24'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-11-24.jpg?alt=media&token=5e4f59e5-d11e-4cee-8a3e-dde2aac8d994'
+      width: 960
+      height: 426
+    location: 'Cochabamba, Bolivia'
+    link: http://ng-girls.org/bolivia-2018/
+
+
+  - title: "TechZone 2018: Chatbots with Azure"
+    type: 'conf'
+    text: 'The chatbots are the new way for acquisition and retention of users with good attention thanks to NPL and the conversational UX. In this conference, I talk about how to build chatbots with Azure and use Chat Bot Framework and LUIS (Language understating service by Microsoft ). '
+    date: '2018-10-26'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-10-26.jpg?alt=media&token=b81394f0-2539-44e1-9c88-47a5e45a1f68'
+      width: 2048
+      height: 1536
+    location: 'Cochabamba, Bolivia'
+    link: http://tech-zone.org/#/es/memorias
+
+  - title: "ArgenTesting 2018: Unit tests in the life of a developer"
+    type: 'conf'
+    text: 'In this conference, I talk about how to write good tests cases help to be a better developer and help to build in a better product.'
+    date: '2018-10-19'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-10-19.jpg?alt=media&token=02d5ba4a-8f20-4593-be1d-7a72c1d5b386'
+      width: 1080
+      height: 719
+    location: 'Buenos aires, Argentina'
+    link: https://argentesting.com/ediciones/edicion-2018/
+
+  - title: "ArgenTesting 2018: Codelab, Unit testing with Angular"
+    type: 'workshop'
+    text: 'Codelab for check unit tests for Angular and view best practices to write test cases for components, pipes, services, directives and how to use spies in tests.'
+    date: '2018-10-18'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-10-18.jpg?alt=media&token=22ed6ad4-b138-4622-8d7f-1e539ded517e'
+      width: 1280
+      height: 720
+    link: https://argentesting.com/ediciones/edicion-2018/
+
+  - title: "Cobol2018: Redux, Graphql and Ionic/Angular"
+    type: 'conf'
+    text: 'In the COBOL 2018 (Congreso Nacional de Ciencias de la Computación en Bolivia) I talk about redux like state container for apps with Angular, GraphQL from backend with NodeJS and development with Ionic/Angular for cross platforms apps.'
+    date: '2018-10-08'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-10-08.jpg?alt=media&token=54d128f1-c145-4083-9141-5bf0b26a8b34'
+      width: 1200
+      height: 900
+    location: 'Pando, Bolivia'
+    link: http://ccbol2018.com/programa/
+
+  - title: "Cistrib 2018: Redux, Graphql and Ionic/Angular"
+    type: 'conf'
+    text: 'In the Cistrib 2018 (Congreso Panamericano de Ingeniería de Sistemas, Telecomunicaciones, Redes e Informática), I talk about GraphQL from backend with NodeJS and development with Ionic/Angular for cross platforms apps.'
+    date: '2018-09-12'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-09-12.jpg?alt=media&token=02bff4ab-1a91-40e3-97b9-a6d28486b977'
+      width: 960
+      height: 640
+    location: 'Sucre, Bolivia'
+    link: https://congreso.cistrib.org/expositores
+
+  - title: "Introduction about PWA"
+    type: 'conf'
+    text: 'In the Cistrib 2018 (Congreso Panamericano de Ingeniería de Sistemas, Telecomunicaciones, Redes e Informática), I talk about PWA metrics and advantages like service workers, push notifications, offline data and installable capacity.'
+    date: '2018-09-11'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-09-11.jpg?alt=media&token=96a72fb2-3ca3-46ee-b91f-4628ff06a19a'
+      width: 2048
+      height: 1152
+    location: 'Sucre, Bolivia'
+    link: https://congreso.cistrib.org/expositores
+
+  - title: "NgBolivia 2018: Mobile with Angular (PWA, Nativescript and Ionic)"
+    type: 'conf'
+    text: 'In the NgBolivia 2018 the first international conference about Angular in Bolivia I participated as co-organizer and speaker my talk is about Mobile Apps with Angular (PWA, Nativescript and Ionic) in this conference I show each approach and the uses cases for each one.'
+    date: '2018-08-04'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-08-04.jpg?alt=media&token=124ddc45-9d1d-483e-8528-4e8ad0abf8ab'
+      width: 1200
+      height: 800
+    location: 'Sucre, Bolivia'
+    link: https://ng-bolivia.org/speakers/
+
+  - title: "Flisol 2018: Ionic 4 with Angular."
+    type: 'conf'
+    text: 'In the FLISOL Bolivia 2018, I talk about Ionic 4 with Angular I show the big changes in the Ionic core with web components.'
+    date: '2018-04-27'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-04-27.jpg?alt=media&token=c1918521-f2b6-4933-8153-1b6c393ff463'
+      width: 750
+      height: 443
+    location: 'Cochabamba, Bolivia'
+
+  - title: "NgMedellín: Unit tests with Angular."
+    type: 'conf'
+    text: 'Meetup for check unit tests for Angular and view best practices to write test cases for components, pipes, services, directives and how to use spies in tests.'
+    date: '2018-03-17'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F2018-03-17.jpg?alt=media&token=734c74b3-bed1-4547-b8dd-0e98d352c1c1'
+      width: 2018
+      height: 965
+    location: 'Medellín, Colombia'
+
+  - title: "GDG Sucre: Redux with Angular and Ionic with maps."
+    type: 'conf'
+    text: 'In this conference, I talk about redux like state container for apps with Angular and integrate Ionic with Google Maps.'
+    date: '2018-04-06'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F29749348_10215066416549706_554487993948304341_o.jpg?alt=media&token=1a36520e-98a7-464f-af75-9db486ee37b7'
+      width: 333
+      height: 514
+    location: 'Sucre, Bolivia'
+
+  - title: "DevFest: Maps with real-time with Ionic, Firebase, and Gmaps."
+    type: 'workshop'
+    text: 'In this conference, I show how to integrate Ionic, Firebase, background geolocation plugin, and Google Maps in an app for tracking cars in real-time.'
+    date: '2017-11-25'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F23843390_10213931993189831_6887444128335579290_n.jpg?alt=media&token=a1330e53-8189-406a-b5d7-5eca5da6c748'
+      width: 457
+      height: 457
+    location: 'Santa Cruz, Bolivia'
+  
+  - title: "GraphQL + Django"
+    type: 'meetup'
+    text: 'In this meetup, I talk about how to implement GraphQL in Django projects with graphene.'
+    image:
+      url: 'https://secure.meetupstatic.com/photos/event/4/6/a/f/highres_464178095.jpeg'
+      width: 669
+      height: 502
+    date: '2017-08-31'
+    slides: 'https://www.meetup.com/pythonbogota/photos/28129695/'
+    location: 'Bogotá, Colombia'
+
+  - title: "What to choose WEBApp, PWA, Hibryd or Native?"
+    type: 'meetup'
+    text: 'In this meetup, I talk about each option to develop mobile apps like PWA, hybrid app or Native app. '
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F20770105_10213123669222237_5900742260242193659_n.jpg?alt=media&token=84f80af2-387a-408e-bec7-c44418870c6b'
+      width: 502
+      height: 502
+    date: '2017-08-14'
+    slides: 'https://www.meetup.com/Cross-Apps-Colombia/photos/28107734/'
+    location: 'Bogotá, Colombia'
+
+  - title: "Introduction to Typescript"
+    type: 'meetup'
+    text: 'A little introduction to typescript and the use with Angular for Microsoft Community..'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F20232326_10212922610355891_2055222179071324339_o.jpg?alt=media&token=ec06a10c-7890-4c41-8aab-7f7e27646daf'
+      width: 2048
+      height: 1365
+    date: '2017-07-22'
+    location: 'Cochabamba, Bolivia'
+
+  - title: "Google IO La Paz: What are PWAs?"
+    type: 'conf'
+    text: 'I talk about PWA metrics and advantages like service workers, push notifications, offline data and installable capacity.'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F19105942_10212509248942114_7370288364050114202_n.jpg?alt=media&token=bb0d3b61-424a-4ca3-81c2-44f88f872d38'
+      width: 720
+      height: 442
+    date: '2017-06-18'
+    location: 'La Paz, Bolivia'
+
+  - title: "Native app VS Hybrid app"
+    type: 'meetup'
+    text: 'Discussion about the approach the each technique.'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F19396698_10154517631456218_703332325496287841_n.jpg?alt=media&token=953d1ac0-6914-42b6-8b02-79c951a3f71f'
+      width: 960
+      height: 659
+    date: '2017-06-18'
+    location: 'La Paz Bolivia'
+
+  - title: "GraphQL and Python/Django"
+    type: 'meetup'
+    text: 'In this meetup, I talk about how to implement GraphQL in Django projects with graphene.'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2F19105486_10212498389710640_972651623765928503_n.jpg?alt=media&token=5d8b49d6-69b4-4b7b-912d-cb84887d3b6f'
+      width: 720
+      height: 864
+    date: '2017-06-14'
+    location: 'La Paz, Bolivia'
+  
+  - title: "Angular Day: Push notifications with Ionic"
+    type: 'conf'
+    text: 'In this meetup, I talk about how to send push notifications for Android in Ionic/Angular apps.'
+    image:
+      url: 'https://firebasestorage.googleapis.com/v0/b/nicobytes-7bea8.appspot.com/o/talks%2Ftime39.jpg?alt=media&token=f50c5d52-9b67-44fc-82d1-899634c488ac'
+      width: 960
+      height: 720
+    date: '2017-06-10'
+    location: 'Cochabamba, Bolivia'
+
+  - title: "Flisol 2017: Progressive Web Apps"
+    type: 'conf'
+    text: 'I talk about PWA metrics and advantages like service workers, push notifications, offline data and installable capacity.'
+    image:
+      url: '../images/time35.jpeg'
+      width: 2048
+      height: 1536
+    date: '2017-04-22'
+    location: 'Cochabamba, Bolivia'
+
+  - title: "DjangoGirls 2017 Bogotá"
+    type: 'conf'
+    text: 'Taller gratuito de programación enfocado en las mujeres, Creá tu primer sitio web utilizando Django y Python.'
+    slides: 'https://djangogirls.org/bogota/'
+    tweet: '829714051915710464'
+    date: '2017-02-12'
+    location: 'Bogotá, Colombia'
+
+  - title: "DevDay 2017"
+    type: 'conf'
+    text: 'El evento donde todas las comunidades se reunen para hablar de desarrollo, metodologías, arquitectura, entre otros. El evento será él día antes del Primer PyCon Colombia.'
+    slides: 'https://devday.splashthat.com/'
+    image:
+      url: '../images/time31.jpg'
+      width: 1200
+      height: 675
+    date: '2017-02-09'
+    location: 'Bogotá, Colombia'
+
+  - title: "AMP Project"
+    type: 'meetup'
+    text: 'AMP Project es una tecnología de google para optimizar websites enfocados a marketing de contenido.'
+    slides: 'https://docs.google.com/presentation/d/1gT0QSYHal9JCP6Xo121KFcfj6BGw6ahAZHP_hjpAG_o/pub?start=false&loop=false&delayms=3000&slide=id.g1550b30484_2_274'
+    image:
+      url: '../images/time30.jpeg'
+      width: 1280
+      height: 960
+    date: '2017-01-26'
+    location: 'Bogotá, Colombia'
+
+  - title: "Push Notifications con Ionic 2"
+    type: 'meetup'
+    text: 'Recuerda que Ionic 2 es un poderoso SDK para desarrollar apps nativas y PWA usando Html, css y Js, además está basado en Angular 2 y además tiene sus servicios de Ionic Cloud, el cual nos provee una serie de herramienta para potenciar nuestras apps.'
+    slides: 'http://www.nicobytes.com/slides-ionic-push/#/'
+    image:
+      url: '../images/time29.jpeg'
+      width: 1200
+      height: 675
+    date: '2016-12-15'
+    location: 'Bogotá, Colombia'
+
+  - title: "Mentor en DjangoGirls Cali"
+    type: 'conf'
+    text: 'Taller gratuito de programación enfocado en las mujeres, Creá tu primer sitio web utilizando Django y Python.
+En Cali, el 9 y 10 de Diciembre de 2016.'
+    slides: 'https://djangogirls.org/cali/'
+    image:
+      url: '../images/time27.jpg'
+      width: 1080
+      height: 528
+    date: '2016-12-10'
+    location: 'Cali, Colombia'
+
+  - title: "Construyendo sitios con Jekyll"
+    type: 'meetup'
+    text: 'Jekyll is un proyecto libre y basado en ruby, que nos permite crear geniales sitios fácilmente. Es fácil de usar y extremadamente rápido para construir sitios. Millones de personas lo usan y tiene conexión directa con GitHub Pages. En el meetup aprenderás como funciona y poner en marcha un sitio con Jekyll. '
+    slides: 'https://drive.google.com/open?id=1GaQp1yVRjAa1jmBeWSRl7wC03rjJ0ZRaeysVM3-P3oQ'
+    image:
+      url: '../images/time17.jpeg'
+      width: 800
+      height: 578
+    date: '2016-11-17'
+    location: 'Bogotá, Colombia'
+
+  - title: "Firebase 3 + Ionic 2"
+    type: 'meetup'
+    text: 'Meetup sobre la integración de Firebase 3 + Ionic 2, en esta ocasión hablaremos haremos la integración de una app con Ionic 2 con Firebase Database y Firebase Auth.'
+    slides: 'http://slides.com/nicobytes/ionic-2-firebase-3'
+    image:
+      url: '../images/time18.jpg'
+      width: 800
+      height: 539
+    date: '2016-11-11'
+    location: 'Bogotá, Colombia'
+
+  - title: "¿Que son las PWA (Progressive web apps)?"
+    type: 'conf'
+    text: "Progressive Web Apps promovido por Google, que plantea una arquitectura eficiente y de baja fricción para crear aplicaciones web que brindan experiencias de usuario app-like, como push notifications, uso offline, y posibilidad de instalación en vez de bookmark."
+    slides: 'https://drive.google.com/open?id=1EzhZW8_qb2s9RBUh479WLWcPrliqYRZRLr-vjy8H_8w'
+    image:
+      url: '../images/time19.jpg'
+      width: 800
+      height: 602
+    date: '2016-10-26'
+    location: 'Manizales, Colombia'
+
+  - title: "Construyendo apps con Ionic 2"
+    type: 'workshop'
+    text: "Vamos a construir una aplicación para Android y IOS con Ionic 2. En este workshop aprenderás como iniciar un proyecto con Ionic y usar los recursos nativos como Camara, Geolocation etc. Al finalizar el wrokshop tendrás una app lista en Android y IOS con una sola base de código."
+    slides: 'http://www.nicobytes.com/ionic-v2-slides'
+    image:
+      url: '../images/time20.jpg'
+      width: 800
+      height: 731
+    date: '2016-10-25'
+    location: 'Manizales, Colombia'
+
+  - title: "JsConfCo: Building your first mobile app with IonicV2 / Angular2"
+    type: 'workshop'
+    text: "Let's meet together for a workshop to build a mobile app with ionicV2 . In this workshop you will learn how to start a new Ionic project, create and style multiple views, add a backend(Firebase), build app for Android or IOS, and use Cordova plugins like Camera, Geolocation etc. By the end of the workshop, you will have built a useful, mature, mobile app that is ready for app store submission."
+    slides: 'http://www.nicobytes.com/ionic-v2-slides'
+    image:
+      url: '../images/time21.jpg'
+      width: 800
+      height: 550
+    tweet: '785482004108349440'
+    date: '2016-10-11'
+    location: 'Medellin, Colombia'
+    
+  - title: "Ecmascript 6 + Typescript + Ionic 2"
+    type: 'meetup'
+    text: 'Meetup sobre la integración de Ecmascript 6 y Ionic 2, ES6 (Ecmascript 6), es la nueva version del lenguaje de Javascipt y las podemos usar en Ionic 2 gracias a Typescript.'
+    slides: 'http://www.ion-book.com/news/es6-ionic-2'
+    image:
+      url: 'http://i.cubeupload.com/kYzZHh.png'
+      width: 1024
+      height: 450
+    date: '2016-09-10'
+    location: 'Bogotá, Colombia'
+
+  - title: "Introducción a Ionic 2 & Angular 2"
+    type: 'meetup'
+    text: 'Nuestro próximo meetup sobre lo nuevo de ionic 2. Recuerden que ionic es un framework, open source, para desarrollaraplicaciones nativas (Android, IOS, WP, etc) y progressive web apps.'
+    slides: 'http://www.nicobytes.com/ionic-v2-slides'
+    image:
+      url: '../images/time22.jpg'
+      width: 800
+      height: 597
+    date: '2016-08-15'
+    location: 'Cali, Colombia'
+
+  - title: "Introducción a Ionic 2"
+    type: 'meetup'
+    text: 'Nuestro próximo meetup sobre lo nuevo de ionic 2. Recuerden que ionic es un framework, open source, para desarrollaraplicaciones nativas (Android, IOS, WP, etc) y progressive web apps.'
+    slides: 'http://www.nicobytes.com/ionic-v2-slides'
+    image:
+      url: '../images/time23.jpg'
+      width: 800
+      height: 516
+    date: '2016-08-09'
+    location: 'Medellin, Colombia'
+
+  - title: "Ionic 2 VS Native Script VS React Native"
+    type: 'meetup'
+    text: 'AMP Project es una tecnología de google para optimizar websites enfocados a marketing de contenido.'
+    slides: 'http://slides.com/nicobytes/deck-10'
+    image:
+      url: '../images/time16.jpeg'
+      width: 800
+      height: 434
+    date: '2016-08-19'
+    location: 'Bogotá, Colombia'
+
+  - title: "AMP Project"
+    type: 'conf'
+    text: 'AMP Project es una tecnología de google para optimizar websites enfocados a marketing de contenido.'
+    slides: 'https://drive.google.com/open?id=1i8h9RyEtdVYqUChGz0YOJutjkAgquwVPVEPk0QfQCc0'
+    image:
+      url: '../images/time15.jpg'
+      width: 1325
+      height: 883
+    date: '2016-08-09'
+    location: 'Bogotá, Colombia'
+
+  - title: "Introducción a Ionic 2"
+    type: 'meetup'
+    text: 'Todo lo que necesitas saber para comenzar en Ionic 2.'
+    slides: 'http://www.nicobytes.com/ionic-v2-slides'
+    image:
+      url: '../images/time14.jpg'
+      width: 2592
+      height: 1936
+    date: '2016-07-13'
+    location: 'Bogotá, Colombia'
+
+  - title: "FreelanceDay, Cochabamba"
+    type: 'conf'
+    text: 'Ven y conoce sobre las mejores prácticas para alcanzar tu potencial a nivel mundial, trabajar con las mejores empresas del mundo desde donde tu quieras, además descubre las tecnologías que están cambiando el mundo de la mano de los mejores..'
+    slides: 'http://www.nicobytes.com/ionic-slides'
+    image:
+      url: '../images/time12.jpg'
+      width: 960
+      height: 540
+    date: '2016-05-14'
+    location: 'Cochabamba, Bolivia'
+
+  - title: "FreelanceDay, La Paz"
+    type: 'conf'
+    text: 'Ven y conoce sobre las mejores prácticas para alcanzar tu potencial a nivel mundial, trabajar con las mejores empresas del mundo desde donde tu quieras, además descubre las tecnologías que están cambiando el mundo de la mano de los mejores..'
+    slides: 'http://www.nicobytes.com/ionic-slides'
+    image:
+      url: '../images/time11.jpg'
+      width: 1280
+      height: 853
+    date: '2016-05-07'
+    location: 'La Paz, Bolivia'
+
+  - title: "Ionic 1"
+    type: 'workshop'
+    text: 'Siguiendo con el workshop haremos una aplicación en live code, donde aprenderemos los principales componentes de ionic framework y su uso.'
+    slides: 'http://slides.com/nicobytes/ionic-workshop'
+    image:
+      url: '../images/time10.jpg'
+      width: 2048
+      height: 1536
+    date: '2016-04-30'
+    location: 'Cochabamba, Bolivia'
+
+  - title: "Ionic 1"
+    type: 'workshop'
+    text: 'Siguiendo con el workshop haremos una aplicación en live code, donde aprenderemos los principales componentes de ionic framework y su uso.'
+    slides: 'http://slides.com/nicobytes/ionic-workshop'
+    image:
+      url: '../images/time9.jpg'
+      width: 960
+      height: 540
+    date: '2016-04-16'
+    location: 'Cochabamba, Bolivia'
+
+  - title: "Ionic Cochabamba"
+    type: 'meetup'
+    text: 'Desarrollo de aplicaciones híbridas con ionic desarrollo multiplataforma con la misma base de código.'
+    slides: 'http://www.nicobytes.com/ionic-slides'
+    image:
+      url: '../images/time8.jpg'
+      width: 1280
+      height: 768
+    date: '2016-04-13'
+    location: 'Cochabamba, Bolivia'
+
+  - title: "Workshop: Ionic 1"
+    type: 'workshop'
+    text: 'Siguiendo con el workshop haremos una aplicación en live code, donde aprenderemos los principales componentes de ionic framework y su uso.'
+    slides: 'http://slides.com/nicobytes/ionic-workshop'
+    image:
+      url: '../images/time7.jpg'
+      width: 2048
+      height: 1536
+    date: '2016-04-09'
+    location: 'La Paz, Bolivia'
+
+  - title: "Ionic GDG La Paz"
+    type: 'meetup'
+    text: 'Desarrollo de aplicaciones híbridas con ionic desarrollo multiplataforma con la misma base de código.'
+    slides: 'http://www.nicobytes.com/ionic-slides/'
+    image:
+      url: '../images/time6.jpg'
+      width: 667
+      height: 500
+    date: '2016-03-24'
+    location: 'La Paz, Bolivia'
+
+  - title: "IonicDay"
+    type: 'workshop'
+    text: 'Siguiendo con el workshop haremos una aplicación en live code, donde aprenderemos los principales componentes de ionic framework y su uso.'
+    image:
+      url: '../images/time5.jpg'
+      width: 960
+      height: 720
+    date: '2016-03-04'
+    location: 'Lima, Peru'
+
+  - title: "Apps con Ionic 1"
+    type: 'meetup'
+    text: 'Desarrollo de aplicaciones híbridas con ionic desarrollo multiplataforma con la misma base de código.'
+    slides: 'http://www.nicobytes.com/ionic-slides/'
+    image:
+      url: '../images/time4.jpg'
+      width: 960
+      height: 540
+    date: '2016-02-05'
+    location: 'Ica, Peru'
+
+  - title: "Haciendo apps con Ionic 1"
+    type: 'meetup'
+    text: 'Presentaremos a ionic framework y como ha cambiado la forma para desarrollar aplicaciones móviles híbridas, desde los componentes que maneja y su flujo de trabajo. Ionic en un framework basado en AngularJS con asombrosas API de UI/UX que mejoran el desarrollo. '
+    slides: 'http://www.nicobytes.com/ionic-slides/'
+    tweet: '664976174108512256'
+    date: '2015-11-12'
+    location: 'Bogotá, Colombia'
+
+  - title: "Crosswalk Project"
+    type: 'meetup'
+    text: 'En un gran proyecto en cual puedes aumentar el performance de la aplicación híbrida, teniendo un webView más poderoso y estándar reduciendo la fragmentación de dispositivos, además veremos cómo añadirlos a proyectos con cordova, phonegap o ionic framework. '
+    slides: 'http://slides.com/nicobytes/crosswalk#/'
+    image:
+      url: '../images/time2.jpg'
+      width: 1280
+      height: 720
+    date: '2015-09-08'
+    location: 'Bogotá, Colombia'
+
+  - title: "Ionic 1 + Firebase"
+    type: 'meetup'
+    text: 'Aprende a trabajar con estas dos increíbles tecnologías para desarrollar tu aplicación móvil. Conocerás cómo integrar bases de datos NoSql con firebase, haciendo que tu aplicación tenga conexión en tiempo real con tus datos.'
+    slides: 'http://slides.com/nicobytes/construyendo-apps#/'
+    image:
+      url: '../images/time1.jpeg'
+      width: 1280
+      height: 720
+    date: '2015-07-09'
+    location: 'Bogotá, Colombia'
+
+
+# Build settings
+markdown: kramdown
