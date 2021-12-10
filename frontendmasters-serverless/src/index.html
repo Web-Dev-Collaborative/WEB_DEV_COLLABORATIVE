@@ -1,0 +1,124 @@
+<style>
+  .movies {
+    display: grid;
+    gap: 6rem 2rem;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+  }
+
+  .movie {
+    display: flex;
+    flex-direction: column;
+    max-width: 90vw;
+  }
+
+  .movie img {
+    display: block;
+    width: 100%;
+  }
+
+  .movie h2 {
+    margin: 0.5rem 0 0;
+  }
+
+  .tagline {
+    margin: 0 0 auto;
+  }
+
+  .movie h3 {
+    font-size: 1rem;
+    font-variant: small-caps;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    margin: 1rem 0 0;
+    text-transform: lowercase;
+  }
+
+  .scores {
+    display: grid;
+    font-size: 0.75rem;
+    font-variant: small-caps;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+    letter-spacing: 0.15em;
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    text-transform: lowercase;
+  }
+
+  .source {
+    color: var(--black);
+    display: block;
+    font-size: 0.625rem;
+  }
+</style>
+
+<h1>Movies, Floofed</h1>
+
+<div class="movies"></div>
+
+<template id="movie-template">
+  <div class="movie">
+    <img />
+
+    <h2></h2>
+    <p class="tagline"></p>
+
+    <h3>Viewer Ratings</h3>
+    <ul class="scores"></ul>
+  </div>
+</template>
+
+<script
+  type="text/javascript"
+  src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+></script>
+
+<script>
+  function addScores(element, scores) {
+    scores.forEach((score) => {
+      const item = document.createElement('li');
+      const label = document.createElement('span');
+      label.classList.add('source');
+
+      // shorten the long name so the layout looks nice
+      label.innerText =
+        score.Source === 'Internet Movie Database' ? 'IMDb' : score.Source;
+      item.appendChild(label);
+
+      const value = document.createElement('span');
+      value.innerText = score.Value;
+      item.appendChild(value);
+
+      const scoreElement = element.querySelector('.scores');
+      scoreElement.appendChild(item);
+    });
+  }
+
+  async function initialize() {
+    const movies = await fetch('/.netlify/functions/movies').then((response) =>
+      response.json(),
+    );
+
+    const container = document.querySelector('.movies');
+    const template = document.querySelector('#movie-template');
+
+    movies.forEach((movie) => {
+      const element = template.content.cloneNode(true);
+
+      const img = element.querySelector('img');
+      img.src = movie.poster;
+      img.alt = movie.title;
+
+      element.querySelector('h2').innerText = movie.title;
+      element.querySelector('.tagline').innerText = movie.tagline;
+
+      addScores(element, movie.scores);
+
+      container.appendChild(element);
+    });
+  }
+
+  initialize();
+</script>
