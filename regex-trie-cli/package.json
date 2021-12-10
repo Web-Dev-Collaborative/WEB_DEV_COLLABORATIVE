@@ -1,0 +1,42 @@
+{
+  "name": "regex-trie-cli",
+  "version": "1.0.0",
+  "description": "Create regular expression patterns based on a list of strings to be matched.",
+  "homepage": "https://github.com/mathiasbynens/regex-trie-cli",
+  "bin": {
+    "regex-trie": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "files": [
+    "LICENSE-MIT.txt",
+    "cli.js"
+  ],
+  "keywords": [
+    "regex",
+    "regexp",
+    "trie"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Mathias Bynens",
+    "url": "https://mathiasbynens.be/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mathiasbynens/regex-trie-cli.git"
+  },
+  "bugs": "https://github.com/mathiasbynens/regex-trie-cli/issues",
+  "dependencies": {
+    "meow": "^3.7.0",
+    "regex-trie": "^1.0.4"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "execa": "^0.2.2"
+  },
+  "scripts": {
+    "test": "ava"
+  }
+}
