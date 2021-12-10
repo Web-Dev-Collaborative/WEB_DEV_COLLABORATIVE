@@ -1,0 +1,24 @@
+{% comment %}
+  get the current translations from Jekyll, to be used in scripts
+{% endcomment }%}
+<script>
+  var i18n_default = {{ site.data.i18n.en.script | jsonify }};
+  window.i18n = {{ i18n.script | jsonify }} || {};
+  window.i18n.url_base = {{ url_base | jsonify }};
+  window.i18n.active_language = {{ vars_active_language.tag | jsonify }};
+  
+  // give defaults
+  function copyDefaults(from, to) {
+    for (var key in from) {
+      if (from[key] !== null && typeof from[key] === 'object') {
+        copyDefaults(from[key], to[key] || (to[key] = {}));
+        continue;
+      }
+      if (to.hasOwnProperty(key) === false || to[key] === null) {
+        to[key] = from[key];
+      }
+    }
+  }
+
+  copyDefaults(i18n_default, window.i18n);
+</script>

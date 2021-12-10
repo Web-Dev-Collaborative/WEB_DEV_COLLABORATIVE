@@ -1,0 +1,84 @@
+---
+layout: guide
+hero_subtext: version-with-upgrade-notice.html
+scripts:
+  - "/js/build/install.js"
+operating_systems:
+  - alpine
+  - arch
+  - centos
+  - debian
+  - gentoo
+  - mac
+  - solus
+  - windows
+  - alternatives
+---
+
+{% include vars.html %}
+
+{{i18n.install_intro}}
+
+{% capture npm_info %}{% include_relative _installations/npm.md %}{% endcapture %}
+{{npm_info | markdownify}}
+
+<h2>{{i18n.install_alternatives}}</h2>
+
+<details>
+  <summary>{{i18n.install_click_to_expand_collapse}}</summary>
+
+  <br />
+
+  <div class="install-select-os">
+    <div class="form-group row">
+      <label for="os" class="col-3 col-form-label">{{i18n.install_os}}:</label>
+      <div class="col-6">
+        <select id="os" class="form-control">
+          {% for os in layout.operating_systems %}
+            {% capture os_i18n %}install_os_{{os}}{% endcapture %}
+            <option value="{{os}}">{{i18n[os_i18n]}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="version" class="col-3 col-form-label">{{i18n.install_version}}:</label>
+      <div class="col-6">
+        <select id="version" class="form-control">
+          <option value="stable">{{i18n.site_nav_stable_version}} ({{site.latest_version}})</option>
+          <option value="rc">{{i18n.site_nav_rc_version}} ({{site.latest_rc_version}})</option>
+          <option id="nightly-version" value="nightly">{{i18n.site_nav_nightly_version}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div id="install-instructions">
+    <div class="install-os-instructions">Loading...</div>
+    {% for os in layout.operating_systems %}
+      <div id="{{os}}" class="install-os-instructions" style="display: none">
+        {% capture os_i18n %}install_os_{{os}}{% endcapture %}
+        <h3>{{i18n[os_i18n]}}</h3>
+        {% capture exists %}{% file_exists _installations/{{os}}.md %}{% endcapture %}
+        {% if exists == "true" %}
+          {% capture info %}{% include_relative _installations/{{os}}.md %}{% endcapture %}
+          {{info | markdownify}}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</details>
+
+<h2>{{i18n.install_check}}</h2>
+
+<p>
+  {{i18n.install_check_details}}
+</p>
+
+{% highlight sh %}
+
+{% endhighlight %}
+<div class="language-sh highlighter-rouge">
+  <pre class="rougeHighlight"><code>yarn --version</code></pre>
+</div>

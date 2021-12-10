@@ -1,0 +1,130 @@
+---
+layout: default
+shitty: Yes
+---
+
+{% include vars.html %}
+
+<div class="hero">
+  <div class="container">
+    <h1 class="hero-title">
+      {{i18n.homepage_tagline}}
+    </h1>
+
+    <div>
+      <a class="btn hero-btn hidden-md-down" href="{{url_base}}/docs/getting-started">{{i18n.homepage_c2a_button}}</a>
+      <a class="btn hero-btn hidden-md-down" href="{{url_base}}/docs/install">{{i18n.homepage_install_button}}</a>
+      <a class="btn hero-btn hidden-md-down" href="https://yarnpkg.com/getting-started/migration">{{i18n.homepage_migrate_button}}</a>
+
+      <span class="hero-ghbtn">
+        <iframe src="https://ghbtns.com/github-btn.html?user=yarnpkg&repo=yarn&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" title="{{i18n.iframe_github_stars}}"></iframe>
+      </span>
+    </div>
+
+    {% include version.html %}
+  </div>
+</div>
+
+<div class="container features">
+  <div class="row feature">
+    <div class="col-lg-7">
+      <h2 class="feature-heading">
+        {{i18n.homepage_feature_fast_title}}
+      </h2>
+      <p class="feature-text">
+        {{i18n.homepage_feature_fast_description}}
+      </p>
+    </div>
+    <div class="col-lg-5">
+      <img class="feature-image img-fluid mx-auto feature-image-speed"
+        src="/assets/feature-speed.png"
+        width="500" height="300"
+        alt="{{i18n.homepage_feature_fast_image_alt}}"/>
+    </div>
+  </div>
+
+  <hr class="feature-divider">
+
+  <div class="row feature">
+    <div class="col-lg-7 push-lg-5">
+      <h2 class="feature-heading">
+        {{i18n.homepage_feature_secure_title}}
+      </h2>
+      <p class="feature-text">
+        {{i18n.homepage_feature_secure_description}}
+      </p>
+    </div>
+    <div class="col-lg-5 pull-lg-7">
+      <img class="feature-image img-fluid mx-auto feature-image-secure"
+        src="/assets/feature-secure.png"
+        width="375" height="300"
+        alt="{{i18n.homepage_feature_secure_image_alt}}"/>
+    </div>
+  </div>
+
+  <hr class="feature-divider">
+
+  <div class="row feature">
+    <div class="col-lg-7">
+      <h2 class="feature-heading">
+        {{i18n.homepage_feature_reliable_title}}
+      </h2>
+      <p class="feature-text">
+        {{i18n.homepage_feature_reliable_description}}
+      </p>
+    </div>
+    <div class="col-lg-5">
+      <img class="feature-image img-fluid mx-auto feature-image-reliable"
+        src="/assets/feature-reliable.png"
+        width="500" height="300"
+        alt="{{i18n.homepage_feature_reliable_image_alt}}"/>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <p class="hero-prompt float-md-left">
+      {{i18n.homepage_c2a_text}}
+    </p>
+
+    <a href="{{url_base}}/docs/getting-started" class="btn hero-btn float-md-right">
+      {{i18n.homepage_c2a_button}}
+    </a>
+  </div>
+</div>
+
+<div class="container featurettes">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 featurette">
+      <h2>{{i18n.homepage_featurette_offline_title}}</h2>
+      <p>{{i18n.homepage_featurette_offline_description}}</p>
+    </div>
+
+    <div class="col-lg-4 col-md-6 featurette">
+      <h2>{{i18n.homepage_featurette_deterministic_title}}</h2>
+      <p>{{i18n.homepage_featurette_deterministic_description}}</p>
+    </div>
+
+    <div class="col-lg-4 col-md-6 featurette">
+      <h2>{{i18n.homepage_featurette_network_performance_title}}</h2>
+      <p>{{i18n.homepage_featurette_network_performance_description}}</p>
+    </div>
+    <div class="col-lg-4 col-md-6 featurette">
+      <h2>{{i18n.homepage_featurette_npm_title}}</h2>
+      <p>{{i18n.homepage_featurette_npm_description}}</p>
+    </div>
+
+    <div class="col-lg-4 col-md-6 featurette">
+      <h2>{{i18n.homepage_featurette_network_resillience_title}}</h2>
+      <p>{{i18n.homepage_featurette_network_resillience_description}}</p>
+    </div>
+
+    <div class="col-lg-4 col-md-6 featurette">
+      <h2>{{i18n.homepage_featurette_flat_mode_title}}</h2>
+      <p>{{i18n.homepage_featurette_flat_mode_description}}</p>
+    </div>
+  </div>
+</div>
+
+<!-- [TODO: Add users section once the users page has more people] -->

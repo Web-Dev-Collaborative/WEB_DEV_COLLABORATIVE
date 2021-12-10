@@ -1,0 +1,425 @@
+/** Algolia Pkg Search **/
+
+$ais-focus-color: rgba(black, 0.7);
+$ais-muted-color: rgba(black, 0.5);
+
+.full-searchbox .ais-SearchBox {
+  background-color: mix(black, $yarn-blue, 15%);
+  transition: background-color 0.1s ease;
+  padding: 1.4em 0.3em;
+  box-sizing: border-box;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    height: 7px;
+    background: {
+      repeat: repeat-x;
+      size: 144px auto;
+    }
+  }
+
+  &:before {
+    top: -3.5px;
+    background-image: $image-border-white;
+  }
+
+  &:after {
+    bottom: -3.5px;
+    background-image: $image-border-yarn-blue;
+
+    .searching & {
+      background-image: $image-border-white;
+    }
+  }
+
+  &-form {
+    @extend .container;
+    display: flex;
+    background-color: white;
+    border-radius: 0.2em;
+    padding: 0.2em;
+    min-height: 38.8px;
+    transition: box-shadow 0.4s ease, background 0.4s ease;
+    box-shadow: 0 2px 2px 0 rgba(85, 95, 110, 0.4);
+
+    .active & {
+      background-color: mix(black, white, 2%);
+      box-shadow: none;
+    }
+  }
+
+  &-input {
+    order: 2;
+    flex-grow: 1;
+    background: none;
+    border: none;
+    border-radius: 0;
+    font: inherit;
+    color: $yarn-blue;
+    margin-left: 0.5em;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+    @include placeholder {
+      color: lighten($yarn-blue, 10%);
+      font-style: italic;
+      font-weight: 100;
+    }
+  }
+
+  &-reset,
+  &-submit {
+    width: 2em;
+    height: 2em;
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+
+    svg {
+      width: 1.6em;
+      height: 1.6em;
+      padding: 0.2em;
+      fill: $yarn-blue;
+      position: absolute;
+      top: 0.2em;
+      left: 0.2em;
+    }
+  }
+
+  &-submit {
+    order: 1;
+  }
+
+  &-reset {
+    order: 3;
+    visibility: hidden;
+  }
+}
+
+.ais-Hits {
+  &-item {
+    padding: 1.5rem 1rem 2rem;
+    border-bottom: 1px solid $gray-lighter;
+    position: relative;
+  }
+
+  &-empty {
+    padding: 2.5rem 0 2rem;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.ais-Hit {
+  &-name {
+    font-size: 1.625rem;
+    font-weight: normal;
+    color: $ais-focus-color;
+    margin-right: 8px;
+    position: relative;
+    top: 2px;
+
+    &:hover,
+    &:visited,
+    &:focus {
+      text-decoration: none;
+      color: rgba(black, 0.9);
+    }
+  }
+
+  &-popular {
+    font-size: 0.825rem;
+    color: $ais-muted-color;
+    margin-right: 8px;
+    text-transform: uppercase;
+
+    &::before {
+      position: relative;
+      display: inline-block;
+      content: '';
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      background-image: url('/assets/search/ico-download.svg');
+      width: 15px;
+      height: 20px;
+      margin-right: 3px;
+      top: 2px;
+    }
+
+    &.hot-t4::before {
+      background-image: url('/assets/search/ico-hot-t4.svg');
+    }
+
+    &.hot-t3::before {
+      background-image: url('/assets/search/ico-hot-t3.svg');
+    }
+
+    &.hot-t2::before {
+      background-image: url('/assets/search/ico-hot-t2.svg');
+    }
+
+    &.hot-t1::before {
+      background-image: url('/assets/search/ico-hot-t1.svg');
+    }
+  }
+
+  &-license {
+    font-size: 0.75rem;
+    border: solid 1px #ccc;
+    color: $ais-muted-color;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-right: 8px;
+    letter-spacing: 0.2px;
+  }
+
+  &-deprecated {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    background-color: #ccc;
+    border: solid 1px #ccc;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-right: 8px;
+    letter-spacing: 0.2px;
+  }
+
+  &-version {
+    font-size: 0.825rem;
+    color: $ais-muted-color;
+    font-weight: bold;
+    max-width: 90px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &-ownerLink {
+    font-size: 0.69rem;
+    font-weight: bold;
+    color: $ais-focus-color;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-right: 8px;
+  }
+
+  &-ownerAvatar {
+    border-radius: 4px;
+    margin-right: 4px;
+    position: relative;
+    top: -2px;
+  }
+
+  &-description {
+    font-size: 0.875rem;
+    color: $ais-muted-color;
+    margin: 0.6rem 0;
+    max-width: calc(100% - 120px);
+
+    @include media-breakpoint-down(xs) {
+      max-width: 100%;
+    }
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &-lastUpdate {
+    font-size: 0.825rem;
+    color: $ais-muted-color;
+    font-style: italic;
+  }
+
+  &-keywords {
+    font-size: 0.825rem;
+    color: $ais-muted-color;
+    margin-left: 1em;
+    font-style: italic;
+
+    &:before {
+      display: inline-block;
+      content: '';
+      background: url('/assets/search/ico-tag.svg') no-repeat;
+      width: 16px;
+      height: 8px;
+      margin-right: 4px;
+      opacity: 0.5;
+    }
+  }
+
+  &-keyword {
+    color: $ais-muted-color;
+
+    em {
+      font-style: italic;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-links {
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 1rem;
+
+    @include media-breakpoint-down(xs) {
+      position: inherit;
+    }
+  }
+
+  &-link-homepage,
+  &-link-npm,
+  &-link-gitlab,
+  &-link-bitbucket,
+  &-link-github {
+    margin-left: 0.8em;
+    display: block;
+    float: right;
+
+    a {
+      display: block;
+      opacity: 0.5;
+      text-indent: -9000px;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &-link-homepage a {
+    background-image: url('/assets/search/ico-home.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &-link-npm a {
+    background-image: url('/assets/search/ico-npm.svg');
+    width: 34px;
+    height: 26px;
+  }
+
+  &-link-github a {
+    background-image: url('/assets/search/ico-github.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &-link-bitbucket a {
+    background-image: url('/assets/search/ico-bitbucket.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &-link-gitlab a {
+    background-image: url('/assets/search/ico-gitlab.svg');
+    width: 26px;
+    height: 26px;
+  }
+
+  &-typescript {
+    margin-left: 0.2em;
+    width: 0.8em;
+    height: 0.8em;
+    vertical-align: baseline;
+  }
+}
+
+.ais-Pagination {
+  margin: 2em auto;
+  @extend .pagination;
+
+  &-item {
+    @extend .page-item;
+
+    &--selected {
+      @extend .active;
+    }
+
+    &--disabled {
+      @extend .disabled;
+      visibility: visible;
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  &-link {
+    @extend .page-link;
+  }
+}
+
+.ais-CurrentRefinements {
+  &-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0.5em;
+    font-size: 0.8125rem;
+  }
+
+  &-category {
+    display: inline-block;
+    border: 1px solid $gray-lighter;
+    border-radius: 2px;
+    margin-right: 0.5em;
+    padding: 0 0.5em;
+  }
+
+  &-delete {
+    background: none;
+    border: none;
+  }
+}
+
+#pkg-featured {
+  margin-top: 4em;
+
+  .pkg-featured-pkg {
+    padding: 1rem;
+    min-height: 120px;
+    border-bottom: solid 1px $gray-lighter;
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0;
+    }
+
+    .ais-Hit-keywords {
+      margin-left: 0;
+
+      a {
+        color: $ais-muted-color;
+      }
+    }
+  }
+}
+
+.search-footer {
+  text-align: center;
+}
+
+.ais-Highlight-highlighted {
+  border-bottom: dotted 1px;
+  font-style: normal;
+}

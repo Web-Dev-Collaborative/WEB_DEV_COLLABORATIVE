@@ -1,0 +1,73 @@
+---
+layout: page
+---
+
+{% include vars.html %}
+
+{% assign matched_guides = site.data.guides | where: "id", page.guide %}
+{% assign current_guide = matched_guides[0] %}
+
+{% assign guides_size = current_guide.pages | size | plus: 2 %}
+
+{% for i in (0..guides_size) %}
+  {% if current_guide.pages[i].id == page.id %}
+    {% assign guide_prev_index = i | minus: 1 %}
+    {% assign guide_next_index = i | plus: 1 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign guide_prev = current_guide.pages[guide_prev_index] %}
+{% assign guide_next = current_guide.pages[guide_next_index] %}
+
+<div class="row">
+  <div class="col-md-8 guide">
+    {% include debug/toc.html content=page.content %}
+
+    <div class="guide-content">
+      {{content}}
+    </div>
+
+    <div class="guide-controls">
+      <hr>
+
+      <div class="clearfix">
+        {% if guide_prev_index > -1 %}
+          <a class="btn btn-outline-primary float-left" href="{{url_base}}{{guide_prev.path}}">
+            &larr;
+            {{i18n[guide_prev.id]}}
+          </a>
+        {% endif %}
+
+        {% if guide_next %}
+          <a class="btn btn-primary float-right" href="{{url_base}}{{guide_next.path}}">
+            {{i18n[guide_next.id]}}
+            &rarr;
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if page.additional_reading_tags %}
+      {% include additional-reading.html tags=page.additional_reading_tags %}
+    {% endif %}
+  </div>
+
+  <div class="col-md-4">
+    <ul class="nav nav-stacked guide-nav">
+      {% for step in current_guide.pages %}
+        <li class="nav-item">
+          {% if step.id == page.id %}
+            <a class="nav-link active">
+              {{i18n[step.id]}}
+            </a>
+          {% else %}
+            <a class="nav-link" href="{{url_base}}{{step.path}}">
+              {{i18n[step.id]}}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
