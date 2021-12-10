@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "src/**/*",
+    "../create-react-resume/template-typescript/src/elements/Link.tsx",
+    "../create-react-resume/template-typescript/src/elements/H6.tsx",
+    "../create-react-resume/template-typescript/src/elements/H4.tsx",
+    "../create-react-resume/template-typescript/src/elements/H3.tsx",
+    "../create-react-resume/template-typescript/src/elements/H5.tsx",
+    "../create-react-resume/template-typescript/src/elements/H2.tsx",
+    "../create-react-resume/template-typescript/src/elements/H1.tsx"
+  ],
+  "exclude": ["node_modules", "dist"]
+}
