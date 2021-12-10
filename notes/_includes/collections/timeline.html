@@ -1,0 +1,19 @@
+  <div class="timeline" id="timeline">
+    {% assign posts_by_year = include.list | group_by_exp:"post", "post.date | date: '%Y' " %}
+    {% for group in posts_by_year %}
+      <div class="archive-title">
+        <h4 class="archive-year">{{ group.name }}</h4>
+      </div>
+
+      <ul>
+      {% for post in group.items %}
+        <li><div style="width:60px;float:left;">{{ post.date | date: "%b %-d" }}</div> <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+          <span class="post-meta">
+            {% include cat_and_tag.html hide-cat=site.collection.categories.hide-on-archive btn-cat=site.collection.categories.btn-on-archive hide-tag=site.collection.tags.hide-on-archive btn-tag=site.collection.tags.btn-on-archive detail=post %}
+          </span>
+        </li>
+      {% endfor %}
+      </ul>
+
+    {% endfor %}
+  </div>
