@@ -1,0 +1,39 @@
+{
+  "name": "@sendgrid/contact-importer",
+  "description": "Twilio SendGrid NodeJS contact importer",
+  "version": "7.4.3",
+  "author": "Twilio SendGrid <help@twilio.com> (sendgrid.com)",
+  "contributors": [
+    "Kyle Partridge <kyle.partridge@sendgrid.com>",
+    "David Tomberlin <david.tomberlin@sendgrid.com>",
+    "Swift <swift@sendgrid.com>",
+    "Brandon West <brandon.west@sendgrid.com>",
+    "Scott Motte <scott.motte@sendgrid.com>",
+    "Robert Acosta <robert.acosta@sendgrid.com>",
+    "Elmer Thomas <ethomas@twilio.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://sendgrid.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sendgrid/sendgrid-nodejs.git"
+  },
+  "main": "src/importer.js",
+  "engines": {
+    "node": "6.* || 8.* || >=10.*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@sendgrid/client": "^7.4.3",
+    "async.ensureasync": "^0.5.2",
+    "async.queue": "^0.5.2",
+    "bottleneck": "^1.12.0",
+    "debug": "^4.0.1",
+    "lodash.chunk": "^4.2.0"
+  },
+  "tags": [
+    "sendgrid"
+  ]
+}
