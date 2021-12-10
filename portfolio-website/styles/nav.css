@@ -1,0 +1,93 @@
+/*/////////////////
+// navbar        // 
+/////////////////*/
+
+.navbar, .navbg {
+  overflow: hidden;
+  color: var(--accent-colour);
+  position: fixed;
+  top: 0; 
+  width: 100%; 
+  padding: 16.5px 40px;
+  display: block;
+}
+
+.navbar, .navbg, .navbar-top {
+  height: var(--nav-height);
+}
+
+.navbg {
+  background-color: var(--theme-bg-colour-140);
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s ease;
+  z-index: 10;
+  /* border-bottom: 2px solid var(--accent-colour-faded); */
+}
+
+.navbar {
+  background-color: none;
+  z-index: 10;
+}
+
+.navbar > .links > ul {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.navbar > .links > ul > li {
+  display: inline;
+  font-weight: 700;
+}
+
+.navbar > .links > ul > li > a,
+.navbar > .links > ul > li > label {
+  color: var(--accent-colour);
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+ul > li > a.new-window::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
+}
+
+.navbar > .links > ul > li > a:hover,
+.navbar > .links > ul > li > label:hover {
+  background: var(--theme-bg-colour-120);
+  transition: all 0.2s ease;
+  color: var(--accent-colour);
+}
+
+.navbar > .links > ul > li > img.logo {
+  width: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+a.btn {
+  display: inline-flex;
+}
+
+/*/////////////////
+// media queries // 
+/////////////////*/
+
+@media screen and (max-width: 600px) {
+
+  .navbar {
+    display: none;
+  }
+
+  .navbg {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+  }
+
+}

@@ -1,0 +1,206 @@
+/*/////////////////
+// burger menu   // 
+/////////////////*/
+
+.burger {
+  z-index: 2;
+  opacity: 0;
+  float: right;
+  position: fixed;
+  visibility: hidden;
+  font-size: 1.5rem;
+  color: var(--accent-colour);
+  right: 250px;
+  top: 10px;
+  margin: 0;
+  text-align: left;
+  transition: all 0.5s ease;
+}
+
+.burger-icon {
+  cursor: pointer;
+  width: 42px;
+  padding: 5px 0;
+}
+
+.burger-icon > img:nth-child(1) {
+  transform: rotate(0deg) translateX(0);
+  transition: all 0.3s ease;
+}
+
+.burger-icon > img:nth-child(3) {
+  transform: rotate(0deg) translateX(0);
+  transition: all 0.3s ease;
+}
+
+.burger-icon:hover > img:nth-child(1) {
+  transform: rotate(90deg) translateX(10px);
+}
+
+.burger-icon:hover > img:nth-child(3) {
+  transform: rotate(90deg) translateX(-10px);
+}
+
+.burger-icon > img {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+  padding: 0;
+}
+
+.burger-side-panel {
+  padding: 8px 10px 12px 10px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 240px;
+  box-shadow: 0 3px 5px 0 #00000033;
+  background: var(--theme-bg-colour-140);
+  z-index: -1;
+}
+
+.burger-side-panel ul {
+  padding: 0;
+  margin: 0;
+}
+
+.burger-side-panel li {
+  list-style: none;
+  margin: 2px;
+}
+
+.burger-side-panel li > a,
+.burger-side-panel li > label {
+  color: inherit;
+  font-size: 1.1rem;
+  pointer-events: auto;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.burger-side-panel li > a:hover,
+.burger-side-panel li > label:hover {
+  background: var(--theme-bg-colour-110);
+  transition: all 0.3s ease;
+}
+
+.burger-checkbox-class {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.burger-checkbox-class ~ .burger > .burger-side-panel {
+  transform: translate(90px, -90px) scale(0.22, 0.22) rotate(22.5deg);
+  border-radius: 50%;
+  /* transition: all 0.2s 0.2s cubic-bezier(0.1, 0.7, 1.0, 0.3); */
+  transition: all 0.2s 0.2s ease;
+  box-shadow: none;
+  opacity: 0;
+}
+
+.burger-checkbox-class:checked ~ .burger > .burger-side-panel  {
+  transform: translate(0, 0) scale(1, 1) rotate(0deg);
+  border-radius: 8px;
+  background: var(--theme-bg-colour-140);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.3, 1.275);
+  opacity: 1;
+} 
+
+.burger-checkbox-class ~ .burger > .burger-side-panel > ul  {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+} 
+
+.burger-checkbox-class:checked ~ .burger > .burger-side-panel > ul  {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+
+.burger-checkbox-class ~ .hamburger-label:hover ~ .burger > .burger-side-panel {
+  background: var(--theme-bg-colour-130);
+  opacity: 1;
+}
+
+.burger-checkbox-class ~ .hamburger-label ~ .burger > .burger-side-panel {
+  box-shadow: none;
+}
+
+.burger-checkbox-class:checked ~ .burger > .burger-side-panel {
+  box-shadow: 0 3px 5px 0 #00000033;
+} 
+
+.burger-checkbox-class:checked ~ .hamburger-label:hover {
+  text-shadow: none;
+}
+
+.fa-hamburger {
+  color: var(--accent-colour);
+  position: fixed;
+  font-size: 2rem;
+  top: 22px;
+  right: 23px;
+  cursor: pointer;
+}
+
+.burger-checkbox-class ~ .modal-overlay,
+.burger-checkbox-class ~ .modal-overlay ~ .burger-side-panel {
+  display: none;
+}
+
+.burger-checkbox-class:checked ~ .modal-overlay,
+.burger-checkbox-class:checked ~ .modal-overlay ~ .burger-side-panel {
+  display: block;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/*/////////////////
+// media queries // 
+/////////////////*/
+
+@media screen and (max-width: 600px) {
+
+  .burger {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease;
+    z-index: 10;
+  }
+
+  .fa-hamburger {
+    z-index: 15;
+  }
+
+}
+
+/* .burger-side-panel > .modal-close-button {
+  float: right;
+  padding: 3px 7px;
+  margin: 5px;
+  border-radius: 2px;
+  cursor: pointer;
+  background: #eee;
+}
+
+.burger-side-panel > .modal-close-button:hover {
+  background: #fff;
+} */

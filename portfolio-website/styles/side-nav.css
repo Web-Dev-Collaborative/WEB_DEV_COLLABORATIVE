@@ -1,0 +1,156 @@
+/**************/
+/* root vars  */
+/**************/
+
+:root {
+  --bar-gap: 10px;
+  --bar-width: 30px;
+  --bar-height: 25px;
+  --side-panel-width: 250px;
+  --speed: 0.4s;
+}
+
+/**************/
+/* side panel */
+/**************/
+
+.side-panel {
+  position: absolute;
+  width: var(--side-panel-width);
+  height: 100vh;
+  background: #fff;
+  top: 0;
+  right: 0;
+  /* --startPos: calc(var(--side-panel-width) * 2);
+  transform: translateX(var(--startPos)) rotate(-30deg) scaleY(2); */
+  transition: all var(--speed) ease;
+  z-index: 1;
+}
+
+.menu-checkbox:checked ~ .side-panel {
+  background: #eee;
+  transition: all var(--speed) ease;
+  transform: translateX(0) rotate(0) scaleY(1);
+}
+
+/**************/
+/* menu label */
+/**************/
+
+.menu-label {
+  position: relative;
+  display: inline-block;
+  width: var(--bar-width);
+  height: var(--bar-height);
+}
+
+.menu-label .menu-checkbox {
+  visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+/****************/
+/* menu wrapper */
+/****************/
+
+.menu-wrapper {
+  margin: 20px 0 0 20px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--bar-width);
+  height: var(--bar-height);
+  transition: all var(--speed) ease;
+}
+
+.menu-checkbox:checked + .menu-wrapper {
+  --endPos: calc(var(--side-panel-width) - var(--bar-width) * 2);
+  transform: translateX(var(--endPos));
+  transition: all var(--speed) ease;
+}
+
+/*********/
+/* bars */
+/*********/
+
+.bar {
+  display: block;
+  width: var(--bar-width);
+  height: 2px;
+  background: #aaa;
+  position: absolute;
+  transition: all var(--speed) ease;
+}
+
+.bar:nth-child(1) {
+  top: 0;
+  transform: rotate(0deg);
+}
+
+.bar:nth-child(2) {
+  top: var(--bar-gap);
+  transform: rotate(0deg);
+}
+
+.bar:nth-child(3) {
+  top: calc(var(--bar-gap) * 2);
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+/****************/
+/* bars > click */
+/****************/
+
+.menu-checkbox:checked + .menu-wrapper > .bar {
+  background-color: #333;
+  transition: all var(--speed) ease;
+}
+
+.menu-checkbox:checked + .menu-wrapper > .bar:nth-child(1) {
+  top: var(--bar-gap);
+  transform: rotate(45deg);
+}
+
+.menu-checkbox:checked + .menu-wrapper > .bar:nth-child(2) {
+  top: var(--bar-gap);
+  transform: rotate(-45deg);
+}
+
+.menu-checkbox:checked + .menu-wrapper > .bar:nth-child(3) {
+  top: var(--bar-gap);
+  transform: translateY(0) rotate(-45deg);
+  opacity: 0;
+}
+
+/***********************/
+/* bars > hover effect */
+/***********************/
+
+.menu-wrapper:hover > .bar:nth-child(1) {
+  transform: rotate(90deg);
+  top: var(--bar-gap);
+}
+
+.menu-wrapper:hover > .bar:nth-child(2) {
+  transform: rotate(0deg);
+}
+
+.menu-wrapper:hover > .bar:nth-child(3) {
+  transform: rotate(90deg);
+  top: var(--bar-gap);
+  opacity: 0;
+}
+
+/********************/
+/* general settings */
+/********************/
+
+.nav > li {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}

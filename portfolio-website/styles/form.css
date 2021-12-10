@@ -1,0 +1,88 @@
+input[type=text], input[type=email], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: var(--theme-bg-colour-130);
+  padding: 10px 15px; 
+  border-radius: 5px; 
+  margin-top: 6px; 
+  margin-bottom: 20px; 
+  resize: vertical;
+  color: var(--theme-text-colour-140);
+}
+
+input[type=text], input[type=email] {
+  width: calc(50% - 10px);
+  display: inline-block;
+  font-size: 1.25rem;
+}
+
+textarea {
+  width: 100%; 
+  display: block;
+  height: 150px;
+  font-size: 1.25rem;
+}
+ 
+input[type=text]:focus, input[type=email]:focus, textarea:focus {
+  /* box-shadow: 0 0 5px 2px var(--accent-colour); */
+  border: 1px solid var(--accent-colour);
+}
+
+input[type=text]:blur, input[type=email]:blur, textarea:blur {
+  border: 1px solid transparent;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: var(--theme-text-colour-60);
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--theme-text-colour-60);
+}
+
+::placeholder {
+  color: var(--theme-text-colour-60);
+}
+
+input:-webkit-autofill, 
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected,
+textarea:-webkit-autofill, 
+textarea:-webkit-autofill:focus,
+textarea:-internal-autofill-selected  {
+  -webkit-box-shadow: 0 0 0 50px var(--theme-bg-colour-120) inset; 
+  -webkit-text-fill-color: var(--theme-text-colour-120);
+  box-shadow: 0 0 0 50px var(--theme-bg-colour-120) inset;
+}
+
+input[id*="theme"] {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+input[id*="theme"]:checked + label[for*="theme"] > span {
+  transition: all 0.5s ease;
+}
+
+label[for*="theme"] > .emoji.light {
+  filter: invert(1) opacity(0.7) saturate(1.5) brightness(1.2) hue-rotate(-25deg);
+  transition: all 0.5s ease;
+}
+
+label[for*="theme"] {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+
+  input[type=text], input[type=email] {
+    width: calc(100%);
+    display: block;
+  }
+  
+}
