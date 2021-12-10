@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Text Analyzer</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Text Analyzer</h2>
+
+    <form id="word-counter">
+      <div class="form-group">
+        <label for="text-passage">Input a text passage to get a total word count:</label>
+        <textarea name="text-passage" class="form-control" id="text-passage" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="word">Optionally enter a word to count the number of times it occurs in the passage:</label>
+        <input type="text" class="form-control" id="word" required />
+      </div>
+      <button type="submit" class="btn btn-success">Submit Survey</button>
+    </form>
+
+    <div class="container">
+      <p>Total Word Count: <span id="total-count"></span></p>
+      <br>
+      <p>Selected Word Count: <span id="selected-count"></span></p>
+      <span id="bolded-passage"></span>
+    </div>
+
+  </div>
+</body>
+</html>
