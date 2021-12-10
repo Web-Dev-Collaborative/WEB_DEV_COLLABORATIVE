@@ -1,0 +1,106 @@
+<div class="js-dashboard-story single-article <%= "single-article-unpublished" unless article.published %> <%= "single-article-archived hidden" if article.archived %>">
+  <div class="dashboard-collection-org-details">
+    <% if article.organization_id %>
+      <span class="dashboard-top-pill"><%= article.organization&.name %></span>
+    <% end %>
+    <% if article.collection_id %>
+      <span class="dashboard-top-pill"><strong>Series:</strong> <%= article.series %></span>
+    <% end %>
+  </div>
+
+  <div class="js-ellipsis-menu relative inline-block float-right">
+    <button class="crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon js-ellipsis-menu-trigger">
+      <%= inline_svg_tag("overflow-horizontal.svg", aria: true, class: "crayons-icon", title: "More...") %>
+    </button>
+
+    <div class="crayons-dropdown top-100 right-0 z-10 align-left js-ellipsis-menu-dropdown p-1">
+      <%= form_for(article, method: :patch, remote: true, authenticity_token: true, html: { "data-type": "json", class: "p-0 js-archive-toggle" }) do |f| %>
+        <%= f.hidden_field :archived, value: !article.archived %>
+
+        <button type="submit" class="crayons-link crayons-link--block w-100 border-0 bg-transparent">
+          <%= article.archived ? "Unarchive post" : "Archive post" %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+
+  <a href="<%= article.current_state_path %>"><h2><%= "[Archived] " if article.archived %><%= sanitize_and_decode article.title %></h2></a>
+  <div class="dashboard-meta-details">
+    <% if article.published %>
+      <span>
+        Published: <time datetime="<%= article.published_timestamp %>"><%= article.readable_publish_date %></time>
+      </span>
+
+      <% if article.edited? %>
+        <span>
+          · Edited: <time datetime="<%= article.edited_at.utc.iso8601 %>"><%= article.readable_edit_date %></time>
+        </span>
+      <% end %>
+
+      <% article.cached_tag_list_array.each do |tag| %>
+        <a href="/t/<%= tag %>"><span class="tag">#<%= tag %></span></a>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="dashboard-actions">
+    <% if !article.published %>
+      <a href="<%= article.current_state_path %>" class="crayons-btn">Draft</a>
+    <% end %>
+    <a href="<%= article.path %>/edit" class="crayons-btn">Edit</a>
+    <% if manage_view %>
+      <a href="<%= article.path %>/delete_confirm" data-no-instant class="crayons-btn crayons-btn--danger">Delete</a>
+      <% if article.profile_pins.any? %>
+        <%= form_for(article.profile_pins.first) do |f| %>
+          <button class="crayons-btn crayons-btn--secondary">UNPIN</button>
+        <% end %>
+      <% else %>
+        <%= form_for(ProfilePin.new) do |f| %>
+          <%= f.hidden_field :pinnable_id, value: article.id %>
+          <button class="crayons-btn">Pin to profile</button>
+        <% end %>
+      <% end %>
+    <% elsif article.published %>
+      <a href="<%= article.path %>/manage" class="crayons-btn">Manage</a>
+    <% elsif @user == article.user %>
+      <a href="<%= article.path %>/delete_confirm" data-no-instant class="crayons-btn crayons-btn--danger">Delete</a>
+    <% end %>
+
+    <a href="<%= article.path %>/stats" data-no-instant class="crayons-btn">Stats</a>
+
+    <% if article.published %>
+      <span id="pageviews-<%= article.id %>" class="crayons-btn dashboard-pageviews-indicator" data-analytics-pageviews data-article-id="<%= article.id %>">
+        <span class="page-views-count">
+          <span class="value">
+            <% if article.page_views_count > 25 %>
+               <span class="value"><%= article.page_views_count %></span>
+            <% else %>
+              under 25
+            <% end %>
+          </span>
+          views
+        </span>
+        //
+        <span class="reactions-count">
+          <span class="value">
+            <%= article.public_reactions_count %>
+          </span>
+          <%= "reaction".pluralize(count: article.public_reactions_count) %>
+        </span>
+        //
+        <span class="comments-count">
+          <span class="value">
+            <%= article.comments_count %>
+          </span>
+          <%= "comment".pluralize(count: article.comments_count) %>
+        </span>
+      </span>
+    <% end %>
+  </div>
+  <% if organization && org_admin %>
+    <%= form_for(article) do |f| %>
+      <input type="hidden" name="destination" value="/dashboard/organization/<%= organization.id %>" />
+      AUTHOR: <%= f.select(:user_id, options_for_select(organization.users.pluck(:name, :id), article.user_id)) %>
+      <%= f.submit "Submit author change", class: "crayons-btn crayons-btn--secondary" %>
+    <% end %>
+  <% end %>
+</div>

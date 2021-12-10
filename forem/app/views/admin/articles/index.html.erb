@@ -1,0 +1,37 @@
+<main class="row">
+  <div class="col-12">
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item">
+        <a href="<%= admin_articles_path %>" class="nav-link <%= "active" if params[:state].blank? %>">Hot</a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="<%= admin_articles_path(state: :chronological) %>"
+          class="nav-link <%= "active" if params[:state] == "chronological" %>">Chronological</a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="<%= admin_articles_path(state: :satellite) %>"
+          class="nav-link <%= "active" if params[:state] == "satellite" %>">Satellite</a>
+      </li>
+    </ul>
+    <% if params[:state] && params[:state].include?("top-") && params[:state] != "top-3" && params[:state] != "top-6" %>
+      <h1 style="color:red">
+        <%= params[:state] %>-months
+      </h1>
+    <% end %>
+  </div>
+  <div class="col-12">
+    <% if @featured_articles.present? %>
+      <h2>Manually Featured Articles</h2>
+      <%= render partial: "individual_article", collection: @featured_articles, as: :article %>
+    <% end %>
+  </div>
+  <div class="col-12">
+    <%= paginate @articles %>
+    <%= render partial: "individual_article", collection: @articles, as: :article %>
+    <%= paginate @articles %>
+  </div>
+</main>
+
+<%= render "image_upload_script" %>

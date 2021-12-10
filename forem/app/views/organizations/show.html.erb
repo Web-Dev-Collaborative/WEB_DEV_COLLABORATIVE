@@ -1,0 +1,27 @@
+<% title sanitize(@organization.name) %>
+
+<%= content_for :page_meta do %>
+  <%= render "users/meta" %>
+<% end %>
+<%= render "users/profile_header" %>
+<div class="home sub-home" id="index-container"
+     data-params="<%= params.merge(sort_by: "published_at", sort_direction: "desc", organization_id: @organization.id).to_json(only: %i[tag organization_id username q sort_by sort_direction]) %>" data-which="<%= @list_of %>"
+     data-feed="<%= params[:timeframe] || "base-feed" %>"
+     data-articles-since="<%= Timeframe.datetime_iso8601(params[:timeframe]) %>">
+  <%= render "organizations/sidebar" %>
+  <div class="articles-list" id="articles-list">
+    <div class="substories" id="substories">
+      <%# organizations/main_feed will iterate on stories with .each_with_index,
+          thus by using .present? here we preload the items %>
+      <% if @stories.present? %>
+        <%= render "organizations/main_feed" %>
+      <% end %>
+    </div>
+    <div class="loading-articles" id="loading-articles">
+      loading...
+    </div>
+  </div>
+  <%= render "organizations/sidebar_additional" %>
+</div>
+
+<%= render "stories/stories_list_script" %>

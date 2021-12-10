@@ -1,0 +1,13 @@
+<div class="crayons-card notification">
+  <% json_data = notification.json_data %>
+  <% cache "activity-profile-pic-#{json_data['user']['id']}-#{json_data['user']['profile_image_90']}" do %>
+    <%= render "notifications/shared/profile_pic", json_data: json_data %>
+  <% end %>
+
+  <div class="notification__content">
+    <h2 class="fs-base fw-normal mb-4">
+      <a href="<%= json_data["user"]["path"] %>" class="crayons-link fw-bold"><%= json_data["user"]["name"] %></a> mentioned you in a comment
+    </h2>
+    <%= render "notifications/shared/comment_box", json_data: json_data, notification: notification, context: "default" %>
+  </div>
+</div>

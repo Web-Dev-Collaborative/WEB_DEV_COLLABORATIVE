@@ -1,0 +1,23 @@
+<% if @featured_story.id %>
+  <%= render "articles/single_story", story: @featured_story, featured: true %>
+<% end %>
+
+<div id="article-index-podcast-div"></div>
+
+<div class="substories" id="substories">
+  <% if @stories.any? %>
+    <% @stories.each_with_index do |story, i| %>
+      <% next if story.id == @featured_story.id %>
+      <% if !user_signed_in? && i == 4 %>
+        <%= render "stories/sign_in_invitation" %>
+      <% end %>
+      <%= render "articles/single_story", story: story, featured: false %>
+    <% end %>
+    <% if @stories.size > 1 %>
+      <div class="placeholder-div"></div>
+    <% end %>
+    <div class="single-article-small-pic" id="article-index-hidden-div" style="display:none"></div>
+  <% end %>
+</div>
+
+<%= javascript_packs_with_chunks_tag "homePageFeedShortcuts", defer: true %>
