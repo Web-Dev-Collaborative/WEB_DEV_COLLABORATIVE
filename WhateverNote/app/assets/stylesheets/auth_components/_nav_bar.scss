@@ -1,0 +1,78 @@
+.navbar .page-limit{
+    display: flex;
+    height: 80px;
+    width: 100%;
+    justify-content: space-between;
+
+    div {
+        display: flex;
+
+        .page-logo {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+    
+            img{
+                width: 70px;
+            }
+    
+            span {
+                font-size: 35px;
+                font-family: 'Playfair Display', serif;
+                font-style: bold;
+                color: black;
+                padding-left: 5px;
+            }
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            ul{
+                display: flex;
+                flex-direction: row;
+
+                li{
+                    font-family: $title;
+                    font-weight: bold;
+                    font-size: 15px;
+                    padding-left: 40px;
+                }
+
+                a:hover{
+                    color: $blue;
+                }
+            }
+        }
+    }
+
+    .auth-links{
+        font-family: $title;
+        justify-self: flex-end;
+        align-self: center;
+        font-size: 12px;
+        padding-right: 40px;
+        a {
+            font-size: 16.5px;
+            font-weight: 500;
+            color: $blue;
+            padding: 0 8px;
+        }
+        a:hover{
+            color: $light-blue;
+        }
+        p{
+            font-size: 15px;
+        }
+        button{
+            font-size: 17px;
+            font-weight: 500;
+            color: $blue;
+            padding: 0 8px;
+        }
+        button:hover{
+            color: $light-blue;
+        }
+    }
+}

@@ -1,0 +1,62 @@
+
+// ------------------------------------------- FONTS ---------------------------------------------------
+
+.ql-editor .ql-font-roboto{
+    font-family: "Roboto";
+  }
+
+  .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=roboto]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=roboto]::before {
+  content: 'Roboto';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=roboto]::before {
+    font-family: "Roboto";
+  }
+
+  // --------------------------------------------------
+
+  .ql-editor .ql-font-amatic{
+    font-family: 'Amatic SC', cursive;
+  }
+
+  .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=amatic]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=amatic]::before {
+  content: 'Amatic';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=amatic]::before {
+    font-family: 'Amatic SC', cursive;
+  }
+
+// --------------------------------------------------
+
+    .ql-editor .ql-font-caveat{
+      font-family: 'Caveat', cursive;
+    }
+  
+    .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=caveat]::before,
+  .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=caveat]::before {
+    content: 'Caveat';
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=caveat]::before {
+      font-family: 'Caveat', cursive;
+    }
+
+// --------------------------------------------------
+
+.ql-editor .ql-font-libre{
+  font-family: 'Libre Baskerville', serif;
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=libre]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=libre]::before {
+content: 'Libre';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=libre]::before {
+  font-family: 'Libre Baskerville', serif;
+}
+
+//   --------------------------------------------------------------------------------------------------------------

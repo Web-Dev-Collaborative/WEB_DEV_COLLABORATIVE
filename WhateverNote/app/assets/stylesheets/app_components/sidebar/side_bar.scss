@@ -1,0 +1,68 @@
+.side-bar{
+    display: block;
+    min-width: 310px;
+    height: 100%;
+    background:$darkest-blue;
+    font-family: $body;
+    position: relative;
+
+    .user{
+        background: transparent;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        margin-bottom: 10px;
+
+        img{
+            width: 25px;
+            height: 25px;
+            padding: 3px;
+            border-radius: 50%;
+            background: $greenish-blue;
+        }
+        p{
+            margin-left: 10px;
+            background: transparent;
+            color: $light-gray;
+            font-size: 13px;
+
+            i{
+                background: transparent;
+                color: inherit;
+                padding-left: 10px;
+            }
+        }
+        p:hover{
+            color:white;
+        }
+    }
+
+    .user:hover{
+        cursor: pointer;
+    }
+
+    button{
+        margin: 0 17px;
+        margin-bottom: 15px;
+        padding: 8px;
+        font-family: $body;
+        border-radius: 20px;
+        width: 257px;
+        font-size: 15px;
+        color: white;
+        background-color: $blue;
+        font-weight: 500;
+
+        i{
+            color: white;
+            background: transparent;
+            padding-right: 7px;
+        }
+    }
+
+    button:hover {
+        background-color: $hover-blue;
+    }
+
+   
+}

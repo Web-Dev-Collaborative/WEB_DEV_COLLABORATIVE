@@ -1,0 +1,13 @@
+.app{
+    display: flex;
+    height: 100vh;
+}
+
+.main-app{
+    display: flex;
+    flex-grow: 1;
+}
+
+.side-bar.minimized, .notes-index.minimized{
+    display: none;
+}

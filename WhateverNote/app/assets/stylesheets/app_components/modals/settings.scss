@@ -1,0 +1,160 @@
+.settings{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    width: 300px;
+    position: relative;
+    padding: 20px;
+    font-family: $body;
+    border-radius: 5px;
+    box-shadow: 0 0 10px $darkest-blue;
+
+    .title{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 25px;
+
+        i{
+            padding: 0 5px;
+            color: $border-gray;
+            transition: color 0.125s;
+        }
+
+        i:hover{
+            cursor: pointer;
+            color: $dark-gray;
+        }
+
+        h1{
+            color: $dark-blue;
+            font-size: 18px;
+        }
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+
+        
+        h3{
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: $dark-blue;
+        }
+        
+        .user-icon{
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            
+            img{
+                border: 2px solid $lightest-blue;
+                border-radius: 50%;
+                margin-right: 30px;
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+
+        input{
+            padding: 5px;
+            border: 1px solid $border-gray;
+            border-radius: 4px;
+        }
+
+        input:focus{
+            border-color: $blue;
+        }
+
+        .icons{
+            padding: 5px;
+            border: 1px solid $border-gray;
+            border-radius: 4px;
+            width: 90px;
+            i{
+                background: transparent;
+            }
+            img{
+                padding-left: 15px;
+                border: none;
+                margin: 0;
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        .icons:hover{
+            background: $lightest-blue;
+        }
+        
+        .icon-dropdown{
+            position: absolute;
+            z-index: 3;
+            width: 90px;
+            background: transparent;
+            border: 1px solid $lightest-blue;
+            border-radius: 4px;
+
+            li{
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                padding: 0 5px;
+
+                p{
+                    padding-left: 10px;
+                    background: transparent;
+                }
+                img{
+                    padding-left: 10px;
+                    background: transparent;
+                }
+            }
+
+            li.selected{
+                background-color: $light-blue;
+            }
+
+            li.selected:hover{
+                background-color: $light-blue;
+            }
+
+            li:hover{
+                background-color: $lightest-blue;
+            }
+        }
+    }
+
+    .buttons{
+        text-align: right;
+        padding-top: 20px;
+        border-radius: 0 0 5px 5px;
+        button{
+            padding: 9px 15px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .save{
+            background-color: $blue;
+            color: white;
+        }
+
+        .cancel{
+            border: 1px solid $dark-gray;
+            color: $text-gray;
+        }
+
+        .cancel:hover{
+            color: $dark-gray;
+        }
+
+        .save:hover{
+            background-color: $hover-blue;
+        }
+    }
+}

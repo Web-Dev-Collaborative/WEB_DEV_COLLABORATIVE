@@ -1,0 +1,67 @@
+.side-bar{
+    .actions{
+        background: transparent;
+        li{
+            padding: 7px 0;
+            font-size: 14px;
+            background-color: transparent;
+            color: $gray;
+            font-weight: 600;
+
+            p{
+                padding-left: 50px;
+            }
+
+            i{
+                color: inherit;
+                background: transparent;
+                padding-right: 10px;
+                padding-left: 0px;
+                text-align: center;
+                width: 12px;
+            }
+
+            i:first-of-type{
+                padding-left: 20px;
+            }
+
+            .invisible{
+                visibility: hidden;
+                z-index: -1;
+            }
+        }
+
+        li:hover{
+            background-color: $hover-gray;
+            cursor: pointer;
+        }
+
+        .expanded-sidebar{
+            padding-top: 0;
+            li{
+                padding-left: 35px;
+                font-size: 12px;
+            }
+        }
+        .expanded-sidebar:hover{
+            background-color: inherit;
+            color: inherit;
+            cursor: inherit;
+        }
+
+        .notebooks-sidebar, .tags-sidebar{
+            padding:0;
+            background-color: inherit;
+        }
+
+        .action.selected{
+            background-color: $selected;
+            color: white;
+        }
+
+        .caret{
+            max-width: 10px;
+        }
+    }
+
+}

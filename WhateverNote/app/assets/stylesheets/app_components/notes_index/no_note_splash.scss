@@ -1,0 +1,36 @@
+.notes-index{
+    .no-note-splash{
+        margin: auto;
+        background: transparent;
+        padding: 30px;
+        text-align: center;
+
+        i{
+            margin-left: 35px;
+            margin-bottom: 30px;
+            font-size: 150px;
+            background: inherit;
+            opacity: 0.5;
+        }
+        h1{
+            background: inherit;
+            font-size: 20px;
+        }
+        p {
+            background: inherit;
+            margin-top: 15px;
+            font-family: $body;
+            font-size: 16px;
+            font-weight: 500;
+
+            a{
+                background: inherit;
+                color: $blue;
+            }
+            a:hover{
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+}

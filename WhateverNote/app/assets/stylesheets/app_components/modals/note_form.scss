@@ -1,0 +1,107 @@
+.modal-ele{
+    // border-radius: 5px;
+    .notebook-form{
+        height: 320px;
+        width: 550px;
+        box-sizing: border-box;
+        color: $darkest-blue;
+        border-radius: 5px;
+        box-shadow: 0 0 20px $text-gray;
+        font-family: $body;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        div{
+            border-radius: 5px 5px 0 0;
+        }
+        .title{
+            display: flex;
+            justify-content: space-between;
+            padding: 25px;
+
+            i{
+                padding: 0 5px;
+                color: $border-gray;
+                transition: color 0.125s;
+            }
+
+            i:hover{
+                cursor: pointer;
+                color: $dark-gray;
+            }
+
+            h1{
+                color: inherit;
+                font-size: 18px;
+            }
+        }
+
+        p{
+            font-family: inherit;
+            color: $text-gray;
+            font-size: 14px;
+            padding: 0 25px;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            padding: 0 25px;
+            padding-bottom: 25px;
+            
+            label{
+                font-size: 13px;
+                font-weight: 500;
+                padding-bottom: 5px;
+            }
+            input{
+                font-size: 16px;
+                padding: 10px;
+                border: 1px solid $border-gray;
+                border-radius: 5px;
+                transition: border 0.125s;
+            }
+            input:focus{
+                border: 1px solid $blue;
+            }
+        }
+
+        .buttons{
+            text-align: right;
+            padding: 20px 25px;
+            padding-top: 20px;
+            border-top: 1px solid $border-gray;
+            border-radius: 0 0 5px 5px;
+            button{
+                padding: 9px 15px;
+                font-size: 15px;
+                border-radius: 5px;
+                margin-left: 10px;
+            }
+
+            .continue{
+                background-color: $blue;
+                color: white;
+            }
+
+            .cancel{
+                border: 1px solid $dark-gray;
+                color: $text-gray;
+            }
+
+            .cancel:hover{
+                color: $dark-gray;
+            }
+
+            .continue:hover{
+                background-color: $hover-blue;
+            }
+
+            .continue:disabled{
+                cursor: not-allowed;
+                background-color: $border-gray;
+            }
+        }
+    }
+}

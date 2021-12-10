@@ -1,0 +1,12 @@
+.app-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-family: $body;
+    border-top: 1px solid $light-gray;
+
+    p{
+        color: $gray;
+        font-size: 14px;
+    }
+}
