@@ -1,0 +1,11 @@
+[template]
+  incoming-hooks = ["Contentful - Knowledge base app"]
+
+[template.environment]
+  SPACE_ID_REQUIRED = ""
+  CONTENTFUL_DELIVERY_API_TOKEN_REQUIRED = ""
+  CONTENTFUL_PREVIEW_API_TOKEN_REQUIRED = ""
+
+[build]
+  publish = "public/"
+  command = "npm run build"
