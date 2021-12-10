@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <title>TicTacToe</title>
+</head>
+<body>
+  <section class="main container-fluid">
+    <div class="container-fluid">
+      <div class="row text-center align-items-center text-uppercase mb-5 header">
+        <h1 class="col">Tic Tac Toe</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <form>
+        <h3 class="text-center">Please Enter Your Players' Names</h3>
+        <div class="form-group">
+          <label for="playerOne">Player 1</label>
+          <input type="text" class="form-control" id="playerOne" required>
+        </div>
+        <div class="form-group">
+          <label for="playerTwo">Player 2</label>
+          <input type="text" class="form-control" id="playerTwo" required>
+        </div>
+        <button type="submit" class="btn btn-lg btn-block btn-outline-info">Let's Play!</button>
+      </form>
+    </div>
+
+    <div class="container current-player text-center text-uppercase">
+      <h3>
+        <span class="player-team m-3 p-2">Current Player: X</span>
+        <div class="m-2 p-2 game-over">
+          <span class="game-over-text m-3 mb-5 p-2">Game Over!</span>
+          <button class="btn btn-block btn-outline-info m-2 new-game-button">New Game</button>
+        </div>
+      </h3>
+    </div>
+
+    <div class="container board-container">
+      <div class="row align-items-center">
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="1"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="2"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="3"></div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="4"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="5"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="6"></div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="7"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="8"></div>
+        <div class="col btn btn-outline-success justify-content-center align-items-center box" id="9"></div>
+      </div>
+    </div>
+
+  </section>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+    integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+    crossorigin="anonymous">
+  </script>
+  <script src="js/scripts.js" type="module"></script>
+</body>
+</html>
