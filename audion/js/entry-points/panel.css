@@ -1,0 +1,173 @@
+/**
+ * Copyright 2016 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+*, html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eee;
+  height: 100vh;
+}
+
+.bodyWithupdatesMissingWarning > * {
+  display: none;
+}
+
+.bodyWithupdatesMissingWarning .updatesMissingWarning {
+  display: block;
+}
+
+#dev-tools-panel, #page-size-detector {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+#graph {
+  cursor: move;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+#text-sandbox {
+  font-size: 14px;
+  height: auto;
+  visibility: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: auto;
+  z-index: -4242;
+}
+
+#text-sandbox.audioParamText {
+  font-size: 12px;
+}
+
+.utilityBar {
+  color: #aaa;
+  left: 15px;
+  bottom: 15px;
+  position: absolute;
+}
+
+.utilityBar .button {
+  opacity: 0.8;
+}
+
+.utilityBar .button:hover {
+  opacity: 1;
+}
+
+#lower-left-menu {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+#lower-left-menu img {
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+#resize-to-fit-button {
+  cursor: pointer;
+  opacity: 0.5;
+  height: 35px;
+  transition: opacity 0.3s;
+  width: 35px;
+}
+
+#resize-to-fit-button:hover {
+  opacity: 1;
+}
+
+#text-sandbox {
+  font-size: 14px;
+}
+
+/** Make edges directed. Hide the arrowhead in the reverse direction. */
+.marker-arrowhead[end=source] {
+  display: none;
+}
+
+#loading-screen {
+  background: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#loading-screen.shown {
+  visibility: visible;
+  opacity: 1;
+}
+
+#loading-screen.shown #spinner {
+  border: 10px solid #ccc;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#updates-missing-screen {
+  background: #fff;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 20px;
+}
+
+#updates-missing-screen.shown {
+  display: block;
+}
+
+.highlightedAudioNode rect {
+  stroke: #ffa500;
+  stroke-width: 5px;
+}
