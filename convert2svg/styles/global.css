@@ -1,0 +1,43 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+body {
+    background: #ebeff2;
+    margin: 0;
+    color:rgba(0,0,0,0.7);
+
+    font-family: "Lato", sans-serif;
+    hyphens: manual;
+    letter-spacing: -.02rem;
+    line-height: 1.2;
+}
+
+main {
+    visibility: hidden;
+}
+
+h2 {
+    width: 90%;
+    max-width: 800px;
+    margin-bottom: 10px;
+}
+
+hr {
+    color: #d5d8dc;
+    margin-bottom: 50px;
+}
+
+a {
+    color:#5B6F82;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
