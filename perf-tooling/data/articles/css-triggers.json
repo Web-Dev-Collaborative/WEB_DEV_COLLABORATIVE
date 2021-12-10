@@ -1,0 +1,15 @@
+{
+  "name" : "CSS Triggers",
+  "authors" : [
+    {
+      "name" : "Paul Lewis",
+      "twitter" : "@aerotwist"
+    }
+  ],
+  "date" : "2014-07-26",
+  "stats" : {
+    "length" : 913
+  },
+  "url" : "http://aerotwist.com/blog/css-triggers/",
+  "tags" : ["60fps", "comparison" ]
+}

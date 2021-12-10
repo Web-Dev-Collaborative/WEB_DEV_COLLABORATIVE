@@ -1,0 +1,11 @@
+{
+  "name": "Glue",
+  "cli": {
+    "url" : "https://github.com/jorgebastida/glue"
+  },
+  "grunt": {
+    "url" : "https://github.com/MarcDiethelm/grunt-glue-nu"
+  },
+  "description": "Glue is a simple command line tool to generate CSS sprites",
+  "tags": ["images", "sprite", "css"]
+}

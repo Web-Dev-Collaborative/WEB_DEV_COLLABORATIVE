@@ -1,0 +1,17 @@
+{
+  "name" : "YSlow",
+  "chrome" : {
+    "url" : "https://chrome.google.com/webstore/detail/ninejjcohidippngpapiilnmkgllmakh"
+  },
+  "cli" : {
+    "url" : "http://yslow.org/command-line-har/"
+  },
+  "grunt" : {
+    "url" : "https://github.com/andyshora/grunt-yslow"
+  },
+  "node" : {
+    "url" : "http://yslow.org/command-line-har/"
+  },
+  "description" : "YSlow for Command Line runs on Node.JS and requires a HAR file as input source in order to analyze page performance.",
+  "tags" : [ "metrics", "advise" ]
+}

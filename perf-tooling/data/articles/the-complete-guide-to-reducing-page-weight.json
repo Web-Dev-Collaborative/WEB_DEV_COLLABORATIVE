@@ -1,0 +1,15 @@
+{
+  "name" : "The Complete Guide to Reducing Page Weight",
+  "authors" : [
+    {
+      "name": "Craig Buckler",
+      "twitter" : "@craigbuckler"
+    }
+  ],
+  "date" : "2014-01-14",
+  "stats" : {
+    "length" : 4284
+  },
+  "url" : "http://www.sitepoint.com/complete-guide-reducing-page-weight/",
+  "tags" : [ "pagespeed", "performance", "loading" ]
+}

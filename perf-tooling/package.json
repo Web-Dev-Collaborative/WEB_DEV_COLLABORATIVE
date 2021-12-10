@@ -1,0 +1,67 @@
+{
+  "name": "perf-tooling",
+  "version": "1.0.0",
+  "description": "List of performance related tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefanjudis/perf-tooling.git"
+  },
+  "keywords": [
+    "performance"
+  ],
+  "engines": {
+    "node": "7.3.x"
+  },
+  "author": "stefan judis <stefanjudis@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stefanjudis/perf-tooling/issues"
+  },
+  "scripts": {
+    "thanks": "credits . --reporter markdown > THANKS.md",
+    "test": "gulp test",
+    "gulp": "gulp",
+    "dev": "gulp dev",
+    "server": "nodemon --watch templates/ --watch public --watch app.js --ext tpl,css,js app.js"
+  },
+  "homepage": "http://perf-tooling.today",
+  "dependencies": {
+    "async": "^2.1.4",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "html-minifier": "^3.2.3",
+    "lodash": "^4.17.19",
+    "merge-stream": "^1.0.1",
+    "nodemon": "^1.11.0",
+    "request": "^2.79.0",
+    "twit": "^2.2.5",
+    "vimeo-api": "^1.1.5",
+    "youtube-api": "^2.0.4"
+  },
+  "devDependencies": {
+    "credits-cli": "^3.1.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csslint": "^1.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-json-editor": "^2.2.1",
+    "gulp-jsonlint": "^1.1.2",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-rev": "^7.1.2",
+    "gulp-svgstore": "^6.1.0",
+    "gulp-task-listing": "^1.0.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-webp": "^2.3.0",
+    "imagemin-pngquant": "^5.0.0",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.0.0"
+  }
+}

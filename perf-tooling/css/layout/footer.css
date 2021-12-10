@@ -1,0 +1,36 @@
+.site__footer {
+  border-top: 1px solid var(--border__color);
+  padding: 1rem 0;
+}
+
+.crafted,
+.copyright {
+  text-align: center;
+}
+
+@media (--media-small) {
+
+  .crafted,
+  .copyright {
+    margin: 0;
+  }
+
+}
+
+
+@media (--media-small) {
+
+  .crafted {
+    float: left;
+  }
+
+}
+
+@media (--media-small) {
+
+  .copyright {
+    float: right;
+    padding-top: .2em;
+  }
+
+}

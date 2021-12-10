@@ -1,0 +1,8 @@
+{
+  "name" : "PHP Benchmark",
+  "php" : {
+    "url" : "https://github.com/jacobbednarz/php-bench"
+  },
+  "description" : "This is designed to make benchmarking PHP easy.",
+  "tags" : [ "benchmark" ]
+}

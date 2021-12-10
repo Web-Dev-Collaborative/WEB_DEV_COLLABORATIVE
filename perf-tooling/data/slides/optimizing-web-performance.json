@@ -1,0 +1,15 @@
+{
+  "name" : "Optimizing web performance",
+  "authors" : [
+    {
+      "name" : "Dave Olsen",
+      "twitter" : "@dmolsen"
+    }
+  ],
+  "date" : "2014-10-10",
+  "stats" : {
+    "length" : 67
+  },
+  "tags" : [ "performance", "tooling", "workflow" ],
+  "url" : "http://www.slideshare.net/dmolsenwvu/optimizing-web-performance-fronteers-edition"
+}

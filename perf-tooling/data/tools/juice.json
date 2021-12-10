@@ -1,0 +1,14 @@
+{
+  "name" : "juice",
+  "grunt" : {
+    "url" : "https://github.com/jgallen23/grunt-inline-css"
+  },
+  "gulp" : {
+    "url" : "https://github.com/jonkemp/gulp-inline-css"
+  },
+  "node" : {
+    "url" : "https://github.com/Automattic/juice"
+  },
+  "description" : "Inline your CSS properties into the style attribute in an html file. Useful for emails.",
+  "tags" : [ "css", "inline" ]
+}

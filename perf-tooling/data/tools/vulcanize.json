@@ -1,0 +1,20 @@
+{
+  "name" : "Vulcanize",
+  "broccoli" : {
+    "url" : "https://github.com/mbykovskyy/broccoli-vulcanize"
+  },
+  "cli" : {
+    "url" : "https://github.com/Polymer/vulcanize"
+  },
+  "grunt" : {
+    "url" : "https://github.com/Polymer/grunt-vulcanize"
+  },
+  "gulp" : {
+    "url" : "https://github.com/sindresorhus/gulp-vulcanize"
+  },
+  "node" : {
+    "url" : "https://github.com/Polymer/vulcanize"
+  },
+  "description" : "Concatenate a set of Web Components into one file.",
+  "tags" : [ "concatenation", "web components" ]
+}

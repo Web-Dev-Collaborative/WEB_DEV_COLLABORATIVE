@@ -1,0 +1,15 @@
+{
+  "name" : "CSS performance test: Flexbox v CSS Table – Fight!",
+  "authors" : [
+    {
+      "name" : "Ben Frain",
+      "twitter" : "@benfrain"
+    }
+  ],
+  "date" : "2014-03-26",
+  "stats" : {
+    "length" : 1250
+  },
+  "url" : "http://benfrain.com/css-performance-test-flexbox-v-css-table-fight",
+  "tags" : [ "flexbox", "table", "css" ]
+}

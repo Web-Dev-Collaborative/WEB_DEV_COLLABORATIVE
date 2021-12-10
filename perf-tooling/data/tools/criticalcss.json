@@ -1,0 +1,11 @@
+{
+  "name" : "CriticalCSS",
+  "grunt" : {
+    "url" : "https://github.com/filamentgroup/grunt-criticalcss"
+  },
+  "node" : {
+    "url" : "https://github.com/filamentgroup/criticalcss"
+  },
+  "description" : "Finds the Above the Fold CSS for your page, and outputs it into a file",
+  "tags" : [ "css", "above the fold" ]
+}

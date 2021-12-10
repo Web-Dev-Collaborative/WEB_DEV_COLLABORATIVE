@@ -1,0 +1,11 @@
+{
+  "name" : "CSSconf EU 2014 | Addy Osmani: CSS Performance Tooling",
+  "authors" : [
+    {
+      "name" : "Addy Osmani",
+      "twitter" : "@addyosmani"
+    }
+  ],
+  "youtubeId" : "FEs2jgZBaQA",
+  "tags" : [ "css", "monitoring" ]
+}

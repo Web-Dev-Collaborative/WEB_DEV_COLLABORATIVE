@@ -1,0 +1,15 @@
+{
+  "name" : "CSS sprites vs. data URIs: which is faster on mobile?",
+  "authors" : [
+    {
+      "name" : "Peter McLachlan",
+      "twitter" : "@b1tr0t"
+    }
+  ],
+  "date" : "2013-08-19",
+  "stats" : {
+    "length" : 1258
+  },
+  "url" : "http://www.mobify.com/blog/css-sprites-vs-data-uris-which-is-faster-on-mobile/",
+  "tags" : ["css", "sprites", "data-uri", "mobile"]
+}

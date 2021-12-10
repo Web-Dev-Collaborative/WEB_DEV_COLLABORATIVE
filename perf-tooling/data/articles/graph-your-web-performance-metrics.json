@@ -1,0 +1,15 @@
+{
+  "name" : "Graph your web performance metrics",
+  "authors" : [
+    {
+      "name" : "Peter Hedenskog",
+      "twitter" : "@soulislove"
+    }
+  ],
+  "date" : "2014-12-16",
+  "stats" : {
+    "length" : 491
+  },
+  "url" : "http://calendar.perfplanet.com/2014/graph-your-web-performance-metrics/",
+  "tags" : [ "monitoring" ]
+}

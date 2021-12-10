@@ -1,0 +1,9 @@
+.site__header {
+  border-bottom: 1px solid var(--border__color);
+}
+
+.site__logo {
+  float: left;
+  margin: .75rem 1rem 0 0;
+  max-width: 4rem;
+}
