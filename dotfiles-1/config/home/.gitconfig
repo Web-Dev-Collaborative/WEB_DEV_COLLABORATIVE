@@ -1,0 +1,48 @@
+[user]
+  name = stefan judis
+  email = stefanjudis@gmail.com
+[color]
+  diff = auto
+  stats = auto
+  branch = auto
+  ui = auto
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  player = shortlog -sn
+  d = diff
+  dt = difftool
+  co = commit
+  cp = commit -p
+  ch = checkout
+  s = status
+  ss = select
+  b = branch
+  db = delete-branch
+  a = add
+  sneak = commit --amend --no-edit
+  log-fn = "!f() { git log -L :$1:$2; }; f"
+  pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+  zup = for-each-ref --sort='authordate:iso8601' --format=' %(refname:short) %(color:green)%(authordate:relative) %(color:white)(%(contents:subject))' refs/heads
+[mergetool]
+  keepBackup = true
+[core]
+  editor = vim
+  excludesfile = /Users/stefanjudis/.gitignore_global
+  pager = delta --plus-color="#195019" --minus-color="#601919" --paging=always
+[push]
+  default = current
+[help]
+  autocorrect = 40
+[interactive]
+  diffFilter = delta --plus-color="#195019" --minus-color="#601919" --color-only
+[commit]
+  verbose = true
+[init]
+  defaultBranch = main
+[pull]
+  rebase = false
+[fetch]
+  prune = true
+[delta]
+  side-by-side = true
+
