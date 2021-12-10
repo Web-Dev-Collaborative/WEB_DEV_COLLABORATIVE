@@ -1,0 +1,10 @@
+[build]
+  command = "yarn build"
+  functions = "lambda"
+  publish = "build"
+
+[[redirects]]
+  from = "https://yarn-search-status.netlify.com/*"
+  to = "https://search-status.yarnpkg.com/:splat"
+  status = 301
+  force = true
