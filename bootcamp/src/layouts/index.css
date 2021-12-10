@@ -1,0 +1,205 @@
+@font-face {
+  font-family: "PosterizerKGRough";
+  src: url("https://frontendmasters.github.io/bootcamp/layout/37DE85_0_0.eot");
+  src: url("https://frontendmasters.github.io/bootcamp/layout/37DE85_0_0.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://frontendmasters.github.io/bootcamp/layout/37DE85_0_0.woff2")
+      format("woff2"),
+    url("https://frontendmasters.github.io/bootcamp/layout/37DE85_0_0.woff")
+      format("woff"),
+    url("https://frontendmasters.github.io/bootcamp/layout/37DE85_0_0.ttf")
+      format("truetype");
+}
+
+.transparent {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar {
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .logo {
+  line-height: 100%;
+  padding: 5px 0;
+  margin: 0 15px;
+}
+
+.navbar .logo img {
+  width: 224px;
+}
+
+.navbar h2 {
+  color: #979898;
+  text-transform: none;
+  font-family: "PosterizerKGRough", "Courier New", Courier, monospace;
+  padding: 0;
+  padding-top: 10px;
+  margin: 0;
+  padding-left: 15px;
+}
+
+@media (min-width: 500px) {
+  .navbar-brand {
+    display: flex;
+    align-items: flex-end;
+  }
+  .navbar h2 {
+    padding-left: 0;
+    justify-content: flex-end;
+    display: inline-block;
+  }
+  .navbar .logo {
+    display: inline-block;
+  }
+}
+
+.jumbotron.gradient {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.navbar-brand.navbar-brand {
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-brand.navbar-brand:hover {
+  color: #777;
+}
+
+.navbar-brand.navbar-brand:focus {
+  color: white;
+}
+
+.lesson {
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  padding: 20px 20px 25px;
+  background-color: #fff;
+  overflow: scroll;
+  width: 92%;
+  max-width: 1200px;
+  box-shadow: 0px 10px rgba(36, 40, 39, 0.5);
+}
+
+@media (min-width: 680px) {
+  .lesson {
+    width: 80%;
+    padding: 20px 40px 25px;
+  }
+}
+
+.lesson h1 {
+  color: #923a21;
+  font-size: 52px;
+  font-family: "PosterizerKGRough", "Courier New", Courier, monospace;
+  padding: 20px 12px 6px 0;
+}
+
+.lesson h2 {
+  color: #42352c;
+  font-family: "PosterizerKGRough", "Courier New", Courier, monospace;
+  padding: 10px 0px 0px 0px;
+}
+
+.lesson p {
+  clear: both;
+}
+
+.lesson-links {
+  font-size: 18px;
+  padding: 15px 0;
+}
+
+.next {
+  color: #d74f25;
+  float: right;
+}
+
+.prev {
+  float: left;
+  color: #d74f25;
+}
+
+.lesson-title {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.klipse-result {
+  border: 1px solid #90b4fe;
+  padding-top: 10px;
+  padding-left: 10px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.klipse-result .CodeMirror-wrap {
+  width: 100%;
+  border-color: transparent;
+}
+
+.klipse-result::before {
+  content: "Result";
+  font-weight: bold;
+  background-color: white;
+  position: absolute;
+  top: -13px;
+  height: 13px;
+}
+
+.language-htm,
+.language-css,
+.language-js,
+.language-json {
+  width: 100%;
+}
+
+.gatsby-highlight {
+  /* border: 1px solid black; */
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.CodeMirror-wrap {
+  width: 100%;
+  font-size: 12px;
+  height: inherit;
+  margin-bottom: 12px;
+}
+
+.CodeMirror-gutters {
+  height: inherit !important;
+}
+
+.klipse-snippet > .CodeMirror {
+  border: none;
+  width: 100%;
+}
+
+.gatsby-highlight > .klipse-snippet {
+  border: 1px solid #90b4fe;
+  width: 100%;
+  border-right: none;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.doggos {
+  width: 100%;
+  border: 1px solid #666;
+  border-radius: 5px;
+}
