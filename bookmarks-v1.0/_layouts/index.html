@@ -1,0 +1,430 @@
+<HTML>
+<HEAD>
+<TITLE>ToSearch Home</TITLE>
+<META NAME="description" CONTENT="my bookmark">
+<META name="keywords" Content="journals, assotiations, centres, groups, istitutes, databases, engines, links, research, search, pubmed, unipd, babilon, msn search, arianna, yahoo, lycos, stem cell, zebrafish, padova, padua, lavoro, job, bilardi">
+<META NAME="ROBOTS" CONTENT="ALL" >
+<META NAME="AUTHOR" CONTENT="Alessandra Bilardi" >
+<STYLE TYPE="text/css">
+A:link { font:bold 9px Geneva; color:004090; cursor:default;
+TEXT-DECORATION: none
+}
+A:visited { font:bold 9px Geneva; color:004090; TEXT-DECORATION: none
+}
+A:hover { font:bold 9px Geneva; color:00cc00; font-weight:bold; TEXT-DECORATION: none
+}
+.spanstyle {POSITION: absolute; VISIBILITY: hidden
+}
+</STYLE>
+</HEAD>
+<BODY bgcolor="#E7EAF8" topmargin=4 marginheight="4" leftmargin=4 marginwidth="4">
+<center>
+<table cellpadding=0 cellspacing=0 border=0 width=760>
+<tr><td><p align=left>.</td>
+<td><p align=right>.</td></tr>
+</table>
+<table cellpadding=0 cellspacing=0 border=0 width=760>
+<tr><td valign=bottom><a href=http://www.tosearch.cjb.net><IMG SRC="http://members.xoom.virgilio.it/tosearch/logo.jpg" WIDTH=150 HEIGHT=60 border=0 ALT=Home></a></td><td align="center" width=135><!-- Inizio Codice Shinystat -->
+<script type="text/javascript" language="JavaScript" SRC="http://codice.shinystat.it/cgi-bin/getcod.cgi?USER=tosearch"></script>
+<noscript>
+<A HREF="http://www.shinystat.it/cgi-bin/shinystatv.cgi?USER=tosearch" target="_top">
+<IMG SRC="http://www.shinystat.it/cgi-bin/shinystat.cgi?USER=tosearch&NC=1" BORDER="0"></A>
+</noscript>
+<!-- Fine Codice Shinystat --></td><td align="right">
+<a target=_top href="http://grup.cribi.unipd.it/" target="new1">
+<img align=top src="http://members.xoom.virgilio.it/tosearch/banner.gif" alt="grup" Width = 468 Height = 60 border=0></a>
+</td></tr>
+<tr><td height=3></td></tr>
+<tr align="right">
+<FONT SIZE=2 FACE="geneva" COLOR="#004090"><B>
+<SCRIPT LANGUAGE="Javascript">
+var now = new Date();
+var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+function fourdigits(number)	{
+return (number < 1000) ? number + 1900 : number;
+}
+today = days[now.getDay()] + ", " + date + " " + months[now.getMonth()] + " " + (fourdigits(now.getYear()));
+document.write(today);
+</SCRIPT>
+</B></FONT>
+</tr>
+<tr>
+<table cellpadding=0 cellspacing=1 border=0 width=760 height="24" bgcolor=#E7EAF8>
+<tr bgcolor=#6CA2E6 >
+<td align=center > <a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=PubMed" target="new2" STYLE =" font: bold 9px Geneva">PubMed</a> </td>
+<td align=center > <a href="http://www-fog.bio.unipd.it/library/menu.html" STYLE =" font: bold 9px Geneva" target="new3">Library Vallisneri</a> </td>
+<td align=center > <a href="http://highwire.stanford.edu/" STYLE =" font: bold 9px Geneva" target="new4">Highwire</a> </td>
+<td align=center > <a href="http://www.isinet.com/cgi-bin/jrnlst/jloptions.cgi?PC=master" STYLE =" font: bold 9px Geneva" target="new5">ISInet</a> </td>
+<td align=center > <a href="http://www.unipd.it" STYLE =" font: bold 9px Geneva" target="new6">UniPD</a> </td>
+<td align=center > <a href="http://www.murst.it/pa/ateneie.htm" target="new" STYLE =" font: bold 9px Geneva">Atenei</A> </td>
+<td align=center > <a href="http://www.html.it/" STYLE =" font: bold 9px Geneva" target="new8">Html</a> </td>
+<td align=center > <a href="http://www.xoom.it/" STYLE =" font: bold 9px Geneva" target="new11">Xoom</a> </td>
+<td align=center> <a href="http://luna.cribi.unipd.it" STYLE =" font: bold 9px Geneva" target="new13">Luna</a> </td>
+<td align=center > <a href="http://www.hotmail.com" target="new9" STYLE =" font: bold 9px Geneva">Hotmail</a> </td>
+<td align=center > <a href="http://www.libero.it" STYLE =" font: bold 9px Geneva" target="new10">Libero</a> </td>
+<td align=center > <a href="http://www.vodafoneomnitel.it/" STYLE =" font: bold 9px Geneva" target="new12">Vodafone Omnitel</a> </td>
+<td align=center > <a href="http://grup.cribi.unipd.it/~bilardi/dottorato/mine.html" STYLE =" font: bold 9px Geneva" target="new12">Mine</a> </td>
+<td align=center > <a href="http://members.xoom.virgilio.it/tosearch/info.html" STYLE =" font: bold 9px Geneva" target="new14">Info</a> </td >
+</td></tr>
+</table >
+<tr><td colspan=1 height=3></td></tr>
+</table>
+</tr>
+<tr>
+<script language="JavaScript">
+<!--
+function clearform(which){
+if (which.value=="search by word")
+which.value='';
+}
+function searchValid() {
+if (document.mainForm.search.value == "" || document.mainForm.search.value == "search by word") {
+alert ("Please enter a word in the search box");
+return false;
+}
+else {
+document.mainForm.sort.value = "";
+return true;
+}
+}
+// the online information functions
+function online_info() {
+var str_url = "http://online.babylon.com/combo/index.html?word="+document.onlineForm.word.value+"&lang="+document.onlineForm.lang[document.onlineForm.lang.selectedIndex].value;
+window.open (str_url, "online", "scrollbars=no,status=no,width=380,height=200,top=215,left=33");
+return false;
+}
+function doNothing() {}
+//-->
+</script>
+<table cellpadding=0 cellspacing=0 border=0 width=760 bgcolor=#E7EAF8 >
+<tr bgcolor="6CA2E6"><td > </td>
+<td STYLE="font:bold 9px Geneva"><a href="http://online.babylon.com/combo/index.html" target="Bab" STYLE="font:bold 9px Geneva">Babylon:</a></td>
+<td width="236" align="right" >
+<form name="onlineForm" onsubmit="javascript:return online_info();" action="">
+<input class="fitsize4" type="text" name="word" size="8" onFocus="javascript:this.select();">
+<select name="lang" class="onlineinput">
+<option value="">All languages</option>
+<option value="15">Arabic</option>
+<option value="9">Chinese (T)</option>
+<option value="10">Chinese (S)</option>
+<option value="4">Dutch</option>
+<option value="0">English</option>
+<option value="1">French</option>
+<option value="6">German</option>
+<option value="11">Greek</option>
+<option value="14">Hebrew</option>
+<option value="2">Italian</option>
+<option value="8">Japanese</option>
+<option value="12">Korean</option>
+<option value="5">Portuguese</option>
+<option value="7">Russian</option>
+<option value="3">Spanish</option>
+<option value="13">Turkish</option>
+</select>
+<input type="image" src="http://a1709.g.akamai.net/7/1709/2537/v0001/www.babylon.com/imgs/gonav.gif" align="absmiddle" alt="information @ a click" width="25" height="24" border="0"></td>
+<td> </td>
+<td align="center" > <a href="http://search.msn.com/" STYLE="font:bold 9px Geneva" target="new14">MSN Search</a> </td>
+<td align="center" > <a href="http://www.google.com" STYLE="font:bold 9px Geneva" target="new15">Google</a> </td>
+<td align="center" > <a href="http://arianna.libero.it" STYLE="font:bold 9px Geneva" target="new16">Arianna</a> </td>
+<td align="center" > <a href="http://www.virgilio.it/home/index.html" STYLE="font:bold 9px Geneva" target="new16">Virgilio</a> </td>
+<td align="center" > <a href=" http://search.yahoo.com/search/options" STYLE="font:bold 9px Geneva" target="new17">Yahoo</a> </td>
+<td align="center" > <a href="http://search.lycos.com/adv.asp" STYLE="font:bold 9px Geneva" target="new18">Lycos</a> </td>
+</tr>
+<tr><td colspan=12 height=3 ></form></td></tr>
+</table>
+</tr>
+<tr>
+<TABLE width=760 bgcolor="6CA2E6" cellSpacing=1 cellPadding=0 border=0>
+<TR HEIGHT="1" bgcolor=#6CA2E6 class=px></TR>
+<TD width=150 valign=top>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0 >
+<TR STYLE="font:bold 11px Geneva; color:E7EAF8, align:center">Links Utility</TR>
+</TABLE>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://cronos.cribi.unipd.it" target="new">CRONOS</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7 >
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://members.xoom.virgilio.it/tosearch/database.html" target="STUDY">DATABASES</A>, <a href="http://members.xoom.virgilio.it/tosearch/alphabet.html" target="STUDY">TOOLS</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.ebi.ac.uk/" target="new">EBI</A>, <a href="http://www.cbrc.jp/research/db/TFSEARCH.html" target="new">TFSEARCH</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.bio.unipd.it/Links/BioTools/index.html" target="home">MOL BIOLOGY</A>, <a href="http://telethon.bio.unipd.it/research_links.html" target="new">GENETICS</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.keydna.com/oligoCalc" target="new">OLIGOCALC</a> </TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7 >
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.cab.unipd.it" target="new">SBA</A>, <a href="http://ensemble.unipd.it:8590/" alt="un:cbiolog pw:dandi1" target="new" >SPIRS</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0 >
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.bio.unipd.it/~argenton/zebraindex.html" target="home">ZEBRAFISH FACILITY</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+</TABLE>
+</TD>
+<TD width=150 valign=top>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR STYLE="font:bold 11px Geneva; color:E7EAF8, align:center">Stem Cell</TR>
+</TABLE>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR bgcolor=#E7EAF8>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://escr.nih.gov/" target="nihstemcell">NIH HESCR</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CED5F8>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://stemcells.alphamedpress.org/" target="new">STEM CELL</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E7EAF8>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.nih.gov/news/stemcell/index.htm" target="new">STEM CELL INFO, NIH</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CED5F8>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.stemcellfunding.com/" target="new">STEM CELL FUNDING</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E7EAF8>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.stemcellresearch.org/news/index.html" target="new">STEM CELL NEWS</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CED5F8>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.stemcellresearch.org/stemcellreport/index.html" target="new">STEM CELL REPORT</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E7EAF8>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.stemcellresearch.org/" target="new">STEM CELL RESEARCH</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+</TABLE>
+</TD>
+<TD width=150 valign=top>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR STYLE="font:bold 11px Geneva; color:E7EAF8, align:center">Some Journals</TR>
+</TABLE>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://arjournals.annualreviews.org/biomedicalhome.dtl" target="new">ANNUAL REVIEW</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://members.xoom.virgilio.it/tosearch/bookmark.html" target="new">TOOLS</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://bioinformatics.oupjournals.org/" target="new">BIOINFORMATICS</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://genomebiology.com/home" target="new">GENOME BIOLOGY</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.genome.org/" target="new">GENOME RESEARCH</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.nature.com/ng/" target="new">NATURE GEN.</A>, <a href="http://www.nature.com/nrg/" target="new">NRG</A>, <a href="http://www.nature.com/nrm/" target="new">NRM</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://nar.oupjournals.org/" target="new">NUCLEIC ACIDS RESEARCH</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+</TABLE>
+</TD>
+<TD width=150 valign=top>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR STYLE="font:bold 11px Geneva; color:E7EAF8, align:center">Other Links</TR>
+</TABLE>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR bgcolor=#E7EAF8>
+<TD width=8 class=tab> </TD>
+<TD >
+<a href="http://members.xoom.virgilio.it/tosearch/daily.html" target="STUDY">DAILY</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CED5F8>
+<TD width=8 class=tab> </TD>
+<TD >
+<a href="http://www.concorsi.it/" target="UDY">CONCORSI.IT</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor="#E7EAF8">
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.gazzettaufficiale.it/" target="UDY">G.U.</A>, <a href="http://www.regione.veneto.it/Temi+Istituzionali/Bollettino+Ufficiale/concorsi/" target="new33">B.U.R.</A>, <a href="http://www.poliziadistato.it/pds/cittadino/concorsi/tecnici.htm" target="UDY">P.S.</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+</TR>
+<TR bgcolor="#CED5F8">
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.infoimprese.it/" target="new34">INFOIMPRESE.IT</A>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E7EAF8>
+<TD width=8 class=tab> </TD>
+<TD >
+<a href="http://www.regione.veneto.it/" target="new34">REGIONE.VENETO.IT</A>
+<TD width=8 class=tab> </TD>
+</TR>
+</TR>
+<TR bgcolor="#CED5F8">
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://147.162.100.187/stage/remedia/sito/stage/default.htm" target="new4">STAGES</A>, <a href="http://147.162.100.187/stage/remedia/sito/sportello/default.htm" target="new2">JOB</A>
+</TD>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E7EAF8>
+<TD width=8 class=tab> </TD>
+<TD >
+<a href="http://147.162.100.187/concorsi/tecnici_ammi/nondocenti.htm" STYLE =" font: bold 9px Geneva" target="new7">TECHNICIAN</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+</TABLE>
+</TD>
+<TD width=150 valign=top>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR STYLE="font:bold 11px Geneva; color:E7EAF8, align:center">Free Time</TR>
+</TABLE>
+<TABLE width=150 cellspacing=0 cellpadding=0 border=0>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.aladinoannunci.com/" target="new11">ALADINO</a>, <a href="http://www.nuovoboom.com/" target="new8">IL BOOM</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.geocities.com/saintseiya02it2000/forza.htm" target="new">ALL4WON</a>, <a href="http://w3.chess.net/play/play.html" target="new">CHESS</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://dmail.libero.it/" target="new">DMAIL</a>, <a href="http://www.lottoitalia.com/" target="new">LOTTO</a>, <a href="http://www.tuoweb.net/" target="new">WEB</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://encarta.msn.com" target="new">ENCARTA</a>, <a href="http://parole.virgilio.it/parole/" target="new">DICTIONARIES</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://mappe.vaionline.it/" target="new">MAPS1</a>, <a href="http://www.maporama.com/share/" target="new">MAPS2</a>, <a href="http://mappoint.msn.com/" target="new">MAPS3</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#E8F7F7>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.risateonline.it/" target="new">RISATE ONLINE</a>, <a href="http://marina.fortunecity.com/pontoon/222/link.html" target="new">VARIES</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+<TR bgcolor=#CFE7E0>
+<TD width=8 class=tab> </TD>
+<TD>
+<a href="http://www.trasportinavigazione.it/Allegati/scioperi.asp" target="new">SCIOPERI</A>, <a href="http://www.trenitalia.com/" target="new">TRENITALIA</a>
+</TD>
+<TD width=8 class=tab> </TD>
+</TR>
+</TABLE>
+</TD>
+</table>
+</tr>
+</table>
+<table cellpadding=0 cellspacing=0 border=0 width=760>
+<tr><td><p align=left>.</td>
+<td><p align=right>.</td></tr>
+</table>
+</body>
+</HTML>
