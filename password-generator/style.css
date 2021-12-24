@@ -1,0 +1,54 @@
+/* Background Image */
+html, body {
+    background-image: url("images/blueandblack.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container\mt-5\mb-5 {
+    float: center;
+    background-color: lightgray;
+}
+
+/* Navbar */
+.custom-border {
+    border-bottom: 3px solid black;
+}
+
+.custom-background {
+    background-color: black;
+    padding: 10px;
+}
+
+h2 {
+    border-bottom: 1px solid lightgray;
+}
+
+.section {
+    background-color: lightskyblue;
+    width: 50px;
+}
+
+hr {
+    color: 3px solid black;
+}
+
+
+.col-xs-12\col-sm-12 {
+    margin: auto;
+}
+
+.btn {
+    text-align: center;
+    float: center;
+}
+
+/* Footer styling */
+.text-white {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.custom-footerborder {
+    border-top: 3px solid black;
+}

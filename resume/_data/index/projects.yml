@@ -1,0 +1,14 @@
+- name: codedojo
+  descr: "Coderdojo is a global volunteer-led community of free programming workshops for young people between 7 and 17. It was born 23 July 2011. I start with a local community since 2016. I am a mentor (teacher) or a guardian (assistant) depending on the needs. We organize small half-day events where the guys are the protagonists!"
+  image: https://en.wikipedia.org/wiki/File:CoderDojo_Original_Roundel_with_Long_Form_Logotype.svg
+  website: https://coderdojo.com/
+  local: projects/non-profit
+
+- name: pandle
+  descr: "Playing AND LEarning is the best method to enrich your knowledge: do you do it often? And everyone has this possibility? Now it is a repository of teaching materials. Tomorrow it could become a non-profit association with a different focus of Coderdojo."
+  website: http://www.pandle.net/
+  local: projects/non-profit
+
+- name: move my site from VM to IaaS
+  descr: "Why do I have to keep a VM and/or some services for a simple blog or a static web page? Why do I have to reinvent the wheel when there are a lot of good provider that they do it for me? So what is the better provider for me? Well, I can manage all with GitHub, I can forecast a GitLab backup (or another provider) and when I can not manage with a Jekyll theme, I can deploy something on a cloud provider."
+  local: projects/my-website

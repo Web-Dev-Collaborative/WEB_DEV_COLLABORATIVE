@@ -1,0 +1,71 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name: Pixartprinting
+  link: https://www.pixartprinting.it/
+  date: Mar 2016 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+  job: Data & Automation Specialist
+  rating-bar:
+    - rating: 4
+      total: 4
+      icon-fill: fa-graduation-cap
+      icon-empty: fa-thumbs-o-up
+    - rating: 3
+      total: 3
+      icon-fill: fa-smile-o
+      icon-empty: fa-thumbs-o-up
+
+- name: Pixartprinting
+  link: https://www.pixartprinting.it/
+  date: Oct 2013 - Feb 2016
+  job: Dev Leader
+  rating-bar:
+    - rating: 1
+      total: 1
+      icon-fill: fa-graduation-cap
+      icon-empty: fa-thumbs-o-up
+    - rating: 2
+      total: 2
+      icon-fill: fa-smile-o
+      icon-empty: fa-thumbs-o-up
+
+- name: Pixartprinting
+  link: https://www.pixartprinting.it/
+  date: Jan 2013 - Sep 2013
+  job: Web developer
+  rating-bar:
+    - rating: 1
+      total: 1
+      icon-fill: fa-graduation-cap
+      icon-empty: fa-thumbs-o-up
+    - rating: 2
+      total: 2
+      icon-fill: fa-smile-o
+      icon-empty: fa-thumbs-o-up
+
+- name: Horizon Group
+  link: http://www.horizongroup.it/
+  date: Feb 2010 - Dec 2012
+  job: IT Manager
+  rating-bar:
+    - rating: 4
+      total: 4
+      icon-fill: fa-graduation-cap
+      icon-empty: fa-thumbs-o-up
+    - rating: 1
+      total: 1
+      icon-fill: fa-smile-o
+      icon-empty: fa-thumbs-o-up
+
+- name: University of Padua
+  link: http://www.cribi.unipd.it/
+  date: Jul 2002 - Jan 2010
+  job: Biologist
+  rating-bar:
+    - rating: 5
+      total: 5
+      icon-fill: fa-graduation-cap
+      icon-empty: fa-thumbs-o-up
+    - rating: 5
+      total: 5
+      icon-fill: fa-smile-o
+      icon-empty: fa-thumbs-o-up

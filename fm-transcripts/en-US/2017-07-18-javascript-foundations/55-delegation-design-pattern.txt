@@ -1,0 +1,62 @@
+[00:00:00]
+>> Kyle Simpson: One last point to make about delegation, we'll wrap up and do our final exercise. Delegation is not just a simpler style of code. It's not just what I claim is a simpler mentor model. It's actually a very different way of designing software. It's a different design pattern.
+
+[00:00:19]
+If functional programming is a design pattern, if class-oriented coding is a design pattern, delegation is a third style of designing software. It doesn't get a lot of attention, cuz we've been using this system of prototypes to do classes, instead of been using it for what it's really good at, which is delegation.
+
+[00:00:40]
+So I wanna point out that to begin to change your brain about how you design software using this system, you have have to move away from the thought process of parent and child, and instead embrace objects that are peers of each other. You have to think about peer-to-peer instead of parent-to-child, and I wanna give you a scenario to demonstrate that.
+
+[00:01:03]
+Imagine I have a login page in my application, and I have two different controllers. I have the AuthController, which handles communicating with the server. And I have the LoginFormController, which handles dealing with the web page, dealing with the input form, and the buttons, and the display of error messages, and all of that.
+
+[00:01:22]
+Now, I've only partially implemented these, so obviously, there's missing functionality. But what I wanna point out is what's going on on line 13 and 14. I make the LoginFormController, it's a real concrete object. I make it delegate to the AuthController object. It's not that that's its parent, it's just they're two peers of each other, and then, this is how I let them work together.
+
+[00:01:47]
+On line 16, I grab the username from the form, and I set it into a property on my LoginFormController object. So I say this.username = and this.password =. And then look at line 18. I call this .authenticate. I'm calling a method that does not exist on LoginFormController. Where does it exist?
+
+[00:02:16]
+Line 2, under AuthController. So I am intentionally delegating to a different object. Now, authenticate, when it runs, what's the very first thing it does on line 4? It references this.username and this.password. But wait a minute, AuthController doesn't have a username and password property, does it?
+>> Kyle Simpson: But what does the this keyword point at?
+
+[00:02:46]
+
+>> Kyle Simpson: Where's the call site?
+>> Speaker 2: LoginFormController.
+>> Kyle Simpson: The call site is line 18, which is gonna be the LoginFormController. So when we are running line 4, we're actually running in the context of the LoginFormController. And we're able to implicitly get the username and password property, that context has been shared with that method.
+
+[00:03:08]
+And here's where it really starts to get interesting. The callback that I use for server.authenticate, I make it the handleResponse on my this object. But wait a minute, AuthController doesn't have a handleResponse method. Who has the handleResponse method?
+>> Kyle Simpson: LoginFormController has handleResponse, okay? Sorry, I called it handleResponse, and I meant displayError, that's a mistake.
+
+[00:03:38]
+Sorry about that. Yeah, okay, so I'm binding the handleResponse to call displayError. Do you see that?
+>> Kyle Simpson: So what's really happening is that my LoginFormController object and my AuthController object are independent objects. But during the call context, they virtually compose themselves into one context. And one of them can share properties, and the other one can share methods.
+
+[00:04:16]
+And then when the call is done, they go back to being independent.
+>> Kyle Simpson: That's the real power of delegation. It's what I call virtual composition.
+>> Kyle Simpson: That at the call site, we decide to mix these two objects together. You might be wondering, why would this be beneficial? This is a different way of thinking than I've done it before, I haven't needed it, why would I need it here?
+
+[00:04:48]
+One of many benefits that I could point out, in addition to all the questions that we might ask about simplicity of code and all that other stuff. But one of the more concrete benefits to delegation, is that now, LoginFormController and AuthController are more easily testable. For example, If I wanted to test LoginFormController, all I need to do is make LoginFormController delegate to a mock AuthController object.
+
+[00:05:20]
+I just make a fake AuthController, a mock, and I delegate to it, and now I can fully test LoginFormController. If I wanna test AuthController, all I need to do is make a mock LoginFormController that delegates to it. These two pieces stay independent, which makes them easier to independently test.
+
+[00:05:41]
+And they only sit together at the call site time through virtual composition.
+>> Kyle Simpson: Try independently testing two modules that are hard coded to each other. Try independently testing two classes, which one is instantiating the other, or one is inheriting from the other, and you'll find out the testing pieces like that gets a lot harder.
+
+[00:06:04]
+These pieces are much easier to test, because they are independent.
+>> Kyle Simpson: It has been claimed, and this is not unique to me, I'm simply repeating it. It has been claimed that if you compare a class-oriented system to a delegation-oriented system, that the delegation-oriented system is actually more powerful than a class-oriented system.
+
+[00:06:36]
+And the reason for that claim is this. You can implement classes or fake classes with a delegation system, but you cannot implement delegation with a class system.
+>> Kyle Simpson: We've proven that, haven't we? Haven't we implemented classes on top of JavaScript's delegation system? But you can't do the reverse.
+
+[00:06:59]
+You can't go into something like Java and implement this graceful style of dynamic context sharing of delegation. [COUGH]
+

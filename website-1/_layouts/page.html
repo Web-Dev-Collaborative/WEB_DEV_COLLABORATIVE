@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+{% include vars.html %}
+
+<div class="hero">
+  <div class="container">
+    <h1 class="hero-text display-4">{{i18n[page.id]}}</h1>
+
+    {% if layout.hero_subtext %}
+      {% include {{ layout.hero_subtext }} %}
+    {% elsif page.hero_subtext %}
+      {% include {{ page.hero_subtext }} %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="container">
+  {{content}}
+</div>

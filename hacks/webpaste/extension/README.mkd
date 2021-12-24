@@ -1,0 +1,10 @@
+# webpaste
+
+Maybe it should be webpipe? I think that's taken though.
+
+## TODO
+* Site match rules for snippets
+    * Keyboard shortcut for first rule that matches?
+* Proper error handling (maybe)
+* Multiple server/token profiles?
+    * E.g. local + vps

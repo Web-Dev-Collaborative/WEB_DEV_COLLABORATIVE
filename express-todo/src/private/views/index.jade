@@ -1,0 +1,31 @@
+extends layout
+block content
+    .container(data-ng-controller="ToDoController")
+        .well(class="hidden-xs")
+            form(role="form", name="form")
+                .form-group
+                    .row
+                        .col-xs-12
+                            input#btnSubmit.btn.btn-primary.pull-right(type="submit", name="save", value="Save", data-ng-click="save()", data-ng-show="form.$valid")   
+                .form-group
+                    .row
+                        .col-md-12
+                            input.form-control(type="text", placeholder="Enter what to do", required, data-ng-model="newItemText", data-ng-focus="onFocus(true)", data-ng-blur="onFocus(false)")    
+                    .row(data-ng-show="isRowShowing")
+                        .col-md-12
+                            .btn-group
+                                button.btn(data-ng-repeat="priority in priorities.map")
+                                    i.fa.fa-certificate.dropdown-icon(data-ng-class="priorities.foreground($index)")
+                            input.btn.pull-right(type="submit") Save
+                                        
+
+                    
+        .row.todo-lists
+            .col-xs-6.todo-list(data-ng-repeat="priority in priorities.map", data-ng-click="")
+                a.thumbnail.tile.tile-full(data-ng-class="priorities.background($index)", data-ng-href="#{{priority.short}}")
+                    h2 {{priorities.description($index)}}
+
+        .row
+            .col-xs-12(data-ng-click="")
+                a.thumbnail.tile.tile-full.tile-purple(data-ng-href="#today")
+                    h2 Must accomplish today

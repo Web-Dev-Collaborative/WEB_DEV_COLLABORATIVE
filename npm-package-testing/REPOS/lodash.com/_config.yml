@@ -1,0 +1,110 @@
+repository: lodash/lodash.com
+
+release:
+  &release 4.17.15
+
+releases:
+  - *release
+  - 3.10.1
+  - 2.4.2
+
+brand_color: "#3492ff"
+description: A JavaScript utility library delivering consistency, modularity, performance, & extras.
+
+css:
+  all:
+    - /assets/css/main.css
+
+js:
+  all:
+    - /assets/js/boot.js
+
+  docs:
+    - /assets/js/docs.js
+
+  home:
+    - /assets/js/home.js
+
+links:
+  build_differences:
+    https://github.com/lodash/lodash/wiki/Build-Differences
+
+  docs_v1:
+    https://github.com/lodash/lodash/blob/1.3.1/doc/README.md
+
+  org:
+    https://github.com/orgs/lodash
+
+  raw:
+    https://raw.githubusercontent.com/lodash/lodash
+
+  repo:
+    https://github.com/lodash/lodash
+
+sass:
+  sass_dir:
+    assets/css
+
+builds:
+  *release:
+    href: https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js
+    integrity: sha384-9STIK/s/5av47VsUK9w+PMhEpgZTkKW+wvmRSjU+Lx9DSrl5RdjHeOLhyNhuoYtY
+
+  3.10.1:
+    href: https://cdn.jsdelivr.net/lodash/3.10.1/lodash.min.js
+    integrity: sha384-0BrUT26SU4JPtbvE/hI6oj4mbEXE32qhRoD51rUTB+QFrg6ViIceJR8op6FmEIA1
+
+  2.4.2:
+    href: https://cdn.jsdelivr.net/npm/lodash@2.4.2/dist/lodash.min.js
+    integrity: sha384-i14qZ6FYmJXQABb+YG5tH4NXjKOLznxsr5jFsNiJNRcQ77978BoUif762EQyydgt
+
+font-face:
+  fontawesome:
+    regular:
+      - https://cdn.jsdelivr.net/fontawesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0
+      - https://cdn.jsdelivr.net/fontawesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+
+  sourcecodepro:
+    light:
+      - https://fonts.gstatic.com/s/sourcecodepro/v6/leqv3v-yTsJNC7nFznSMqSP2LEk6lMzYsRqr3dHFImA.woff2
+    semi-bold:
+      - https://fonts.gstatic.com/s/sourcecodepro/v6/leqv3v-yTsJNC7nFznSMqczFoXZ-Kj537nB_-9jJhlA.woff2
+
+vendor:
+  css:
+    - href: https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css
+      integrity: sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN
+
+  js:
+    - href: https://embed.runkit.com/
+      async: true
+
+    - href: https://cdn.jsdelivr.net/g/fuse@2.6.1,react@15.4.0(react.min.js+react-dom.min.js
+      integrity: sha384-txLSiuN1HJSO1or/mE1Y6bvgD0cV3WA6Ss7rs9WqvPQ3zthR8w/DzHpB+DVTDAMz
+
+carbon_ads:
+  href: https://cdn.carbonads.com/carbon.js?serve=CKYIEK37&placement=lodashcom
+  id: _carbonads_js
+
+google_analytics:
+  href: https://www.google-analytics.com/analytics.js
+  commands: [['create', 'UA-ACCOUNT-ID', 'auto'], ['require', 'linkid'], ['send', 'pageview']]
+  accounts:
+    lodash.com: 'UA-6065217-64'
+    lodash.dev: 'UA-134340230-1'
+
+exclude:
+  - node_modules
+  - Gemfile
+  - gulpfile.js
+  - icons.js
+  - LICENSE
+  - package.json
+  - "*.lock"
+  - "*.log"
+  - "*.md"
+  - "*.toml"
+
+include:
+  - _headers
+  - _redirects

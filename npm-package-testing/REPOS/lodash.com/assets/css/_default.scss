@@ -1,0 +1,252 @@
+html {
+  background-color: $background;
+  box-sizing: border-box;
+  color: $defaultColor;
+  // Set font-size to 10px so any rem manipulation operates
+  // as base 10 (e.g. 2.4rem is 24px).
+  font-size: 10px;
+  height: 100%;
+}
+
+html, body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $fontFamily;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  min-height: 100%;
+  overflow: auto;
+}
+
+a {
+  border-bottom: 1px solid $linkUnderline;
+  color: $linkColor;
+  padding-bottom: 3px;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom-color: darken($linkUnderline, 20%);
+    color: darken($linkColor, 20%);
+    cursor: pointer;
+  }
+}
+
+a.btn {
+  background-color: $btnBg;
+  border: none;
+  border-radius: 5px;
+  color: $linkColor;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 1.7rem 2.5rem;
+  white-space: nowrap;
+
+  & + & {
+    margin-left: 1rem;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darken($btnBg, 7.5%);
+    color: darken($btnColor, 7.5%);
+  }
+
+  &.primary {
+    background-color: $btnPrimaryBg;
+    color: $btnPrimaryColor;
+
+    &:hover,
+    &:focus {
+      background-color: darken($btnPrimaryBg, 10%);
+    }
+  }
+}
+
+h1, h2, h3, h4 {
+  color: $defaultColor;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.6rem;
+  margin-top: 3.2rem;
+}
+
+ul, ol, p {
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+footer {
+  font-size: 1.2rem;
+  padding-bottom: 3.2rem;
+  text-align: center;
+
+  p {
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+  }
+
+  .fa-heart {
+    color: #e12e2e;
+  }
+}
+
+header {
+  background-color: $foreground;
+  box-shadow: 0 0 2.25rem $shadow;
+  flex-shrink: 0;
+  padding: 0.8rem 0;
+  position: relative;
+  z-index: 2;
+
+  .container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .header-group {
+    flex-shrink: 3;
+
+    h1, h2 {
+      margin: 0;
+      vertical-align: middle;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+
+  .header-section {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    margin: 0.8rem 1.6rem;
+  }
+
+  .header-section.logo-section {
+    flex: 3 1 auto;
+    justify-content: flex-start;
+  }
+
+  .header-section.mobile-menu {
+    justify-content: flex-end;
+  }
+
+  .logo {
+    border-right: 2px solid $defaultLiteColor;
+    box-sizing: content-box;
+    flex-shrink: 1;
+    height: 80px;
+    margin-right: 1.6rem;
+    padding: 0 1.6rem 0 0;
+    width: 80px;
+
+    a {
+      background: url(/assets/img/lodash.svg) no-repeat;
+      background-size: contain;
+      border: none;
+      display: block;
+      height: 100%;
+      padding: 0;
+      text-indent: -1000px;
+      width: 100%;
+    }
+  }
+}
+
+pre, code {
+  font-family: Consolas, "Source Code Pro", "Courier New";
+}
+
+section {
+  padding: 0 4rem;
+
+  &:not(:first-of-type) {
+    margin-top: 1.6rem;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 1.6rem;
+  }
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    padding-left: 1.6rem;
+  }
+
+  li + li {
+    padding-top: 1rem;
+  }
+}
+
+ul.chevron li {
+
+  &:before {
+    content: "\203A";
+    margin-left: -1.2rem;
+    padding-right: 0.8rem;
+  }
+
+  .highlight {
+    text-indent: 0;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $screen-lg-max;
+}
+
+.container.main {
+  background-color: $foreground;
+  box-shadow: 0 4px 2.4rem -0.4rem $shadow;
+  margin-bottom: 3.2rem;
+  margin-top: 3.2rem;
+  overflow: hidden;
+  padding-bottom: 3.2rem;
+  position: relative;
+}
+
+.highlight {
+  background-color: $codeBg;
+  color: $codeColor;
+  margin: 0 -999rem;
+  overflow-x: auto;
+  padding: 3.2rem 999rem;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+
+  pre {
+    margin: 0;
+    overflow-x: auto;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.rwd-line {
+  display: block;
+}

@@ -1,0 +1,8 @@
+stackbitVersion: ~0.3.0
+pagesDir: src/sections
+models:
+  section:
+    type: page
+    label: Section
+    match: '*'
+    fields: []

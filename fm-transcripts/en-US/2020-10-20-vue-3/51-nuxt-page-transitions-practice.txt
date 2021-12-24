@@ -1,0 +1,3 @@
+[00:00:00]
+>> So, exercise time in use Nuxt and create two pages or use setup to in the repo and set up a page transition, any page transition that you want, play around and get creative. And if you get that done quickly, make another page and a page transition that's unique to that page.
+

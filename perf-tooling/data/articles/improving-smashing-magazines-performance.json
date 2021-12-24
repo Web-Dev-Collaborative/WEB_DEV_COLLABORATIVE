@@ -1,0 +1,15 @@
+{
+  "name" : "Improving Smashing Magazine’s Performance: A Case Study",
+  "authors" : [
+    {
+      "name" : "Vitaly Friedman",
+      "twitter" : "@smashingmag"
+    }
+  ],
+  "date" : "2014-09-08",
+  "stats" : {
+    "length" : 8451
+  },
+  "url" : "http://www.smashingmagazine.com/2014/09/08/improving-smashing-magazine-performance-case-study/",
+  "tags" : [ "webfonts", "javascript", "css" ]
+}

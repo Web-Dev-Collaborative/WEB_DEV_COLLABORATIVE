@@ -1,0 +1,79 @@
+[00:00:00]
+>> Brian Holt: Let's go to landing now. Yep, we're gonna go landing.
+>> Brian Holt: What we're gonna do here is we're going to import a function called connect from react-redux
+>> Brian Holt: Now what we're gonna do is we're going to write this function called mapStateToProps, mapStateToProps. It's gonna take in state. And it's going to return an object.
+
+[00:00:45]
+Now something that people get kind of confused with here is if you have a one minor object that you wanna return like, let's say it was just searchTerm: state.searchTerm
+>> Brian Holt: This is technically not valid JavaScript despite the fact that it really, really looks like it should be valid JavaScript.
+
+[00:01:11]
+Well, what do curly braces mean in this particular case? It means the beginning of a function body, right? It doesn't mean an object. So it's expecting me to put stuff in here like console out log, whatever, or I don't know, stuff like that. Really common mistake to make with es6 error functions, and it's just because curly braces mean more than one thing, right?
+
+[00:01:36]
+And then in this particular case they mean function bodies. So, if we wrap this in parentheses, with the letter I, just kiddin, that's a joke. [LAUGH] [COUGH] If you wrap it with parentheses, then you're letting it know, no, I actually mean to return an object literal here, right?
+
+[00:02:02]
+
+>> Brian Holt: Does that make sense why I put parentheses around it and why they're there? What this function does is it takes the whole state of redux, right, that's what this state is, and it pulls out just the thing that this component cares about. You don´t wanna be passing around the state of redux willy nilly, that´s a bad idea, promise.
+
+[00:02:22]
+This is gonna pull out just the things that you need, and it´s going to inject them as a prop into your component. The way that it does that connecting is with, as you may have guessed, the connect function. So I wanna say connect (mapStateToProps)(Landing) like that.
+>> Brian Holt: It's kind of a weird notation but I will show you why it's in that notation in just a second.
+
+[00:02:53]
+But basically you call connect with mapStateToProps, which returns a function, right? Just this bit right here is a function, that when called the something else is going to connect that component. So we could potentially re-use it multiple times, you won't, [LAUGH] but you could, right? So, that's why there's two function calls here.
+
+[00:03:14]
+The first bit is going to be, what you're gonna use to pull out state and the second bit is that gonna be the component. That make sense?
+>> Brian Holt: So let me show you why that is actually the way it is.
+>> Brian Holt: How many of you have heard of decorators?
+
+[00:03:33]
+
+>> Brian Holt: Super cool, they're one of my things I'm most excited about upcoming in JavaScript. If you write a lot of Python inevitably you end up writing a lot of decorators, right? There´s a lot of other languages that have these really cool language features called decorators. So what we could do here if we could use decorators, which we can´t, but what you would do is it would look like this.
+
+[00:04:03]
+
+>> Brian Holt: You would say up here above Landing, we'd have to convert this to a class, so pretend just for a second that I had converted this to a class, I would say class Landing extends React.Components or Component, whatever, I don't care, Component, and there is a bunch of useful stuff in here, right?
+
+[00:04:29]
+Okay, can we all pretend momentarily, cuz I don't wanna have to rewrite it just to go back? So if this was an es6 class, we could put @connect (mapStateToProps) like that, and then suddenly, rather then doing this kind of awkward looking thing down here, this landing would just automatically be connected to it.
+
+[00:04:51]
+So basically, this is going to get passed in, which is going to return a function which is going to run on the result of the landing class. This is called a decorator, right? This is gonna be stage two or stage three proposal for JavaScript. So it's most likely gonna make it cuz everyone is pretty excited about it, me included.
+
+[00:05:16]
+I'm really excited for the day I can use this. You can actually do this right now with the transform, the issue is that Flow doesn´t understand decorators yet. So we´re not gonna do it today, but you´ll see lots of people out there using decorators this way. So I wanted to make you aware that you may see it and it´s also something to be excited about, in my opinion, but for today we're just gonna stick with the normal way of calling connect.
+
+[00:05:39]
+So that's why I wanted to say that connect has this weird way of looking, right, where it looks like this, connect (mapStateToProps ).
+>> Brian Holt: Because they did it like this, that's how a decorator works anyway. So they didn't have to make two functions, right? They didn't have to make a connect decorator and a connect function, they were able to just reuse both of those.
+
+[00:06:09]
+
+>> Brian Holt: Any questions about that? This is kind of an aside, but it's something I'm excited about so I wanted to share.
+>> Speaker 2: Just whatever function follows, or whatever constructor class follows?
+>> Brian Holt: So the @connect is going to return a function that's going to be called on the class.
+
+[00:06:26]
+
+>> Speaker 2: Whatever is next, cuz you didn't explicitly say like [CROSSTALK]
+>> Brian Holt: Right, you don't explicitly, it's called on your behalf right, the connect function is going to be called by the language. Right, I had @connect mapStateToProps right, but they're gonna be decorators like @auth, right? That's just gonna look like that, and it doesn't necessarily have to return a function, well wait, let me rephrase that.
+
+[00:06:51]
+It doesn't have to be a function that you call that returns a function, right? It could just be a function.
+>> Speaker 2: So is that [COUGH] almost like constructors and destructors in C++ or something like that, where you've got a class object and there's something that's called either during instantiation or when it exits?
+
+[00:07:10]
+
+>> Brian Holt: Okay, so yeah, I kinda see what you're saying.
+>> Brian Holt: I´m gonna say no comment on it, cuz I don´t actually know enough exactly what connection you´re gonna make with that. But I will say that, it´s just providing additional functionality in a declarative fashion, right. So if I had something like this where it was calling @auth, it would basically mean something like you can't construct this unless it's authorized, right?
+
+[00:07:38]
+So you're just kind of declaring like this must be auth, right? And then you can just kinda go about your way of doing that, right? [COUGH] And this is gonna work both on whole classes like I showed you here and also on individual methods. So that's probably where you can have a route on your router and then you just say @auth and it's like the user can't call this method, unless they're authorized, right?
+
+[00:08:02]
+So it's kind of declaring in that particular sense, does that make sense? Cool.
+>> Brian Holt: Okay, so that's enough about decorators. They're super exciting but not yet, they're not yet exciting.
+

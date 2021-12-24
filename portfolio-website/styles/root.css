@@ -1,0 +1,97 @@
+:root {
+
+  --accent-colour: #ff3d77;
+  --accent-colour-heading:hsl(342, 100%, 97%);
+  --accent-colour-faded: #ff3d7744;
+  --accent-colour-faded-lighter: #ff3d77aa;
+  --accent-colour-btn: hsla(342, 80%, 60%, 0.6);
+  --accent-colour-btn-hover: hsla(342, 40%, 95%, 0.9);
+  --nav-height: 80px;
+  --project-container-w: 960px;
+  --project-padding: 20px;
+  transition: all 0.5s ease;
+
+  --theme-bg-colour-150: #000;
+  --theme-bg-colour-150-red: #330000;
+  --theme-bg-colour-140: #111;
+  --theme-bg-colour-130: #222;
+  --theme-bg-colour-120: #333;
+  --theme-bg-colour-110: #444;
+  --theme-bg-colour-100: #555;
+  --theme-bg-colour-90: #666;
+  --theme-bg-colour-80: #777;
+  --theme-bg-colour-70: #888;
+  --theme-bg-colour-60: #999;
+  --theme-bg-colour-50: #aaa;
+  --theme-bg-colour-40: #bbb;
+  --theme-bg-colour-30: #ccc;
+  --theme-bg-colour-20: #ddd;
+  --theme-bg-colour-10: #eee;
+  --theme-bg-colour-0: #fff;
+
+  --theme-text-colour-150: #fff;
+  --theme-text-colour-140: #f9f9f9;
+  --theme-text-colour-130: #f0f0f0;
+  --theme-text-colour-120: #eee;
+  --theme-text-colour-110: #e9e9e9;
+  --theme-text-colour-100: #e0e0e0;
+  --theme-text-colour-90: #ddd;
+  --theme-text-colour-80: #d9d9d9;
+  --theme-text-colour-70: #d0d0d0;
+  --theme-text-colour-60: #ccc;
+  --theme-text-colour-50: #c9c9c9;
+  --theme-text-colour-40: #c0c0c0;
+  --theme-text-colour-30: #bbb;
+  --theme-text-colour-20: #b9b9b9;
+  --theme-text-colour-10: #b0b0b0;
+  --theme-text-colour-0: #aaa;
+  --scrollbar-offset: 3px;
+  --scrolltrack-height: 14px;
+  --colour-bg: var(--theme-bg-colour-140);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  background-color: var(--theme-bg-colour-150);
+  color: var(--theme-text-colour-100);
+  line-height: 1.75;
+  touch-action: manipulation;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--theme-bg-colour-110);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--accent-colour);
+}
+
+/* project-scroller */
+
+.project-scroller::-webkit-scrollbar {
+  background-color: var(--accent-colour-faded-lighter);
+  -webkit-box-shadow: inset var(--colour-bg) 0 0 0 var(--scrollbar-offset);
+  box-shadow: inset var(--colour-bg) 0 0 0 var(--scrollbar-offset);
+  height: var(--scrolltrack-height);
+}
+
+.project-scroller::-webkit-scrollbar-thumb {
+  background-color: var(--accent-colour);
+  border-left: var(--scrollbar-offset) solid var(--colour-bg);
+  border-right: var(--scrollbar-offset) solid var(--colour-bg);
+  min-width: 100px;
+  max-width: 200px;
+}

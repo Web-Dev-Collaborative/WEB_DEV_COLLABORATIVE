@@ -1,0 +1,25 @@
+{
+  "name": "extract-media",
+  "version": "1.1.0",
+  "description": "A command line utility to extract media from .key and .docx files",
+  "bin": {
+    "extract-media": "./extract-media"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanjudis/extract-media.git"
+  },
+  "keywords": [],
+  "author": "stefan judis <stefanjudis@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stefanjudis/extract-media/issues"
+  },
+  "homepage": "https://github.com/stefanjudis/extract-media#readme",
+  "devDependencies": {
+    "ava": "^3.13.0"
+  }
+}

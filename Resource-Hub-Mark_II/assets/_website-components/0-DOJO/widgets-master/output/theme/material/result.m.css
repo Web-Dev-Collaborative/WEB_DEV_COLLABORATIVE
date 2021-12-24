@@ -1,0 +1,180 @@
+@font-face {
+	font-family: Material Icons;
+	font-style: normal;
+	font-weight: 400;
+	src: local('Material Icons'), local('MaterialIcons-Regular'),
+		url(fonts/3-h-59eA.woff2) format('woff2'), url(fonts/2eT-IHtp.woff) format('woff'),
+		url(fonts/3yZww5P1.ttf) format('truetype');
+}
+.icon-m__icon__3ceJx {
+	font-family: Material Icons !important;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 24px;
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-feature-settings: 'liga';
+	font-feature-settings: 'liga';
+}
+.icon-m__clockIcon__inyIP:before {
+	content: 'alarm';
+}
+.icon-m__downIcon__3ZvmU:before {
+	content: 'expand_more';
+}
+.icon-m__leftIcon__D-qeb:before {
+	content: 'chevron_left';
+}
+.icon-m__rightIcon__1MIBe:before {
+	content: 'chevron_right';
+}
+.icon-m__closeIcon__Y5dl_:before {
+	content: 'close';
+}
+.icon-m__plusIcon__2Ntr-:before {
+	content: 'add';
+}
+.icon-m__minusIcon__2lEJ0:before {
+	content: 'remove';
+}
+.icon-m__checkIcon__1dwRn:before {
+	content: 'done';
+}
+.icon-m__upIcon__3FPLu:before {
+	content: 'expand_less';
+}
+.icon-m__upAltIcon__3Pq_5:before {
+	content: 'arrow_drop_up';
+}
+.icon-m__downAltIcon__LQ460:before {
+	content: 'arrow_drop_down';
+}
+.icon-m__searchIcon__Zpct1:before {
+	content: 'search';
+}
+.icon-m__barsIcon__jJt__:before {
+	content: 'menu';
+}
+.icon-m__settingsIcon__3RMKZ:before {
+	content: 'settings';
+}
+.icon-m__alertIcon__1TQBs:before {
+	content: 'error';
+}
+.icon-m__helpIcon__2zybh:before {
+	content: 'help';
+}
+.icon-m__infoIcon__1aFxP:before {
+	content: 'info';
+}
+.icon-m__cancelIcon__1R9z7:before {
+	content: 'highlight_off';
+}
+.icon-m__checkedBoxIcon__1adB1:before {
+	content: 'check_circle';
+}
+.icon-m__phoneIcon__2R9Pj:before {
+	content: 'phone';
+}
+.icon-m__editIcon__3piR6:before {
+	content: 'edit';
+}
+.icon-m__dateIcon__3HlZY:before {
+	content: 'today';
+}
+.icon-m__linkIcon__rvms1:before {
+	content: 'link';
+}
+.icon-m__locationIcon__HFbfK:before {
+	content: 'location_on';
+}
+.icon-m__secureIcon__1DQQb:before {
+	content: 'lock';
+}
+.icon-m__mailIcon__L5l2z:before {
+	content: 'email';
+}
+.icon-m__eyeIcon__2tY9U:before {
+	content: 'visibility';
+}
+.icon-m__eyeSlashIcon__2_XYh:before {
+	content: 'visibility_off';
+}
+.icon-m__starIcon__3CmNS:before {
+	content: 'star';
+}
+.result-m__root__2TO5- {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	font-family: var(--mdc-theme-font-family);
+}
+.result-m__statusIcon__3L5Tn {
+	height: calc(var(--mdc-theme-grid-base) * 9);
+	width: calc(var(--mdc-theme-grid-base) * 9);
+}
+.result-m__iconIcon__1yuak,
+.result-m__statusIcon__3L5Tn {
+	font-size: calc(var(--mdc-theme-grid-base) * 9);
+}
+.result-m__actions__WjyTz {
+	-webkit-box-orient: horizontal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	margin: var(--mdc-theme-grid-base);
+}
+.result-m__actions__WjyTz,
+.result-m__content__23VJp {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-direction: normal;
+}
+.result-m__content__23VJp {
+	-webkit-box-orient: vertical;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.result-m__contentWrapper__30orC,
+.result-m__titleWrapper__7NR7f {
+	margin: var(--mdc-theme-grid-base);
+	color: var(--mdc-text-color);
+}
+.result-m__titleWrapper__7NR7f {
+	text-align: center;
+}
+.result-m__subtitle__AcsUP {
+	font-size: var(--mdc-theme-font-size-small);
+	font-weight: 700;
+	margin: 0;
+	color: var(--mdc-secondary-text-color);
+}
+.result-m__alert__3g0vr {
+	color: var(--mdc-theme-alert);
+}
+.result-m__error__1GTtU {
+	color: var(--mdc-theme-error);
+}
+.result-m__info__2zpLB {
+	color: var(--mdc-theme-info);
+}
+.result-m__success__2aWlz {
+	color: var(--mdc-theme-success);
+}
+/*# sourceMappingURL=result.m.css.map*/

@@ -1,0 +1,8 @@
+{
+  "name" : "tiny png",
+  "service" : {
+    "url" : "https://tinypng.com/"
+  },
+  "description" : "Shrink PNG files - Advanced lossy compression for PNG images that preserves full alpha transparency.",
+  "tags" : [ "images", "compression" ]
+}

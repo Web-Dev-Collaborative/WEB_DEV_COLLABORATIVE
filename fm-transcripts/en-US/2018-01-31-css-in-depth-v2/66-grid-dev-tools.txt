@@ -1,0 +1,9 @@
+[00:00:00]
+>> Estelle: I would like to just add one feature to the grids that we talked about earlier. I did not show you the debugging tools. So right now, I am in Firefox and hopefully I can make the debugger bigger. I cannot, usually you go in here and you just make it bigger and that's making the page bigger.
+
+[00:00:27]
+And in the Firefox developer tools, if you actually pick the element where the grid is, which is our ordered list. And you go down here to where you say, display grid. There's this icon right here and you can click it and it'll show you the grid lines. So Firefox actually has some pretty neat, debugging tools.
+
+[00:00:57]
+And there's features like dragging and stuff like that which I didn't want to go in to. But I just wanted to show you that in the debugging tools there's actually ways of looking at your grid and playing around with it, so that's it for grids.
+

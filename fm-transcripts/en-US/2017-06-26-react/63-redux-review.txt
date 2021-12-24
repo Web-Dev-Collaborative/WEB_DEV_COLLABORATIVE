@@ -1,0 +1,57 @@
+[00:00:00]
+>> Brian Holt: So let's move beyond what happens after we get done with the UI. So a handleSearchTermChange gets called cuz an event happened, right? I typed black in here, right?
+>> Brian Holt: So I get events.target.value this is gonna be black. I'm going to create a new action based on what happened in the action creator, right?
+
+[00:00:18]
+So it's going to be action type, set search term, action.payload is going to be black, right? And this is going to be dispatched to Redux. So let's go to reducers.js, okay? The root reducer is now going to be called with the existing state, right? So the default state is gonna be something here, right?
+
+[00:00:45]
+And the action which, the one that we just created, right? It's gonna be action_type, setSearchTerm, and action_payload black, okay? It's gonna say, okay, I'm gonna go into this switch statement, based on the action_type, and it's gonna say what is the action type here? Is it setSearchTerm? Yes it is setSearchTerm so it's going to return the result of setSearchTerm the reducer with state and action right?
+
+[00:01:15]
+So state here is still the same state, it's the initial state of the redux store and action is going to be that same action that we created in the action creator, right? Type setSearchTerm, and payload black, right? It's then going to call object.assign, with a new object, the old state.
+
+[00:01:36]
+So if there was, for example other stuff here, right?
+>> Brian Holt: It's not gonna overwrite that, it's only going to overwrite search term, right? That's why you have to be careful not to blow away the rest of your state. And then it's going to overwrite only search term with whatever is in action.payload, so in this particular case it's gonna be black cuz that's what these are typed.
+
+[00:02:00]
+So something is going to become black, right? We're going to return this, which then gets returned here, which then gets returned back to redux. And whatever the result of this set search term here is going to be the new state of redux, right? That's going to inform react is like her, I had a change, right?
+
+[00:02:22]
+And then React is gonna say cool I'm gonna re-render and then that's how we end up back at a [INAUDIBLE] state right? Like now Redux has a new state, and then the UI is going to re-render based on the site of the Redux.
+>> Brian Holt: That's it [LAUGH]. So like I told you, we used to have a pretty tight loop, and we extended this loop quite a bit to get redux into the application.
+
+[00:02:52]
+
+>> Brian Holt: So let's see that in action, it's not gonna be super-exciting upfront and then I'll push a branch right after this. So, there was nothing in here right now, but now I can type into it. Hopefully, we're not seeing any errors.
+>> Brian Holt: Yep.
+>> Brian Holt: So let's just prove it to you really quick.
+
+[00:03:16]
+Let's go into landing.jsx, instead of saying this, we're gonna say, props.searchTerm. So now if you refresh, nothing should be there up front. But as soon I start typing into it, it's gonna be reading that props from redux.
+>> Brian Holt: All right, what questions do you have here? I mean, the question you might ask is, why?
+
+[00:03:41]
+[LAUGH] Why would you do this to yourself? That's a very good question, of why would you do this to yourself?
+>> Speaker 2: [LAUGH]
+>> Brian Holt: As you can see here, this adds a lot of complexity and there is multiple more steps that we need to get through. We used to be able to see everything in one file, like the whole loop used to be tightly wound into one file and now we spread across like five files.
+
+[00:04:01]
+It's still very predictable, right? What I showed you this long loop that we through, it's the same every time. And being able to predict how your state is gonna influence your app is very valuable. So it´s not horrible, it´s just longer. And when you´re dealing with states spread across multiple different parts, right?
+
+[00:04:21]
+The only thing you have to do, as you see here with landing.
+>> Brian Holt: See I just subscribe to the state right here. So if I have the another part of the application who cares about search term just as much as signing does, it just has to subscribe to the store and it's magically available.
+
+[00:04:40]
+So that's powerful, that's really cool and that's really the big payoff here is that only the components that care about the piece of state have to subscribe and none of the parents have to care about it. That's what's powerful about Redux.
+>> Brian Holt: So any questions, or should we keep going?
+
+[00:05:02]
+
+>> Brian Holt: Usually people are like, no, I hate you, Redux, I don't care, I'm never gonna use you. And I really try not to sell it short, but I also want you to be aware of what you're getting yourself into. Because a lot of people just are like well if I'm gonna use React, I guess I have to use Redux.
+
+[00:05:18]
+That is not true, definitely not true.
+

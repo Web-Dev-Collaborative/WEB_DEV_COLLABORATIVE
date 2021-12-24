@@ -1,0 +1,32 @@
+[00:00:00]
+>> Will Sentance: Let's have thumbs at this point. We're gonna go back to the challenges in a second and then we're gonna have closing thoughts after that. Everybody's thumbs out, man. Clarification, let's get into challenges, everyone's thumbs out let's see it. Katie has a clarifying?
+>> Katie: No
+>> Will Sentance: No, Katie is clear.
+
+[00:00:17]
+Yeah people might, so that's a good question from Justin there, I'm sorry, Julian. Do we in the end actually say, user2 and user1's prototype is user? I really don't like that vagueness. Because it's definitely not, it's user.prototype. That's the prototype of user1 and user2. It's this object here, not this object.
+
+[00:00:38]
+It's the sub-object, the one attached on the property prototype. So I prefer you said user1 and user2's prototype is user.prototype, which is this object here, I prefer that. I also love instead, if you're gonna say that, at least clarify and say that is to say, the reference made in the _proto_reference on user1, is to the object user.prototype.
+
+[00:01:06]
+I much prefer that more intuitive way. Victor says, what about the class keywords define a class? Is there any difference? Victor, I hope we answered your question. In terms of performance, I encourage using it, Victor. In terms of performance with this sort of stuff, we're doing under the hood, similar things.
+
+[00:01:26]
+All right, Julian, how should we do if we want to attach a proto to an already declared function? Is there an accepted way to do that? Attach a new proto is not best practice. So Julian's question is, hold on, what if I wanna set a whole new guy here as the proto to all of these objects.
+
+[00:01:50]
+That's not best practice. We can do it by using a built in method setPrototypeOf. But typically it's apparently very poor performance. Under the hood, a whole bunch of things have to be re-optimized to make that successful. We can do it, but what we tend to do instead is it better to create a whole new object, and have set a new prototype for it.
+
+[00:02:15]
+But we can reset our prototype if we wanted to. But not best practice, Lindsey.
+>> Lindsey: What if you wanna add a new method later, would you use-
+>> Will Sentance: Do we have access to there? Can we do it?
+>> Lindsey: We just do it the old way, like user.prototype?
+>> Will Sentance: Yeah, we can do it either way, absolutely, yeah.
+
+[00:02:29]
+
+>> Lindsey: Okay.
+>> Will Sentance: Absolutely
+

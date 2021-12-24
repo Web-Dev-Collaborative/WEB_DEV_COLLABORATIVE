@@ -1,0 +1,23 @@
+<% unless flash[:alert].blank? %>
+  <div class="crayons-notice--danger registration__error-notice">
+    <% if flash[:alert].is_a?(Array) %>
+      Something went wrong:
+      <ul>
+        <% flash[:alert].each do |error| %>
+          <li>
+            <%= error %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <strong>
+        <%= flash[:alert] %>
+      </strong>
+      <br>
+    <% end %>
+    <% if any_enabled_auth_providers? %>
+      If you haven't created an account, we recommend signing up with social authentication below.
+    <% end %>
+      Contact <%= email_link %> if you continue having trouble.
+  </div>
+<% end %>

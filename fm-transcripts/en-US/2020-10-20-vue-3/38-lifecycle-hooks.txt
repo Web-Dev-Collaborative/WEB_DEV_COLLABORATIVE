@@ -1,0 +1,42 @@
+[00:00:00]
+>> Let's talk about lifecycle hooks. We talked about components and how they're mounted and they're unmounted. And we even used a lifecycle hook before, but what does that really mean? We have a bunch of different things available to us. And if you're coming from a React background, you'll be like, I know about this, it's very similar.
+
+[00:00:18]
+We have all of these hooks where we're observing that whether or not that component has been mounted or unmounted. So we have before we've created the component, created beforeMount, mounted, I kind of made the little notes here. These are my opinions. Created is a great place to call APIs.
+
+[00:00:38]
+Mounted is great place to work on DOM operations. So let's say you're doing something with d3 or you're loading an animation library. If you're accessing something inside of that DOM, it needs to be in the mounted hook, because otherwise it will error cuz it doesn't exist yet. Whereas, well, for APIs it doesn't really matter if the DOM has fully loaded or anything.
+
+[00:01:04]
+You can call the API in advance of that. In fact, you probably should because then you can kind of get going quicker. Activated and deactivated, are things that are only available to you when you're using keep-alive. You noticed how we had this kind of moment with that keep-alive where we started activating and unactivating a component that otherwise would have been unmounted.
+
+[00:01:28]
+So there's actually a hook for that as well. BeforeUnmount, unmounted, what I really like about the lifecycle methods in Vue is they're really legible. I know exactly what each one of these means as I read it. If you're familiar with Vue 2, these two have changed. So it used to be beforeDestroyed and destroyed.
+
+[00:01:50]
+Now it's beforeUnmount, unmounted, which I really like because it's like beforeMount, mounted, beforeUnmount, unmounted. There's more symmetry, it's a little bit easier. So we also got renderTracked and renderTriggered. And this is new in Vue 3 as well. And it's really good for debugging, and I'll show you what I mean.
+
+[00:02:11]
+So if we look at this lifecycle of this child when we check the console, we're hiding and showing child, we're like beforeCreate, created, beforeMount, mounted, beforeUnmounted, mounted, and then we have these renderTriggered and renderTracked. You now know what trigger and track is because we did that whole section about Vue's reactivity system and what trigger and track means in Vue's reactivity system.
+
+[00:02:43]
+So you actually know exactly what we're plugging into here and what these kind of keys and targets are. So that's part of the reason why I was showing you that if you really need to do finite debugging, you know what states those are in. So if we look at this code pen, really, I'm just console logging things in this pen.
+
+[00:03:04]
+So I'm hooking into, This app, I'm saying is showing as false, I'm toggling between those states. And then we've got this child component that has beforeCreate, created, beforeMount, mounted. One thing you'll notice is when we used methods and computed in watchers, we use them in an object like this with a method inside, so like, get thing or whatever.
+
+[00:03:37]
+With these, you're really just using them as functions. They're not inside another lifecycle hook object or something like that. We're using them as functions. I also, if you need to execute a lot of logic, what I would say is you should create a method and call it from these hooks.
+
+[00:03:58]
+It makes it a little bit more legible when somebody is maintaining the code and they're kind of going through each one of those. And here we've got the renderTracked, renderTriggered, and it's JSON stringifying all of these things. Lifecycle hooks also auto-bind to the instance so that you can use the component's state and methods.
+
+[00:04:19]
+So you don't have to console log what this refers to. You can say this dot counter and you know exactly what that is, which is really nice. And for that reason, if you do call a method, remember to say this dot method name of whatever you're doing. For this reason though, you shouldn't use an error function on a lifecycle method.
+
+[00:04:35]
+It will return the parent instead of giving you a nice binding out of the box. So same thing that we encountered with methods. If you wanna see a really nice diagram, we just redid this whole diagram. And when I say we, I didn't actually do this one. So it was probably Ben Hong, I think, who redid this.
+
+[00:04:54]
+And we have all of these in and it shows beforeCreate, created, and this kind of flow chart that shows you when all of these things were made. So that's a really useful diagram. He did a great job with it.
+

@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/pagination","root":"pagination-m__root__1F8zE","linksWrapper":"pagination-m__linksWrapper__2ltdK","prev":"pagination-m__prev__LzfoT","next":"pagination-m__next__2_19u","icon":"pagination-m__icon__1_UJj","label":"pagination-m__label__3nM50","link":"pagination-m__link__2mp1S","currentPage":"pagination-m__currentPage__1iXcd"};

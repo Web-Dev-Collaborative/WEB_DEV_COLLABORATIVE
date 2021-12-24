@@ -1,0 +1,4660 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://web-dev-resource-hub.netlify.app/ -->
+<html
+	class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"
+	lang="en-US">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<link href="https://gmpg.org/xfn/11" rel="profile">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Bim – Architecture Consultancy WordPress Theme</title>
+		<style id="rocket-critical-css">
+			
+			.logo1{
+				height:130%;
+				width:130%;
+			}
+			.wpcf7 form .wpcf7-response-output {
+				margin: 2em 0.5em 1em;
+				padding: 0.2em 1em;
+				border: 2px solid #00a0d2
+			}
+
+			.wpcf7 form.init .wpcf7-response-output {
+				display: none
+			}
+
+			.header-search-icon a.search {
+				font-size: 16px;
+				position: relative
+			}
+
+			.header-search-icon a i {
+				color: #eee
+			}
+
+			.header-search-icon .close-black-block a i {
+				color: #ffffff
+			}
+
+			.header-search-icon .close-black-block a i.fa-times {
+				color: #ffffff
+			}
+
+			.header-search-icon .close-black-block a:after {
+				display: none
+			}
+
+			.header-search-icon .searchform input[type=search] {
+				font-style: italic;
+				font-size: 16px;
+				height: 56px
+			}
+
+			.header-search-icon .searchform .searchsubmit {
+				background: transparent
+			}
+
+			.header-search-icon .searchform::after {
+				background: #ce9e51;
+				color: #ffffff !important;
+				right: 0;
+				height: 56px;
+				line-height: 56px;
+				width: 56px;
+				font-size: 2rem
+			}
+
+			.header-offcanvas-icon a.offcanvas {
+				font-size: 16px;
+				position: relative
+			}
+
+			.header-offcanvas-icon a i {
+				color: #eee
+			}
+
+			.side-panel {
+				position: fixed;
+				z-index: 10000;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				width: 100%;
+				max-width: 360px;
+				height: 100vh;
+				overflow: hidden;
+				overflow-y: auto;
+				background: #fff;
+				-webkit-transform: translateX(-webkit-calc(100% + 80px));
+				-moz-transform: translateX(-moz-calc(100% + 80px));
+				-ms-transform: translateX(calc(100% + 80px));
+				-o-transform: translateX(calc(100% + 80px));
+				transform: translateX(calc(100% + 80px))
+			}
+
+			.side-panel .close-black-block-offcanvas {
+				position: absolute;
+				color: #fff;
+				font-size: 15px;
+				display: block;
+				font-weight: normal;
+				line-height: 1;
+				border-radius: 50% 50% 50% 50%;
+				padding: 4px 7px 5px 7px;
+				border: 1px solid #ccc;
+				z-index: 10;
+				background-color: #fff;
+				top: 15px;
+				right: 15px
+			}
+
+			html {
+				font-family: sans-serif;
+				-webkit-text-size-adjust: 100%;
+				-ms-text-size-adjust: 100%
+			}
+
+			body {
+				margin: 0 font-size:10px !important;
+			}
+
+			figure,
+			nav,
+			section {
+				display: block
+			}
+
+			a {
+				background-color: transparent
+			}
+
+			strong {
+				font-weight: 700
+			}
+
+			img {
+				border: 0
+			}
+
+			figure {
+				margin: 1em 40px
+			}
+
+			input {
+				margin: 0;
+				font: inherit;
+				color: inherit
+			}
+
+			input[type=submit] {
+				-webkit-appearance: button
+			}
+
+			input::-moz-focus-inner {
+				padding: 0;
+				border: 0
+			}
+
+			input {
+				line-height: normal
+			}
+
+			input[type=search] {
+				-webkit-box-sizing: content-box;
+				-moz-box-sizing: content-box;
+				box-sizing: content-box;
+				-webkit-appearance: textfield
+			}
+
+			input[type=search]::-webkit-search-cancel-button,
+			input[type=search]::-webkit-search-decoration {
+				-webkit-appearance: none
+			}
+
+			* {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box
+			}
+
+			:after,
+			:before {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box
+			}
+
+			html {
+				font-size: 10px
+			}
+
+			body {
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				line-height: 1.42857143;
+				color: #333;
+				background-color: #fff
+			}
+
+			input {
+				font-family: inherit;
+				font-size: inherit;
+				line-height: inherit
+			}
+
+			a {
+				color: #337ab7;
+				text-decoration: none
+			}
+
+			figure {
+				margin: 0
+			}
+
+			img {
+				vertical-align: middle
+			}
+
+			h2,
+			h3 {
+				font-family: inherit;
+				font-weight: 500;
+				line-height: 1.1;
+				color: inherit
+			}
+
+			h2,
+			h3 {
+				margin-top: 20px;
+				margin-bottom: 10px
+			}
+
+			h2 {
+				font-size: 30px
+			}
+
+			h3 {
+				font-size: 24px
+			}
+
+			p {
+				margin: 0 0 10px
+			}
+
+			ul {
+				margin-top: 0;
+				margin-bottom: 10px
+			}
+
+			ul ul {
+				margin-bottom: 0
+			}
+
+			.container {
+				padding-right: 15px;
+				padding-left: 15px;
+				margin-right: auto;
+				margin-left: auto
+			}
+
+			@media (min-width:768px) {
+				.container {
+					width: 750px
+				}
+			}
+
+			@media (min-width:992px) {
+				.container {
+					width: 970px
+				}
+			}
+
+			@media (min-width:1200px) {
+				.container {
+					width: 1170px
+				}
+			}
+
+			input[type=search] {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box
+			}
+
+			input[type=search] {
+				-webkit-appearance: none
+			}
+
+			.clearfix:after,
+			.clearfix:before,
+			.container:after,
+			.container:before {
+				display: table;
+				content: " "
+			}
+
+			.clearfix:after,
+			.container:after {
+				clear: both
+			}
+
+			@-ms-viewport {
+				width: device-width
+			}
+
+			@media (max-width:767px) {
+				.hidden-xs {
+					display: none !important
+				}
+			}
+
+			@media (min-width:768px) and (max-width:991px) {
+				.hidden-sm {
+					display: none !important
+				}
+			}
+
+			@media (min-width:992px) and (max-width:1199px) {
+				.hidden-md {
+					display: none !important
+				}
+			}
+
+			@media (min-width:1200px) {
+				.hidden-lg {
+					display: none !important
+				}
+			}
+
+			@keyframes pulse {
+				from {
+					transform: scale3d(1, 1, 1)
+				}
+
+				50% {
+					transform: scale3d(1.05, 1.05, 1.05)
+				}
+
+				to {
+					transform: scale3d(1, 1, 1)
+				}
+			}
+
+			.hamburger {
+				display: block;
+				width: 20px;
+				position: relative;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				padding: 26px 0;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				-ms-touch-action: manipulation;
+				touch-action: manipulation;
+				-index: 10000
+			}
+
+			.hamburger__icon {
+				position: relative;
+				margin-top: 7px;
+				margin-bottom: 7px
+			}
+
+			.hamburger__icon,
+			.hamburger__icon:before,
+			.hamburger__icon:after {
+				display: block;
+				width: 20px;
+				height: 2px;
+				background-color: #333
+			}
+
+			.hamburger__icon:before,
+			.hamburger__icon:after {
+				position: absolute;
+				content: ""
+			}
+
+			.hamburger__icon:before {
+				top: -7px
+			}
+
+			.hamburger__icon:after {
+				top: 7px
+			}
+
+			.fat-nav {
+				top: 0;
+				left: 0;
+				z-index: 9999;
+				position: fixed;
+				display: none;
+				width: 100%;
+				height: 100%;
+				background: #fff;
+				-moz-transform: scale(1.4);
+				-ms-transform: scale(1.4);
+				-webkit-transform: scale(1.4);
+				transform: scale(1.4);
+				overflow-y: auto;
+				overflow-x: hidden;
+				-webkit-overflow-scrolling: touch
+			}
+
+			.fat-nav__wrapper {
+				width: 100%;
+				height: 100%;
+				display: table;
+				table-layout: fixed;
+				z-index: 333;
+				padding: 70px 15px 20px 15px
+			}
+
+			.fat-nav ul {
+				margin: 0;
+				padding: 0 0 0 15px
+			}
+
+			.fat-nav .sub-menu {
+				display: none
+			}
+
+			.fat-nav .menu-item-has-children {
+				position: relative
+			}
+
+			.fat-nav ul.mob-nav {
+				padding: 40px 0 20px 0
+			}
+
+			.fat-nav li {
+				list-style-type: none;
+				text-align: left;
+				font-size: 13px
+			}
+
+			.fat-nav li a {
+				display: block;
+				padding: 10px 0;
+				color: #777
+			}
+
+			.fat-nav li,
+			.fat-nav li a {
+				font-weight: 500;
+				font-size: 14px;
+				letter-spacing: 1px;
+				text-transform: uppercase
+			}
+
+			.fat-nav li>a {
+				border-bottom: 1px solid #eee;
+				border-top: 1px solid #eee;
+				margin-bottom: -1px
+			}
+
+			.fat-nav li a {
+				text-decoration: none
+			}
+
+			* {
+				outline-color: transparent
+			}
+
+			body,
+			html {
+				height: 100%
+			}
+
+			body {
+				color: #666;
+				font-weight: 400;
+				font-family: "Roboto", sans-serif;
+				font-size: 14px;
+				line-height: 1.8em
+			}
+
+			h2,
+			h3 {
+				color: #222;
+				font-weight: 500;
+				line-height: 1.4em;
+				word-wrap: break-word;
+				font-family: "Poppins", sans-serif
+			}
+
+			p {
+				margin: 0 0 30px;
+				word-spacing: 1px
+			}
+
+			a {
+				color: #666;
+				text-decoration: none
+			}
+
+			img {
+				max-width: 100%;
+				height: auto
+			}
+
+			ul {
+				list-style-position: outside;
+				list-style-type: circle;
+				margin: 0;
+				padding: 0 0 0 15px
+			}
+
+			ul {
+				list-style-type: disc
+			}
+
+			ul ul {
+				list-style-type: circle
+			}
+
+			ul>li {
+				list-style: outside none square
+			}
+
+			.to-top {
+				background: #ce9e51;
+				bottom: 1150px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+				color: #fff;
+				display: block;
+				font-size: 15px;
+				height: 50px;
+				line-height: 48px;
+				opacity: 0;
+				position: fixed;
+				right: 30px;
+				text-align: center;
+				width: 50px;
+				z-index: 333;
+				border-radius: 100px;
+				overflow: hidden;
+				-webkit-animation: pulse 2s infinite;
+				-o-animation: pulse 2s infinite;
+				animation: pulse 2s infinite
+			}
+
+			.to-top::before {
+				-webkit-transform: scale(0);
+				background: #ce9e51 none repeat scroll 0 0;
+				border-radius: 200px;
+				content: "";
+				display: block;
+				height: 200px;
+				left: -50%;
+				margin-top: -100px;
+				position: absolute;
+				top: 50%;
+				width: 200px;
+				z-index: -1;
+				-ms-transform: scale(0);
+				opacity: 0.3;
+				transform: scale(0)
+			}
+
+			.to-top::after {
+				-webkit-transform: scale(0);
+				background: #ce9e51 none repeat scroll 0 0;
+				border-radius: 200px;
+				content: "";
+				display: block;
+				height: 200px;
+				left: -50%;
+				margin-top: -100px;
+				position: absolute;
+				top: 50%;
+				width: 200px;
+				z-index: -1;
+				-ms-transform: scale(0);
+				opacity: 0.3;
+				transform: scale(0)
+			}
+
+			.slider-title {
+				font-family: "Poppins", sans-serif;
+				color: #fff;
+				font-size: 65px;
+				letter-spacing: 4px;
+				font-weight: 800;
+				margin: 0 0 25px;
+				line-height: 1.4em
+			}
+
+			.slider-title strong {
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: #fff;
+				color: transparent
+			}
+
+			.mouse-cursor {
+				position: fixed;
+				left: 0;
+				top: 0;
+				border-radius: 50%;
+				transform: translateZ(0);
+				visibility: hidden
+			}
+
+			.cursor-inner {
+				margin-left: 2px;
+				margin-top: 2px;
+				width: 6px;
+				height: 6px;
+				z-index: 10000001;
+				background-color: #ce9e51
+			}
+
+			.cursor-outer {
+				margin-left: -15px;
+				margin-top: -15px;
+				width: 40px;
+				height: 40px;
+				border: 1px solid #ce9e51;
+				box-sizing: border-box;
+				z-index: 10000000;
+				opacity: .5
+			}
+
+			.svg-pre-loading {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 9999999;
+				background-color: #fff;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				text-align: center
+			}
+
+			.no-bg {
+				background: transparent
+			}
+
+			.bim-custom-header .navigation {
+				position: relative;
+				z-index: 999
+			}
+
+			.menu-wrapper {
+				display: inline-block;
+				margin-left: auto;
+				margin-right: auto
+			}
+
+			.menu-wrapper .menu ul li {
+				display: inline-block;
+				position: relative
+			}
+
+			.menu-wrapper .menu ul li a {
+				color: #000000;
+				display: block;
+				font-size: 12px;
+				padding: 25px 18px;
+				letter-spacing: 1px;
+				font-weight: 500;
+				text-transform: uppercase
+			}
+
+			.menu-wrapper .menu ul li ul li a {
+				color: #333;
+				font-size: 12px;
+				line-height: 1.8;
+				padding: 15px 20px 0 25px
+			}
+
+			.menu-wrapper .menu ul li.menu-item-has-children>a:after {
+				display: inline-block;
+				content: "\f107";
+				font-family: "FontAwesome";
+				position: absolute;
+				top: 50%;
+				right: 3px;
+				transform: translateY(-50%)
+			}
+
+			.menu-wrapper .menu ul ul li {
+				display: block;
+				position: relative
+			}
+
+			.menu-wrapper .navigation .menu-item-has-children li {
+				display: block
+			}
+
+			.menu-wrapper .navigation li ul li a {
+				color: #333;
+				font-size: 12px;
+				line-height: 1.8;
+				padding: 15px 20px 0 25px
+			}
+
+			.menu-wrapper .navigation li ul li.current_page_item>a {
+				color: #ce9e51
+			}
+
+			.menu-wrapper ul li ul {
+				background: #fff;
+				left: 18px;
+				line-height: 1;
+				list-style: outside none none;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				text-align: left;
+				top: 100%;
+				width: 185px;
+				z-index: 999;
+				-webkit-box-shadow: 0px 2px 14px 2px rgba(0, 0, 0, 0.1);
+				box-shadow: 0px 2px 14px 2px rgba(0, 0, 0, 0.1);
+				border-top: 2px solid #ce9e51
+			}
+
+			.menu-wrapper ul li ul li ul {
+				left: -100%;
+				top: 16px
+			}
+
+			.menu-wrapper ul>li>ul {
+				display: none;
+				padding-bottom: 15px
+			}
+
+			.container {
+				display: table
+			}
+
+			.navigation {
+				display: block;
+				font-size: 0;
+				list-style: outside none none;
+				margin: 0;
+				padding: 0;
+				width: 100%
+			}
+
+			.navigation li {
+				display: inline-block;
+				position: relative
+			}
+
+			.navigation li a {
+				color: #000000;
+				display: block;
+				font-size: 12px;
+				padding: 25px 18px;
+				letter-spacing: 1px;
+				font-weight: 500;
+				text-transform: uppercase
+			}
+
+			.navigation li.menu-item-has-children>a:after {
+				display: inline-block;
+				content: "\f107";
+				font-family: "FontAwesome";
+				position: absolute;
+				top: 50%;
+				right: 3px;
+				transform: translateY(-50%)
+			}
+
+			.navigation li.menu-item-has-children li.menu-item-has-children>a:after {
+				display: inline-block;
+				content: "\f107";
+				font-family: "FontAwesome";
+				position: absolute;
+				top: 42%;
+				right: 163px;
+				font-weight: bolder;
+				transform: rotate(90deg);
+				color: #ffffff
+			}
+
+			.navigation>li>a:before {
+				background: #ce9e51;
+				border-radius: 0;
+				bottom: 25px;
+				content: "";
+				height: 1px;
+				position: absolute;
+				transform: scaleX(0);
+				visibility: hidden;
+				width: 50%
+			}
+
+			.navigation ul li {
+				display: block;
+				position: relative
+			}
+
+			.mobile-wrapper {
+				float: right
+			}
+
+			.custom-logo .logo1 {
+				max-height: 25px
+			}
+
+			.custom-logo a {
+				display: inline-block
+			}
+
+			.black-search-block {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 100;
+				opacity: 0;
+				background: rgba(0, 0, 0, 0.9);
+				visibility: hidden;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				z-index: -1
+			}
+
+			.black-search-table {
+				display: table;
+				width: 100%;
+				height: 100%
+			}
+
+			.black-search-table-cell {
+				display: table-cell;
+				vertical-align: middle;
+				width: 100%;
+				height: 100%;
+				text-align: center
+			}
+
+			.black-search-table-cell div {
+				width: 50%;
+				position: relative;
+				display: inline-block;
+				top: 50px;
+				opacity: 0
+			}
+
+			.black-search-table-cell div input[name="s"] {
+				background: #fff;
+				padding: 15px 50px 15px 15px !important;
+				border: none;
+				font-size: 20px;
+				width: 100%;
+				border-bottom: 1px solid #fff;
+				font-weight: 400
+			}
+
+			.black-search-table-cell .searchsubmit {
+				border: none;
+				background: 0;
+				outline: 0;
+				width: auto;
+				color: #333;
+				padding: 0;
+				position: absolute;
+				right: 0;
+				width: 40px;
+				height: 40px;
+				top: 21px;
+				z-index: 99999;
+				text-align: center
+			}
+
+			.close-black-block {
+				font-size: 30px;
+				color: #ffffff;
+				position: absolute;
+				top: 20px;
+				right: 50px
+			}
+
+			.close-black-block i {
+				font-size: 30px;
+				color: #ffffff
+			}
+
+			.slider>.slide {
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: 0
+			}
+
+			.slider>.slide:first-child {
+				position: relative
+			}
+
+			.slider-img-bg {
+				z-index: -2;
+				background-position: 50% 50%;
+				background-size: cover;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 100%
+			}
+
+			.slider-hidden {
+				overflow: hidden
+			}
+
+			.slider-mask {
+				height: 100%;
+				left: 0%;
+				position: absolute;
+				top: 0%;
+				width: 100%;
+				z-index: -1;
+				background: #fff;
+				opacity: .8
+			}
+
+			.slider-box {
+				padding-bottom: 14%;
+				padding-top: 14%;
+				position: relative;
+				text-align: center
+			}
+
+			.slide {
+				position: relative;
+				overflow: hidden
+			}
+
+			.slider-text {
+				color: #333;
+				font-size: 16px;
+				margin-bottom: 1.4em
+			}
+
+			.slider-subtitle {
+				color: #000000;
+				font-size: 18px;
+				font-weight: 600;
+				letter-spacing: 3px;
+				margin: 0;
+				text-transform: uppercase;
+				margin-bottom: 10px
+			}
+
+			.slider-style-2 .slider-title {
+				font-size: 65px;
+				letter-spacing: -1px;
+				line-height: 1.2;
+				font-weight: 700
+			}
+
+			.slider-style-2 .slider-subtitle {
+				background: #e77c11;
+				max-width: 500px;
+				padding: 0px 20px;
+				display: inline-block !important
+			}
+
+			.btn-relative {
+				overflow: hidden;
+				display: inline-block
+			}
+
+			.slider-btn {
+				display: inline-block;
+				font-size: 14px;
+				overflow: hidden;
+				position: relative;
+				z-index: 1;
+				color: #ffffff;
+				padding: 16px 36px;
+				letter-spacing: 1px;
+				line-height: 20px;
+				background: transparent
+			}
+
+			.slider-btn::before {
+				-ms-transform: scale(0);
+				opacity: 0.3;
+				transform: scale(0);
+				-webkit-transform: scale(0);
+				background: transparent;
+				border-radius: 200px;
+				content: "";
+				display: block;
+				height: 200px;
+				left: -50%;
+				margin-top: -100px;
+				position: absolute;
+				top: 50%;
+				width: 200px;
+				z-index: -1
+			}
+
+			.slider-btn::after {
+				-ms-transform: scale(0);
+				opacity: 0.3;
+				transform: scale(0);
+				-webkit-transform: scale(0);
+				background: #fff none repeat scroll 0 0;
+				border-radius: 200px;
+				content: "";
+				display: block;
+				height: 200px;
+				left: -50%;
+				margin-top: -100px;
+				position: absolute;
+				top: 50%;
+				width: 200px;
+				z-index: -1
+			}
+
+			.dsc-btn-style1 {
+				color: #ffffff;
+				background: #000;
+				border: 2px solid #000
+			}
+
+			.dsc-btn-style2 {
+				color: #ffffff;
+				background: #000;
+				border: 1px solid #000
+			}
+
+			.slider-content {
+				display: inline-block;
+				width: 100%;
+				padding: 10px
+			}
+
+			.slider-style-2 .line-item {
+				float: left;
+				width: 20%;
+				height: 100%;
+				box-sizing: border-box;
+				border-right: 1px solid rgba(153, 153, 153, 0.05);
+				height: 100%;
+				position: relative
+			}
+
+			.feature-2 {
+				background-color: #ffffff;
+				padding: 35px 25px
+			}
+
+			.feature-2 .cont {
+				display: table-cell;
+				vertical-align: middle
+			}
+
+			.feature-2 .bim-icon {
+				color: #ce9e51;
+				font-size: 40px;
+				height: 80px;
+				line-height: 80px;
+				width: 60px;
+				display: table-cell;
+				vertical-align: top
+			}
+
+			.feature-2 .icon-title {
+				font-size: 20px
+			}
+
+			form input {
+				-moz-box-sizing: border-box;
+				background: #fff;
+				border: none;
+				border: 1px solid #ddd;
+				box-sizing: border-box;
+				color: #888;
+				line-height: inherit;
+				padding: 6px 13px;
+				padding-left: 30px;
+				width: 100%;
+				max-height: 150px;
+				border-radius: 0;
+				background: #fdfdfd;
+				font-size: 15px
+			}
+
+			.wpcf7 form p br {
+				display: none
+			}
+
+			.contact-style2 form input {
+				border-radius: 50px;
+				padding: 8px 15px;
+				padding-left: 40px
+			}
+
+			.elementor-image-gallery .gallery-item {
+				width: initial !important
+			}
+
+			#gallery-1 .gallery-item {
+				margin-top: 0 !important;
+				margin-bottom: 0 !important;
+				max-width: 33.333%;
+				display: inline-block
+			}
+
+			#gallery-1 img {
+				border: 1px solid #efefef !important
+			}
+
+			.searchform {
+				margin: 0;
+				position: relative
+			}
+
+			.searchform input[type=search] {
+				display: block;
+				height: 45px;
+				margin: 0;
+				padding: 5px;
+				width: 100%;
+				padding-left: 10px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+			}
+
+			.searchform .searchsubmit {
+				height: 45px;
+				right: 0;
+				line-height: 1;
+				margin-top: -22.5px;
+				padding: 0;
+				position: absolute;
+				text-indent: -99999px;
+				top: 50%;
+				width: 45px;
+				z-index: 1;
+				color: transparent;
+				background: transparent
+			}
+
+			.searchform::after {
+				display: inline-block;
+				content: "\f002";
+				font-family: "FontAwesome";
+				position: absolute;
+				top: 50%;
+				right: 15px;
+				transform: translateY(-50%);
+				color: #ce9e51 !important
+			}
+
+			input {
+				max-width: 100%
+			}
+
+			@media (max-width:1199px) {
+				.container {
+					display: inherit
+				}
+			}
+
+			@media (max-width:992px) {
+				.slider-title {
+					font-size: 40px
+				}
+
+				.slider-text {
+					display: none !important
+				}
+			}
+
+			@media (max-width:767px) {
+				.slider-content {
+					max-width: 78%
+				}
+
+				.box-with-icon .fa {
+					position: relative
+				}
+
+				.box-with-icon .icon-title {
+					padding-left: 0
+				}
+
+				.slider-style-2 .slider-title {
+					font-size: 30px
+				}
+
+				.slider-style-2 .slider-title {
+					font-size: 30px;
+					letter-spacing: 5px
+				}
+
+				.btn-relative {
+					margin-right: 0
+				}
+			}
+
+			@media (max-width:600px) {
+				.slider-title {
+					font-size: 36px
+				}
+
+				.slider-box {
+					padding-bottom: 150px;
+					padding-top: 150px
+				}
+			}
+
+			@keyframes pulse {
+
+				from,
+				to {
+					transform: scale3d(1, 1, 1)
+				}
+
+				50% {
+					transform: scale3d(1.05, 1.05, 1.05)
+				}
+			}
+
+			.elementor-screen-only {
+				position: absolute;
+				top: -10000em;
+				width: 1px;
+				height: 1px;
+				margin: -1px;
+				padding: 0;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				border: 0
+			}
+
+			.elementor-clearfix:after {
+				content: "";
+				display: block;
+				clear: both;
+				width: 0;
+				height: 0
+			}
+
+			.elementor {
+				-webkit-hyphens: manual;
+				-ms-hyphens: manual;
+				hyphens: manual
+			}
+
+			.elementor *,
+			.elementor :after,
+			.elementor :before {
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box
+			}
+
+			.elementor a {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				text-decoration: none
+			}
+
+			.elementor img {
+				height: auto;
+				max-width: 100%;
+				border: none;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+				-webkit-box-shadow: none;
+				box-shadow: none
+			}
+
+			.elementor .elementor-widget:not(.elementor-widget-text-editor) figure {
+				margin: 0
+			}
+
+			.elementor .elementor-background-overlay {
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				position: absolute
+			}
+
+			.elementor-widget-wrap>.elementor-element.elementor-absolute {
+				position: absolute
+			}
+
+			.elementor-widget-wrap .elementor-element.elementor-widget__width-initial {
+				max-width: 100%
+			}
+
+			.elementor-element.elementor-absolute {
+				z-index: 1
+			}
+
+			.elementor-invisible {
+				visibility: hidden
+			}
+
+			.elementor-align-right {
+				text-align: right
+			}
+
+			.elementor-align-right .elementor-button {
+				width: auto
+			}
+
+			.elementor-align-left {
+				text-align: left
+			}
+
+			.elementor-align-left .elementor-button {
+				width: auto
+			}
+
+			.elementor-section {
+				position: relative
+			}
+
+			.elementor-section .elementor-container {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				margin-right: auto;
+				margin-left: auto;
+				position: relative
+			}
+
+			.elementor-section.elementor-section-boxed>.elementor-container {
+				max-width: 1140px
+			}
+
+			.elementor-section.elementor-section-stretched {
+				position: relative;
+				width: 100%
+			}
+
+			.elementor-row {
+				width: 100%;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex
+			}
+
+			@media (max-width:1024px) {
+				.elementor-row {
+					-ms-flex-wrap: wrap;
+					flex-wrap: wrap
+				}
+			}
+
+			.elementor-column-wrap {
+				width: 100%;
+				position: relative;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex
+			}
+
+			.elementor-widget-wrap {
+				position: relative;
+				width: 100%;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				-ms-flex-line-pack: start;
+				align-content: flex-start
+			}
+
+			.elementor:not(.elementor-bc-flex-widget) .elementor-widget-wrap {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex
+			}
+
+			.elementor-widget-wrap>.elementor-element {
+				width: 100%
+			}
+
+			.elementor-widget {
+				position: relative
+			}
+
+			.elementor-widget:not(:last-child) {
+				margin-bottom: 20px
+			}
+
+			.elementor-widget:not(:last-child).elementor-absolute,
+			.elementor-widget:not(:last-child).elementor-widget__width-initial {
+				margin-bottom: 0
+			}
+
+			.elementor-column {
+				position: relative;
+				min-height: 1px;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex
+			}
+
+			.elementor-column-gap-default>.elementor-row>.elementor-column>.elementor-element-populated {
+				padding: 10px
+			}
+
+			@media (min-width:768px) {
+				.elementor-column.elementor-col-20 {
+					width: 20%
+				}
+
+				.elementor-column.elementor-col-25 {
+					width: 25%
+				}
+
+				.elementor-column.elementor-col-100 {
+					width: 100%
+				}
+			}
+
+			@media (max-width:767px) {
+				.elementor-column {
+					width: 100%
+				}
+			}
+
+			.elementor-button {
+				display: inline-block;
+				line-height: 1;
+				background-color: #818a91;
+				font-size: 15px;
+				padding: 12px 24px;
+				-webkit-border-radius: 3px;
+				border-radius: 3px;
+				color: #fff;
+				fill: #fff;
+				text-align: center
+			}
+
+			.elementor-button:visited {
+				color: #fff
+			}
+
+			.elementor-button-content-wrapper {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center
+			}
+
+			.elementor-button-icon {
+				-webkit-box-flex: 0;
+				-ms-flex-positive: 0;
+				flex-grow: 0;
+				-webkit-box-ordinal-group: 6;
+				-ms-flex-order: 5;
+				order: 5
+			}
+
+			.elementor-button-text {
+				-webkit-box-flex: 1;
+				-ms-flex-positive: 1;
+				flex-grow: 1;
+				-webkit-box-ordinal-group: 11;
+				-ms-flex-order: 10;
+				order: 10;
+				display: inline-block
+			}
+
+			.elementor-button .elementor-align-icon-right {
+				margin-left: 5px;
+				-webkit-box-ordinal-group: 16;
+				-ms-flex-order: 15;
+				order: 15
+			}
+
+			.elementor-button span {
+				text-decoration: inherit
+			}
+
+			.elementor-image-gallery .gallery-item {
+				display: inline-block;
+				text-align: center;
+				vertical-align: top;
+				width: 100%;
+				max-width: 100%;
+				margin: 0 auto
+			}
+
+			.elementor-image-gallery .gallery-item img {
+				margin: 0 auto
+			}
+
+			@media (min-width:768px) {
+				.elementor-image-gallery .gallery-columns-3 .gallery-item {
+					max-width: 33.33%
+				}
+			}
+
+			@media (min-width:480px) and (max-width:767px) {
+				.elementor-image-gallery .gallery.gallery-columns-3 .gallery-item {
+					max-width: 50%
+				}
+			}
+
+			@media (max-width:479px) {
+				.elementor-image-gallery .gallery.gallery-columns-3 .gallery-item {
+					max-width: 100%
+				}
+			}
+
+			.elementor-heading-title {
+				padding: 0;
+				margin: 0;
+				line-height: 1
+			}
+
+			.elementor-icon {
+				display: inline-block;
+				line-height: 1;
+				color: #818a91;
+				font-size: 50px;
+				text-align: center
+			}
+
+			.elementor-icon i {
+				width: 1em;
+				height: 1em;
+				position: relative;
+				display: block
+			}
+
+			.elementor-icon i:before {
+				position: absolute;
+				left: 50%;
+				-webkit-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				transform: translateX(-50%)
+			}
+
+			.elementor-shape-circle .elementor-icon {
+				-webkit-border-radius: 50%;
+				border-radius: 50%
+			}
+
+			.elementor-widget-image {
+				text-align: center
+			}
+
+			.elementor-widget-image .elementor-image img {
+				vertical-align: middle;
+				display: inline-block
+			}
+
+			.elementor-image-gallery figure img {
+				display: block
+			}
+
+			.elementor-social-icons-wrapper {
+				font-size: 0
+			}
+
+			.elementor-social-icon {
+				background-color: #818a91;
+				font-size: 25px;
+				text-align: center;
+				padding: .5em;
+				margin-right: 5px
+			}
+
+			.elementor-social-icon i {
+				color: #fff
+			}
+
+			.elementor-social-icon:last-child {
+				margin: 0
+			}
+
+			.elementor-social-icon-behance {
+				background-color: #1769ff
+			}
+
+			.elementor-social-icon-facebook-f {
+				background-color: #3b5998
+			}
+
+			.elementor-social-icon-instagram {
+				background-color: #262626
+			}
+
+			.elementor-social-icon-pinterest {
+				background-color: #bd081c
+			}
+
+			.elementor-social-icon-twitter {
+				background-color: #1da1f2
+			}
+
+			.elementor-social-icon-youtube {
+				background-color: #cd201f
+			}
+
+			.elementor-shape-circle .elementor-icon.elementor-social-icon {
+				-webkit-border-radius: 50%;
+				border-radius: 50%
+			}
+
+			@media (max-width:767px) {
+				.elementor .elementor-hidden-phone {
+					display: none
+				}
+			}
+
+			@media (min-width:768px) and (max-width:1024px) {
+				.elementor .elementor-hidden-tablet {
+					display: none
+				}
+			}
+
+			.fa,
+			.fab,
+			.fas {
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				display: inline-block;
+				font-style: normal;
+				font-variant: normal;
+				text-rendering: auto;
+				line-height: 1
+			}
+
+			.fa-angle-double-right:before {
+				content: "\f101"
+			}
+
+			.fa-behance:before {
+				content: "\f1b4"
+			}
+
+			.fa-facebook-f:before {
+				content: "\f39e"
+			}
+
+			.fa-instagram:before {
+				content: "\f16d"
+			}
+
+			.fa-phone:before {
+				content: "\f095"
+			}
+
+			.fa-pinterest:before {
+				content: "\f0d2"
+			}
+
+			.fa-search:before {
+				content: "\f002"
+			}
+
+			.fa-th:before {
+				content: "\f00a"
+			}
+
+			.fa-times:before {
+				content: "\f00d"
+			}
+
+			.fa-twitter:before {
+				content: "\f099"
+			}
+
+			.fa-youtube:before {
+				content: "\f167"
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Brands";
+				font-style: normal;
+				font-weight: 400;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-brands-400.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-brands-400.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-brands-400.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-brands-400.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-brands-400.svg#fontawesome) format("svg")
+			}
+
+			.fab {
+				font-family: "Font Awesome 5 Brands"
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Free";
+				font-style: normal;
+				font-weight: 400;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-regular-400.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-regular-400.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-regular-400.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-regular-400.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-regular-400.svg#fontawesome) format("svg")
+			}
+
+			.fab {
+				font-weight: 400
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Free";
+				font-style: normal;
+				font-weight: 900;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-solid-900.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-solid-900.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-solid-900.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-solid-900.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/better-elementor-addons/assets/webfonts/fa-solid-900.svg#fontawesome) format("svg")
+			}
+
+			.fa,
+			.fas {
+				font-family: "Font Awesome 5 Free"
+			}
+
+			.fa,
+			.fas {
+				font-weight: 900
+			}
+
+			.fa,
+			.fab,
+			.fas {
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				display: inline-block;
+				font-style: normal;
+				font-variant: normal;
+				text-rendering: auto;
+				line-height: 1
+			}
+
+			.fa-angle-double-right:before {
+				content: "\f101"
+			}
+
+			.fa-behance:before {
+				content: "\f1b4"
+			}
+
+			.fa-facebook-f:before {
+				content: "\f39e"
+			}
+
+			.fa-instagram:before {
+				content: "\f16d"
+			}
+
+			.fa-phone:before {
+				content: "\f095"
+			}
+
+			.fa-pinterest:before {
+				content: "\f0d2"
+			}
+
+			.fa-search:before {
+				content: "\f002"
+			}
+
+			.fa-th:before {
+				content: "\f00a"
+			}
+
+			.fa-times:before {
+				content: "\f00d"
+			}
+
+			.fa-twitter:before {
+				content: "\f099"
+			}
+
+			.fa-youtube:before {
+				content: "\f167"
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Brands";
+				font-style: normal;
+				font-weight: normal;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.svg#fontawesome) format("svg")
+			}
+
+			.fab {
+				font-family: "Font Awesome 5 Brands"
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Free";
+				font-style: normal;
+				font-weight: 400;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.svg#fontawesome) format("svg")
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Free";
+				font-style: normal;
+				font-weight: 900;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.svg#fontawesome) format("svg")
+			}
+
+			.fa,
+			.fas {
+				font-family: "Font Awesome 5 Free"
+			}
+
+			.fa,
+			.fas {
+				font-weight: 900
+			}
+
+			.fa.fa-clock-o {
+				font-family: "Font Awesome 5 Free";
+				font-weight: 400
+			}
+
+			.fa.fa-clock-o:before {
+				content: "\f017"
+			}
+
+			.fa.fa-long-arrow-up:before {
+				content: "\f30c"
+			}
+
+			.fa.fa-envelope-o {
+				font-family: "Font Awesome 5 Free";
+				font-weight: 400
+			}
+
+			.fa.fa-envelope-o:before {
+				content: "\f0e0"
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4f762db3>.elementor-container>.elementor-row>.elementor-column>.elementor-column-wrap>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1ef31e98 .elementor-repeater-item-dc9bf85.elementor-social-icon {
+				background-color: rgba(255, 255, 255, 0)
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1ef31e98 {
+				text-align: center;
+				width: 70px;
+				max-width: 70px;
+				top: 120px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1ef31e98 .elementor-social-icon {
+				font-size: 16px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1ef31e98 .elementor-icon {
+				border-radius: 50px 50px 50px 50px
+			}
+
+			body:not(.rtl) .elementor-2643 .elementor-element.elementor-element-1ef31e98 {
+				right: 12px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4806c569 .elementor-repeater-item-dc9bf85.elementor-social-icon {
+				background-color: rgba(255, 255, 255, 0)
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4806c569 {
+				text-align: center;
+				width: 70px;
+				max-width: 70px;
+				top: 60px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4806c569 .elementor-social-icon {
+				font-size: 16px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4806c569 .elementor-icon {
+				border-radius: 50px 50px 50px 50px
+			}
+
+			body:not(.rtl) .elementor-2643 .elementor-element.elementor-element-4806c569 {
+				right: 12px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4722b9d3 {
+				text-align: center;
+				width: 70px;
+				max-width: 70px;
+				top: 180px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4722b9d3 .elementor-social-icon {
+				background-color: rgba(0, 0, 0, 0);
+				font-size: 16px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4722b9d3 .elementor-icon {
+				border-radius: 50px 50px 50px 50px
+			}
+
+			body:not(.rtl) .elementor-2643 .elementor-element.elementor-element-4722b9d3 {
+				right: 12px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1b5bc8b0 {
+				text-align: center;
+				width: 70px;
+				max-width: 70px;
+				top: 240px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1b5bc8b0 .elementor-social-icon {
+				background-color: rgba(0, 0, 0, 0);
+				font-size: 16px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1b5bc8b0 .elementor-icon {
+				border-radius: 50px 50px 50px 50px
+			}
+
+			body:not(.rtl) .elementor-2643 .elementor-element.elementor-element-1b5bc8b0 {
+				right: 12px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4b6accf5 {
+				text-align: center;
+				width: 70px;
+				max-width: 70px;
+				top: 300px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4b6accf5 .elementor-social-icon {
+				background-color: rgba(0, 0, 0, 0);
+				font-size: 16px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-4b6accf5 .elementor-icon {
+				border-radius: 50px 50px 50px 50px
+			}
+
+			body:not(.rtl) .elementor-2643 .elementor-element.elementor-element-4b6accf5 {
+				right: 12px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-content {
+				max-width: 900px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-box {
+				padding-top: 12%;
+				padding-bottom: 10%
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-box {
+				text-align: left
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-title {
+				display: block
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-subtitle {
+				padding: 0px 0px 0px 0px;
+				color: #ffffff;
+				background: rgba(0, 0, 0, 0);
+				display: inline-block
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-text {
+				width: 750px;
+				max-width: 100%;
+				font-size: 18px;
+				font-weight: 300;
+				line-height: 35px;
+				letter-spacing: 0px;
+				color: #ffffff;
+				display: block
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-btn {
+				font-size: 14px;
+				font-weight: 500;
+				text-transform: uppercase;
+				margin: 10px 20px 0px 0px;
+				padding: 10px 25px 10px 25px;
+				border-style: solid;
+				border-width: 2px 2px 2px 2px;
+				border-color: #ffffff
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .dsc-btn-style1 {
+				color: #ce9e51;
+				background: #ffffff
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .dsc-btn-style2 {
+				color: #ffffff;
+				background: rgba(0, 0, 0, 0)
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .dsc-btn-style1::after {
+				background: rgba(255, 255, 255, 0)
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .dsc-btn-style2::after {
+				background: #ffffff
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-mask {
+				background: rgba(0, 0, 0, 0.7)
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-250b24f1>.elementor-widget-container {
+				margin: 0px 0px 0px 0px;
+				padding: 0px 0px 0px 0px
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1fbd7e5:not(.elementor-motion-effects-element-type-background) {
+				background-color: rgba(0, 0, 0, 0.19);
+				background-image: url("https://cdn.shortpixel.ai/spai/q_lossy+ret_img/https://web-dev-resource-hub.netlify.app/wp-content/uploads/2020/07/bg-5.png");
+				background-position: center center
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1fbd7e5>.elementor-background-overlay {
+				opacity: 0.5
+			}
+
+			.elementor-2643 .elementor-element.elementor-element-1fbd7e5 {
+				margin-top: 0px;
+				margin-bottom: 0px;
+				padding: 80px 0px 80px 0px
+			}
+
+			@media (max-width:767px) {
+				.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-box {
+					padding-top: 40%;
+					padding-bottom: 40%
+				}
+
+				.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-title {
+					padding: 0px 0px 10px 0px
+				}
+
+				.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-subtitle {
+					padding: 0px 0px 15px 0px;
+					font-size: 1.1rem
+				}
+
+				.elementor-2643 .elementor-element.elementor-element-250b24f1 .slider-btn {
+					padding: 10px 18px 10px 18px;
+					border-radius: 0px 0px 0px 0px
+				}
+			}
+
+			.fa,
+			.fab,
+			.fas {
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				display: inline-block;
+				font-style: normal;
+				font-variant: normal;
+				text-rendering: auto;
+				line-height: 1
+			}
+
+			.fa-angle-double-right:before {
+				content: "\f101"
+			}
+
+			.fa-behance:before {
+				content: "\f1b4"
+			}
+
+			.fa-facebook-f:before {
+				content: "\f39e"
+			}
+
+			.fa-instagram:before {
+				content: "\f16d"
+			}
+
+			.fa-phone:before {
+				content: "\f095"
+			}
+
+			.fa-pinterest:before {
+				content: "\f0d2"
+			}
+
+			.fa-search:before {
+				content: "\f002"
+			}
+
+			.fa-th:before {
+				content: "\f00a"
+			}
+
+			.fa-times:before {
+				content: "\f00d"
+			}
+
+			.fa-twitter:before {
+				content: "\f099"
+			}
+
+			.fa-youtube:before {
+				content: "\f167"
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Brands";
+				font-style: normal;
+				font-weight: normal;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-brands-400.svg#fontawesome) format("svg")
+			}
+
+			.fab {
+				font-family: "Font Awesome 5 Brands"
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Free";
+				font-style: normal;
+				font-weight: 900;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-solid-900.svg#fontawesome) format("svg")
+			}
+
+			.fa,
+			.fas {
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900
+			}
+
+			@font-face {
+				font-family: "Font Awesome 5 Free";
+				font-style: normal;
+				font-weight: 400;
+				font-display: auto;
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.eot);
+				src: url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.woff2) format("woff2"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.woff) format("woff"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.ttf) format("truetype"), url(https://web-dev-resource-hub.netlify.app/wp-content/plugins/elementor/assets/lib/font-awesome/webfonts/fa-regular-400.svg#fontawesome) format("svg")
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-764f6bf9:not(.elementor-motion-effects-element-type-background) {
+				background-color: #1c1918
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-764f6bf9 {
+				padding: 5px 0px 5px 0px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-4ee9ad24.elementor-column.elementor-element[data-element_type="column"]>.elementor-column-wrap.elementor-element-populated>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-4ee9ad24.elementor-column>.elementor-column-wrap>.elementor-widget-wrap {
+				justify-content: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-3cd33b8b .box-with-icon {
+				opacity: 0.8;
+				background: rgba(0, 0, 0, 0);
+				padding: 0px 0px 0px 0px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-3cd33b8b .icon-title {
+				font-size: 13px;
+				font-weight: 300;
+				line-height: 1px;
+				color: #ffffff;
+				margin: 0px 0px 0px 0px;
+				padding: 0px 0px 0px 6px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-3cd33b8b .bim-icon {
+				font-size: 12px;
+				width: 6px;
+				height: 6px;
+				line-height: 6px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-7b7ed770.elementor-column.elementor-element[data-element_type="column"]>.elementor-column-wrap.elementor-element-populated>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-7b7ed770.elementor-column>.elementor-column-wrap>.elementor-widget-wrap {
+				justify-content: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-5fff388a .box-with-icon {
+				opacity: 0.8;
+				background: rgba(0, 0, 0, 0);
+				padding: 0px 0px 0px 0px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-5fff388a .icon-title {
+				font-size: 13px;
+				font-weight: 300;
+				line-height: 1px;
+				color: #ffffff;
+				margin: 0px 0px 0px 0px;
+				padding: 0px 0px 0px 6px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-5fff388a .bim-icon {
+				font-size: 12px;
+				width: 6px;
+				height: 6px;
+				line-height: 6px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-36988056.elementor-column.elementor-element[data-element_type="column"]>.elementor-column-wrap.elementor-element-populated>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-36988056.elementor-column>.elementor-column-wrap>.elementor-widget-wrap {
+				justify-content: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-79059313 .box-with-icon {
+				text-align: right;
+				opacity: 0.8;
+				background: rgba(0, 0, 0, 0);
+				padding: 0px 0px 0px 0px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-79059313 .icon-title {
+				font-size: 13px;
+				font-weight: 300;
+				line-height: 1px;
+				color: #ffffff;
+				margin: 0px 0px 0px 0px;
+				padding: 0px 0px 0px 6px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-79059313 .bim-icon {
+				font-size: 12px;
+				width: 6px;
+				height: 6px;
+				line-height: 6px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-1b36339c.elementor-column>.elementor-column-wrap>.elementor-widget-wrap {
+				justify-content: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-28254b69:not(.elementor-motion-effects-element-type-background) {
+				background-color: #000000
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-11dc1d11.elementor-column.elementor-element[data-element_type="column"]>.elementor-column-wrap.elementor-element-populated>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-11dc1d11>.elementor-element-populated {
+				padding: 0px 0px 0px 10px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-1ddd6655 {
+				text-align: left
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-74593880.elementor-column.elementor-element[data-element_type="column"]>.elementor-column-wrap.elementor-element-populated>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-74593880.elementor-column>.elementor-column-wrap>.elementor-widget-wrap {
+				justify-content: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-74593880>.elementor-element-populated {
+				padding: 0px 0px 0px 0px
+			}
+
+			.custom-sticky {
+				text-align: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-2a162297 .navigation li a,
+			.menu-wrapper .menu ul li a {
+				color: #ffffff
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-2a162297 .menu-wrapper ul li ul {
+				background: #000
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-2a162297 .navigation li ul li a {
+				color: #ffffff
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-2a162297 .hamburger__icon {
+				background-color: #FFFFFF
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-2a162297 .hamburger__icon::before {
+				background-color: #FFFFFF
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-2a162297 .hamburger__icon::after {
+				background-color: #FFFFFF
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-7853136.elementor-column.elementor-element[data-element_type="column"]>.elementor-column-wrap.elementor-element-populated>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-7853136.elementor-column>.elementor-column-wrap>.elementor-widget-wrap {
+				justify-content: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-bbab6f7 .header-search-icon a i {
+				color: #eeeeee
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-bbab6f7 .header-search-icon {
+				text-align: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-01dbb44.elementor-column.elementor-element[data-element_type="column"]>.elementor-column-wrap.elementor-element-populated>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-01dbb44.elementor-column>.elementor-column-wrap>.elementor-widget-wrap {
+				justify-content: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-8406e20>.elementor-widget-container {
+				padding: 0px 0px 0px 15px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-4f4ce867.elementor-column.elementor-element[data-element_type="column"]>.elementor-column-wrap.elementor-element-populated>.elementor-widget-wrap {
+				align-content: center;
+				align-items: center
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-4f4ce867>.elementor-element-populated {
+				padding: 0px 0px 0px 0px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-f987c5b .elementor-button .elementor-align-icon-right {
+				margin-left: 8px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-f987c5b .elementor-button {
+				font-size: 13px;
+				background-color: rgba(255, 255, 255, 0);
+				border-style: solid;
+				border-width: 1px 1px 1px 1px;
+				border-color: #888888;
+				border-radius: 0px 0px 0px 0px;
+				padding: 10px 10px 12px 18px
+			}
+
+			.elementor-2667 .elementor-element.elementor-element-f987c5b>.elementor-widget-container {
+				padding: 0px 10px 0px 20px
+			}
+
+			@media (max-width:767px) {
+				.elementor-2667 .elementor-element.elementor-element-11dc1d11 {
+					width: 50%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-74593880 {
+					width: 50%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-2a162297>.elementor-widget-container {
+					padding: 0px 10px 0px 0px
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-7853136 {
+					width: 50%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-01dbb44 {
+					width: 50%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-4f4ce867 {
+					width: 50%
+				}
+			}
+
+			@media (min-width:768px) {
+				.elementor-2667 .elementor-element.elementor-element-4ee9ad24 {
+					width: 15%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-7b7ed770 {
+					width: 15%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-36988056 {
+					width: 46.409%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-1b36339c {
+					width: 23.591%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-11dc1d11 {
+					width: 10%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-74593880 {
+					width: 66.393%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-7853136 {
+					width: 4%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-01dbb44 {
+					width: 3.84%
+				}
+
+				.elementor-2667 .elementor-element.elementor-element-4f4ce867 {
+					width: 15.765%
+				}
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-fe53ef0:not(.elementor-motion-effects-element-type-background) {
+				background-color: #f1eee8
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-fe53ef0 {
+				margin-top: 0px;
+				margin-bottom: 0px;
+				padding: 60px 20px 20px 20px
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-a862c77 {
+				text-align: left
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-088cdbd {
+				text-align: left
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-088cdbd .elementor-heading-title {
+				font-family: "Poppins", Sans-serif;
+				font-size: 20px;
+				font-weight: 700
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-088cdbd>.elementor-widget-container {
+				margin: 10px 0px 0px 0px
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-ac505a1 .elementor-text-editor {
+				text-align: left
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-ac505a1>.elementor-widget-container {
+				margin: 0px 0px -20px 0px
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-ba8e0e3 .elementor-button {
+				font-family: "Poppins", Sans-serif;
+				font-size: 14px;
+				font-weight: 500;
+				letter-spacing: 1.2px;
+				background-color: #ce9e51;
+				border-style: solid;
+				border-color: #ce9e51;
+				border-radius: 50px 50px 50px 50px;
+				padding: 10px 24px 10px 23px
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-ba8e0e3>.elementor-widget-container {
+				margin: -10px 0px 0px 0px
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-08d775e {
+				text-align: left
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-08d775e .elementor-heading-title {
+				font-family: "Poppins", Sans-serif;
+				font-size: 20px;
+				font-weight: 700
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-08d775e>.elementor-widget-container {
+				margin: 15px 0px 0px 0px
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-a81081d {
+				text-align: center
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-a81081d .elementor-social-icon {
+				background-color: #000000;
+				font-size: 14px;
+				padding: 0.6em
+			}
+
+			.elementor-2713 .elementor-element.elementor-element-a81081d>.elementor-widget-container {
+				margin: 20px 0px 0px 0px
+			}
+
+		</style>
+		<link data-rocket-async="style" href="./index-files/css.css" rel="stylesheet" as="style"
+			onload="this.onload=null;this.rel=&#39;stylesheet&#39;">
+		<link data-minify="1" data-rocket-async="style" href="./index-files/2fe6a9bcd5395f2a9c3e46d00f2da5bc.css"
+			rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" media="all">
+		<meta name="robots" content="noindex,nofollow">
+		<link href="https://fonts.googleapis.com/" rel="dns-prefetch">
+		<link href="https://fonts.gstatic.com/" crossorigin rel="preconnect">
+		<link type="application/rss+xml" href="https://web-dev-resource-hub.netlify.app/feed/" title="Bim » Feed"
+			rel="alternate">
+		<link type="application/rss+xml" href="https://web-dev-resource-hub.netlify.app/comments/feed/"
+			title="Bim » Comments Feed" rel="alternate">
+		<style>
+			img.wp-smiley,
+			img.emoji {
+				display: inline !important;
+				border: none !important;
+				box-shadow: none !important;
+				height: 1em !important;
+				width: 1em !important;
+				margin: 0 .07em !important;
+				vertical-align: -0.1em !important;
+				background: none !important;
+				padding: 0 !important;
+			}
+
+		</style>
+
+
+
+
+
+		<style id="spai-fadein-inline-css">
+			img[data-spai] {
+				opacity: 0;
+			}
+
+			div.woocommerce-product-gallery img[data-spai] {
+				opacity: 1;
+			}
+
+			img[data-spai-eager],
+			img[data-spai-upd] {
+				transition: opacity .5s linear .2s;
+				-webkit-transition: opacity .5s linear .2s;
+				-moz-transition: opacity .5s linear .2s;
+				-o-transition: opacity .5s linear .2s;
+				opacity: 1;
+			}
+
+		</style>
+
+		<style id="rs-plugin-settings-inline-css">
+			#rs-demo-id {}
+
+		</style>
+
+		<link data-rocket-async="style"
+			href="https://web-dev-resource-hub.netlify.app/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=4.3.0"
+			rel="preload" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"
+			media="only screen and (max-width: 768px)">
+
+		<style id="woocommerce-inline-inline-css">
+			.woocommerce form .form-row .required {
+				visibility: visible;
+			}
+
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<style id="bim-style-inline-css">
+			.load-circle {
+				border-top-color: #ce9e51;
+			}
+
+
+			.cart-contents-count,
+			.tagcloud a:hover,
+			.to-top,
+			.to-top:hover,
+			.to-top::after,
+			.blog-link-img,
+			.portfolio-type-three .port-inner:hover .dbox-relative a span,
+			.dsc-footer-style-3 h3:after,
+			.btn-nav-top a,
+			.post-style-3 .entry-header .post-date,
+			.widget-border,
+			.share-box a:hover,
+			.tags-bottom a:hover,
+			h2.comments-title:after,
+			.comment-reply-link:hover,
+			.form-submit #submit,
+			.title-related-post:after,
+			.navigation>li>a:before,
+			.img-box-slider .slick-dots li button:before,
+			.dsc-footer-style-3 .mc4wp-form-fields input[type=submit],
+			.team-3 .team-info .team-sicon li a:hover,
+			.to-top::before,
+			.custom-absolute-menu .is-sticky .navigation>li>a:before,
+			.cursor-inner,
+			.cursor-inner.cursor-hover {
+				background-color: #ce9e51;
+			}
+
+			.dsc-heading-style1 h5,
+			a:hover,
+			.content-title span,
+			.table-content h3>span,
+			.white-header .header-icon li.current-menu-parent>a,
+			.white-header .navigation li.current-menu-parent>a,
+			.white-header .menu-wrapper .menu ul li.current-menu-parent>a,
+			.white-header .header-icon li.current_page_item>a,
+			.white-header .navigation li.current_page_item>a,
+			.white-header .menu-wrapper .menu ul li.current_page_item>a,
+			.custom-absolute-menu .is-sticky .navigation li.current-menu-item a,
+			.custom-absolute-menu .is-sticky .menu-wrapper .menu ul li.current-menu-item a,
+			.custom-absolute-menu .is-sticky .navigation li a:hover,
+			.custom-absolute-menu .is-sticky .menu-wrapper .menu ul li a:hover,
+			.custom-absolute-menu .navigation .sub-menu li a:hover,
+			.custom-absolute-menu .menu-wrapper .menu ul.sub-menu li a:hover,
+			.white-header .navigation li a:hover,
+			.white-header .menu-wrapper .navigation li ul li.current_page_item>a,
+			.menu-wrapper .navigation li ul li.current_page_item>a,
+			.menu-wrapper .menu ul li ul li.current_page_item>a,
+			.white-header .menu-wrapper .menu ul li ul li.current_page_item>a,
+			.white-header .menu-wrapper .navigation li ul li a:hover,
+			.menu-wrapper .navigation li ul li a:hover,
+			.menu-wrapper .menu ul li ul li a:hover,
+			.white-header .menu-wrapper .menu ul li ul li a:hover,
+			.header-icon li a:hover,
+			.btn-nav-top a:hover,
+			.slider-btn:hover,
+			.feature-1:hover .bim-icon,
+			.feature-2 .bim-icon,
+			.feature-2:hover .bim-icon,
+			.feature-3 .bim-icon,
+			.feature-3:hover .bim-icon,
+			.port-filter a.active,
+			.port-filter a:hover,
+			.portfolio-2 .port-inner:hover .dbox-relative h3 a:hover,
+			.portfolio-2 .port-inner .port-dbox a span:hover,
+			.portfolio-type-three .dbox-relative p,
+			.team-1 p,
+			.testimonial .rating-icon,
+			.wpcf7-submit,
+			.dark-page .wpcf7-submit,
+			.content-btn,
+			.color-bg .wpcf7-submit,
+			span.your-email:before,
+			span.your-name:before,
+			span.your-message:before,
+			.comment-form-email:before,
+			span.cell-phone:before,
+			span.subject:before,
+			.footer a,
+			.post-meta a,
+			.post-meta li,
+			.blog-post-list a:hover h3,
+			.blog-2 .content-btn,
+			a .entry-title:hover,
+			.related-cat i,
+			h3.related-title:hover,
+			#searchform::after,
+			.tagcloud a:hover,
+			.abtw-soc a:hover,
+			.form-submit #submit:hover,
+			.dsc-btn-style3:hover .elementor-button,
+			.dsc-btn-style-4,
+			code,
+			.widget.widget_recent_comments>ul>li:before,
+			.widget ul li a:before,
+			.post-detail>li i,
+			.blog-content .blog-post p a,
+			.imgpagi-box p,
+			.img-pagination a:hover .img-pagi .lnr,
+			.img-box-slider h3 a:hover,
+			.img-box-slider .slick-dots li.slick-active button:before,
+			.team-sicon li a,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box .post-meta a,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box a:hover h3,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box .content-btn:hover,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box .post-meta li,
+			.custom-absolute-menu .menu-wrapper .menu ul.sub-menu li.current-menu-item a,
+			.team-3 .team-info .team-sicon li a,
+			.team-3 .team-info p,
+			.feature-1 .bim-icon {
+				color: #ce9e51;
+			}
+
+			.to-top,
+			.content-title:after,
+			::selection,
+			::-moz-selection,
+			.to-top::before,
+			.to-top::after,
+			.box-small-icon:hover .bim-icon,
+			.navigation>li>a:before,
+			.menu-wrapper>.menu>ul>li>a:before,
+			.custom-absolute-menu .is-sticky .navigation>li>a:before,
+			.menu-wrapper>.menu>ul>li>a:before,
+			.btn-nav-top a,
+			.search-icon-header #searchform::after,
+			.slider-line,
+			.left-box-slider .slider-line,
+			.center-box-slider .slider-line,
+			.feature-4 .bim-icon,
+			.other-portfolio .port-box,
+			.portfolio-type-three .port-inner:hover .dbox-relative a span,
+			.team-2 .port-box,
+			.content-btn:hover,
+			.wpcf7-submit:hover,
+			.dsc-footer-style-2 .mc4wp-form-fields input[type=submit]:hover,
+			.dsc-footer-style-3 h3:after,
+			.dsc-footer-style-3 .mc4wp-form-fields input[type=submit],
+			.blog-link-img .bl-icon,
+			.blog-link-img,
+			.blog-gallery a i,
+			.img-pagi,
+			.widget-border,
+			.ab-bordering,
+			.abtw-soc a,
+			.form-submit #submit,
+			.dsc-btn-style3,
+			.dsc-btn-style-4:hover,
+			.tagcloud a:hover,
+			.to-top,
+			.portfolio-type-three .port-inner:hover .dbox-relative a span {
+				background: #ce9e51;
+			}
+
+			.p-table a,
+			.blog-slider .slide-nav:hover,
+			.work-content .slide-nav:hover,
+			.tagcloud a:hover {
+				color: #fff;
+			}
+
+			.dsc-btn-style3 {
+				background-color: #fff;
+			}
+
+			blockquote,
+			.box-small-icon:hover .bim-icon,
+			.cell-left-border,
+			.cell-right-border,
+			.menu-wrapper ul li ul,
+			.btn-nav-top a,
+			.btn-nav-top a:hover,
+			.feature-4 .bim-icon,
+			.portfolio-2 .port-inner .port-dbox a span:hover,
+			.portfolio-type-three .port-inner:hover .dbox-relative a span,
+			.portfolio-type-three .port-inner:hover .dbox-relative h3,
+			.team-sicon li a:hover,
+			.team-1 .team-info,
+			form input:focus,
+			form textarea:focus,
+			.comment-respond form input:focus,
+			.comment-respond form textarea:focus,
+			.wpcf7-submit,
+			.dark-page .wpcf7-submit,
+			.content-btn,
+			.wpcf7-submit:hover,
+			.error-title,
+			.blog-2 .content-btn i,
+			#related_posts .related-inner:hover,
+			.tagcloud a:hover,
+			.form-submit #submit,
+			.form-submit #submit:hover,
+			.dsc-btn-style3:hover,
+			.dsc-btn-style-4,
+			.dsc-btn-style-4:hover,
+			.wp-block-coblocks-click-to-tweet,
+			.related-inner,
+			.work-process .item .box-img .bg-img,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box .content-btn:hover,
+			.team-3 .team-info .team-sicon li a,
+			.team-3 .team-info,
+			.feature-1 .bim-icon,
+			.feature-1:hover .bim-icon,
+			.cursor-outer {
+				border-color: #ce9e51;
+			}
+
+			a:hover {
+				color: #ce9e51;
+			}
+
+			a {
+				color: #999999;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: #000000;
+			}
+
+			body {
+				color: #666666;
+			}
+
+			.footer {
+				background-color: #202020;
+			}
+
+			.custom-absolute-menu {
+				border-color: #ffffff;
+			}
+
+			.cart-contents-count,
+			.tagcloud a:hover,
+			.to-top,
+			.to-top:hover,
+			.to-top::after,
+			.blog-link-img,
+			.portfolio-type-three .port-inner:hover .dbox-relative a span,
+			.dsc-footer-style-3 h3:after,
+			.btn-nav-top a,
+			.post-style-3 .entry-header .post-date,
+			.widget-border,
+			.share-box a:hover,
+			.tags-bottom a:hover,
+			h2.comments-title:after,
+			.comment-reply-link:hover,
+			.form-submit #submit,
+			.title-related-post:after,
+			.navigation>li>a:before,
+			.img-box-slider .slick-dots li button:before,
+			.dsc-footer-style-3 .mc4wp-form-fields input[type=submit],
+			.team-3 .team-info .team-sicon li a:hover,
+			.to-top::before,
+			.custom-absolute-menu .is-sticky .navigation>li>a:before,
+			.cursor-inner,
+			.cursor-inner.cursor-hover {
+				background-color: #ce9e51;
+			}
+
+			.dsc-heading-style1 h5,
+			a:hover,
+			.content-title span,
+			.table-content h3>span,
+			.white-header .header-icon li.current-menu-parent>a,
+			.white-header .navigation li.current-menu-parent>a,
+			.white-header .menu-wrapper .menu ul li.current-menu-parent>a,
+			.white-header .header-icon li.current_page_item>a,
+			.white-header .navigation li.current_page_item>a,
+			.white-header .menu-wrapper .menu ul li.current_page_item>a,
+			.custom-absolute-menu .is-sticky .navigation li.current-menu-item a,
+			.custom-absolute-menu .is-sticky .menu-wrapper .menu ul li.current-menu-item a,
+			.custom-absolute-menu .is-sticky .navigation li a:hover,
+			.custom-absolute-menu .is-sticky .menu-wrapper .menu ul li a:hover,
+			.custom-absolute-menu .navigation .sub-menu li a:hover,
+			.custom-absolute-menu .menu-wrapper .menu ul.sub-menu li a:hover,
+			.white-header .navigation li a:hover,
+			.white-header .menu-wrapper .navigation li ul li.current_page_item>a,
+			.menu-wrapper .navigation li ul li.current_page_item>a,
+			.menu-wrapper .menu ul li ul li.current_page_item>a,
+			.white-header .menu-wrapper .menu ul li ul li.current_page_item>a,
+			.white-header .menu-wrapper .navigation li ul li a:hover,
+			.menu-wrapper .navigation li ul li a:hover,
+			.menu-wrapper .menu ul li ul li a:hover,
+			.white-header .menu-wrapper .menu ul li ul li a:hover,
+			.header-icon li a:hover,
+			.btn-nav-top a:hover,
+			.slider-btn:hover,
+			.feature-1:hover .bim-icon,
+			.feature-2 .bim-icon,
+			.feature-2:hover .bim-icon,
+			.feature-3 .bim-icon,
+			.feature-3:hover .bim-icon,
+			.port-filter a.active,
+			.port-filter a:hover,
+			.portfolio-2 .port-inner:hover .dbox-relative h3 a:hover,
+			.portfolio-2 .port-inner .port-dbox a span:hover,
+			.portfolio-type-three .dbox-relative p,
+			.team-1 p,
+			.testimonial .rating-icon,
+			.wpcf7-submit,
+			.dark-page .wpcf7-submit,
+			.content-btn,
+			.color-bg .wpcf7-submit,
+			span.your-email:before,
+			span.your-name:before,
+			span.your-message:before,
+			.comment-form-email:before,
+			span.cell-phone:before,
+			span.subject:before,
+			.footer a,
+			.post-meta a,
+			.post-meta li,
+			.blog-post-list a:hover h3,
+			.blog-2 .content-btn,
+			a .entry-title:hover,
+			.related-cat i,
+			h3.related-title:hover,
+			#searchform::after,
+			.tagcloud a:hover,
+			.abtw-soc a:hover,
+			.form-submit #submit:hover,
+			.dsc-btn-style3:hover .elementor-button,
+			.dsc-btn-style-4,
+			code,
+			.widget.widget_recent_comments>ul>li:before,
+			.widget ul li a:before,
+			.post-detail>li i,
+			.blog-content .blog-post p a,
+			.imgpagi-box p,
+			.img-pagination a:hover .img-pagi .lnr,
+			.img-box-slider h3 a:hover,
+			.img-box-slider .slick-dots li.slick-active button:before,
+			.team-sicon li a,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box .post-meta a,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box a:hover h3,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box .content-btn:hover,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box .post-meta li,
+			.custom-absolute-menu .menu-wrapper .menu ul.sub-menu li.current-menu-item a,
+			.team-3 .team-info .team-sicon li a,
+			.team-3 .team-info p,
+			.feature-1 .bim-icon {
+				color: #ce9e51;
+			}
+
+			.to-top,
+			.content-title:after,
+			::selection,
+			::-moz-selection,
+			.to-top::before,
+			.to-top::after,
+			.box-small-icon:hover .bim-icon,
+			.navigation>li>a:before,
+			.menu-wrapper>.menu>ul>li>a:before,
+			.custom-absolute-menu .is-sticky .navigation>li>a:before,
+			.menu-wrapper>.menu>ul>li>a:before,
+			.btn-nav-top a,
+			.search-icon-header #searchform::after,
+			.slider-line,
+			.left-box-slider .slider-line,
+			.center-box-slider .slider-line,
+			.feature-4 .bim-icon,
+			.other-portfolio .port-box,
+			.portfolio-type-three .port-inner:hover .dbox-relative a span,
+			.team-2 .port-box,
+			.content-btn:hover,
+			.wpcf7-submit:hover,
+			.dsc-footer-style-2 .mc4wp-form-fields input[type=submit]:hover,
+			.dsc-footer-style-3 h3:after,
+			.dsc-footer-style-3 .mc4wp-form-fields input[type=submit],
+			.blog-link-img .bl-icon,
+			.blog-link-img,
+			.blog-gallery a i,
+			.img-pagi,
+			.widget-border,
+			.ab-bordering,
+			.abtw-soc a,
+			.form-submit #submit,
+			.dsc-btn-style3,
+			.dsc-btn-style-4:hover,
+			.tagcloud a:hover,
+			.to-top,
+			.portfolio-type-three .port-inner:hover .dbox-relative a span {
+				background: #ce9e51;
+			}
+
+			.p-table a,
+			.blog-slider .slide-nav:hover,
+			.work-content .slide-nav:hover,
+			.tagcloud a:hover {
+				color: #fff;
+			}
+
+			.dsc-btn-style3 {
+				background-color: #fff;
+			}
+
+			blockquote,
+			.box-small-icon:hover .bim-icon,
+			.cell-left-border,
+			.cell-right-border,
+			.menu-wrapper ul li ul,
+			.btn-nav-top a,
+			.btn-nav-top a:hover,
+			.feature-4 .bim-icon,
+			.portfolio-2 .port-inner .port-dbox a span:hover,
+			.portfolio-type-three .port-inner:hover .dbox-relative a span,
+			.portfolio-type-three .port-inner:hover .dbox-relative h3,
+			.team-sicon li a:hover,
+			.team-1 .team-info,
+			form input:focus,
+			form textarea:focus,
+			.comment-respond form input:focus,
+			.comment-respond form textarea:focus,
+			.wpcf7-submit,
+			.dark-page .wpcf7-submit,
+			.content-btn,
+			.wpcf7-submit:hover,
+			.error-title,
+			.blog-2 .content-btn i,
+			#related_posts .related-inner:hover,
+			.tagcloud a:hover,
+			.form-submit #submit,
+			.form-submit #submit:hover,
+			.dsc-btn-style3:hover,
+			.dsc-btn-style-4,
+			.dsc-btn-style-4:hover,
+			.wp-block-coblocks-click-to-tweet,
+			.related-inner,
+			.work-process .item .box-img .bg-img,
+			.blog-post-list.blog-style-1 .blog-col-inner .excerpt-box .content-btn:hover,
+			.team-3 .team-info .team-sicon li a,
+			.team-3 .team-info,
+			.feature-1 .bim-icon,
+			.feature-1:hover .bim-icon,
+			.cursor-outer {
+				border-color: #ce9e51;
+			}
+
+			a:hover {
+				color: #ce9e51;
+			}
+
+			a {
+				color: #999999;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: #000000;
+			}
+
+			body {
+				color: #666666;
+			}
+
+			.footer {
+				background-color: #202020;
+			}
+
+			.custom-absolute-menu {
+				border-color: #ffffff;
+			}
+
+		</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<style id="rocket-lazyload-inline-css">
+			.rll-youtube-player {
+				position: relative;
+				padding-bottom: 56.23%;
+				height: 0;
+				overflow: hidden;
+				max-width: 100%;
+			}
+
+			.rll-youtube-player iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 100;
+				background: 0 0
+			}
+
+			.rll-youtube-player img {
+				bottom: 0;
+				display: block;
+				left: 0;
+				margin: auto;
+				max-width: 100%;
+				width: 100%;
+				position: absolute;
+				right: 0;
+				top: 0;
+				border: none;
+				height: auto;
+				cursor: pointer;
+				-webkit-transition: .4s all;
+				-moz-transition: .4s all;
+				transition: .4s all
+			}
+
+			.rll-youtube-player img:hover {
+				-webkit-filter: brightness(75%)
+			}
+
+			.rll-youtube-player .play {
+				height: 72px;
+				width: 72px;
+				left: 50%;
+				top: 50%;
+				margin-left: -36px;
+				margin-top: -36px;
+				position: absolute;
+				background: url(https://cdn.shortpixel.ai/spai/q_lossy+ret_img/https://web-dev-resource-hub.netlify.app/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat;
+				cursor: pointer
+			}
+
+		</style>
+
+
+
+
+
+
+		</div>
+		<script src="./index-files/jquery.js"></script>
+
+
+
+		<script src="./index-files/v4-shims.min.js"></script>
+		<link href="https://web-dev-resource-hub.netlify.app/wp-json/" rel="https://api.w.org/">
+		<link type="application/rsd+xml" href="https://web-dev-resource-hub.netlify.app/xmlrpc.php?rsd" title="RSD"
+			rel="EditURI">
+		<link type="application/wlwmanifest+xml" href="https://web-dev-resource-hub.netlify.app/wp-includes/wlwmanifest.xml"
+			rel="wlwmanifest">
+		<meta name="generator" content="WordPress 5.4.5">
+		<meta name="generator" content="WooCommerce 4.3.0">
+		<link href="https://web-dev-resource-hub.netlify.app/" rel="canonical">
+		<link href="https://web-dev-resource-hub.netlify.app/" rel="shortlink">
+		<link type="application/json+oembed"
+			href="https://web-dev-resource-hub.netlify.app/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbim.smartinnovates.com%2F"
+			rel="alternate">
+		<link type="text/xml+oembed"
+			href="https://web-dev-resource-hub.netlify.app/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbim.smartinnovates.com%2F&amp;format=xml"
+			rel="alternate">
+		<noscript>
+			<style>
+				.woocommerce-product-gallery {
+					opacity: 1 !important;
+				}
+
+			</style>
+		</noscript>
+		<meta name="generator"
+			content="Powered by Slider Revolution 6.2.22 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+		<link data-spai-eager="1"
+			href="https://cdn.shortpixel.ai/spai/q_lossy+ret_img/https://web-dev-resource-hub.netlify.app/wp-content/uploads/2020/08/cropped-Favicon-1-32x32.png"
+			rel="icon" sizes="32x32">
+		<link data-spai-eager="1"
+			href="https://cdn.shortpixel.ai/spai/q_lossy+ret_img/https://web-dev-resource-hub.netlify.app/wp-content/uploads/2020/08/cropped-Favicon-1-192x192.png"
+			rel="icon" sizes="192x192">
+		<link data-spai-eager="1"
+			href="https://cdn.shortpixel.ai/spai/q_lossy+ret_img/https://web-dev-resource-hub.netlify.app/wp-content/uploads/2020/08/cropped-Favicon-1-180x180.png"
+			rel="apple-touch-icon">
+		<meta name="msapplication-TileImage"
+			content="https://web-dev-resource-hub.netlify.app/wp-content/uploads/2020/08/cropped-Favicon-1-270x270.png">
+		<script type="text/javascript">
+			function setREVStartSize( e ) {
+				//window.requestAnimationFrame(function() {				 
+				window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+				window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+				try {
+					var pw = document.getElementById( e.c ).parentNode.offsetWidth,
+						newh;
+					pw = pw === 0 || isNaN( pw ) ? window.RSIW : pw;
+					e.tabw = e.tabw === undefined ? 0 : parseInt( e.tabw );
+					e.thumbw = e.thumbw === undefined ? 0 : parseInt( e.thumbw );
+					e.tabh = e.tabh === undefined ? 0 : parseInt( e.tabh );
+					e.thumbh = e.thumbh === undefined ? 0 : parseInt( e.thumbh );
+					e.tabhide = e.tabhide === undefined ? 0 : parseInt( e.tabhide );
+					e.thumbhide = e.thumbhide === undefined ? 0 : parseInt( e.thumbhide );
+					e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt( e.mh, 0 );
+					if ( e.layout === "fullscreen" || e.l === "fullscreen" )
+						newh = Math.max( e.mh, window.RSIH );
+					else {
+						e.gw = Array.isArray( e.gw ) ? e.gw : [ e.gw ];
+						for ( var i in e.rl )
+							if ( e.gw[ i ] === undefined || e.gw[ i ] === 0 ) e.gw[ i ] = e.gw[ i - 1 ];
+						e.gh = e.el === undefined || e.el === "" || ( Array.isArray( e.el ) && e.el.length == 0 ) ? e.gh : e.el;
+						e.gh = Array.isArray( e.gh ) ? e.gh : [ e.gh ];
+						for ( var i in e.rl )
+							if ( e.gh[ i ] === undefined || e.gh[ i ] === 0 ) e.gh[ i ] = e.gh[ i - 1 ];
+
+						var nl = new Array( e.rl.length ),
+							ix = 0,
+							sl;
+						e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+						for ( var i in e.rl ) nl[ i ] = e.rl[ i ] < window.RSIW ? 0 : e.rl[ i ];
+						sl = nl[ 0 ];
+						for ( var i in nl )
+							if ( sl > nl[ i ] && nl[ i ] > 0 ) {
+								sl = nl[ i ];
+								ix = i;
+							}
+						var m = pw > ( e.gw[ ix ] + e.tabw + e.thumbw ) ? 1 : ( pw - ( e.tabw + e.thumbw ) ) / ( e.gw[ ix ] );
+						newh = ( e.gh[ ix ] * m ) + ( e.tabh + e.thumbh );
+					}
+					if ( window.rs_init_css === undefined ) window.rs_init_css = document.head.appendChild( document.createElement(
+						"style" ) );
+					document.getElementById( e.c ).height = newh + "px";
+					window.rs_init_css.innerHTML += "#" + e.c + "_wrapper { height: " + newh + "px }";
+				} catch ( e ) {
+					console.log( "Failure at Presize of Slider:" + e )
+				}
+				//});
+			};
+
+		</script>
+		<style class="options-output" type="text/css" title="dynamic-css">
+			body {
+				font-family: Roboto;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-family: Poppins;
+			}
+
+			body {
+				line-height: 1.8empx;
+				font-size: 14px;
+			}
+
+			h4 {
+				line-height: 20px;
+				font-size: 20px;
+			}
+
+			h5 {
+				line-height: 18px;
+				font-size: 18px;
+			}
+
+			h6 {
+				line-height: 17px;
+				font-size: 17px;
+			}
+
+		</style><noscript>
+			<style id="rocket-lazyload-nojs-css">
+				.rll-youtube-player,
+				[data-lazy-src] {
+					display: none !important;
+				}
+
+			</style>
+		</noscript>
+		<script>
+			/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+			( function ( w ) {
+				"use strict";
+				if ( !w.loadCSS ) {
+					w.loadCSS = function () {}
+				}
+				var rp = loadCSS.relpreload = {};
+				rp.support = ( function () {
+					var ret;
+					try {
+						ret = w.document.createElement( "link" ).relList.supports( "preload" )
+					} catch ( e ) {
+						ret = !1
+					}
+					return function () {
+						return ret
+					}
+				} )();
+				rp.bindMediaToggle = function ( link ) {
+					var finalMedia = link.media || "all";
+
+					function enableStylesheet() {
+						link.media = finalMedia
+					}
+					if ( link.addEventListener ) {
+						link.addEventListener( "load", enableStylesheet )
+					} else if ( link.attachEvent ) {
+						link.attachEvent( "onload", enableStylesheet )
+					}
+					setTimeout( function () {
+						link.rel = "stylesheet";
+						link.media = "only x"
+					} );
+					setTimeout( enableStylesheet, 3000 )
+				};
+				rp.poly = function () {
+					if ( rp.support() ) {
+						return
+					}
+					var links = w.document.getElementsByTagName( "link" );
+					for ( var i = 0; i < links.length; i++ ) {
+						var link = links[ i ];
+						if ( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute(
+								"data-loadcss" ) ) {
+							link.setAttribute( "data-loadcss", !0 );
+							rp.bindMediaToggle( link )
+						}
+					}
+				};
+				if ( !rp.support() ) {
+					rp.poly();
+					var run = w.setInterval( rp.poly, 500 );
+					if ( w.addEventListener ) {
+						w.addEventListener( "load", function () {
+							rp.poly();
+							w.clearInterval( run )
+						} )
+					} else if ( w.attachEvent ) {
+						w.attachEvent( "onload", function () {
+							rp.poly();
+							w.clearInterval( run )
+						} )
+					}
+				}
+				if ( typeof exports !== "undefined" ) {
+					exports.loadCSS = loadCSS
+				} else {
+					w.loadCSS = loadCSS
+				}
+			}( typeof global !== "undefined" ? global : this ) )
+
+		</script>
+		<link href="https://cdn.shortpixel.ai/" rel="preconnect" crossorigin>
+		<style id="theia-sticky-sidebar-stylesheet-TSS">
+			.theiaStickySidebar:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+
+		</style>
+		<style type="text/css">
+			.fancybox-margin {
+				margin-right: 0px;
+			}
+
+		</style>
+	</head>
+
+	<body
+		class="home page-template page-template-blank-builder page-template-blank-builder-php page page-id-2643 theme-bim woocommerce-js elementor-default elementor-kit-3257 elementor-page elementor-page-2643 e--ua-blink e--ua-chrome e--ua-webkit"
+		data-elementor-device-mode="desktop" data-gclp-initialized="true" data-gistbox-initialized="true">
+		<div class="mouse-cursor cursor-outer" style="visibility: visible; transform: translate(598px, 777px);"></div>
+		<div class="mouse-cursor cursor-inner" style="visibility: visible; transform: translate(598px, 777px);"></div>
+
+		<div class="svg-pre-loading" style="display: none;">
+			<div class="pre-loader">
+				<div class="fluid-width-video-wrapper"><object id="fitvid981221" type="image/svg+xml"
+						data="./index-files/bim_loader.svg"></object></div>
+			</div>
+		</div>
+		<nav class="bim-custom-header clearfix ">
+			<div class="elementor elementor-2667" data-elementor-id="2667" data-elementor-settings="[]"
+				data-elementor-type="wp-post">
+				<div class="elementor-inner">
+					<div class="elementor-section-wrap">
+
+						<div class="sticky-wrapper" id="sticky-wrapper" style="height: 75px;">
+							<section
+								class="elementor-section elementor-top-section elementor-element elementor-element-28254b69 elementor-section-boxed elementor-section-height-default elementor-section-height-default stuck-nav"
+								data-element_type="section" data-id="28254b69"
+								data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+								<div class="elementor-container elementor-column-gap-default">
+									<div class="elementor-row" style="justify-content: space-evenly;">
+										<div
+											class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-11dc1d11 animated fadeInLeft"
+											data-element_type="column" data-id="11dc1d11"
+											data-settings="{&quot;animation&quot;:&quot;fadeInLeft&quot;}">
+											<div class="elementor-column-wrap elementor-element-populated">
+												<div class="elementor-widget-wrap">
+													<div
+														class="elementor-element elementor-element-1ddd6655 elementor-widget elementor-widget-bim-logo"
+														data-element_type="widget" data-id="1ddd6655" data-widget_type="bim-logo.default">
+														<div class="elementor-widget-container">
+
+															<div class="custom-logo">
+																<a href="https://web-dev-resource-hub.netlify.app/"><img class="logo1" data-spai="1"
+																		data-spai-upd="81" src="./index-files/logo-1.png" alt="logo"></a>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div
+											class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-74593880 animated fadeInUp"
+											data-element_type="column" data-id="74593880"
+											data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}">
+											<div class="elementor-column-wrap elementor-element-populated">
+												<div class="elementor-widget-wrap">
+													<div
+														class="elementor-element elementor-element-2a162297 elementor-widget elementor-widget-bim-menu"
+														data-element_type="widget" data-id="2a162297" data-widget_type="bim-menu.default">
+														<div class="elementor-widget-container">
+
+															<!--HEADER START-->
+
+															<div class="custom-sticky no-bg">
+																<div class="menu-wrapper hidden-xs hidden-sm  ">
+																	<div class="menu-main-menu-container">
+																		<ul class="home-nav navigation menu sf-js-enabmagico sf-arrows" id="menu-main-menu">
+																			<li
+																				class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-230"
+																				id="menu-item-230">
+																				<a class="sf-with-ul"
+																					href="https://web-dev-resource-hub.netlify.app/preview/">Home</a>
+																				<ul class="sub-menu sf-js-enabmagico sf-arrows" style="display: none;">
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3486"
+																						id="menu-item-3486">
+																						<a href="https://web-dev-resource-hub.netlify.app/"
+																							aria-current="page">Architecture</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3271"
+																						id="menu-item-3271">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo2/">Creative</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3270"
+																						id="menu-item-3270">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo3">Studio</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3249"
+																						id="menu-item-3249">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/landing/home-portfolio/">Portfolio</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3487"
+																						id="menu-item-3487">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo11/">Presentation</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3272"
+																						id="menu-item-3272">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo22/">Interior</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3274"
+																						id="menu-item-3274">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo7/">Lighting</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3275"
+																						id="menu-item-3275">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo8/">Modeling</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3277"
+																						id="menu-item-3277">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo10/">Shopping</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3276"
+																						id="menu-item-3276">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo14/">Modern</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3273"
+																						id="menu-item-3273">
+																						<a href="https://web-dev-resource-hub.netlify.app/preview/">Preview</a></li>
+																				</ul>
+																			</li>
+																			<li
+																				class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-285"
+																				id="menu-item-285">
+																				<a class="sf-with-ul"
+																					href="https://web-dev-resource-hub.netlify.app/#0">Pages</a>
+																				<ul class="sub-menu sf-js-enabmagico sf-arrows" style="display: none;">
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3497"
+																						id="menu-item-3497">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/about-us/">About
+																							us 01</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3517"
+																						id="menu-item-3517">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/about-us-02/">About
+																							us
+																							02</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3498"
+																						id="menu-item-3498">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/our-services-01/">Services
+																							01</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3499"
+																						id="menu-item-3499">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/services/">Services
+																							02</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3515"
+																						id="menu-item-3515">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/services-03/">Services
+																							03</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3244"
+																						id="menu-item-3244">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo12/">Maintenance</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3516"
+																						id="menu-item-3516">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/landing/careers/">Careers</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-286"
+																						id="menu-item-286">
+																						<a href="http://innovationplans.com/themes/bim/wp/404/">404 Error</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-287"
+																						id="menu-item-287">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/landing/?s=test">Search</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3500"
+																						id="menu-item-3500">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/faq/">FAQs</a>
+																					</li>
+																				</ul>
+																			</li>
+																			<li
+																				class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2591"
+																				id="menu-item-2591">
+																				<a class="sf-with-ul"
+																					href="https://web-dev-resource-hub.netlify.app/#0">Portfolio</a>
+																				<ul class="sub-menu sf-js-enabmagico sf-arrows" style="display: none;">
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3495"
+																						id="menu-item-3495">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/portfolio-01/">Projects
+																							type
+																							01</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3496"
+																						id="menu-item-3496">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/portfolio-2/">Projects
+																							type
+																							02</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3502"
+																						id="menu-item-3502">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/portfolio-03/">Projects
+																							type
+																							03</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-289"
+																						id="menu-item-289">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/blog/portfolio/ocean-house/">Single
+																							project 01</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3518"
+																						id="menu-item-3518">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo4/">Showcase 01</a>
+																					</li>
+																				</ul>
+																			</li>
+																			<li
+																				class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3484"
+																				id="menu-item-3484">
+																				<a class="sf-with-ul" href="https://web-dev-resource-hub.netlify.app/#">Blog</a>
+																				<ul class="sub-menu sf-js-enabmagico sf-arrows" style="display: none;">
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3485"
+																						id="menu-item-3485">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/author/admin/">Blog
+																							List</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3488"
+																						id="menu-item-3488">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/grid-2-col/">Grid
+																							2 col</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3491"
+																						id="menu-item-3491">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/zigzag-blog/">Blog
+																							zigzag</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3493"
+																						id="menu-item-3493">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/landing/2019/08/28/new-wooden-material/">Post
+																							one</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3503"
+																						id="menu-item-3503">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/demo8/2020/02/26/in-good-taste-mark-finlay-architects-and-interiors/">Post
+																							two</a></li>
+																				</ul>
+																			</li>
+																			<li
+																				class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3263"
+																				id="menu-item-3263">
+																				<a class="sf-with-ul"
+																					href="https://web-dev-resource-hub.netlify.app/demo10/">Shop</a>
+																				<ul class="sub-menu sf-js-enabmagico sf-arrows" style="display: none;">
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3264"
+																						id="menu-item-3264">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/demo10/products/">Products</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3265"
+																						id="menu-item-3265">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo10/my-cart/">My
+																							cart</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3266"
+																						id="menu-item-3266">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/demo10/checkout/">Checkout</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3267"
+																						id="menu-item-3267">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo10/my-account/">My
+																							account</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3268"
+																						id="menu-item-3268">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo10/order-tracking/">Order
+																							tracking</a></li>
+																				</ul>
+																			</li>
+																			<li
+																				class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3197"
+																				id="menu-item-3197">
+																				<a class="sf-with-ul"
+																					href="https://web-dev-resource-hub.netlify.app/#0">Elements</a>
+																				<ul class="sub-menu sf-js-enabmagico sf-arrows" style="display: none;">
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3490"
+																						id="menu-item-3490">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/team-elements/">Team
+																							elements</a></li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3501"
+																						id="menu-item-3501">
+																						<a
+																							href="https://web-dev-resource-hub.netlify.app/landing/testimonial-element/">Testimonials</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3519"
+																						id="menu-item-3519">
+																						<a class href="https://web-dev-resource-hub.netlify.app/#0">Footers</a>
+																						<ul class="sub-menu sf-js-enabmagico sf-arrows" style="display: none;">
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3521"
+																								id="menu-item-3521">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/footer/footer-one/">Footer
+																									01</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3520"
+																								id="menu-item-3520">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/blog/footer/footer-two/">Footer
+																									02</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3522"
+																								id="menu-item-3522">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/demo2/footer/footer-03/">Footer
+																									03</a></li>
+																						</ul>
+																					</li>
+																				</ul>
+																			</li>
+																			<li
+																				class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-235"
+																				id="menu-item-235">
+																				<a class="sf-with-ul" href="https://web-dev-resource-hub.netlify.app/#0">Contact
+																					us</a>
+																				<ul class="sub-menu sf-js-enabmagico sf-arrows" style="display: none;">
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3526"
+																						id="menu-item-3526">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/contact-01/">Contact
+																							01</a>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3527"
+																						id="menu-item-3527">
+																						<a href="https://web-dev-resource-hub.netlify.app/landing/contact-02/">Contact
+																							02</a>
+																					</li>
+																				</ul>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+																<!--/.menu-box-->
+																<div class="mobile-wrapper hidden-lg hidden-md">
+																	<a class="hamburger" href="https://web-dev-resource-hub.netlify.app/#">
+																		<div class="hamburger__icon"></div>
+																	</a>
+																	<div class="fat-nav">
+																		<div class="fat-nav__wrapper">
+
+																			<ul class="fat-list">
+																				<ul class="mob-nav  menu" id="menu-main-menu-1">
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-230">
+																						<a href="https://web-dev-resource-hub.netlify.app/preview/">Home</a><a
+																							class="menu-item-icon"
+																							href="https://web-dev-resource-hub.netlify.app/#"><svg
+																								class="feather feather-chevron-down" xmlns="http://www.w3.org/2000/svg"
+																								width="20" height="20" viewBox="0 0 24 24" fill="none"
+																								stroke="currentColor" stroke-width="2" stroke-linecap="round"
+																								stroke-linejoin="round">
+																								<polyline points="6 9 12 15 18 9"></polyline>
+																							</svg></a>
+																						<ul class="sub-menu">
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3486">
+																								<a href="https://web-dev-resource-hub.netlify.app/"
+																									aria-current="page">Architecture</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3271">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo2/">Creative</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3270">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo3">Studio</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3249">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/home-portfolio/">Portfolio</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3487">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/demo11/">Presentation</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3272">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo22/">Interior</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3274">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo7/">Lighting</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3275">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo8/">Modeling</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3277">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo10/">Shopping</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3276">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo14/">Modern</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3273">
+																								<a href="https://web-dev-resource-hub.netlify.app/preview/">Preview</a>
+																							</li>
+																						</ul>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-285">
+																						<a href="https://web-dev-resource-hub.netlify.app/#0">Pages</a><a
+																							class="menu-item-icon"
+																							href="https://web-dev-resource-hub.netlify.app/#"><svg
+																								class="feather feather-chevron-down" xmlns="http://www.w3.org/2000/svg"
+																								width="20" height="20" viewBox="0 0 24 24" fill="none"
+																								stroke="currentColor" stroke-width="2" stroke-linecap="round"
+																								stroke-linejoin="round">
+																								<polyline points="6 9 12 15 18 9"></polyline>
+																							</svg></a>
+																						<ul class="sub-menu">
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3497">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/about-us/">About
+																									us
+																									01</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3517">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/about-us-02/">About
+																									us
+																									02</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3498">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/our-services-01/">Services
+																									01</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3499">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/services/">Services
+																									02</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3515">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/services-03/">Services
+																									03</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3244">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/demo12/">Maintenance</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3516">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/careers/">Careers</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-286">
+																								<a href="http://innovationplans.com/themes/bim/wp/404/">404 Error</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-287">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/?s=test">Search</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3500">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/faq/">FAQs</a>
+																							</li>
+																						</ul>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2591">
+																						<a href="https://web-dev-resource-hub.netlify.app/#0">Portfolio</a><a
+																							class="menu-item-icon"
+																							href="https://web-dev-resource-hub.netlify.app/#"><svg
+																								class="feather feather-chevron-down" xmlns="http://www.w3.org/2000/svg"
+																								width="20" height="20" viewBox="0 0 24 24" fill="none"
+																								stroke="currentColor" stroke-width="2" stroke-linecap="round"
+																								stroke-linejoin="round">
+																								<polyline points="6 9 12 15 18 9"></polyline>
+																							</svg></a>
+																						<ul class="sub-menu">
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3495">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/portfolio-01/">Projects
+																									type 01</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3496">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/portfolio-2/">Projects
+																									type 02</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3502">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/portfolio-03/">Projects
+																									type 03</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-289">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/blog/portfolio/ocean-house/">Single
+																									project 01</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3518">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo4/">Showcase
+																									01</a></li>
+																						</ul>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3484">
+																						<a href="https://web-dev-resource-hub.netlify.app/#">Blog</a><a
+																							class="menu-item-icon"
+																							href="https://web-dev-resource-hub.netlify.app/#"><svg
+																								class="feather feather-chevron-down" xmlns="http://www.w3.org/2000/svg"
+																								width="20" height="20" viewBox="0 0 24 24" fill="none"
+																								stroke="currentColor" stroke-width="2" stroke-linecap="round"
+																								stroke-linejoin="round">
+																								<polyline points="6 9 12 15 18 9"></polyline>
+																							</svg></a>
+																						<ul class="sub-menu">
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3485">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/author/admin/">Blog
+																									List</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3488">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/grid-2-col/">Grid
+																									2
+																									col</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3491">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/zigzag-blog/">Blog
+																									zigzag</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3493">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/2019/08/28/new-wooden-material/">Post
+																									one</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3503">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/demo8/2020/02/26/in-good-taste-mark-finlay-architects-and-interiors/">Post
+																									two</a></li>
+																						</ul>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3263">
+																						<a href="https://web-dev-resource-hub.netlify.app/demo10/">Shop</a><a
+																							class="menu-item-icon"
+																							href="https://web-dev-resource-hub.netlify.app/#"><svg
+																								class="feather feather-chevron-down" xmlns="http://www.w3.org/2000/svg"
+																								width="20" height="20" viewBox="0 0 24 24" fill="none"
+																								stroke="currentColor" stroke-width="2" stroke-linecap="round"
+																								stroke-linejoin="round">
+																								<polyline points="6 9 12 15 18 9"></polyline>
+																							</svg></a>
+																						<ul class="sub-menu">
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3264">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/demo10/products/">Products</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3265">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo10/my-cart/">My
+																									cart</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3266">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/demo10/checkout/">Checkout</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3267">
+																								<a href="https://web-dev-resource-hub.netlify.app/demo10/my-account/">My
+																									account</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3268">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/demo10/order-tracking/">Order
+																									tracking</a></li>
+																						</ul>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3197">
+																						<a href="https://web-dev-resource-hub.netlify.app/#0">Elements</a><a
+																							class="menu-item-icon"
+																							href="https://web-dev-resource-hub.netlify.app/#"><svg
+																								class="feather feather-chevron-down" xmlns="http://www.w3.org/2000/svg"
+																								width="20" height="20" viewBox="0 0 24 24" fill="none"
+																								stroke="currentColor" stroke-width="2" stroke-linecap="round"
+																								stroke-linejoin="round">
+																								<polyline points="6 9 12 15 18 9"></polyline>
+																							</svg></a>
+																						<ul class="sub-menu">
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3490">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/team-elements/">Team
+																									elements</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3501">
+																								<a
+																									href="https://web-dev-resource-hub.netlify.app/landing/testimonial-element/">Testimonials</a>
+																							</li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3519">
+																								<a href="https://web-dev-resource-hub.netlify.app/#0">Footers</a><a
+																									class="menu-item-icon"
+																									href="https://web-dev-resource-hub.netlify.app/#"><svg
+																										class="feather feather-chevron-down"
+																										xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+																										viewBox="0 0 24 24" fill="none" stroke="currentColor"
+																										stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+																										<polyline points="6 9 12 15 18 9"></polyline>
+																									</svg></a>
+																								<ul class="sub-menu">
+																									<li
+																										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3521">
+																										<a
+																											href="https://web-dev-resource-hub.netlify.app/landing/footer/footer-one/">Footer
+																											01</a></li>
+																									<li
+																										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3520">
+																										<a
+																											href="https://web-dev-resource-hub.netlify.app/blog/footer/footer-two/">Footer
+																											02</a></li>
+																									<li
+																										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3522">
+																										<a
+																											href="https://web-dev-resource-hub.netlify.app/demo2/footer/footer-03/">Footer
+																											03</a></li>
+																								</ul>
+																							</li>
+																						</ul>
+																					</li>
+																					<li
+																						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-235">
+																						<a href="https://web-dev-resource-hub.netlify.app/#0">Contact us</a><a
+																							class="menu-item-icon"
+																							href="https://web-dev-resource-hub.netlify.app/#"><svg
+																								class="feather feather-chevron-down" xmlns="http://www.w3.org/2000/svg"
+																								width="20" height="20" viewBox="0 0 24 24" fill="none"
+																								stroke="currentColor" stroke-width="2" stroke-linecap="round"
+																								stroke-linejoin="round">
+																								<polyline points="6 9 12 15 18 9"></polyline>
+																							</svg></a>
+																						<ul class="sub-menu">
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3526">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/contact-01/">Contact
+																									01</a></li>
+																							<li
+																								class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3527">
+																								<a href="https://web-dev-resource-hub.netlify.app/landing/contact-02/">Contact
+																									02</a></li>
+																						</ul>
+																					</li>
+																				</ul>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+																<!--/.box-mobile-->
+															</div>
+
+
+
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div
+											class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-7853136 elementor-hidden-tablet elementor-hidden-phone animated fadeInRight"
+											data-element_type="column" data-id="7853136"
+											data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;}">
+											<div class="elementor-column-wrap elementor-element-populated">
+												<div class="elementor-widget-wrap">
+													<div
+														class="elementor-element elementor-element-bbab6f7 elementor-widget elementor-widget-bim-header-search"
+														data-element_type="widget" data-id="bbab6f7" data-widget_type="bim-header-search.default">
+														<div class="elementor-widget-container">
+
+
+															<!-- ===================================== 
+        ==== Start Featured -->
+
+															<div class="header-search-icon hidden-xs hidden-sm">
+																<a class="search" href="https://web-dev-resource-hub.netlify.app/#">
+																	<i class="fa fa-search" aria-hidden="true"></i> </a>
+																<div class="black-search-block">
+																	<div class="black-search-table">
+																		<div class="black-search-table-cell">
+																			<div>
+																				<form class="searchform" id="search-form-1" role="search" method="get"
+																					action="https://web-dev-resource-hub.netlify.app/">
+																					<input class="focus-input" name="s" type="search"
+																						placeholder="Type search keyword..." value>
+																					<input class="searchsubmit" type="submit" value>
+																				</form>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="close-black-block"><a href="https://web-dev-resource-hub.netlify.app/#"><i
+																				class="fa fa-times"></i></a></div>
+																</div>
+															</div>
+
+															<!-- End Featureds ====
+        ======================================= -->
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div
+											class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-01dbb44 elementor-hidden-tablet elementor-hidden-phone animated fadeInRight"
+											data-element_type="column" data-id="01dbb44"
+											data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;,&quot;animation_delay&quot;:200}">
+											<div class="elementor-column-wrap elementor-element-populated">
+												<div class="elementor-widget-wrap">
+													<div
+														class="elementor-element elementor-element-8406e20 elementor-widget elementor-widget-bim-offcanvas"
+														data-element_type="widget" data-id="8406e20" data-widget_type="bim-offcanvas.default">
+														<div class="elementor-widget-container">
+
+
+															<!-- ===================================== 
+        ==== Start Featured -->
+
+															<div class="header-offcanvas-icon hidden-xs hidden-sm">
+																<a class="offcanvas" href="https://web-dev-resource-hub.netlify.app/#">
+																	<i class="fas fa-th" aria-hidden="true"></i> </a>
+															</div>
+
+															<!-- End Featureds ====
+        ======================================= -->
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div
+											class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-4f4ce867 elementor-hidden-tablet elementor-hidden-phone animated fadeInRight"
+											data-element_type="column" data-id="4f4ce867"
+											data-settings="{&quot;animation&quot;:&quot;fadeInRight&quot;,&quot;animation_delay&quot;:400}">
+											<div class="elementor-column-wrap elementor-element-populated">
+												<div class="elementor-widget-wrap">
+													<div
+														class="elementor-element elementor-element-f987c5b elementor-align-right elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-button"
+														data-element_type="widget" data-id="f987c5b" data-widget_type="button.default">
+														<div class="elementor-widget-container">
+															<div class="elementor-button-wrapper">
+																<a class="elementor-button-link elementor-button elementor-size-sm"
+																	href="https://web-dev-resource-hub.netlify.app/#Portfolio" role="button">
+																	<span class="elementor-button-content-wrapper">
+																		<span class="elementor-button-icon elementor-align-icon-right">
+																			<i class="fas fa-angle-double-right" aria-hidden="true"></i> </span>
+																		<span class="elementor-button-text">Discover More</span>
+																	</span>
+																</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+
+
+		<script>
+			var wpcf7 = {
+				"apiSettings": {
+					"root": "https:\/\/bim.smartinnovates.com\/wp-json\/contact-form-7\/v1",
+					"namespace": "contact-form-7\/v1"
+				},
+				"cached": "1"
+			};
+
+		</script>
+
+		<script>
+			var spai_settings = {
+				"api_url": "https:\/\/cdn.shortpixel.ai\/spai\/w_%WIDTH%+q_lossy+ret_img",
+				"api_short_url": "https:\/\/cdn.shortpixel.ai\/spai\/ret_img",
+				"method": "src",
+				"crop": "",
+				"native_lazy": "",
+				"serve_svg": "1",
+				"hover_handling": "",
+				"debug": "",
+				"site_url": "https:\/\/bim.smartinnovates.com",
+				"plugin_url": "https:\/\/bim.smartinnovates.com\/wp-content\/plugins\/shortpixel-adaptive-images",
+				"version": "2.0.8",
+				"excluded_selectors": [],
+				"eager_selectors": [],
+				"noresize_selectors": [],
+				"excluded_paths": [ "cmVnZXg6L1wvXC8oW15cL10qXC58KWdyYXZhdGFyLmNvbVwvLw==",
+					"cGF0aDovcmV2c2xpZGVyL3B1YmxpYy9hc3NldHMvYXNzZXRzL3RyYW5zcGFyZW50LnBuZw=="
+				],
+				"active_integrations": {
+					"nextgen": false,
+					"modula": false,
+					"elementor": true,
+					"elementor-addons": false,
+					"viba-portfolio": false,
+					"envira": false,
+					"everest": false,
+					"wp-bakery": false,
+					"woocommerce": true,
+					"foo": false,
+					"oxygen": false,
+					"slider-revolution": true,
+					"smart-slider": false,
+					"wp-grid-builder": false,
+					"the-grid": false,
+					"social-pug": false,
+					"content-views": false,
+					"wp-rocket": {
+						"lazyload": false,
+						"css-filter": true,
+						"minify-css": true,
+						"defer-all-js": false
+					},
+					"swift-performance": false,
+					"imagify": {
+						"active": false
+					},
+					"wp-fastest-cache": false,
+					"w3-total-cache": false,
+					"wp-optimize": false,
+					"theme": "Bim"
+				},
+				"parse_css_files": "1",
+				"backgrounds_max_width": "1920",
+				"sep": "+",
+				"webp": "1",
+				"extensions_to_webp": {
+					"png": true,
+					"jpg": true,
+					"gif": true
+				},
+				"sniper": "https:\/\/bim.smartinnovates.com\/wp-content\/plugins\/shortpixel-adaptive-images\/img\/target.cur",
+				"affected_tags": "{\"link\":1,\"a\":1,\"script\":2}",
+				"ajax_url": "https:\/\/bim.smartinnovates.com\/wp-admin\/admin-ajax.php"
+			};
+
+		</script>
+
+
+		<script>
+			var wc_add_to_cart_params = {
+				"ajax_url": "\/wp-admin\/admin-ajax.php",
+				"wc_ajax_url": "\/?wc-ajax=%%endpoint%%",
+				"i18n_view_cart": "View cart",
+				"cart_url": "https:\/\/bim.smartinnovates.com",
+				"is_cart": "",
+				"cart_redirect_after_add": "no"
+			};
+
+		</script>
+
+
+		<script>
+			var woocommerce_params = {
+				"ajax_url": "\/wp-admin\/admin-ajax.php",
+				"wc_ajax_url": "\/?wc-ajax=%%endpoint%%"
+			};
+
+		</script>
+
+		<script>
+			var wc_cart_fragments_params = {
+				"ajax_url": "\/wp-admin\/admin-ajax.php",
+				"wc_ajax_url": "\/?wc-ajax=%%endpoint%%",
+				"cart_hash_key": "wc_cart_hash_f10b18b9c2ac38d561e6d98f93fe294e",
+				"fragment_name": "wc_fragments_f10b18b9c2ac38d561e6d98f93fe294e",
+				"request_timeout": "5000"
+			};
+
+		</script>
+
+		<script>
+			"use strict";
+			var _createClass = function () {
+				function defineProperties( target, props ) {
+					for ( var i = 0; i < props.length; i++ ) {
+						var descriptor = props[ i ];
+						descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (
+							descriptor.writable = !0 ), Object.defineProperty( target, descriptor.key, descriptor )
+					}
+				}
+				return function ( Constructor, protoProps, staticProps ) {
+					return protoProps && defineProperties( Constructor.prototype, protoProps ), staticProps && defineProperties(
+						Constructor, staticProps ), Constructor
+				}
+			}();
+
+			function _classCallCheck( instance, Constructor ) {
+				if ( !( instance instanceof Constructor ) ) throw new TypeError( "Cannot call a class as a function" )
+			}
+			var RocketBrowserCompatibilityChecker = function () {
+				function RocketBrowserCompatibilityChecker( options ) {
+					_classCallCheck( this, RocketBrowserCompatibilityChecker ), this.passiveSupported = !1, this
+						._checkPassiveOption( this ), this.options = !!this.passiveSupported && options
+				}
+				return _createClass( RocketBrowserCompatibilityChecker, [ {
+					key: "_checkPassiveOption",
+					value: function ( self ) {
+						try {
+							var options = {
+								get passive() {
+									return !( self.passiveSupported = !0 )
+								}
+							};
+							window.addEventListener( "test", null, options ), window.removeEventListener( "test", null,
+								options )
+						} catch ( err ) {
+							self.passiveSupported = !1
+						}
+					}
+				}, {
+					key: "initRequestIdleCallback",
+					value: function () {
+						!1 in window && ( window.requestIdleCallback = function ( cb ) {
+							var start = Date.now();
+							return setTimeout( function () {
+								cb( {
+									didTimeout: !1,
+									timeRemaining: function () {
+										return Math.max( 0, 50 - ( Date.now() - start ) )
+									}
+								} )
+							}, 1 )
+						} ), !1 in window && ( window.cancelIdleCallback = function ( id ) {
+							return clearTimeout( id )
+						} )
+					}
+				}, {
+					key: "isDataSaverModeOn",
+					value: function () {
+						return "connection" in navigator && !0 === navigator.connection.saveData
+					}
+				}, {
+					key: "supportsLinkPrefetch",
+					value: function () {
+						var elem = document.createElement( "link" );
+						return elem.relList && elem.relList.supports && elem.relList.supports( "prefetch" ) && window
+							.IntersectionObserver && "isIntersecting" in IntersectionObserverEntry.prototype
+					}
+				}, {
+					key: "isSlowConnection",
+					value: function () {
+						return "connection" in navigator && "effectiveType" in navigator.connection && ( "2g" === navigator
+							.connection.effectiveType || "slow-2g" === navigator.connection.effectiveType )
+					}
+				} ] ), RocketBrowserCompatibilityChecker
+			}();
+
+		</script>
+		<script>
+			( function () {
+				"use strict";
+				var e = function () {
+					function n( e, t ) {
+						for ( var r = 0; r < t.length; r++ ) {
+							var n = t[ r ];
+							n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && ( n.writable = !0 ), Object
+								.defineProperty( e, n.key, n )
+						}
+					}
+					return function ( e, t, r ) {
+						return t && n( e.prototype, t ), r && n( e, r ), e
+					}
+				}();
+
+				function n( e, t ) {
+					if ( !( e instanceof t ) ) throw new TypeError( "Cannot call a class as a function" )
+				}
+				var t = function () {
+					function r( e, t ) {
+						n( this, r ), this.attrName = "data-rocketlazyloadscript", this.browser = t, this.options = this.browser
+							.options, this.triggerEvents = e, this.userEventListener = this.triggerListener.bind( this )
+					}
+					return e( r, [ {
+						key: "init",
+						value: function () {
+							this._addEventListener( this )
+						}
+					}, {
+						key: "reset",
+						value: function () {
+							this._removeEventListener( this )
+						}
+					}, {
+						key: "_addEventListener",
+						value: function ( t ) {
+							this.triggerEvents.forEach( function ( e ) {
+								return window.addEventListener( e, t.userEventListener, t.options )
+							} )
+						}
+					}, {
+						key: "_removeEventListener",
+						value: function ( t ) {
+							this.triggerEvents.forEach( function ( e ) {
+								return window.removeEventListener( e, t.userEventListener, t.options )
+							} )
+						}
+					}, {
+						key: "_loadScriptSrc",
+						value: function () {
+							var r = this,
+								e = document.querySelectorAll( "script[" + this.attrName + "]" );
+							0 !== e.length && Array.prototype.slice.call( e ).forEach( function ( e ) {
+								var t = e.getAttribute( r.attrName );
+								e.setAttribute( "src", t ), e.removeAttribute( r.attrName )
+							} ), this.reset()
+						}
+					}, {
+						key: "triggerListener",
+						value: function () {
+							this._loadScriptSrc(), this._removeEventListener( this )
+						}
+					} ], [ {
+						key: "run",
+						value: function () {
+							RocketBrowserCompatibilityChecker && new r( [ "keydown", "mouseover", "touchmove",
+								"touchstart"
+							], new RocketBrowserCompatibilityChecker( {
+								passive: !0
+							} ) ).init()
+						}
+					} ] ), r
+				}();
+				t.run();
+			}() );
+
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<script>
+			var elementorFrontendConfig = {
+				"environmentMode": {
+					"edit": false,
+					"wpPreview": false,
+					"isScriptDebug": false,
+					"isImprovedAssetsLoading": false
+				},
+				"i18n": {
+					"shareOnFacebook": "Share on Facebook",
+					"shareOnTwitter": "Share on Twitter",
+					"pinIt": "Pin it",
+					"download": "Download",
+					"downloadImage": "Download image",
+					"fullscreen": "Fullscreen",
+					"zoom": "Zoom",
+					"share": "Share",
+					"playVideo": "Play Video",
+					"previous": "Previous",
+					"next": "Next",
+					"close": "Close"
+				},
+				"is_rtl": false,
+				"breakpoints": {
+					"xs": 0,
+					"sm": 480,
+					"md": 768,
+					"lg": 1025,
+					"xl": 1440,
+					"xxl": 1600
+				},
+				"version": "3.1.4",
+				"is_static": false,
+				"experimentalFeatures": [],
+				"urls": {
+					"assets": "https:\/\/bim.smartinnovates.com\/wp-content\/plugins\/elementor\/assets\/"
+				},
+				"settings": {
+					"page": [],
+					"editorPreferences": []
+				},
+				"kit": {
+					"global_image_lightbox": "yes",
+					"lightbox_enable_counter": "yes",
+					"lightbox_enable_fullscreen": "yes",
+					"lightbox_enable_zoom": "yes",
+					"lightbox_enable_share": "yes",
+					"lightbox_title_src": "title",
+					"lightbox_description_src": "description"
+				},
+				"post": {
+					"id": 2643,
+					"title": "Bim%20%E2%80%93%20Architecture%20Consultancy%20WordPress%20Theme",
+					"excerpt": "",
+					"featuredImage": false
+				}
+			};
+
+		</script>
+
+
+		<script>
+			window.lazyLoadOptions = {
+				elements_selector: "img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",
+				data_src: "lazy-src",
+				data_srcset: "lazy-srcset",
+				data_sizes: "lazy-sizes",
+				class_loading: "lazyloading",
+				class_loaded: "lazyloaded",
+				threshold: 300,
+				callback_loaded: function ( element ) {
+					if ( element.tagName === "IFRAME" && element.dataset.rocketLazyload == "fitvidscompatible" ) {
+						if ( element.classList.contains( "lazyloaded" ) ) {
+							if ( typeof window.jQuery != "undefined" ) {
+								if ( jQuery.fn.fitVids ) {
+									jQuery( element ).parent().fitVids()
+								}
+							}
+						}
+					}
+				}
+			};
+			window.addEventListener( 'LazyLoad::Initialized', function ( e ) {
+				var lazyLoadInstance = e.detail.instance;
+				if ( window.MutationObserver ) {
+					var observer = new MutationObserver( function ( mutations ) {
+						var image_count = 0;
+						var iframe_count = 0;
+						var rocketlazy_count = 0;
+						mutations.forEach( function ( mutation ) {
+							for ( i = 0; i < mutation.addedNodes.length; i++ ) {
+								if ( typeof mutation.addedNodes[ i ].getElementsByTagName !== 'function' ) {
+									return
+								}
+								if ( typeof mutation.addedNodes[ i ].getElementsByClassName !== 'function' ) {
+									return
+								}
+								images = mutation.addedNodes[ i ].getElementsByTagName( 'img' );
+								is_image = mutation.addedNodes[ i ].tagName == "IMG";
+								iframes = mutation.addedNodes[ i ].getElementsByTagName( 'iframe' );
+								is_iframe = mutation.addedNodes[ i ].tagName == "IFRAME";
+								rocket_lazy = mutation.addedNodes[ i ].getElementsByClassName( 'rocket-lazyload' );
+								image_count += images.length;
+								iframe_count += iframes.length;
+								rocketlazy_count += rocket_lazy.length;
+								if ( is_image ) {
+									image_count += 1
+								}
+								if ( is_iframe ) {
+									iframe_count += 1
+								}
+							}
+						} );
+						if ( image_count > 0 || iframe_count > 0 || rocketlazy_count > 0 ) {
+							lazyLoadInstance.update()
+						}
+					} );
+					var b = document.getElementsByTagName( "body" )[ 0 ];
+					var config = {
+						childList: !0,
+						subtree: !0
+					};
+					observer.observe( b, config )
+				}
+			}, !1 )
+
+		</script>
+		<script data-no-minify="1" src="./index-files/lazyload.min.js" async></script>
+		<script>
+			"use strict";
+			var wprRemoveCPCSS = function wprRemoveCPCSS() {
+				var elem;
+				document.querySelector( 'link[data-rocket-async="style"][rel="preload"]' ) ? setTimeout( wprRemoveCPCSS, 200 ) :
+					( elem = document.getElementById( "rocket-critical-css" ) ) && "remove" in elem && elem.remove()
+			};
+			window.addEventListener ? window.addEventListener( "load", wprRemoveCPCSS ) : window.attachEvent && window
+				.attachEvent( "onload", wprRemoveCPCSS );
+
+		</script>
+		<script data-minify="1" src="./index-files/c3b6998a8ec12fba3de2b762c86eb76e.js" defer></script><noscript>
+			<link
+				href="https://fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C400i%2C500%2C600%2C600i%2C700%2C700i%2C800%2C800i%2C900%7CPoppins%3A300%2C400%2C500%2C600%2C700%2C800%2C900%7CPoppins%3A400%2C500%2C600%2C700%7CRoboto%7CPoppins%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CTeko%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CMerriweather%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap"
+				rel="stylesheet">
+			<link data-minify="1"
+				href="https://web-dev-resource-hub.netlify.app/wp-content/cache/min/1/2fe6a9bcd5395f2a9c3e46d00f2da5bc.css"
+				rel="stylesheet" media="all">
+			<link id="woocommerce-smallscreen-css"
+				href="https://web-dev-resource-hub.netlify.app/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=4.3.0"
+				rel="stylesheet" media="only screen and (max-width: 768px)"></noscript>
+
+		<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1620225185 --><span
+			class="elementor-screen-only" id="elementor-device-mode"></span>
+		<form id="gclp-frame-form" target="gclp-frame" method="post" style="display: none;"></form><span
+			style="margin: 0px auto; border: 2px dotted rgb(0, 0, 0); position: absolute; z-index: 2147483647; visibility: hidden; left: 498px; width: 0px; top: 300px; height: 0px;"></span><span
+			style="z-index: 2147483647; position: absolute; visibility: hidden; left: 483px; width: 50px; top: 285px; height: 20px; font-size: 10px; color: black;"></span>
+	</body>
+
+</html>

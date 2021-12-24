@@ -1,0 +1,14 @@
+---
+---
+
+{% for release in site.releases %}
+  {% assign major = release | split:'.' | first %}
+/docs/{{ major }}.* /docs/{{ release }} 302
+/docs/{{ major }} /docs/{{ release }} 302
+{% endfor %}
+
+/docs/1.* {{ site.links.docs_v1 }} 301
+/docs/1 {{ site.links.docs_v1 }} 301
+/docs/ /docs/{{ site.release }} 200
+
+/license {{ site.links.raw }}/{{ site.release }}-npm/LICENSE 301

@@ -1,0 +1,91 @@
+input,
+textarea {
+  all: unset;
+  font: inherit;
+  color: var(--dark-grey);
+}
+[type="radio"],
+[type="checkbox"] {
+  position: absolute;
+}
+[type] + label {
+  cursor: pointer;
+}
+label,
+legend,
+[type="email"],
+[type="text"] {
+  display: block;
+  color: var(--dark-grey);
+  margin-bottom: 0.5rem;
+}
+[type="email"],
+[type="text"],
+textarea {
+  width: 100%;
+}
+form li {
+  margin-bottom: 2rem;
+}
+fieldset,
+[type="checkbox"] + label {
+  display: flex;
+  gap: 1rem;
+}
+fieldset {
+  flex-flow: row wrap;
+}
+legend {
+  flex: 100%;
+}
+[type="email"],
+[type="text"],
+[type="radio"] + label,
+textarea {
+  border: 1px solid var(--divider);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5em;
+}
+
+[type="checkbox"] + label::before {
+  content: "✔";
+  border: 1px solid var(--divider);
+  height: 2rem;
+  width: 2.5rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+[type="checkbox"] + label::before,
+.error.error.error [type="checkbox"] + label::before {
+  color: transparent;
+}
+.error,
+.error *,
+.error :not(:checked) + label::before {
+  border-color: var(--error);
+  color: var(--error);
+}
+.error.error [type] + label {
+  color: var(--dark-grey);
+}
+[type="checkbox"]:checked + label::before,
+[type="radio"]:checked + label {
+  color: var(--black);
+  border: 1px solid #ffb45b;
+  background: #ffb45b;
+}
+[type="checkbox"] + label:hover::before,
+[type="checkbox"] + label:focus::before,
+[type="radio"]:hover + label,
+[type="radio"]:focus + label {
+  border-color: var(--dark-grey);
+}
+.btn-conversion:disabled {
+  background-color: var(--sand-dark);
+  color: var(--dark-gray);
+  cursor: default;
+}

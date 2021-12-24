@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/rate","root":"rate-m__root__QoLbD","icon":"rate-m__icon__1FrCQ","checked":"rate-m__checked__2r0oq","focused":"rate-m__focused__2CicC","focusedStar":"rate-m__focusedStar__1QCDX"};

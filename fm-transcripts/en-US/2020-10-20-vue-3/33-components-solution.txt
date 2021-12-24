@@ -1,0 +1,15 @@
+[00:00:00]
+>> If we look back at our first challenge, what we had was this hard coded area. And what we needed to do was create a component and try to put a slot in. So here's the solution. And just like some other ones, there are multiple solutions, cuz you could have put slots in multiple places.
+
+[00:00:20]
+So what we did here was we created a script type="text/x-template" with id of place. And we've got an image source that's passed in. location.img and location.description are passed in. We have all of our locations here. We have our app.component("place". I'm showing the simple way of writing props. Extra props to you, get it, props?
+
+[00:00:45]
+Extra props to you if you actually did the type.validation, and required true, and defaults, and things like that. Defaults are really nice because if somebody doesn't provide information for you, it's not like the component fails or looks funny or something like that. So here we passed in a slot.
+
+[00:01:05]
+And so what I did was I created this location, and I'm passing its locations, locations and locations. [LAUGH] location bound to location, you can name props the same thing. And then inside of here, I said location.name in the slot. So that behaves the same way as a prop would of in this case.
+
+[00:01:27]
+I'm just doing this to show how slots could work as well.
+

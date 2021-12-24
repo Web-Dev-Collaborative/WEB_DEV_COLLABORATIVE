@@ -1,0 +1,82 @@
+[00:00:00]
+>> Okay, so if we look at the solution, we have input v model dot number, remember number was one of the modifiers we went over for v model that converts strings to numbers. So we can also say input type number because that's valid HTML, right? We're right writing semantic HTML.
+
+[00:00:22]
+We can also put this and make sure that what we're getting that the inputs that we're getting are numbers. So we have the input, which is now a number. And then this one is also a number. And really right now what we're doing is outputting these two in Mustache templates.
+
+[00:00:42]
+In the future, we're going to learn about methods and compute it and we're going to learn all different ways of writing this. That might be the way that you actually write it in an application but just to show that you can also evaluate something that's super simple in a Mustache template, we are adding num one and num two.
+
+[00:01:01]
+Now, for this other row, where we have this kind of empty string where we said name, right? We have a select with a v model of name so we establish a relationship between name and name, we have our different options. So we have carne asada, pollo, bean, al pastor, and we have our select.
+
+[00:01:24]
+And we have that thing that was hard coded before, of my favorite taco is. But this time, we have v-f name. So right now it's an empty string. It won't evaluate to true. It'll evaluate to false until we select something, and then it will be outputted to the page.
+
+[00:01:41]
+And in here, you might have guessed, our Mustache templates have to output that name as well. And then we can say, my favorite kind of taco is pollo. So I'm gonna pause here for a second and ask if there's any questions that I can answer.
+>> Just people saying they didn't figure out how to use the dot number and people saying they use parse int in the matrix.
+
+[00:02:04]
+
+>> Yeah, you can absolutely use parse int. I mean, this is a valid JavaScript, also works. That's totally fine. The modifiers are helpful because then you don't have to run around and do all of these other things. And so like part of the exercises just getting used to using those modifiers.
+
+[00:02:21]
+But you should not feel ashamed or silly for using JavaScript. We will use view in tandem with JavaScript. It's offering an API to make some things a little bit easier for that. Great, is there anything else?
+>> I have one question.
+>> Sure.
+>> When you added that v model dot number equal to I had the same thing.
+
+[00:02:45]
+But do we need to specify type equal to number as well and why?
+>> You don't, however, there are times that we are gonna specify a type. And one of them is when we're using props. So when we start to work with different components, what we'll do is, as we say what props are being handed from component to component, we will specify what type that prop should be.
+
+[00:03:11]
+And so then we can say okay, it is a number or a string or maybe an array that has both in case of both. You can also use TypeScript with view. Actually, in view three, we rewrote the entire core, so that it's all written in TypeScript now. So if you've ever use view two before and TypeScript worked, but they were like little idiosyncrasies and that made it a little bit harder.
+
+[00:03:38]
+Now view three works really beautifully with TypeScript because the very base of it is is written in TypeScript. So view three is TypeScript compatible. So if you wanna be working with types for everything, you absolutely can. Because of the scope of the intro to view of this course we're not gonna go into all of TypeScript but I will show you that prop validation with types, great question.
+
+[00:04:02]
+
+>> Should you use lazy with select?
+>> You could if you wanted to. So basically v model dot lazy, I tend to use that with things that are larger amounts of data like text area is a really good example or an input because really the reason I'm using it is because there's a lot of inputs that people are doing.
+
+[00:04:23]
+I don't want it to evaluate all the time and in fact most of the time that I'm using dot lazy its with form validation. I'll kind of mention here and then go over in the other course on Friday when we're building web apps with viewer and live coding the whole thing.
+
+[00:04:38]
+I don't know if this is the T Rex arm live coding [LAUGH] where I'll go over how you can use Vuelidate with validation. I tend to use dot lazy when I want to wait until the user's done typing, to show them if there's an error. Cuz otherwise it's kind of annoying to fill out a form and you can get that input all the time.
+
+[00:05:02]
+
+>> I have a question on keys.
+>> Yeah.
+>> So does a key need to be unique to the entire dom?
+>> Yes, so ideally the key is unique, and sometimes people pass in the index, if there's nothing that you know for sure is unique. But what I would suggest is that you load a library like you UUID, UUID is a library that generates unique IDs.
+
+[00:05:26]
+And it's really easy to work with, you import it from NPM and then you call a function and it will generate a unique ID for you. So if you have a big list, let's say you have a lot of data coming from a server or let's say the data is slightly different and it's going to a cart.
+
+[00:05:42]
+I would use you UUID in that case to make sure that large amount of data like let's say, you have a food app and there are two restaurants in your area that are named the same, like you have two Starbucks in your area or something like that. In that case, you can't rely on the data to be exactly different.
+
+[00:06:03]
+You can't make sure that your values are different. So UUID can really help with that key uniqueness and again, that's something that we'll go in into more depth on in the Friday course of building web apps with you.
+>> So then a follow up question with that, keys have to be numbers or strings.
+
+[00:06:21]
+You can't use like an object or something as a key?
+>> Exactly, you can use an object with a key, it will yell at you [LAUGH].
+Technically you can but we will throw a warning that that's just not what you would like. You would like a string or a number.
+
+[00:06:41]
+
+>> Looks like somebody tried to use a computed property or Daniel did, are you getting into that later in the day?
+>> I am getting into it right after this workshop or right after this section. Sorry, [LAUGH] not after the workshop.
+>> I tried to use a computed property, but for some reason, I can't get the syntax to work.
+
+[00:07:00]
+
+>> Yeah, we're gonna go over that next. So we can totally go over all of the pieces of the syntax that you might need for this.
+

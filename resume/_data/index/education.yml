@@ -1,0 +1,27 @@
+- name: University of Padua
+  link: http://www.cribi.unipd.it/
+  date: Jan 2004 - Jul 2008
+  job: PhD in Biotechnology
+  rating-bar:
+    - rating: 5
+      total: 5
+      icon-fill: fa-graduation-cap
+      icon-empty: fa-thumbs-o-up
+    - rating: 5
+      total: 5
+      icon-fill: fa-smile-o
+      icon-empty: fa-thumbs-o-up
+
+- name: University of Padua
+  link: https://www.biologia.unipd.it/
+  date: Sep 1997 - Jul 2002
+  job: Bsc in Biology
+  rating-bar:
+    - rating: 4
+      total: 4
+      icon-fill: fa-graduation-cap
+      icon-empty: fa-thumbs-o-up
+    - rating: 4
+      total: 4
+      icon-fill: fa-smile-o
+      icon-empty: fa-thumbs-o-up

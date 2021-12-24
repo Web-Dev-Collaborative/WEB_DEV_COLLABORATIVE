@@ -1,0 +1,4 @@
+include README.rst
+include LICENSE
+include versioneer.py
+include webmock/_version.py

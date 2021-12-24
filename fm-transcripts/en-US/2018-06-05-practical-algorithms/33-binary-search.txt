@@ -1,0 +1,42 @@
+[00:00:00]
+>> Bianca Gandolfo: So we're gonna talk about binary search. Again, binary search is our search where we are expecting our array to be sorted. And we're going to break our list in half every time, and we're gonna say, is our value that we're searching for less than, or greater than, this current location?
+
+[00:00:17]
+So if it's less, we're gonna go to the left, if it's greater than, we're gonna go to the right. All right, what does this look like in reality? All right, so we could do the call stack game with this, that would be a fun one. And so we just called,
+
+[00:00:38]
+
+>> Bianca Gandolfo: Our binarySearch with these values.
+>> Bianca Gandolfo: I'm gonna keep them up here for reference. So we're initializing a minimum, our maximum is list.length -1, which is 1, 2, 3, 4, 5, which is 4. Initializing a guess that's gonna be empty. So while the minimum is less than max, so while we aren't looping outside of the bounds of our function.
+
+[00:01:06]
+We are going to grab the center, so our guess is, let's just start in the middle. And for, and this is common for a divide and conquer algorithm, we start in the middle. But if you take a look at quick sort, which we won't have time to cover today, It's not always gonna be in the middle.
+
+[00:01:28]
+Sometimes you'll pick a point to do a divide and conquer at the end in the case of quick sort, but there's different implementations. However, you can kind of reason that if it's divide and conquer, you're probably gonna split it in the middle, although sometimes that's not the case.
+
+[00:01:42]
+Okay, so is min less than or equal to the max, sure is, and then now our guess is going to be the second index. Okay, so did we find it, 0, 1, 2, no, we didn't. So we're gonna go into this else, is 7 less than 90? Yes, so we're going to increment our min now to 1.
+
+[00:02:10]
+And then we are going to loop back into our while. So is 1 less than or equal to max, sure is. So now we are going to map that floor 5 divided by 2. So we're kind of narrowing the,
+>> Bianca Gandolfo: Range that we're looking in. Okay, so then that is going to be 2, did we find it?
+
+[00:02:49]
+No, otherwise we are going to, so is 7 less than 90? Yes, then we increment it again, so now this is 2, okay. Then 2+4 is 6, so now this is 3, so it's 0, 1, 2, 3, and then we find it, okay. Then we find it and we return it, we did it, there it is.
+
+[00:03:17]
+
+>> Bianca Gandolfo: Any questions about this?
+>> Speaker 2: So if you were dealing with a larger array, instead of incrementing or lowering your guess by 1. You'd want to add the array length divided by 2, and each time you divide it by 2-
+>> Bianca Gandolfo: You can do it that way, so you could just divide the length.
+
+[00:03:45]
+So you could divide the length, and you can also just could choose an index in the middle, and compare your item to the index in the middle. And say, is it greater than or it is less than, and then you can change your starting index to the one after it.
+
+[00:04:07]
+So your minimum, so say your index, you were looking for something that's in the right of your array, so it's gonna be greater than your min index. You can just set your min index to that current one. So then the min, and you can just look on in the left.
+
+[00:04:30]
+That's another way of doing it, yeah, cool.
+

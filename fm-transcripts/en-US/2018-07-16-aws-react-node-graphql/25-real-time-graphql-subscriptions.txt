@@ -1,0 +1,70 @@
+[00:00:00]
+>> Speaker 1: The next thing we want to do is focus on this real-time piece, right, cuz updating, deleting is effectively very similar to what we did previously. Let's look at how do we subscribe to changes to the database and push those out to all of our users, all right?
+
+[00:00:18]
+And so it'll be a GraphQL query that we haven't seen before when we were playing on the playground. But let's go ahead and implement it. So if I go to my graphql.js, we're gonna make one more.
+>> Speaker 1: And we'll call it SubscribeToNewGrudges. Now we're going to do one more template string.
+
+[00:00:41]
+And here we're going to say subscription, right. Now, if we look at the schema, you'll see this is like a Appsync special thing that we're given. So this will be onCreateGrudge. When we get back to the webpage with the schema in it, I'll show it to you.
+>> Speaker 1: Cool, and so this will be, onCreateGrudge.
+
+[00:01:09]
+Anytime a new one comes in I want the id, I want the person, I want the deed, and I want whether or not they were avenged. Now, we'll probably subscribe to this when the component mounts, just like we did for getting all of them. And that's gonna have a minor bug that you'll see in a second.
+
+[00:01:31]
+But let's do it, and then we'll deal with that.
+>> Speaker 1: So we'll go here and we'll say API.graphql, nope, just graphql. And that'll be a graphqlOperation.
+>> Speaker 1: And it's gonna be a little bit different this time, so don't get,
+>> Speaker 1: Yep, so I got imported. So instead of a then, cuz this is not just one promise that resolves one time, like a promise is pending and then it either resolves or rejects.
+
+[00:02:11]
+This is something that's effectively a stream of data, so we're not gonna use a .then, we're gonna use .subscribe.
+>> Speaker 1: All right.
+>> Speaker 1: And that takes, what do we do when a new thing comes in? We'll get the response here. And we'll say const grudge, right? It'll be a little bit different than what we had before.
+
+[00:02:35]
+We'll say response.value.data,
+>> Speaker 1: For a subscription. And then, very similar.
+>> Speaker 1: Now, we don't wanna replace it all together cuz this is multiple grudges. What we're gonna do in this case is say,
+>> Speaker 1: this., the existing grudges,
+>> Speaker 1: Plus this new one.
+>> Speaker 1: So we got here,
+>> Speaker 1: It's on my setState.
+
+[00:03:37]
+
+>> Speaker 1: It's this.state.grudges.
+>> Speaker 1: Now what the problem is I got it at twice. That's not really a bug, that is my code acting as I created. When I added it, I put in the state. But now we're also subscribing to real-time push updates. So it's, hey, you put the one in memory into the react state, and then you also receive that subscription.
+
+[00:04:06]
+So we'll actually just take this out.
+>> Speaker 1: And what is any real-time demo wIthout opening two browser windows?
+>> Speaker 1: And you can see that, both applications, all connected applications are gonna receive these updates at the same time.
+>> Speaker 1: You can also subscribe to updates and deletes as we did before, and it's very much the same idea.
+
+[00:05:05]
+So I'll leave those as I think we can try out.
+>> Speaker 1: If we look at the scheme we had earlier, I mentioned that the subscriptions were also created for us. And you can see this is a custom AWS functionality, right, where we can get those push notification with this @aws_subscribe.
+
+[00:05:23]
+The other thing I want to point your attention to that we're not gonna go into today, but there is some black magic in GraphQL, right? GraphQL, you can put it in front of a Postgres database. You can put it in front of DyanamoDB, there's gotta be some logic where it's able to go in and figure out, okay, how do I take this Graph QL query and turn it into a Postgres query?
+
+[00:05:44]
+Or how do I take this data from Postgres and turn it back into the GraphQL response. The same is true for Dynamo, anything along those lines. Now, there is a full frontend master's course on creating serverside GraphQL. So if you want to get very deep into resolvers and how they work, you should definitely check that out.
+
+[00:06:01]
+But I am gonna show you, if you need to go around and play with one, we have four mutations. You have createGrudge, and this is a Velocity template, and so there's a few tasting notes. A few months ago, it wasn't true that you could just pass in an id, all right?
+
+[00:06:21]
+It wasn't true that you autogenerate an id, you actually had to pass one in each time. Which is problematic and would cause someone to pull their hair out, hence this look. Now, you actually get a id automatically generated, and that happens here in the resolver, right? Now, you could have implemented this yourself a few months ago, and one would argue that we did.
+
+[00:06:42]
+But this is the ability to kinda customize anything about what happens. And so Velocity templating language does definitely require sitting in the documentation. But if you need any kind of custom control over how you format stuff before it goes in the database, the resolvers are where you do that.
+
+[00:07:01]
+So this is here for you as well. There are sample templates that you can look at that give you a bunch of different ways to go about doing stuff. The context is populated by Appsync, so there is even context.identity, if you have authentication set up, which we didn't set up right now.
+
+[00:07:18]
+And you can put together a whole bunch of stuff. The utils has the ability to get the current time if you wanted to add an attribute for date created, or something along those lines. You can get really customizable in here, so I absolutely encourage you to check that out as well.
+

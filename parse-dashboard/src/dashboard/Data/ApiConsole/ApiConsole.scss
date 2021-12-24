@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 2016-present, Parse, LLC
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ */
+@import 'stylesheets/globals.scss';
+
+.curl {
+  @include MonospaceFont;
+  white-space: pre;
+  font-size: 12px;
+  padding: 20px;
+  line-height: 18px;
+}
+
+.footer {
+  border-top: 1px solid #e3e3ea;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.content {
+  position: relative;
+  height: calc(100vh - 96px);
+  margin-top: 96px;
+  overflow: hidden;
+
+  // Workaround to override graphql-playground-react
+  // animations and query editor height
+  & > div:not(.empty) > div {
+    opacity: 1;
+    transform: unset;
+    animation: unset;
+
+    & > div > :nth-child(2){
+      height: calc(100vh - 153px);
+    }
+  }
+}
+
+.empty {
+  position: absolute;
+  top: 96px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

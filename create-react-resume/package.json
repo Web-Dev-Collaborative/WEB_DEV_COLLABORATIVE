@@ -1,0 +1,20 @@
+{
+  "name": "create-react-resume",
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*",
+    "packages/create-react-resume/template-typescript"
+  ],
+  "description": "Create React Resume",
+  "repository": "https://github.com/matmalkowski/create-react-resume.git",
+  "author": "matmalkowski <monkey3310@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.13.1"
+  },
+  "scripts": {
+    "install": "lerna link",
+    "bs": "lerna bootstrap"
+  }
+}

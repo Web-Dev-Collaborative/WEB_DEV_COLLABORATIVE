@@ -1,0 +1,11 @@
+<div class="row">
+{% for rb in include.rbs %}
+  <div class="col l6">
+    <div class="rating-bar">
+      {% for icon in (1..rb.rating) %}<i class="fa fa-fw {{ rb.icon-fill }}"></i>{% endfor %}
+      {% assign rb-total = rb.total | minus: 1 %}
+      {% for icon in (rb.rating..rb-total) %}<i class="fa fa-fw {{ rb.icon-empty }}"></i>{% endfor %}
+    </div>
+  </div>
+{% endfor %}
+</div>

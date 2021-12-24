@@ -1,0 +1,30 @@
+[00:00:00]
+>> V-If and V-Show. This is a conditional that will display information depending on meeting a requirement. This can be anything, buttons forms, divs components, you name it. So it's really flexible. So if I right What is your favorite kind of taco and I say all puster you can see how that button shows up as I'm typing.
+
+[00:00:20]
+If I get rid of it, then it goes away. And what we have here Is if we are gonna Beit Babel JavaScript tab. You can see tacos is an empty string here. So if it is an empty string, it will say okay we do not have anything evaluates to false.
+
+[00:00:39]
+So if we say V- If tacos it is not then it will go away. And then if I start typing, it shows up so that can be used for a lot of things. If I go into here, let's go look at what we see in the DOM here for a second.
+
+[00:00:53]
+So if we actually go into the elements in the DOM, what you'll see is that text area, and then you'll see this commented out V-If. And as I start to type, you will see that buttons start to show up. So basically it's mounting that button into the DOM and removing it as necessary as it evaluates to true or false.
+
+[00:01:14]
+Now if I change this V-If to V-Show what it will do instead and I'll save it here and I'll open this up again. If I go into my evaluated code here, I have the button, but now it's style display none. And the reason why we offer both of those is if you have something that you know is gonna be toggled back and forth and shown back and forth a lot, then using V-Show is really helpful because mounting a whole component into the DOM can be expensive.
+
+[00:01:49]
+So what we're doing instead is we're just showing and hiding and showing and hiding. If on the other hand, you have a lot of information, let's say you have a big component or something, and you don't want it to just be in the DOM chilling and display none because that's a lot to then it makes.
+
+[00:02:08]
+It makes a lot of sense to use V-If instead. V-If and V-Else should, anytime you have an if you need an else statement, right, so we have V-If, V-Else and V-else-if, just like conditionals in JavaScript. So this is pretty straightforward. You can conditionally render one thing or another.
+
+[00:02:29]
+There's also the else V as I mentioned. They must be siblings. So you can't have a V-if and then a V-else nested somewhere else they must be next to each other siblings. So that view knows, okay, those are the two things that you're referring to. So if we have something like do you like tacos?
+
+[00:02:48]
+Yes is a thumbs up? No is you're a monster because that's reasonable. Then you can look over here we say v if tacos = yes, note the string I'm passing in here as well, right? V else-if = no. So I'm able to set a conditional of either that's yes or no in this state.
+
+[00:03:10]
+And you might notice this is one of those view pens. So if I open it up, you can see the templates and all of these inputs. And the V-If tacos is yes, the V-else-if tacos is no and the tacos again is an empty string, tacos are empty strings today.
+

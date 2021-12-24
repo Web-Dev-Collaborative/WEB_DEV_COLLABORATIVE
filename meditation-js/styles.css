@@ -1,0 +1,292 @@
+* {
+    font-family: 'Heebo', sans-serif;
+    color: white
+}
+
+html,
+body {
+    margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin-top: none !important;
+}
+
+#main {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#main video {
+    z-index: -1;
+    position: absolute;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3a3a3a;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.footer {
+    text-align: center;
+    margin-top: 5px;
+    text-decoration: none;
+    width: 100%;
+    color: #ffffff;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+
+/* Info panel and buttons */
+.controls {
+    color: #ffffff;
+    padding: 1px;
+    margin-top: 10px;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
+    min-height: 50px;
+}
+
+.sceneSelect{
+    display: flex;
+}
+
+.sceneSelect button, .timerButton {
+    font-size: 24pt;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    outline: none;
+    padding: 5px;
+    margin: auto;
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    margin: 0 2px 0 2px;
+    color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sceneSelect button:hover, .timerButton:hover {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+#infoPanel {
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+#infoPanel h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Heebo', sans-serif;
+}
+
+#infoPanel i {
+    font-size: 55px;
+    display: block;
+    text-align: center;
+    margin: 10px auto 30px auto;
+}
+
+#infoPanel hr {
+    border-color: #9e9e9e!important;
+    border-top: 1px solid #eee;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    margin: auto !important;
+    width: 70%;
+}
+
+
+#container {
+    height: auto;
+    min-height: 100px;
+    width: 100vw;
+    max-width: 700px;
+    max-height: 90vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0px;
+}
+
+
+
+/* Timer CSS */
+#appTimer{
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    display: none;
+    width: 90%
+}
+
+#first{
+    max-height: 150px;
+}
+
+#display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+#timer-label{
+    font-size: 18pt;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+#time-left{
+    font-size: 32pt;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+#second{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 150px
+}
+
+#timer_button_start, #timer_button_reset{
+   font-size: 40px;
+   cursor: pointer;
+}
+
+#third{
+    max-height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.adjuster{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adjuster_module{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.adjuster-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#session-label, #break-label{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14pt;
+    text-transform: capitalize;
+}
+
+#session-length, #break-length{
+    font-size: 18pt;
+}
+
+#adjuster_button_up, #adjuster_button_down{
+    font-size: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+/* Media Info CSS */
+#mediaInfo{
+    max-height: 500px;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    display: none;
+    width: 90%;
+    padding: 20px;
+}
+
+#mediaInfo a{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+
+
+/* Material UI Tweakes */
+/* This should be cleaner than this, but I haven't figured out how
+    to use colors yet */
+
+.MuiFormHelperText-root, .MuiFormHelperText-filled{
+    color: white !important
+}
+
+.MuiSelect-root, .MuiSelect-select, .MuiSelect-selectMenu, .MuiInputBase-input, .MuiInput-input{
+    color: white !important;
+}
+
+.MuiButtonBase-root .MuiListItem-root .MuiMenuItem-root .Mui-selected .MuiMenuItem-gutters .MuiListItem-gutters .MuiListItem-button .Mui-selected{
+    background-color: transparent;
+}
+
+.MuiIconButton-root, .Mui-disabled{
+    color: grey
+}
+
+.MuiPaper-root, .MuiMenu-paper, .MuiPopover-paper, .MuiPaper-elevation8, .MuiPaper-rounded{
+    background-color: black;
+}
+
+.MuiListItem-root.Mui-selected, .MuiListItem-root.Mui-selected:hover{
+    background-color: black !important;
+}
+.MuiMenuItem-root{
+    background-color: black !important;
+}
+
+.MuiList-root{
+    background-color: black !important;
+}

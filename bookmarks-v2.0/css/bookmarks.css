@@ -1,0 +1,66 @@
+
+a:link {
+	text-decoration:none; 
+	font-variant:normal;
+	color:#00cc00
+}
+a:visited {
+        text-decoration:none;
+	color:#00cc00
+}
+a:hover {
+        text-decoration:none;
+	color:#ffff00
+}
+body {
+	background-image:url('https://s3-eu-west-1.amazonaws.com/cdn.bilardi.net/bookmarks-v1.0/index/sfondo.jpg');
+	background-repeat:repeat;
+	background-position:center left;
+	background-attachment:fixed;
+	text-align:left;
+	font-weight:bold;
+	font-size:large;
+	font-family: Geneva;
+	color:white
+}
+table.top {
+	border-collapse:separate;
+	border-spacing:0
+}
+td.top {
+	text-align:right
+}
+td.img {
+	text-align:left;
+	width:100px;
+}
+td.banner {
+	text-align:center;
+	width:100px;
+}
+p.date {
+	margin:0 0 0 15px;
+}
+div.top {
+	background-color:navy; 
+	position:absolute;
+	left:15px;
+	top:15px;
+	width:880px;
+	height:600px
+}
+div.menu {
+	width:205px;
+	height:350px;
+	font-variant:small-caps
+}
+span.w {
+	font-size:medium
+}
+span.y {
+	font-size:medium;
+	color:#ffff00
+}
+.spanstyle {
+	 position:absolute; VISIBILITY: hidden
+}

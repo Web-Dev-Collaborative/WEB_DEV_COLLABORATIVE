@@ -1,0 +1,21 @@
+[00:00:01]
+>> Speaker 1: How would you use Redux with something like local storage? Have you done that before?
+>> Brian Holt: So you can definitely dump your state to local storage, and then load it back. So you can hydrate and rehydrate from any number of sources. There are plug ins specifically, like I think it's called Redux Offline if I remember correctly.
+
+[00:00:20]
+That will do a bunch of that stuff for you. I'm not gonna show you here because I haven't done it and I'm not gonna improvise on the fly. But there's a bunch of tooling and libraries around Redux that will do that for you, for sure.
+>> Speaker 1: And then with Redux, so essentially, instead of setState you're using dispatch?
+
+[00:00:42]
+
+>> Brian Holt: Yes, that's astute.
+>> Brian Holt: The interesting thing with React which I have not shown you, is you can actually do reducers and actions and things like that with React directly. So you can kinda treat React State as if it was like a mini-Redux store, that's possible. Cuz you can actually give instead of giving React objects to update the state with, you can actually hand it functions and those functions can be like reducers, right?
+
+[00:01:16]
+So that's possible as well.
+>> Speaker 3: I've got a couple of questions regarding flow. So are we going to end up creating a type definition for our state? Cuz right now, kind of just evaporated what our state is. There's nothing that tells us the shape of our state tree, right?
+
+[00:01:44]
+
+>> Brian Holt: Yeah, yeah, no, I think sort of, I think is the answer to your question. So it's smart enough to say that this is a string here. And by setting the default state to string, it's going to be a string. And so if we ever modify it from being a string, it knows, it's like, hey, you messed this up.
+

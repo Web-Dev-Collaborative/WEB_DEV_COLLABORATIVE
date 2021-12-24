@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/grid-paginated-footer","root":"grid-paginated-footer-m__root__23Cev","details":"grid-paginated-footer-m__details__3Fazr","more":"grid-paginated-footer-m__more__1mDXK","pageNav":"grid-paginated-footer-m__pageNav__2afTM","pageNumber":"grid-paginated-footer-m__pageNumber__2lhSZ","active":"grid-paginated-footer-m__active__iaKed"};

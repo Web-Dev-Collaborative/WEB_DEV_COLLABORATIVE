@@ -1,0 +1,54 @@
+{
+  "name": "@create-react-resume/theme-default",
+  "author": {
+    "name": "monkey3310",
+    "email": "monkey3310@gmail.com"
+  },
+  "version": "0.1.3",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.esm.js",
+  "license": "MIT",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.iife.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn type-check -- --watch",
+    "edmit-declarations": "tsc -d --noEmit false --emitDeclarationOnly --isolatedModules false --declarationDir \"./dist/types/\"",
+    "build": "yarn clean && rollup -c && yarn edmit-declarations"
+  },
+  "dependencies": {
+    "date-fns": "^1.30.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "styled-components": "^4.1.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/date-fns": "^2.6.0",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
+    "@types/styled-components": "^4.1.12",
+    "babel-plugin-styled-components": "^1.10.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.6.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.2",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-terser": "^4.0.4",
+    "styled-components": "^4.1.3",
+    "typescript": "^3.3.3333"
+  }
+}

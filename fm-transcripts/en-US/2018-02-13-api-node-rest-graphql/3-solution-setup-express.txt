@@ -1,0 +1,34 @@
+[00:00:03]
+>> Scott Moss: So hopefully everybody had enough time to work on that solution. We're just getting started. So I'm just going to walk through the minimum we need to solve that previous exercise and get our express app running. And then we can see it on the screen. So the first thing is if you head over to server js, we had this app that was null and we export this default.
+
+[00:00:20]
+We're going to use the express that's imported here up top, and we're gonna create a new app. And the way we do that is we say, express, and we invoke it. And it's that simple, we have a new app. After we do that, we need to go ahead and set up some route that we can hit, and then we actually see it when we hit it with something like Postman or in the browser or something like that.
+
+[00:00:40]
+So what we'll do is we'll say app dot, and in this case we'll just say get, so this means if you do a get request, this is a verb. If you do a get request to this url, which in this case is just the index url, so as soon as you hit this path, which will be local host whatever port we go to, it's going to run this function right here.
+
+[00:01:01]
+So we're just going to use this request and response. And we haven't talked about this, but we'll get to it. And all I'm going to do is I'm going to say res.json and I'm just going to send back a json object here that says ok: true. You don't really need to know what this is right now.
+
+[00:01:16]
+But basically, what we're saying is, when someone issues a get request to this url, we're going to respond back with some json that says ok: true. And this is gonna allow us to test it. So once we have that, we need to go ahead and import this app into the index and then start it.
+
+[00:01:32]
+And the reason we're doing that is because we wanna be able to test this express application in isolation without starting it. So we actually do the starting of the service in a completely separate file. So we'll head over to the index.js, which is the root of our server, we'll import that app.
+
+[00:01:47]
+And notice that on server's export is default, so we don't have to bring it over brackets. So let's say import app from 'server'. And then all we have to do is just say app.listen, which is a method that express gives us to open up a port. Type in an available port.
+
+[00:02:03]
+If it's not available, it will totally tell you and it would error out. And then we're going to put a call back here because it's asynchronous. And then once this is connected, we'll just do a console.log to remind ourselves what port our API is on. And we'll just go ahead and hard code 3000.
+
+[00:02:18]
+And then we'll save it. And that's all we've gotta do to get things started. So we can go over to our terminal. We can run yarn start, which is the command you'll need to actually start your server.
+>> Scott Moss: And it broke because, man. It broke because I forgot to put a dot there.
+
+[00:02:36]
+There we go, so forgot to put a dot. Now it's good. We can go over and we can actually query this API. I'm using something called HTTPy, which is like a human readable way to talk to APIs pragmatically on the CLIs. You can use postman if you want, you can use the browser if you want to.
+
+[00:02:55]
+So I'm just gonna do this and I'm gonna do a get request. I'm gonna explicitly say get, I'm gonna say localhost, and the port that I put in was 3000. I'm just gonna do a get request for that, hit Enter and you can see, we have ok: true.
+

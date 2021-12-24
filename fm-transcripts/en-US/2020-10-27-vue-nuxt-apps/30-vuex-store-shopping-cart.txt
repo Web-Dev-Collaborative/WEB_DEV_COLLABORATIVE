@@ -1,0 +1,78 @@
+[00:00:00]
+>> All right, we're going to add the cart now. So we made the cart page, but we didn't actually put anything on the cart. So right now what we're going to do is we're going to take whatever's on the cart. And we're going to show what's on the cart and we're also going to use a thing called the getter to show pieces of a combined price for everything.
+
+[00:00:21]
+So, here is the let you know kind of like static table. If I put this on here, I will get a static table layout for all of this stuff, but we're going to do what we did with that. Select the unit before and we're going to make this a little bit more dynamic.
+
+[00:00:36]
+So let's go back to our cart. Right now we just have an each to have cart. And I'm going to plop this table in here. As you might have guessed, we have to use map state, v map state to go gather our cart Now, when we're working with the cart, we're gonna make good uses of things like For-loops and that kind of binding in order to do this, but this table this T head Is going to stay consistent, right?
+
+[00:01:15]
+We want to tell people item add ons, amounts and price and if we go look back at what we've got so far on that page. If I go to cart then you can see kcd a plain add ons? None amount is one total price. And this is all hard coded, right?
+
+[00:01:33]
+Right now don't worry about the total price it isn't correct. It's all just hard coded on there. So what we're going to do, is we're going to go, if you're not familiar with tables, this TR is a table row. And we need to loop through all of the table rows to put what's in the cart on the table.
+
+[00:01:51]
+So we're gonna say V for item in cart, and we have a key. And remember we use that you UUID to create a unique ID. So we have an item.ID when we're looping through all of these things, and instead of saying case idea, what we want to do is item.item, because that's the name of the item.
+
+[00:02:17]
+And then this one, remember how we talked about how, for things like burritos or something like that we have to say, pojo or plain or something like that. But not everything has that, the pizzas don't have that and the dimsums don't have that. So here we'll make a conditional, so we'll say V-if and we'll say item.options.
+
+[00:02:42]
+And then if we have an option, we can say item got options, and you're only really allowed one option. Remember the radio buttons. So this is good enough for this area. However, for something like add ons, what we're gonna need to do is we're gonna need to loop through those add ons in order to put them on the page.
+
+[00:03:04]
+Because we can have multiple add ons. So we're gonna say, V4 is add on in item.addons. And we also see that error that's kind of nice. We've got the key and so the key, the dynamic key is going to be add on. And then with each one of these we as you might imagine what, add on.
+
+[00:03:36]
+Cool, so this was the count. So we're going to output item.count here, item.count and this is going to be the combined price item.combinedprice. Now if we look back here to our area, we still left that total hardcoded. But we're going to use a view x getter in order to add things.
+
+[00:04:11]
+But right now we're going to say okay, I want esteem sesame ball I want to have them add to cart. Then I'm going to go back to restaurants. Maybe I want a veggie pizza with mushrooms and green peppers and I'm going to add to cart. If we go to the cart, we now see their soup dumplings with the amount and the veggie.
+
+[00:04:32]
+We didn't have any add ons for that, for those, do we have add ons for this? I think we did have add ons for this. It's like add on span before add on and add ons and then add ons, you probably don't want to add own. Okay, now we have the add ons.
+
+[00:04:53]
+We have the amounts, we have the total price. So what we're going to do in the car in the view x store is we're going to calculate a total. I'm going to make note that, I'm gonna show you this in a getter, because I want to teach you getters, and just in case we are using the that cart in multiple places around the site.
+
+[00:05:14]
+But don't overuse getters. In other words, if one component Is just thinking about itself. You don't necessarily have to put it in the store in as a getter in order to do so. The reason why I caution against that is for big enterprise apps at scale. What can happen is people are using that Vuex Store not just a place to keep the centralized state data.
+
+[00:05:37]
+They're also using it as a self documenting place to understand the brains of the application. So if you put tons of getter information in that store. You're causing people to kind of look through a ton of information to understand what's going on for the application for the whole, for that full application.
+
+[00:05:56]
+It doesn't matter too much with a small application, but you'll start to see this that Vuex enterprise apps at scale that we need to kind of keep the Vuex Store a little bit more modularized. And Divya has a great course that shows how to use Vuex modules and goes into more depth there as well.
+
+[00:06:16]
+So if we go back here, and we will, let's say we want to in our store, create a getter. So we're going to make a total price getter. And in that total price getter, the first thing that we want to do is we want to say like. Okay, all of the combined price, remember how we're gathering the combined prices of everything, not just the prices, but the combined prices of everything.
+
+[00:06:43]
+So what we wanna do is we wanna, we've got like the state, and we're returning state.value here. What we want to do is return state.cart.reduce. Reduce, there's lots of schools of thought about reduce, I think reduce can be really useful for these kind of one liners. When you're taking multiple pieces of information and just adding them into one place but they can be a little less legible.
+
+[00:07:08]
+I have an article on reducers, it's called the almighty reducer on CSS tricks that walks through what reducers are and how you can use them. But don't use them for everything I would say. They're really useful for something like this though where really all we're doing is going through the cart, and we're gathering all of the combined price into one piece.
+
+[00:07:32]
+So we're gonna take in the AC and that's the prime, the first thing that we have that it's gonna go through all of the items in the array. It's gonna take what we have first and what we have next. And we're going to combine this accumulate, so this AC is short for accumulator.
+
+[00:07:53]
+So it's gonna gather, the accumulator is gonna gather the information and next is giving you access to that next item. The article explains it in more detail. I'm gonna do this strange thing here. Where I say, say next combined price, but that plus I'm adding a plus because it's a quick way of telling JavaScript convert it to a number just in case it's a number.
+
+[00:08:21]
+You've seen me do this before with like math.sign, like just in case you're not a number, make sure your number again. If you're using TypeScript, you won't have to do things like that because you're already setting your expectation is a number and that it should tell you otherwise.
+
+[00:08:38]
+So what we're doing is we're returning the reduction of all of the combined prices in that cart. And we're combining it into one thing and this means this like extra zero at the end is saying like start at zero. We also want to do one more thing, just in case that cart is empty.
+
+[00:09:01]
+We want to say if the state of the cart is that it has no length then return, return zero. Cool, so we've got total part price state. If we're saying if the state has no length to the cart return zero, otherwise, take all of the combined prices. From everything that you iterate over in that array, and collapse them into one addition.
+
+[00:09:33]
+So now, what we can do is we can use that inside of our cart. So I'm gonna go back into my cart. I said map state. I'm also gonna say map getter and then I have a similar thing here for map getters. And I have total price. And here we're going to leave that dollar sign.
+
+[00:10:04]
+I'm going to output. Total price.2 fixed to. Let's see what we got. Now, we don't have a hard coded value anymore. We are bringing in that getter from the store. Awesome.
+

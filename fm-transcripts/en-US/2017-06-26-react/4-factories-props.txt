@@ -1,0 +1,134 @@
+[00:00:00]
+>> Brian Holt: It's kind of robust to have to repeat writings create element over and over and over again. There's a couple of ways to do this so first of all a bunch of people who write react don't even know what create element is. Reason being is that they never have to write it because we're gonna get to write it in jsx in may be like an hour.
+
+[00:00:24]
+
+>> Brian Holt: Yeah, so they don't ever have to write createElement. JSX transpiles to createElement calls, but I do know some crazy people that have chosen not to write JSX. And it is possible to write huge apps without using any JSX. So I'm gonna show you just a couple tricks of how to do that a little bit easier.
+
+[00:00:41]
+So you can say con C E equals reacts.create element,
+>> Brian Holt: And then now i can replace all these create elements. So I'm just going to do, find, react.create element and replace that with CE and we'll just say replace all, and I gotta do that again, createElement.
+>> Brian Holt: And it gets a little bit easier to, or it's a little less dense, right?
+
+[00:01:16]
+You don't need all those react.createElements every single time. There's also a package called create factory that helps as well and there's also react dom-helpers. Which I'm not gonna show you how to do today because it's kind of the old way of doing it and once we get to JSX it's not helpful anyway, but you can do things like divm and h1.
+
+[00:01:41]
+So you can actually call them by the name of the function. Then you get rid of this. It looks something like that. Again, getting less and less dense, but you have to go get some helper libraries to do that. And we're not gonna do that today.
+>> Brian Holt: Okay.
+
+[00:02:02]
+
+>> Brian Holt: So now that we've done that, let's go ahead and talk about props and attributes. So so far, not super useful, right? Because we're just rendering out my second component a bunch of times, not entirely exciting. So let's go make this a little bit more interesting. We can actually pass properties from MyFirstComponent into my titles, so let's try doing that real quick.
+
+[00:02:31]
+
+>> Brian Holt: So we're gonna pass, we call it the title. We're gonna put some of our favorite T.V. shows in here, so let's put Game of Thrones, that's a good one. Stranger things. It's a good tv show.
+>> Speaker 2: Rick and Morty.
+>> Brian Holt: Rick and Morty, that's a good one, and Silicon Valley.
+
+[00:03:09]
+
+>> Brian Holt: Cool, so now inside of my tile, the first thing that's gonna be passed into it is a thing called props. And props is just going to be whatever you passed in right here. So instead of saying my component right here, I can say props.title.
+>> Brian Holt: So now if we save this.
+
+[00:03:38]
+
+>> Brian Holt: And come back over here. Notice that now we have multiple different kinds of titles, which is pretty cool.
+>> Brian Holt: So we're getting more reusable, right, more flexible. We can pass different properties into components and kind of mold them. Right now we're just changing the textbook into all sorts of things, right, but sometimes I could be, like, show this particular theme for this widget or I don't know.
+
+[00:04:09]
+If a user logs in, show this. If the user logout, show that.
+>> Speaker 3: Just to clarify, props is just like a syntax that most people use or do people call the-
+>> Brian Holt: Would you call this anything other than props? Never.
+>> Speaker 3: Okay.
+>> Brian Holt: You would never call it anything other than props.
+
+[00:04:26]
+I've never seen it called anything other than props. So it is convention. You could call it something else, don't.
+>> Speaker 3: Don't.
+>> Brian Holt: [LAUGH]
+So let's take this even a step further. And we wanna change the color of whatever is being passed in here.
+>> Brian Holt: So we're gonna pass something else into all of these.
+
+[00:04:55]
+
+>> Brian Holt: So, one of my favorite interview questions to ask people is always, what's your favorite CSS named color. I have a couple new ones. So there's yellow green which is my favorite. My second favorite is green yellow and lime green and then just lime, which are also different colors.
+
+[00:05:25]
+
+>> Brian Holt: So,
+>> Brian Holt: Actually, still my favorite is Peru. [LAUGH]
+You really just can't beat Peru, which is a color.
+>> Speaker 4: You know, Papaya Whip is pretty cool.
+>> Brian Holt: Papaya Whip's pretty good. What else? I don't know, medium aquamarine, that's another really good one. So what we're gonna do here is we're gonna pass that color to be the color of the h1, right?
+
+[00:05:53]
+So instead of being null here, we're gonna pass it an object, and we're gonna give it a style attribute. It's not a typical style string that you'd put into the, like, on to the actual dom, right? It's actually gonna be an object, which is a little bit easier to work with.
+
+[00:06:12]
+So we're gonna do color, and it's gonna be props.color.
+>> Brian Holt: Right, and as long as this is called the same thing, it can be anything, right? So if I change this to be like, I don't know, the Canadian way, or British way, or both. But anyway, so now if we save that and come back over here, notice that we have various shades of green and Peru.
+
+[00:06:50]
+If you did not know, that is the color of Peru.
+>> Brian Holt: Okay, any questions so far?
+>> Speaker 3: So for the style, you could pass in a string, but that's just cumbersome, so we don't do that?
+>> Brian Holt: I don't think it actually works. So, really what's happening underneath the hood is this is actually interacting with the JavaScript API for DOM elements, and this is the way you actually interact with the style API with the DOM API.
+
+[00:07:23]
+
+>> Speaker 5: I have a question.
+>> Brian Holt: Yeah?
+>> Speaker 5: Do any authors ever avoid using props and instead pass individual arguments to the constructor for a little bit better self documenting components? Cuz myTitle could accept a color and a title as arguments, and that would be a little bit more obvious than just a property bag coming in.
+
+[00:07:50]
+
+>> Brian Holt: The answer to that question is no, you do have to do it this way, because React is actually hooking in to those, and it'll know when to re-render, based on what you passed into it. Now you can get around that by, which I'll show you later today, with Flow, cuz then Flow will start warning you.
+
+[00:08:08]
+So typing your reaction components, actually it helps a ton. There's also something called prop types, which again, we will also talk about them, and flow is gonna be a static type checker. So it's gonna tell you at compile time, whereas prop types is gonna tell you at run time, like hey, this is missing.
+
+[00:08:24]
+So it is a problem, but there's tooling to get around it. That's a good question.
+>> Speaker 4: Carrie's asking what about attributes.
+>> Brian Holt: Like what kind of attributes?
+>> Speaker 4: I think it's the same thing, props and attributes are synonymous.
+>> Brian Holt: Yeah like in this particular case for React we call them profs but they are like attributes as well.
+
+[00:08:47]
+
+>> Speaker 4: Yeah attributes in HTML.
+>> Brian Holt: Yeah.
+>> Brian Holt: So this is really it for React at its most basic level right? Just passing props down into other components. We're gonna get here to state momentarily.
+>> Speaker 5: One other question.
+>> Brian Holt: Yeah, sure.
+>> Speaker 5: Just for a little bit clarification on that second argument which is null.
+
+[00:09:14]
+Those are HTML attributes?
+>> Brian Holt: So for this particular one, for the H ones and the div's, this is actually going to be the attributes I'm going to put onto the dom, right? But for something like my title, this isn't something that actually gets rendered directly to the dom, like, there's not a my title tag, right?
+
+[00:09:32]
+So this is what's passed into the component here as props.
+>> Speaker 5: Okay, so is ID my first component? Is ID recognized as the special property that gets tagged on to HTML or?
+>> Brian Holt: It's React naively passes that just to the dom, right?
+>> Speaker 5: Okay.
+>> Brian Holt: So for example if this was React native, it would be a totally different set of attributes right?
+
+[00:10:02]
+Does that make sense? Cool, so again if you have something like Flow, Flow will check that for you to make sure it's like hey, you try to pass IDD, and that's not a thing, so that's a failure, right? But we're not using anything like that yet. So don't mess it up.
+
+[00:10:21]
+That's the big key here, is to just not mess up anything. Good question. Other questions? Yes?
+>> Speaker 6: Just about the color and the colors. Where is that coming from?
+>> Brian Holt: These particular colors?
+>> Speaker 6: Yeah.
+>> Brian Holt: These are all native colors, right? So I can totally call this,
+>> Speaker 6: Yeah, okay.
+
+[00:10:52]
+
+>> Brian Holt: Right, that will totally work.
+>> Brian Holt: So this is it for writing React without JSX. [COUGH] We're gonna start getting a little bit more complicated, and so, we're gonna start adopting some tooling to kind of help us along here.
+

@@ -1,0 +1,111 @@
+[00:00:00]
+>> Jen Kramer: So we have a few people here in class, get it? I'm hoping that some of you online got it. So Peter says, he's got an answer here for us. So what'd you do, Peter? What did you do first in your HTML? What did you call these classes?
+
+[00:00:12]
+
+>> Speaker 2: Well, I used a sort of Bootstrap method of doing it.
+>> Jen Kramer: Okay.
+>> Speaker 2: So the first one I called col-3.
+>> Jen Kramer: Col-3, okay?
+>> Speaker 2: And then the middle one, I'm sorry, I called it Col-3-6.
+>> Jen Kramer: 3-6?
+>> Speaker 2: So there was a 6 going along with it.
+>> Jen Kramer: Okay.
+
+[00:00:32]
+
+>> Speaker 2: And the next one was col-6-3.
+>> Jen Kramer: 6-3, okay.
+>> Speaker 2: And then, yeah, the same for that one.
+>> Jen Kramer: Col-6-3, okay.
+>> Speaker 2: Or the, sorry, 3-6.
+>> Jen Kramer: 3-6, okay, so in other words to translate for everybody else the two boxes on the left and the right have the same class name, the one in the middle has a different class name.
+
+[00:00:57]
+Okay, [COUGH] And, then in our CSS, what did you put where?
+>> Speaker 2: So, do you wanna start with desktop or with the laptop?
+>> Jen Kramer: Sure, let's start with the desktop.
+>> Speaker 2: Okay, so at the desktop, I put the col-6-3 with, I guess for you it would be the col-2.
+
+[00:01:18]
+So the-
+>> Jen Kramer: Okay, I'll just write it out this way make it straight forward. So it's a flex 0.
+>> Speaker 2: 0 0 44.
+>> Jen Kramer: Okay, so obviously, we could combine those styles, but okay. And then?
+>> Speaker 2: And then I added my cal-3-6 to what would be your cal-1's.
+
+[00:01:36]
+
+>> Jen Kramer: Okay.
+>> Speaker 2: So that's the flex 0 0 20%.
+>> Jen Kramer: A 20%, okay, so something like that, all right.
+>> Speaker 2: And then I put col-3-6 in the 44% one, so the top-
+>> Jen Kramer: Okay.
+>> Speaker 2: Be created-
+>> Jen Kramer: So col-3-6 would be 44%.
+>> Speaker 2: Yep.
+>> Jen Kramer: Okay?
+>> Speaker 2: And the -6-3-
+
+[00:02:07]
+
+>> Jen Kramer: Yep?
+>> Speaker 2: Would go with the others, the-
+>> Jen Kramer: Would be the 92%?
+>> Speaker 2: Yep.
+>> Jen Kramer: Okay.
+>> Speaker 2: And then I also gave the col-6-3 a order of negative 1
+>> Jen Kramer: Tricky.
+>> Speaker 2: To put it at the front no matter what.
+>> Jen Kramer: Okay, so its gonna be at the front no matter what.
+
+[00:02:26]
+So this is the fact box in the middle. The content box with the way I'm thinking of it. He's putting a negative order one. So that would be show up at the front of the list. Col-3, col-3-6, which is the left or right ends. That has no order to it, so it will follow after, okay, great.
+
+[00:02:50]
+And then what?
+>> Speaker 2: I did one last thing.
+>> Jen Kramer: Okay.
+>> Speaker 2: It wasn't working well on my computer, so I gave this media query a limit.
+>> Jen Kramer: Okay.
+>> Speaker 2: So it has a minimum width right now.
+>> Jen Kramer: Okay.
+>> Speaker 2: But I also wrote in and max width of 7627.
+
+[00:03:09]
+
+>> Jen Kramer: 7627.
+>> Speaker 2: Pixels.
+>> Jen Kramer: Pixels. I got it. Okay, so here we've limited this particular media query. So in other words, the styles that are here deactivate when we get to desktop sizes. So let's test and see how that works. If we refresh the page, here's the row on the bottom.
+
+[00:03:35]
+And I don't have it in color, because I haven't specified those styles, but we could do that. And then when I shrink it down, here we go. I get to my right break point, so you see now, Boston Cream Pie, which was in the middle is now on the top and Coconut Cream Pie and Key Lime Pie are underneath, okay?
+
+[00:03:57]
+And presumably, as I shrink it down even further, then these guys are just gonna stack and be happy. And there they are stacked in, of course, the order that the HTML was placed in. Now, so the way Peter had to make this work, was he added this max width of 7627.
+
+[00:04:14]
+Can anyone think of a way that we could make this work without changing the media query? Anyone have a suggestion on that?
+>> Speaker 3: In the desktop styles you could reset the order number.
+>> Jen Kramer: We could reset the order number in the desktops styles. So instead of limiting our media query here, which is completely legitimate.
+
+[00:04:37]
+You can totally go ahead and use a range like this. But it might be awkward to do that, if you already have a page existing that relies on just the min-width being true. You could do something different, which would be to come down here to these classes, the 6-3 and the 3-6, and what would you recommend for that?
+
+[00:04:59]
+
+>> Speaker 3: I set it to 0.
+>> Jen Kramer: Just to 0, and both of these to 0 or one of them to 0?
+>> Speaker 3: I only had to play with the one.
+>> Jen Kramer: You only had to play with the one. So here we set column-6-3, the fat one in the middle, we set that to a negative 1 here.
+
+[00:05:16]
+So down here at the bottom, we can set our order on that same class to 0. And then that should preserve the desktop order here as we scrunch this up. So there we go with the pies stacked on top of each other, and then when scrunch it down even further.
+
+[00:05:42]
+
+>> Jen Kramer: There they go. One, two, three, stacked all on top. Now, that is the kind of reordering that would simply not be possible with floats, okay, or possible with a great deal of math, perhaps. But to be able to pull out these items within a row and then make them appear in whatever order you want.
+
+[00:05:59]
+This is really, really powerful and it's so simple. So that's a really great trick to have
+

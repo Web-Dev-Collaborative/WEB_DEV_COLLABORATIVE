@@ -1,0 +1,23 @@
+{
+  "name" : "StyleStats",
+  "cli" : {
+    "url" : "https://github.com/t32k/stylestats"
+  },
+  "chrome" : {
+    "url" : "https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki"
+  },
+  "grunt" : {
+    "url" : "https://github.com/tvooo/grunt-stylestats"
+  },
+  "gulp" : {
+    "url" : "https://github.com/1000ch/gulp-stylestats"
+  },
+  "node" : {
+    "url" : "https://github.com/t32k/stylestats"
+  },
+  "service" : {
+    "url" : "http://www.stylestats.org/"
+  },
+  "description" : "StyleStats is an evaluating tool for writing better CSS.",
+  "tags" : [ "css", "metrics" ]
+}

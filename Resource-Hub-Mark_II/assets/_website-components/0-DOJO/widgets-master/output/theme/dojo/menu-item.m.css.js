@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/menu-item","root":"menu-item-m__root__1HFs_","active":"menu-item-m__active__2iRtR"};

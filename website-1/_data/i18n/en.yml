@@ -1,0 +1,400 @@
+###
+# Global
+###
+
+site_title: Yarn
+site_description: Fast, reliable, and secure dependency management.
+
+site_news_important: Important
+site_news_docs_cover_v1: This documentation covers Yarn 1 (Classic).
+site_news_see_v2_docs: For Yarn 2+ docs and migration guide, see yarnpkg.com.
+
+site_nav_getting_started: Getting Started
+site_nav_documentation: Docs
+site_nav_packages: Packages
+site_nav_blog: Blog
+site_nav_stable_version: Classic Stable
+site_nav_rc_version: Classic Release Candidate
+site_nav_nightly_version: Classic Nightly
+site_nav_node_support: Node
+
+site_bsd_license: Distributed under BSD License
+site_code_of_conduct: Code of Conduct
+site_edit_this_page: Edit this page
+
+blog_title: Yarn Blog
+
+guide_additional_reading: Additional Reading
+
+iframe_github_stars: GitHub Stars
+
+###
+# Homepage
+###
+
+homepage_tagline: Fast, reliable, and secure dependency management.
+
+homepage_feature_fast_title: Ultra Fast.
+homepage_feature_fast_description: |
+  Yarn caches every package it downloads so it never needs to download it again. It also
+  parallelizes operations to maximize resource utilization so install times are
+  faster than ever.
+homepage_feature_fast_image_alt: Watercolour of cat riding a rocketship
+
+homepage_feature_secure_title: Mega Secure.
+homepage_feature_secure_description: |
+  Yarn uses checksums to verify the integrity of every installed package
+  before its code is executed.
+homepage_feature_secure_image_alt: Watercolour of cat driving a robot suit
+
+homepage_feature_reliable_title: Super Reliable.
+homepage_feature_reliable_description: |
+  Using a detailed, but concise, lockfile format, and a deterministic algorithm
+  for installs, Yarn is able to guarantee that an install that worked on one
+  system will work exactly the same way on any other system.
+homepage_feature_reliable_image_alt: Watercolour of cat waving from seat behind computer screens
+
+homepage_c2a_text: What are you waiting for?
+homepage_c2a_button: Get Started
+homepage_install_button: Install Yarn
+homepage_migrate_button: Migrate to Yarn 2+
+
+homepage_featurette_offline_title: Offline Mode
+homepage_featurette_offline_description: |
+  If you've installed a package before, you can install it again without
+  any internet connection.
+homepage_featurette_deterministic_title: Deterministic
+homepage_featurette_deterministic_description: |
+  The same dependencies will be installed the same exact way across every
+  machine regardless of install order.
+homepage_featurette_network_performance_title: Network Performance
+homepage_featurette_network_performance_description: |
+  Yarn efficiently queues up requests and avoids request waterfalls in order
+  to maximize network utilization.
+homepage_featurette_npm_title: Same Packages
+homepage_featurette_npm_description: |
+  Install any package from npm and keep your package workflow
+  the same.
+homepage_featurette_network_resillience_title: Network Resilience
+homepage_featurette_network_resillience_description: |
+  A single request failing won't cause an install to fail. Requests are retried
+  upon failure.
+homepage_featurette_flat_mode_title: Flat Mode
+homepage_featurette_flat_mode_description: |
+  Resolve mismatching versions of dependencies to a single version to avoid
+  creating duplicates.
+
+###
+# Titles
+###
+
+docs_getting_started_title: Getting Started
+docs_getting_started_description: |
+  Never used a package manager before or just new to Yarn? Let's get you up and
+  running in just a couple of minutes.
+
+docs_index: Documentation
+docs_getting_started: Getting Started
+docs_install: Installation
+docs_usage: Usage
+
+docs_yarn_workflow_title: The Yarn Workflow
+docs_yarn_workflow_description: |
+  How do I use Yarn? There are basic workflows for both creating and consuming
+  Yarn packages that will help you get productive quickly.
+
+docs_yarn_workflow: The Yarn Workflow
+docs_creating_a_project: Creating a new project
+docs_managing_dependencies: Managing dependencies
+docs_installing_dependencies: Installing dependencies
+docs_version_control: Working with version control
+
+docs_cli_title: CLI Commands
+docs_cli_description: |
+  Yarn is executed through a rich set of commands allowing package
+  installation, administration, publishing, and more.
+
+docs_cli_index: CLI Introduction
+docs_cli_add: yarn add
+docs_cli_add_description: |
+  When you want to use another package, you first need to add it to
+  your dependencies. Running `yarn add` installs it into your project.
+docs_cli_audit: yarn audit
+docs_cli_autoclean: yarn autoclean
+docs_cli_bin: yarn bin
+docs_cli_cache: yarn cache
+docs_cli_check: yarn check
+docs_cli_config: yarn config
+docs_cli_create: yarn create
+docs_cli_dedupe: yarn dedupe
+docs_cli_generate_lock_entry: yarn generate-lock-entry
+docs_cli_global: yarn global
+docs_cli_help: yarn help
+docs_cli_import: yarn import
+docs_cli_info: yarn info
+docs_cli_init: yarn init
+docs_cli_install: yarn install
+docs_cli_licenses: yarn licenses
+docs_cli_link: yarn link
+docs_cli_lockfile: yarn lockfile
+docs_cli_login: yarn login
+docs_cli_logout: yarn logout
+docs_cli_list: yarn list
+docs_cli_outdated: yarn outdated
+docs_cli_owner: yarn owner
+docs_cli_pack: yarn pack
+docs_cli_policies: yarn policies
+docs_cli_prune: yarn prune
+docs_cli_publish: yarn publish
+docs_cli_remove: yarn remove
+docs_cli_run: yarn run
+docs_cli_self_update: yarn self-update
+docs_cli_tag: yarn tag
+docs_cli_tag_description: |
+  Tags are a way of publishing versions of your package with a label.
+  Users of your package can install that instead of a version number.
+docs_cli_team: yarn team
+docs_cli_test: yarn test
+docs_cli_unlink: yarn unlink
+docs_cli_upgrade: yarn upgrade
+docs_cli_upgrade_description: |
+  Upgrades packages to their latest version based on the specified range.
+docs_cli_upgrade_interactive: yarn upgrade-interactive
+docs_cli_upgrade_interactive_description: |
+  Provides an easy and interactive way to update outdated packages.
+docs_cli_version: yarn version
+docs_cli_versions: yarn versions
+docs_cli_workspace: yarn workspace
+docs_cli_why: yarn why
+docs_cli_workspaces: yarn workspaces
+
+docs_migrating_from_npm_title: Migrating from npm client
+docs_migrating_from_npm_description: |
+  Yarn interops directly with many features of npm, including its package
+  metadata format, allowing for a painless migration.
+
+docs_migrating_from_npm: Migrating from npm
+
+docs_creating_a_package_title: Creating a Package
+docs_creating_a_package_description: |
+  Creating and publishing a yarn package can be done with just a few commands
+  and configuration settings, leaving you to focus on your actual code.
+
+docs_creating_a_package: Creating a Package
+docs_publishing_a_package: Publishing a Package
+
+docs_dependencies_title: Dependencies & Versions
+docs_dependencies_description: |
+  Using Yarn you'll be working with dependencies all the time. Let's go through
+  the different types and versions of dependencies.
+
+docs_dependencies: Dependencies and versions
+docs_dependency_types: Types of dependencies
+
+docs_dependency_versions: Versions of dependencies
+docs_dependency_versions_description: |
+  Packages in Yarn follow Semantic Versioning, also known as “semver”. When you
+  install a new package it will be added with a semver version range.
+
+docs_selective_version_resolutions: Selective dependency resolutions
+docs_selective_version_resolutions_description: |
+  Override sub-dependency version resolutions with Yarn.
+
+docs_configuration_title: Configuration
+docs_configuration_description: |
+  Learn how to use package.json to configure your packages and dependencies.
+
+docs_configuration_index: Configuration
+docs_configuration_package_json: package.json
+docs_configuration_yarn_lock: yarn.lock
+docs_configuration_yarnrc: .yarnrc
+docs_configuration_envvars: envvars
+
+docs_offline_mirror: Configuring an Offline Mirror
+docs_offline_mirror_title: Offline Mirror
+docs_offline_mirror_description: |
+  Maintain offline copies of your packages for more repeatable and reliable
+  builds.
+
+docs_prune_offline_mirror: Pruning an Offline Mirror
+
+docs_workspaces: Workspaces
+docs_workspaces_title: Workspaces
+docs_workspaces_description: |
+  Link together your projects for easier maintenance.
+
+docs_plugnplay: "Plug'n'Play"
+docs_plugnplay_title: "Plug'n'Play"
+docs_plugnplay_description: |
+  Install your projects in a safer and faster way.
+
+docs_plugnplay_overview: Overview
+docs_plugnplay_getting_started: Getting Started
+docs_plugnplay_troubleshooting: Troubleshooting
+
+yarn_organization_title: Yarn Organization
+yarn_organization_description: |
+  The Yarn organization is a collaboration of many companies and
+  individuals dedicated to improving your package management experience.
+
+organization: Organization
+code_of_conduct: Code of Conduct
+contributing: Contributing
+translations: Translations
+release_process: Release Process
+governance: Governance
+
+read_more: Read more
+
+users: Yarn Users
+compare: Compare Yarn Performance
+blog: Blog
+
+packages: Packages
+
+users_lead: Meet all the users of Yarn.
+users_description: >
+  Logos are added by company or project representatives. They may or may not be
+  using Yarn on their main properties, but they're definitely using it
+  somewhere.
+users_add_prompt: Want to add your own company or project?
+users_add_pr: Open a pull request
+users_add_requirements_image: >
+  Logos must be a 500x200px (2.5x1) SVG (preferred) or PNG image optimized with
+  svgo, ImageOptim, or another image optimizer.
+users_add_requirements_logo: >
+  Please use a version of your logo that works well on a white background.
+
+install_intro: >
+  Before you start using Yarn, you'll first need to install it on your system.
+  There are many different ways to install Yarn, but a single one is recommended and cross-platform:
+install_alternatives: Alternatives
+install_click_to_expand_collapse: Click to expand / collapse
+install_select_platform: Select your platform above
+install_os: Operating system
+install_version: Version
+install_os_alpine: Alpine
+install_os_arch: Arch Linux
+install_os_centos: CentOS / Fedora / RHEL
+install_os_debian: Debian / Ubuntu
+install_os_gentoo: Gentoo Linux
+install_os_mac: macOS
+install_os_opensuse: openSUSE
+install_os_solus: Solus
+install_os_windows: Windows
+install_os_alternatives: Alternatives
+
+install_check: "Check installation"
+install_check_details: "Check that Yarn is installed by running:"
+
+docs_nightly: Nightly Builds
+install_nightly_intro: >
+  Nightly builds are the latest and greatest versions of Yarn, built using the
+  very latest Yarn source code. Nightly builds are useful to try new features or
+  test bug fixes that have not yet been released as part of a stable release.
+  However, these builds are <strong>not guaranteed to be stable</strong> and may
+  have bugs.
+install_nightly_learn_more: See how to install nightly builds
+
+nightly_latest_version: Latest Version
+nightly_older_versions: Older Versions
+nightly_select_build_type: Select a build type above to see older builds
+install_table_name: Name
+# "Type" refers to type of artifact - tarball, Windows installer, Debian package, etc.
+install_table_type: Type
+install_table_size: Size
+install_table_date: Date
+loading: Loading...
+
+install_file:
+  deb: Debian package
+  js: Standalone JS
+  js-legacy: Standalone JS (Node < 4.0)
+  msi: Windows installer
+  rpm: RPM
+  tar: Tarball
+
+docs_install_ci: Continuous Integration
+ci_intro: >
+  Yarn can easily be used in various continuous integration systems. To speed up
+  builds, the Yarn cache directory can be saved across builds.
+ci_select_platform: Select the continuous integration system you're using from the options above
+ci_appveyor: AppVeyor
+ci_circle: CircleCI
+ci_codeship: Codeship
+ci_travis: Travis
+ci_semaphore: Semaphore
+ci_solano: Solano
+ci_gitlab: GitLab
+ci_codefresh: Codefresh
+
+search_docs: Search documentation
+detail:
+  title: Package detail
+
+script:
+  search_placeholder: Search packages (i.e. babel, webpack, react…)
+  search_by_algolia: Search by Algolia
+  search_by_read_more: read how it works
+  no_package_found: 'No package {name} was found'
+  no_results_docsearch: 'Were you looking for something in the {documentation_link}?'
+  documentation: documentation
+
+  downloads_in_last_30_days: '{count} downloads in the last 30 days'
+  npm_page_for: 'npm page for {name}'
+  repository_of: '{provider} repository of {name}'
+  npm: npm
+  github: GitHub
+  gitlab: GitLab
+  bitbucket: Bitbucket
+  homepage: Homepage
+  deprecated: deprecated
+  result_stats: 'found {number_packages} packages in {time_search}ms'
+  time_ago: '{time_distance} ago'
+  last_updated: 'last updated {update_date}'
+
+  detail:
+    over_a_year_ago: over a year ago
+    less_than_a_week_ago: less than a week ago
+    one_week_ago: one week ago
+    weeks_ago: '{count} weeks ago'
+    activity: Activity
+    commits_last_three_months: Commits last 3 months
+    last_commit: Last commit
+    loading: Loading...
+    use_it: Use it
+    try_in_runkit: Try in RunKit
+    back_to_details: Back to Details
+    browse_files: Browse Files
+    cdns: CDNs
+    contributors: Contributors
+    display_full_readme: Display full readme
+    display_full_changelog: Display full changelog
+    files_error: 'Could not load file listing: {error}'
+    files_header: 'Files in {name}'
+    collapse: Collapse
+    readme: readme
+    no_readme_found: no readme found 😢
+    changelog: changelog
+    popularity: Popularity
+    github_stargazers: GitHub stargazers
+    gitlab_stargazers: GitLab stargazers
+    downloads_last_30_days: Downloads last 30 days
+    jsdelivr_hits: jsDelivr last 30 days
+    dependents: Dependents
+    usage: Usage
+    dependencies: Dependencies
+    devdependencies: DevDependencies
+    packages: Packages
+    see_package_json: see package.json
+    tags: Tags
+    versions: Versions
+    display_all: Display all
+    hide: Hide
+    bundlesize: Size in browser
+    bundlesize_text: 'size: {size}, gzip: {gzip}'
+
+    not_found:
+      whoa: Whoa, {package_name} does not exist yet
+      yours: But that means it is now yours!
+      make: Make your package

@@ -1,0 +1,118 @@
+@import 'config/import';
+
+@import 'variables';
+@import 'mixins';
+
+#audiocontent {
+  display: none;
+}
+
+*:focus {
+  &:active {
+    outline: 0;
+  }
+}
+
+*:focus:not(.focus-visible) {
+  outline: none;
+}
+
+.modal-open {
+  margin: 0;
+  overflow: hidden;
+  overflow-y: hidden;
+  height: 90vh;
+}
+
+div {
+  &.field,
+  &.actions {
+    margin-bottom: 5px;
+  }
+}
+
+#instantclick {
+  display: none;
+}
+
+.partner-image-dark-mode {
+  display: none !important;
+}
+
+body.night-theme,
+body.ten-x-hacker-theme {
+  .on-page-nav-butt img,
+  .icon-img,
+  .reaction-button:not(.reacted) img,
+  .image-upload-button button,
+  .icon-image,
+  .dev-badge,
+  .chatchannels__config img,
+  .message__actions img {
+    -webkit-filter: invert(95%);
+    filter: invert(95%);
+  }
+  .ltag__tag {
+    border-color: white !important;
+    box-shadow: 3px 3px 0px #fff !important;
+  }
+  .partner-image-dark-mode {
+    display: block !important;
+  }
+  .partner-image-light-mode {
+    display: none !important;
+  }
+}
+
+.broadcast-wrapper {
+  box-sizing: border-box;
+  display: none;
+  padding: var(--su-2) var(--su-4);
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: var(--z-sticky);
+
+  .static-header & {
+    position: relative;
+  }
+}
+
+.broadcast-visible {
+  display: flex;
+}
+
+.broadcast-data {
+  flex-grow: 1;
+  align-self: center;
+}
+
+.trusted-visible-block {
+  display: none !important;
+}
+
+body.trusted-status-true .trusted-visible-block {
+  display: flex !important;
+}
+
+.app-shell-loader {
+  position: absolute;
+  top: 200px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  animation: loading-fadein 1.5s;
+  animation-delay: 0.6s;
+  font-size: 1.2em;
+  z-index: var(--z-negative);
+}
+
+@keyframes loading-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}

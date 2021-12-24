@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/label","root":"label-m__root__2OY2Q","secondary":"label-m__secondary__2JgjM","required":"label-m__required__2p83z"};

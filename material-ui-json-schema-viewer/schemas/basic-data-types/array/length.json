@@ -1,0 +1,11 @@
+{
+  "$id": "/schemas/basic-data-types/array/length.json#",
+  "type": "array",
+  "items": {
+    "type": "number"
+  },
+  "minItems": 2,
+  "maxItems": 3,
+  "title": "Array Type Schema with Length Specification",
+  "description": "Demonstrates a schema with the length specified."
+}

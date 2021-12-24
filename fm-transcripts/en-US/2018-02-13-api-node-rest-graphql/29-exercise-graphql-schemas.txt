@@ -1,0 +1,56 @@
+[00:00:00]
+>> Scott Moss: Let's go ahead and build something. So our challenge, we're gonna create some type definitions for a song. And we're gonna create some type definitions for a playlist. So when I say type definitions, I'm referring to,
+>> Scott Moss: These, so this is a type definition for the song. It's describing the shape and stuff, the shape and the fields and what those field types are, the same thing with playlists.
+
+[00:00:25]
+Now I'm not gonna leave you hanging out to dry because I only want you to do this song and a playlist because user's already done for you. So user's there for an example, so look at the user. And actually, we'll do that right now together. Let me check out to the appropriate branch.
+
+[00:00:38]
+I believe we're gonna be on less than nine.
+>> Scott Moss: And what we're gonna do here is we're just gonna create some types for the,
+>> Scott Moss: Song and then the playlist. And actually what I wanted to do, I remember now. I wanted to walk through creating the user one together.
+
+[00:01:05]
+That way you can all see how it works and then we'll create the song one. So the way we're gonna create it with the user is, and you can follow along with me here, is we're just gonna go to the user resource. We're gonna make a new file and we're gonna call it user.graphql.
+
+[00:01:22]
+One word, all lowercase.
+>> Scott Moss: If you don't have a GraphQL syntax highlighter this is a perfect time to download one. Otherwise it's just gonna look like text.
+>> Scott Moss: Basically this file, this is where we're gonna describe our user type, so the first thing you wanna do is you want to say type user.
+
+[00:01:50]
+And by using a type keyword and graft you will schema that's telling GraphQL that you want to make a type. That's basically what it's saying, and remember a type is anything that we can resolve to. We have those scholar types and then now we're creating a non-scholar type, which is basically an object.
+
+[00:02:06]
+So we're gonna make a user type and what I'm gonna do is I'm gonna pull up the user model side by side. And when I say the user model I'm talking about the thing we created in Mongo yesterday. Because most of the time, initially, your user types, I'm sorry, your types in GraphQL are gonna be very similar to your schemas in your database.
+
+[00:02:25]
+Most of the time, at first, and then you'll start adding stuff, and taking away stuff, and expanding how you can query your graph. But it's a good baseline to start off with what you have in the database, then start from there. So user, for right now based on what we have on the database, there's really only two things that I wanna expose.
+
+[00:02:43]
+The first is the ID. You obviously don't see ID on the right because ID is generated from Mongo, right? So we don't have to declare it but it is gonna be an ID. So I wanna say a user has an ID and its type is ID. And I'm gonna put an exclamation there because the ID's always gonna be there.
+
+[00:03:02]
+If I ask for an ID from GraphQL for a user ID, I should always get back an ID. If I don't, that should be a problem, I would expect that's to break.
+>> Scott Moss: The other thing is, a username, this is gonna be a string type, just like it is on Mongo.
+
+[00:03:19]
+And I'm gonna say this is also non-null, because I can feel safe to do that because in Mongo, it is required. So I can feel pretty safe that there's always gonna be a username on this user type, because you can't create a user in the database without a username, according to our schema in Mongo.
+
+[00:03:34]
+So I feel pretty safe that if I ask for username, it should be non-null as well. I'm not gonna put the password hash there, because you don't want to be sending back the password on GraphQL, so we're gonna just not do that. And that's a problem thing right there, so that's pretty cool.
+
+[00:03:52]
+
+>> Scott Moss: So that's basically how easy it is to create a type. So we're gonna do the same thing for the song model,
+>> Scott Moss: And the playlist model. So you would go into the song resource folder, make a song GraphQL, go into the playlist resource folder and make a playlist GraphQL.
+
+[00:04:11]
+Pull up the schema next to it and there's no right or wrong, you decide on how you want to do it. I did not show you how to do one thing, well I didn't directly show you, but you can put the clues together, and that's adding another non-scholar type to another non-scholar type.
+
+[00:04:30]
+But if you think about it, it actually would probably be your first thought. It's actually pretty intuitive, so you can attempt that. And basically that's gonna come down to the playlist model, cuz the playlist model has songs. So it's like, how do you describe that in GraphQL? How do I tell GraphQL that a playlist type has an array of songs?
+
+[00:04:50]
+So I'll let you attempt that, that's pretty fine. None of this code you're writing now's gonna be executed, so you can't check it. So there's no right or wrong, I just want you to write some types.
+

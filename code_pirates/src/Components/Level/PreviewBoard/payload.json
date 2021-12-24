@@ -1,0 +1,25 @@
+[
+  {
+    "p": {
+      "name": "p",
+      "html": "",
+      "children": [
+        {
+          "text": "This's a test"
+        },
+        {
+          "img": [
+            {
+              "src": "./test"
+            },
+            {
+              "alt": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+  { "div": [] }
+]

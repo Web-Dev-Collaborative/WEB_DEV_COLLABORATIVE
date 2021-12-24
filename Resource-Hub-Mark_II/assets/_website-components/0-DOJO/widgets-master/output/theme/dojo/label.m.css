@@ -1,0 +1,16 @@
+.label-m__root__2OY2Q {
+	-webkit-transition: color var(--transition-duration) var(--transition-easing);
+	transition: color var(--transition-duration) var(--transition-easing);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+	color: var(--color-text-primary);
+	font-family: var(--font-family);
+}
+.label-m__secondary__2JgjM {
+	color: var(--color-text-faded);
+}
+.label-m__required__2p83z:after {
+	content: '*';
+	color: var(--color-error);
+}
+/*# sourceMappingURL=label.m.css.map*/

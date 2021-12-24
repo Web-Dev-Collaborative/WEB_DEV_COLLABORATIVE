@@ -1,0 +1,16 @@
+{% extends "base.html" %} 
+
+{% block container %}
+
+
+<div class="ui text justified raised segment" style="overflow-wrap: break-word;">
+  <h3 class="ui header">{{ object.title }}</h3>
+  <div class="ui section divider"></div>
+  <div class="ui black ribbon label">
+  <p class="meta">{{ object.author }} | {{ object.created_on}}</p>
+</div>
+  <p class="very padded text">{{object.content|safe }}</p>
+  
+</div>
+
+{% endblock container %}

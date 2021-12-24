@@ -1,0 +1,15 @@
+[00:00:00]
+>> Exercise time. All right, we have a bunch of blog posts here. This is what you're going to be making. It's a form and it's gonna be Tacos: A History. And the author name is gonna be my name, which is S-Drizzle, and we have a different label for different things that you might wanna show, so you're adding things with that.
+
+[00:00:22]
+And then you're able to filter all of these based on their label. So in this case, we said, we added Tacos History, you can see that label of history, and we're able to filter down to just the histories. So I'm gonna start you off with this code pen.
+
+[00:00:41]
+And here we've got blog posts, we've got add a new post. So we've got v model and a placeholder and that required and then we've got add a new label. And we have science, math, poetry, history and add a new blog post. Here we've got this selected as an empty string.
+
+[00:01:03]
+We haven't, hooked that up yet. Look, you don't have to think of all the posts by yourself. [LAUGH] I made an array of dummy posts for you. We've got new title, new author, new label. So here we've got this. We've got the button that submits and then we've got the selected values.
+
+[00:01:24]
+And then we have the post and post, post.title, and it's outputting all of these labels and authors.
+

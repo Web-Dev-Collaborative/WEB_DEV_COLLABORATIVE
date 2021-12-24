@@ -1,0 +1,27 @@
+.highlight.js {
+  .comment {
+    color: #b9b9b9;
+  }
+
+  .numeric,
+  .modifier,
+  .type {
+    color: #fee937;
+  }
+
+  .name,
+  .support {
+    color: #86b9f5;
+  }
+
+  .console {
+    color: #ddd;
+  }
+}
+
+.highlight.html,
+.highlight.js {
+  .string {
+    color: #62d543;
+  }
+}

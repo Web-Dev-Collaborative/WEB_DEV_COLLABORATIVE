@@ -1,0 +1,118 @@
+.notes-index{
+    display: flex;
+    flex-direction: column;
+    min-width: 330px;
+    max-width: 330px;
+    background-color: $lightest-blue;
+    overflow: auto;
+    border-right: 1px solid $light-gray;
+    
+    h1, h3{
+        margin: 0;
+        color: $dark-gray;
+    }
+    p{
+        color: $text-gray;
+    }
+
+    .header{
+        background-color: transparent;
+        padding: 15px 25px;
+        font-family: $body;
+        border-bottom: 1px solid $light-gray;
+        h1{
+            background: inherit;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        p{
+            margin-top: 25px;
+            background: inherit;
+            font-size: 13px;
+        }
+    }
+
+    .filter-display{
+        height: 50px;
+        display: flex;
+        align-items: center;
+        div{
+            border-radius: 50px;
+            background-color: $dark-blue;
+            color: white;
+            font-size: 13px;
+            font-family: $body;
+            margin-left: 20px;
+            i{
+                color: white;
+                padding: 10px;
+                background: transparent;
+            }
+            i:last-of-type:hover{
+                color: $blue;
+                cursor: pointer;
+            }
+
+        }
+    }
+
+    ul{
+        background-color: transparent;
+        li{
+            height: 120px;
+            box-sizing: border-box;
+            padding: 15px 25px;
+            font-family: $body;
+            border-bottom: 1px solid $light-gray;
+            background-color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h3{
+                font-size: 16px;
+                background: inherit;
+            }
+            .body{
+                padding: 5px 0;
+                font-size: 14px;
+                line-height: 1.4em;
+                height: 3.1em;
+                overflow: hidden;
+                background: inherit;
+            }
+
+            .note-item-footer{
+                background: transparent;
+                display: flex;
+                align-items: baseline;
+                margin-top: 8px;
+                .date{
+                    background: inherit;
+                    font-size: 12px;
+                    padding-right: 10px;
+                }
+
+                ul{
+                    display: flex;
+                    li{
+                        font-size: 10px;
+                        background-color: $light-gray;
+                        height: min-content;
+                        padding: 0px 5px;
+                        border-radius: 50px;
+                    }
+                }
+            }
+        }
+
+        li:hover{
+            background-color: $white-blue;
+            cursor: pointer;
+        }
+
+        li.selected{
+            border: 1px solid $dark-blue;
+        }
+    }
+}

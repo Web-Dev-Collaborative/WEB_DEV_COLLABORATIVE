@@ -1,0 +1,47 @@
+:root {
+	--spacing: 16px;
+}
+.form-m__groupRoot__1GZh0 {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	left: calc(-1 * 16px);
+	left: calc(-1 * var(--spacing));
+	position: relative;
+	width: calc(100% + (16px * 2));
+	width: calc(100% + (var(--spacing) * 2));
+}
+.form-m__groupRoot__1GZh0:last-child {
+	margin-bottom: 0;
+}
+.form-m__column__RcZp- {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.form-m__column__RcZp- .form-m__fieldRoot__2hJGo {
+	margin-bottom: calc(16px * 2);
+	margin-bottom: calc(var(--spacing) * 2);
+}
+.form-m__column__RcZp- .form-m__fieldRoot__2hJGo:last-child {
+	margin-bottom: 0;
+}
+.form-m__fieldRoot__2hJGo {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	margin-bottom: calc(16px * 2);
+	margin-bottom: calc(var(--spacing) * 2);
+	min-width: calc(10 * 16px);
+	min-width: calc(10 * var(--spacing));
+	padding: 0 16px;
+	padding: 0 var(--spacing);
+}
+/*# sourceMappingURL=form.m.css.map*/

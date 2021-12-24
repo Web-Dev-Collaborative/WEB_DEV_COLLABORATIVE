@@ -1,0 +1,57 @@
+[00:00:00]
+>> One thing that's amazing about animations in view, is that there's a lot of different ways to work with it. There's a lot of really good surface API pieces, that help us work with transitioning things in and out. We talked about hooks with which to observe things, it gives us these really nice hooks.
+
+[00:00:21]
+So before we dive in, we should talk a little bit about transitions versus animations, because I know that this kind of trips people up a little bit. Stephanie Walter did this great pen that shows, CSS transitions versus CSS animations, and what CSS transitions do is they interpolate two states, you go from one state to another state, but you're not allowed to create loops or other processes in between them.
+
+[00:00:50]
+In terms of CSS animations, we have the ability to access keyframes. So keyframes can gives us the ability to go from one state to another, just like transitions does, but it also has a lot more power, so we're able to do loops, we're able to put many different things, at different points in time.
+
+[00:01:09]
+We're gonna work with a thing called the transition component today in view, and the transition component can hook into either. I know that sounds a little bit confusing, but it can use CSS transitions, or CSS animations. I don't want you to think that just because it's called transition, that you're not able to use both.
+
+[00:01:27]
+So the transition component. I'm gonna look at a modal example. We looked at this modal example a little bit earlier, we had the here I am in a slot, we're toggling, the display of that modal, and we're basically saying, okay, click this button, it shows it or it hides it.
+
+[00:01:47]
+So if we have this code pin, The styles fell off of the code pin. Here we go, I think it was just slow to load. If we trigger this here modal, we do show modal, and we hide it, then we see here I am, so that's okay. But it's things in nature, things in real life, do not just toggle into appearance, right?
+
+[00:02:13]
+In fact, we're kind of training that that's a bad thing. [LAUGH]. If something is just popping in our faces, or just showing up all of a sudden, that it's not actually a good thing. And so humans don't kind of work in those types of Booleans, in order to make things feel a little bit smoother for a human, we need to have things transition, we need to have some flow of that state.
+
+[00:02:35]
+So what we're gonna do, is we're going to wrap this child component, in a transition component, with the name of fade. And I redid this graphic for view three, we changed a couple of different things, we have enter-from and enter-to now, and leave-from, leave-to, before it was just enter and leave.
+
+[00:02:57]
+But now it's a little bit more explicit, right? We're saying enter-from, enter-to and enter-active. I mentioned before when we're talking about reactivity, that we have hooks with which to observe things, if we're talking about a hover state, again, it's the moment it starts, you start hovering, the time that you're going to hover, what it's going to do in between that state, and the second it's done.
+
+[00:03:23]
+It's also reusable for other components, so if I call something fade, if I say transition name fade, I can wrap anything in transition name fade. I'm really plugging into the CSS for that, so I can declare the CSS in a more global place or in the app, and I could say fade-enter-active, fade- leave-active, and what this is basically saying is, anytime opacity is changing, let's change the opacity this way.
+
+[00:03:51]
+We're gonna do it for, point 20 quarter of a second, we're gonna use an ease- out, and then when it's leaving, we're gonna use an ease-in. This is an animation tip, you might think that animations would work with ease in for entrances and ease out for exits, but really it's the opposite.
+
+[00:04:10]
+When you use ease out for entrances, it looks a little bit more realistic and you should define it as ease in. And fade-enter-from and leave-to is opacity zero, because that's our start state right? We're saying start enter-from, opacity zero, leave-to opacity zero. This is unnecessary because it's the default.
+
+[00:04:36]
+We could say fade enter to and leave from, so we have that first enter from to, and then leave from to, but we don't have to declare this piece in the middle, because it's the default for DOM elements to have an opacity of one. So now if we could trigger this modal, it's a little bit better, right?
+
+[00:04:59]
+It feels a little bit more natural, this is a small example but it's just kind of fading a little bit better, it's not popping in your face so quite so strong. This is great, but what if we wanted to improve on it one more step? So what if we wanted to make the background content fade out of use, so that the modal took center stage, and the background lost focus a little bit.
+
+[00:05:18]
+We can't really use the transition component, I mean technically we could, we could wrap the entire body of the page in a transition component, but that's a little odd, right? We don't necessarily want to pass that through the entire background. So what we wanna do, is we wanna use something that's not the transition component, we would probably do a class binding for this, right?
+
+[00:05:41]
+We talked about that v-bind earlier, and how we can dynamically bind a class, we could use it for this instance. And the reason why I'm bringing this up, is because you really want to use the right tool for the job and I also don't want you to think that you only can use the transition component.
+
+[00:05:58]
+The transition component is really good for coordinating entrances and exits, of a component that has a conditional statement. So if you wrap that transition component, it's not a component that's mounting and unmounting, it won't really work. For anything else, any other thing, we can hook into our CSS and JavaScript the regular way.
+
+[00:06:21]
+So here, I'll say transition all, one second ease-out, I'm gonna do apply a filter of a blur for two pixels, and opacity of O.4. And we're still saying, we're toggling that is showing, and we're adding this bk class in this blur class. So now, if we trigger the modal, you can see the background, fade out of view, right?
+
+[00:06:48]
+We don't want necessarily the background to be set in such sharp focus, when we're working with this modal. So that makes this modal just a little bit nicer to work with, it's a little bit kinda of a UI.
+

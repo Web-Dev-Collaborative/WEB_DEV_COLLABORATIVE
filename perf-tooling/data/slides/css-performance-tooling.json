@@ -1,0 +1,15 @@
+{
+  "name" : "CSS Performance Tooling",
+  "authors" : [
+    {
+      "name" : "Addy Osmani",
+      "twitter" : "@addyosmani"
+    }
+  ],
+  "date" : "2014-09-13",
+  "stats" : {
+    "length" : 130
+  },
+  "tags" : [ "css", "tooling", "workflow", "crp" ],
+  "url" : "https://speakerdeck.com/addyosmani/css-performance-tooling"
+}

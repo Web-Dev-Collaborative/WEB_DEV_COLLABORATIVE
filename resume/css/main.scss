@@ -1,0 +1,40 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "UTF-8";
+
+// Mixins
+@import "components/mixins";
+
+// Variables
+$textcolor: {{ site.style.text.color }};
+$authorcolor: {{ site.style.author.color }};
+$backgroundcolor: {{ site.style.background.color }};
+$backgroundimage: "{{ site.style.background.image }}";
+$backgroundsize: {{ site.style.background.size }};
+$navigationbackgroundcolor: {{ site.style.navigation-background.color }};
+$colorwhite: {{ site.style.color.white }};
+$colorprimary: {{ site.style.color.primary }};
+$colorsecondary: {{ site.style.color.secondary }};
+$colorsuccess: {{ site.style.color.success }};
+$colordanger: {{ site.style.color.danger }};
+$colorwarning: {{ site.style.color.warning }};
+$colorinfo: {{ site.style.color.info }};
+@import "components/variables";
+
+// Reset
+@import "components/normalize";
+
+// Components
+@import "components/global";
+@import "components/helpers";
+@import "components/grid";
+@import "components/typography";
+@import "components/buttons";
+@import "components/syntax-highlighting";
+
+// Pages styling
+@import "pages/layout";
+@import "pages/tags";
+@import "pages/archive";
+@import "pages/post";

@@ -1,0 +1,36 @@
+[00:00:00]
+>> One of the last examples I'm gonna show you is this kind of time changer thing that I made. I think it's a little bit more of a complex pen. So I'm not gonna dive into every little bit of the code, but I'm gonna kind of explain how it works.
+
+[00:00:15]
+Because I think watchers are really interesting when you start reacting to change and doing things with animation and stuff. So on this, I have my local time here, which is 12:22 PM. And if you go into the code, you'll note that I'm not using moment or anything like that.
+
+[00:00:34]
+I'm using native time JavaScript methods and I'm able to choose different time zones. So as I go to different time zones, you can see that animation move as well as the dial. And so what I've done here is I'm hooking again into GreenSock's animation library. And we'll do a lot more in the animation section.
+
+[00:00:59]
+But what I'm able to do is I'm able to take a full animation, and I can kind of adjust the progress of that animation. GreenSock allows me to hold the whole instance of that animation and scrub the progress. So I create the whole thing of the whole dial and also these differences in night and day.
+
+[00:01:20]
+And then I compare where we were and where we're going in that watch, from the new value and the old value, I say, okay, where were you in time? Where are you gonna be in time? Let's change that. So if we go into the code here a bit, You can see this is a lot of animation code that we'll dive into in a moment.
+
+[00:01:46]
+But you can see in the watch, this is that checked value, and inside that checked value, I'm basically doing some manipulation to see what time it was. And I'm gonna say, okay, are you AM or PM? And then based on that, let's spin that progress of the timeline and also change the animation of the kind of day lights and mountains above or below.
+
+[00:02:13]
+And so that's how that animation is made. So since we can watch the beginning values and the end values, it allows us all of these nice ways of hooking into some more advanced effects that you can use on the front end. Cool, you learned so much so far.
+
+[00:02:32]
+We learned directives, we learned methods, we learned computed, we learn watchers. These are the basic building blocks of Vue. Someone asked if a watcher can affect another property. So you're watching that one thing, can it affect something else? Now, the thing about it is you're only really watching that one property, but you can absolutely affect something else.
+
+[00:02:55]
+You could affect something by calling a method within that watcher. You could affect something else by just doing something within, you could watch a property and then change another property inside of that watcher. That's totally available to you. So you wouldn't necessarily hook them together. You would still just watch that one thing that you need to watch to see the change notification.
+
+[00:03:18]
+But it is flexible in the sense that you can change other things. Now, there are some schools of thought that if you're looking at one thing and changing another, it's called the side effect. And side effects are when you are all of a sudden changing something that someone else doesn't really know about.
+
+[00:03:37]
+And so there are kind of purists in this area who will say don't do something like that because you're now changing something that you didn't know that you are changing. So that is something to watch out for, to watch out for. What I would recommend is that you're always encapsulating thing and methods and calling them so that it's a little bit more explicit and not doing everything directly in the watcher in order to kind of change things around.
+
+[00:04:04]
+But it's a little bit different from a computer property in that sense, that computer properties are really like giving you another view from that one piece. Watchers allow you to affect multiple pieces.
+

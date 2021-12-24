@@ -1,0 +1,477 @@
+{
+	"info": {
+		"_postman_id": "3c069e57-2784-45f5-a313-0585107a220c",
+		"name": "shoppingCart",
+		"description": "The backend apis for creating users, adding items to carts, and completing purchases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "localhost:3000/users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"David\",\n\t\"lastName\": \"Conner\",\n\t\"email\": \"test@test.com\",\n\t\"password\": \"thisIsAPassword\",\n\t\"tosAgreement\": true,\n\t\"address\": \"123 west st. Round Rock, tx 78665\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "The user POST endpoint. Will create a user if one does not exist with the same email address. Needs a request body with the following fields:\n```\n{\n\t\"firstName\": \"David\",\n\t\"lastName\": \"Conner\",\n\t\"email\": \"test@test.com\",\n\t\"password\": \"thisIsAPassword\",\n\t\"tosAgreement\": true,\n\t\"address\": \"123 west st. Round Rock, tx 78665\"\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users?email=test@test.com",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "6n2md3lbg21nk0h37ayl"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/users?email=test@test.com",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "test@test.com"
+								}
+							]
+						},
+						"description": "The GET endpoint for our user api. This request requires a valid auth token and an email address must be passed as a query string param.\n\nThis endpoint returns the user object minus the password"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "token",
+								"value": "6n2md3lbg21nk0h37ayl"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"D MONEY CASHFLOW\",\n\t\"email\": \"test@test.com\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "The PUT user endpoint for updating user information. Required field is email and one of the other fields to update. Must be passed with a valid auth token in the header. "
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/users?email=test@test.com",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "6n2md3lbg21nk0h37ayl"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/users?email=test@test.com",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "test@test.com"
+								}
+							]
+						},
+						"description": "The users DELETE endpoint. Used to delete the user specifiied as well as delete the token file associated. Must pass a valid auth token in the header and the user email as a query string parameter"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tokens",
+			"item": [
+				{
+					"name": "localhost:3000/tokens",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"thisIsAPassword\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/tokens",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tokens"
+							]
+						},
+						"description": "The POST endpoint for our token service. Each user must have a valid token. This enpoint takes a email and password as part of the body and returns a token object.\n\nGiven: \n``` \n{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"thisIsAPassword\"\n}\n```\nreturns:\n```\n{\n    \"email\": \"test@test.com\",\n    \"id\": \"6n2md3lbg21nk0h37ayl\",\n    \"expires\": 1536697340869\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/tokens?id=6n2md3lbg21nk0h37ayl",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/tokens?id=6n2md3lbg21nk0h37ayl",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tokens"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6n2md3lbg21nk0h37ayl"
+								}
+							]
+						},
+						"description": "The token GET endpoint. Must pass a query string param for the id of the token. Will return the token objec that contains the users email, the id, and the expiration"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/tokens",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"6n2md3lbg21nk0h37ayl\",\n\t\"extend\": true\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/tokens",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tokens"
+							]
+						},
+						"description": "The token PUT endpoint. Used for extending the length of the token expiration. Must come with a body that contains the token id and a boolean for extend"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/tokens?id=t1wd20832e4w6mf194ps",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/tokens?id=t1wd20832e4w6mf194ps",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tokens"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "t1wd20832e4w6mf194ps"
+								}
+							]
+						},
+						"description": "The tokens DELETE endpoint. Used to delete the file containing the auth token for a user. Usually called when the users DELETE endpoint is called. Must pass an id as query string parameter"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "menu",
+			"item": [
+				{
+					"name": "localhost:3000/menu",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "qqt7rhhbe4m7qr60x2bc"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/menu",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"menu"
+							]
+						},
+						"description": "This is the GET endpoint for our menu api. As long as auth token is provided in the header it will return the entire menu options. \n\n// Possible improvements would be to allow for query params to ask for specific section of the menu. "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "localhost:3000/orders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "v91u1efnsczs5lktd5w7",
+								"disabled": false
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"order\": [\n\t\t{\n\t\t\t\"name\": \"Buddha's Delight\",\n\t\t\t\"quantity\": 2,\n\t\t\t\"price\": \"12.00\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Garlic rolls\",\n\t\t\t\"quantity\": 2,\n\t\t\t\"price\": \"4.00\"\n\t\t}\n\t],\n\t\"total\": 28.00,\n\t\"date\": 1536720468207,\n\t\"confirmed\": false\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						},
+						"description": "The POST endpoint for the orders api. Must have a valid auth token in header. Body of the post will contain the user's email, order object, date timestamp and confirm boolean. The confirm field denotes if purchase was confirmed.\n\n```\n{\n\t\"email\": \"test@test.com\",\n\t\"order\": [\n\t\t{\n\t\t\t\"name\": \"Buddha's Delight\",\n\t\t\t\"quantity\": 2,\n\t\t\t\"price\": \"12.00\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Garlic rolls\",\n\t\t\t\"quantity\": 2,\n\t\t\t\"price\": \"4.00\"\n\t\t}\n\t],\n\t\"date\": 1536720468207,\n\t\"confirmed\": false\n}\n```\n\nReturns an order object that has order id, email, order, price total, a timestamp for when order was placed,and a timestamp of when order was entered in system\n\n```\n{\n  \"id\": \"b9aydia0si6aazpvying\",\n  \"email\": \"test@test.com\",\n  \"order\": [\n    { \"name\": \"Buddha's Delight\", \"quantity\": 2, \"price\": \"12.00\" },\n    { \"name\": \"Garlic rolls\", \"quantity\": 2, \"price\": \"4.00\" }\n  ],\n  \"total\": \"28.00\",\n  \"date\": 1536720468207,\n  \"systemDate\": 1536769779147\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/orders?id=5n4mn6bx3kxbykmpecqr",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "6ruvlv3cau5kels6ytcv"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/orders?id=5n4mn6bx3kxbykmpecqr",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5n4mn6bx3kxbykmpecqr"
+								}
+							]
+						},
+						"description": "The GET endpoint for our orders api. Requires a query string param with the id of the order and a valid auth token in the header. Will return the order object."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/orders",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "mij1n0epics69qkpgr01",
+								"disabled": false
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"id\": \"5oti6s09vhqb4tk6jh58\",\n\t\"order\": [\n\t\t{\n\t\t\t\"name\": \"Buddha's Delight\",\n\t\t\t\"quantity\": 1,\n\t\t\t\"price\": 12.00\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Garlic rolls\",\n\t\t\t\"quantity\": 2,\n\t\t\t\"price\": 4.00\n\t\t}\n\t],\n\t\"total\": 20.00,\n\t\"date\": 1536720468207,\n\t\"confirmed\": true\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						},
+						"description": "The PUT endpoint for the orders api. Must have a valid auth token in header. Body of the post will contain the user's email, order object, date timestamp and confirmed boolean.\n\nIf confirm is true then a purchase will be made\n\n```\n{\n\t\"email\": \"test@test.com\",\n\t\"order\": [\n\t\t{\n\t\t\t\"name\": \"Buddha's Delight\",\n\t\t\t\"quantity\": 2,\n\t\t\t\"price\": \"12.00\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"Garlic rolls\",\n\t\t\t\"quantity\": 2,\n\t\t\t\"price\": \"4.00\"\n\t\t}\n\t],\n\t\"date\": 1536720468207,\n\t\"confirmed:\" true\n}\n```\n\nReturns an order object that has order id, email, order, price total, a timestamp for when order was placed,and a timestamp of when order was entered in system\n\n```\n{\n  \"id\": \"b9aydia0si6aazpvying\",\n  \"email\": \"test@test.com\",\n  \"order\": [\n    { \"name\": \"Buddha's Delight\", \"quantity\": 2, \"price\": \"12.00\" },\n    { \"name\": \"Garlic rolls\", \"quantity\": 2, \"price\": \"4.00\" }\n  ],\n  \"total\": \"28.00\",\n  \"date\": 1536720468207,\n  \"systemDate\": 1536769779147\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/orders?id=5n4mn6bx3kxbykmpecqr",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "nlveklca8hick5vnd1sp"
+							},
+							{
+								"key": "user",
+								"value": "test@test.com"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/orders?id=5n4mn6bx3kxbykmpecqr",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5n4mn6bx3kxbykmpecqr"
+								}
+							]
+						},
+						"description": "The DELETE endpoint for our orders api. Requires a valid auth token and a user email supplied in header and an orderId that comes from query params"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "localhost:3000/login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"password\": \"thisIsAPassword\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login endpoint that requires an email and password in the body. Will return the token that is created once password is checked for user."
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/logout",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "c1f2e3fb6jzg3rejxnis"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"logout"
+							]
+						},
+						"description": "Delete option for login. Will delete token and log user out."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

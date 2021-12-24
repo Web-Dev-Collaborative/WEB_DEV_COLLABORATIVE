@@ -1,0 +1,25 @@
+{
+  "name": "template_jquery_bootstrap_boilerplate",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Usarneme/template_jquery_bootstrap_boilerplate.git"
+  },
+  "author": "Usarneme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Usarneme/template_jquery_bootstrap_boilerplate/issues"
+  },
+  "homepage": "https://github.com/Usarneme/template_jquery_bootstrap_boilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "jest": "^26.6.3",
+    "yargs": "^16.2.0"
+  }
+}

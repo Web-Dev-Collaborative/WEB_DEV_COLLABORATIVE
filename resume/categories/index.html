@@ -1,0 +1,16 @@
+---
+layout: page
+title:  Categories
+hide-on-sidebar: true
+hide-cloud: true
+collection: categories
+icon:
+#  sidebar: fa-tag
+permalink: /categories/
+---
+
+<div class="cat-list">
+{% for col in site.categories %}
+  {% include collections/categories.html %}
+{% endfor %}
+</div>

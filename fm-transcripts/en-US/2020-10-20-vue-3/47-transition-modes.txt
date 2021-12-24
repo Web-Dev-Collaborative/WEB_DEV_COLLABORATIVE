@@ -1,0 +1,36 @@
+[00:00:00]
+>> So let's talk about sweet, sweet, transition modes. Without transition modes, what you have is when two things are coming into and out of the DOM at one time, there's this awkward moment where both of them are there at the same time, even though they're both in the middle of transitioning.
+
+[00:00:20]
+So what happens is you get this button effect where one is coming in and it's still there so that it's taking up space in the DOM, and this other one's coming in and it's kind of doing this jarring effect. And you can even see this on some sites where things kind of get jarring, people haven't paid attention to those two things in the DOM at once property.
+
+[00:00:40]
+Now, I'm showing you this demo of these different transition modes, and you might notice it says React on the side. That's because of a Vue developer who loves transition modes had to work in React and was like, y'all don't have this? So he made Transition Group Plus for React,and the demo is quite good.
+
+[00:00:59]
+So I'm showing it to you with that demo. But also to say that, remember in the beginning I said when frameworks learn from each other, all developers win because we're all learning from each other. Each framework gets better and better. React borrows from Vue, Vue borrows from React, and so on and so forth.
+
+[00:01:18]
+So this is a kind of neat thing that got ported over to React. Here are the different modes that are available to you. In-out, the current element waits until the new element is done transitioning in to fire. Out-in, the current element transitions out and then the new element transitions in.
+
+[00:01:38]
+I've almost never found a case for in-out. Most of the time you want out-in. Because if you're gonna use a transition mode, really, you want the current element to transition out entirely and wait until the new element transitions in. So I'm gonna show an example of this. We use the transition component, we have a name.
+
+[00:01:59]
+We have this mode, that's out-in. And then we're wrapping it, of course, in this v-if, v-else. So here, if we hover this and replace it, it looks like it's a card that's flipping. It looks like one card that's flipping, but really, it's two elements. So what's happening here is the one element is transforming to this kind of sideways state, and then it's going away.
+
+[00:02:27]
+And then the next one's coming in at the sideways state and flipping all the way over. So because we're using a transition mode, it's allowing us to seamlessly make these two go over. So you're not seeing them stop and come in. And what's really nice about this, too, is that you're not necessarily having to coordinate those things.
+
+[00:02:51]
+If I was working with this without a transition mode, what I might have to do is make a false delay. I would figure out how long I'm transitioning that first one and make a delay for the second one to start coming in. So I could do that with a callback to add that component, or I could do that with these false delays.
+
+[00:03:08]
+But if I change the length of time that that's animating, I then have to change all of that structure of the code, right? So we're not having to do any of those kind of clunky bits. Now if we didn't have it at all, they happen at the same time.
+
+[00:03:24]
+And if they happen at the same time, it just kind of looks, clunk. Because one of them is transitioning but the other one is transitioning in. And so what you're seeing is just them flip and that's it. So here we've got flip-enter-active. We've got flip-leave-active, and we've got some transforms.
+
+[00:03:48]
+Like I mentioned, we're transforming the scale y to 0, and the opacity to 0.
+

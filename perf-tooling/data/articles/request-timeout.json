@@ -1,0 +1,15 @@
+{
+  "name" : "Request Timeout",
+  "authors" : [
+    {
+      "name" : "Steve Souders",
+      "twitter" : "@Souders"
+    }
+  ],
+  "date" : "2014-11-14",
+  "stats" : {
+    "length" : 361
+  },
+  "url" : "http://www.stevesouders.com/blog/2014/11/14/request-timeout/",
+  "tags" : [ "spof" ]
+}

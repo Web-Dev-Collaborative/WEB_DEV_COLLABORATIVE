@@ -1,0 +1,54 @@
+[00:00:00]
+>> So here's a slightly better example with props, so we have this Vue.createApp, we have our data, we say give me a taco. If you look here, this is just hard coded onto that component every time you see a child component, you have to give me a taco.
+
+[00:00:18]
+So I have this app-child I'm passing in this text message and remember that colon is short for V bind, so I'm binding to whatever the message is, so here the message was give me a taco. In this component is kind of like this, you can consider this prop that I'm passing into the component as like an empty shell.
+
+[00:00:44]
+I say props is text and I'm passing that text into here, but I can pass in whatever I want, if I change this to give me burrito, which I don't know why you'd ever do, because really, you just want a bunch of tacos. You can see, give me a burrito and you can see that is all updating as well.
+
+[00:01:06]
+And you can also see that this text was really the thing that at allowed us to add the props, but it doesn't need to be called text. So if I wanted to call it like robot in this to be called robot and then I go back in here and I say, robot, that's also totally fine.
+
+[00:01:31]
+Like it can be named whatever you want it to be named, so it's not important that this be called text. It could also be called message even, but for the distinction purposes here, I'm making them have different names, and I called this app child. And you can see app child and therefore I can pass a lot of different things into this it's very flexible.
+
+[00:01:55]
+What's important here is that that div, renders whatever I passed into that component. So that app child component, whenever I pass something in, will have that div. And likewise if I wanted to change this to an h1, then everything updates accordingly, i don't have to keep updating all of these different units.
+
+[00:02:15]
+Because I wanted to change something I can have it change in one place and update for all of them. So props come down from the parent to the child, so we're always passing data down from the parent to child. You can say you can remember with props down events up, we're always passing props down from the date data from the parent to the child because we want one source of truth.
+
+[00:02:41]
+We don't want this to be doing things and then this to be doing things and then it's like who owns the state who owns the real truth of the thing. Really that parent component is gonna own the state the real truth of the thing and the child is just receiving it, it's just getting it with props.
+
+[00:02:59]
+So if we pass props text like you saw before, these props are intended for one way communication and you can think of it like the component holds a little variable that's waiting to be filled out by whatever the parent since it. So if we have this collection that you saw before for that call out component, and we have this little space that's waiting for us for a prop.
+
+[00:03:20]
+If I pass in num equals 1, it will fill that space, it will fill that kind of area with whatever I'm binding to that number. We met somebody asked about validation before we do prop validation, you saw that it just was we're able to pass in a prop just by putting it inside of an array and it doesn't need to be in an array even if it's one element.
+
+[00:03:46]
+But the better way of doing it is to say props and then say some information about that props like those props instead of passing text in a string, an array, we're gonna give some information we're gonna say the type is string required is true. The default is Hello Mr. Magoo, or whatever you want that string to be.
+
+[00:04:09]
+And then here is the template where I'm passing that information in and what will happen if you don't If you do something like let's say I passed in a Boolean, it's just gonna yell at you in dev mode. Like it's not gonna completely block your ability to do that, but there will be some warnings when you're in development, so that you can see like that wasn't what it was expecting.
+
+[00:04:33]
+And just a small note, objects in arrays need their defaults to be returned from a function. So rather than saying a default of, here, if we go back to the string, we just said default and we pass that string right in numbers you can do the same. But if the default is an object or an array, we need to pass a function into that default and return it.
+
+[00:04:55]
+So I would either do this or if I wanted to do an arrow function I can make it a little bit cleaner and return alpa store and carnea SATA. You don't necessarily need to pass the data into props to the child either using that parent component, in other words, it does not necessarily need to be dynamic.
+
+[00:05:16]
+So you have the option of you using that view instance data, or using a static data as you see fit and I'll show you what I mean by that. Here we're gonna adjust the data or adjusting up and we're adjusting down, and you notice that this is staying 3, and this is staying 2.
+
+[00:05:34]
+I'm gonna open up this code pen so it's a little bit more clear, so if you have this count of 0, We have two app child's one here and one here and one of them has doesn't have a V bind on it. And the other one does, remember this colon is that V bind.
+
+[00:06:02]
+So what it's saying here is maker relationship in that count to this count, but here it's not bound. This is just going to be interpreted as whatever that string is, so I'm, passing in three here, I'm just passing it in, and it's just going straight. So if I wanted to change this to 5, I could change it to 5, and that would update to 5, but it stays consistent, right, it's not dynamically bound to this counter here.
+
+[00:06:34]
+This is dynamically bound to this counter, so we're able to increment and decrement.
+

@@ -1,0 +1,121 @@
+[00:00:00]
+>> Brian Holt: So if you go back to your index.html real quick, we are going to include a link here in the header to public/style.css.
+>> Brian Holt: I wrote this CSS for you. This is definitely not a CSS workshop. I don't purport this to be particularly good CSS, it's very structural based, so if you follow the same structure to your HTML elements, you should get all the styling for free.
+
+[00:00:34]
+We will talk about styled components a little bit later, which will be pretty fun. We're not gonna do everything in styled components, just because it'd a lot of time writing CSS which is not where I wanna focus here. I wanna focus on the JavaScript part of this. So I will show you how to use styled components but then we'll just go back to using the CSS that I wrote for you.
+
+[00:00:53]
+So suffice to say, if you mimic my markup, you should get all the style for free.
+>> Brian Holt: Cool.
+>> Brian Holt: So that sounds good, let's go back to,
+>> Brian Holt: We're gonna go back to ClientApp.jsx.
+>> Brian Holt: So you can pretty much just delete all of this stuff which is what I'm gonna do.
+
+[00:01:27]
+
+>> Brian Holt: And we're gonna pretty much start over. So the first thing we're gonna do is we're gonna create const App which is gonna be the overarching component for our app. And I'm gonna make it an arrow function. So for those of you that have not seen an arrow function before, relatively similar to normal functions, right?
+
+[00:01:51]
+It's just a little bit shorter to write. There's some other things that have to do with context of how arrow functions work but we'll get into those as we kind of run into the where it would be different from a normal functions. Suffice to say, for all intensive purposes for what we're doing here, this is a normal function.
+
+[00:02:10]
+
+>> Brian Holt: Okay? And what we're gonna do here is return, so mark up. So we're gonna do div.
+>> Brian Holt: So typically you would put class here, right? If you wanted to give a class type. However, as you may remember, we are writing JavaScript, right? So we have to abide by the rules of JavaScript.
+
+[00:02:34]
+The word class is a reserved word, right? Right? Cuz you're gonna have class Foo, right? And so this class word is reserved. Right? And you can't use that keyword directly. Right? So instead we're gonna use className. This is really one of the very few gauches with JSX and React in general.
+
+[00:02:56]
+Cuz you have to call className instead of class. There's a couple other, like for, as you might imagine. For is valid HTML5. But there's for loops, right? So I don't use for a terrible much, so it's really just class.
+>> Brian Holt: Now to justify this decision, like I was telling you earlier, the way this works is this is actually interacting with the DOM API.
+
+[00:03:21]
+And the name for manipulating classes on an HTML element via the DOM API is className. Right? If I come in here and say console, so if I just say, so x = $0, okay, so I have a span right here. Right? So if I say x.className, right? That's how I actually get a class name.
+
+[00:03:49]
+So It is a valid choice, right? The reason why I bring this up is that I've defended so much cuz I've had to defend it so much. So just wanted you to know that that's a valid choice on their part. Okay, so className=app and then here we're gonna say div className=landing
+
+[00:04:18]
+
+>> Brian Holt: Now what we're gonna do here is we're gonna put an h1, you can name your video service whatever you want, I called mine svideo. We're gonna put an input type = text, placeholder = Search
+>> Brian Holt: And then we will put an a tag, for now it's not gonna go anywhere so we'll just put a or Browse
+
+[00:05:03]
+
+>> Brian Holt: It's from anchor tag but we will fix that later. But we can just put it Ok, just don't put it. We'll make it go somewhere later, ok? Now down at the bottom we're going to render app to document get(). getElementByID('app').
+>> Brian Holt: Okay, so we save that. Now we do have a Lint error up here.
+
+[00:05:41]
+That's because these arrow functions have something called an implicit return, right? For those of you coming from Ruby or Copyscript You're probably used to seeing implicit returns that no matter what the last line is returned automatically, right? Well, with error functions, if it's a one liner, it's also an implicit return, okay?
+
+[00:06:07]
+So what the air bnb Yes lintels requires that if you have a function that just immediately returns, it must use the implicit return, okay? So, what we can do instead of saying curly brace
+>> Brian Holt: Let me show you what I mean, right? So if I have const add = (a,b) => { return a + b }, right?
+
+[00:06:41]
+It's gonna be mad at me because I could have written it this way,
+>> Brian Holt: const add a,b
+>> Brian Holt: a + b.
+>> Brian Holt: So that's the way it wants me to write it. If you do not put the curly braces there, whatever expression you put there, it's going to be implicitly returned.
+
+[00:07:12]
+So these two lines are equivalent, right. That make sense?
+>> Brian Holt: Okay, so here, and I'm just returning immediately this react component. So if I just get rid of this and bring this parentheses up there and then delete that.
+>> Brian Holt: So we get rid of that, that's the same thing.
+
+[00:07:42]
+So the key here is this is a parentheses And not the curly brace how do we feel about that it's a little weird right but I don't know I kind of like it but The thing is, it's like if I ever need anything other than just returning immediately, I have to switch that back to using curly braces, right.
+
+[00:08:10]
+Because I can't put anything up here, like I don't know.
+>> Brian Holt: This is no longer valid, right? Because that, it has to be just an immediate return. So I have linked in my notes here. There's a blog that I referenced constantly in here written by Dr. Axel Roshmeyer, I'm probably saying that incorrectly.
+
+[00:08:35]
+But he has a blog called Tonality and it's just amazing for explaining JavaScript grammar, it's both Succinct and in depth and I think it's pretty easy to understand. So I have a to ality posts linked here that if you need to understand it and need more depth it's all there.
+
+[00:08:56]
+
+>> Brian Holt: Okay, so if I go back here and I start doing yarn watch
+>> Brian Holt: Okay, so now I should be able to come back over here and go back to my.
+>> Brian Holt: So I am getting some [BLANK AUDIO} There should be a background. That's weird. We'll fix it in just a second.
+
+[00:09:34]
+We're going to be running a death server here really quick and all the paths are based on absolutes versus relatives so we we'll need to fix that. But suffice to say we're getting a nice looking UI here that with an input and a title and all that kind of stuff.
+
+[00:09:48]
+So something that would be really nice is,
+>> Brian Holt: Here in our console, rather than just have it have to come back here and run lint, I guess we're also running it within our editor, but I wanted to show you actually how to have Webpack run your linting as well.
+
+[00:10:09]
+So, go into your Webpack config, and we're gonna add another rule, do it before the Babble loader,
+>> Brian Holt: And, what we're gonna do is we're gonna do enforce pre Test.
+>> Brian Holt: I guess the test commute is the same as this, right?
+>> Brian Holt: Loader Eslint-loader and exclude /node_modules/.
+>> Brian Holt: My notes are a little incorrect here.
+
+[00:11:09]
+
+>> Brian Holt: So let's talk about this. Running on the same files right, so it's the same test function, that makes sense. Loader, we're using the ESLint Loader, hopefully that makes sense to us. It's just going to be running ESLint on all the files that are going through your build pipeline.
+
+[00:11:24]
+The nice thing is it's only gonna be running on files that have changed as opposed to being run on every file every single time. Exclude We don't care if our node module's past our linting, right? That's someone elses problem, not mine. So that's why we're excluding everything out of node modules.
+
+[00:11:39]
+But then there's this funny thing called pre. What this is doing is it's ensuring that it's running before babel, right? We do not care if our post copulation code passes Lint, we care if it passes it before, right? So it has to be pre. Does that make sense?
+
+[00:11:59]
+There's also a post, as well. I don't know what you would do with post. Maybe, like, minify and things like that? I don't know. So, now we're gonna have to go restart our watch. Any time you mess with a webpack config you're gonna have to restart watch, just So you know.
+
+[00:12:21]
+
+>> Brian Holt: Okay now if I come back here to client.app and const x = 5, make our lint fail.
+>> Brian Holt: Now notice in my command line it's automatically outputting this errors to my console, right? So, it says x was never assigned, but used, and then, you also need that empty space there.
+
+[00:12:46]
+So, this is useful as well, because we don't have to constantly be running our lint. Now, if it's built into your editor, that's nice too, but not everyone's going to build it into their editor, especially if you're on a team, so this is really good to enforce These Lint rules, and have a short feedback on Linting rules.
+
+[00:13:03]
+So definitely, definitely would suggest that.
+

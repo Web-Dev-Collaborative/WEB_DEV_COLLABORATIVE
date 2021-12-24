@@ -1,0 +1,12 @@
+[00:00:00]
+>> Exercise time, your favorite time. So, in this and there's a couple different ways that you can build this, but I want you to pay attention to the set timeout in here. So if we say, where is my taco? Then you have a button that says Click me to order a taco.
+
+[00:00:19]
+Click that button and it changes that, to a taco with an exclamation point. And then we had a set quickly set timeout for a second your order was submitted and then it went away. Now, what I want to make sure that you do, during this exercise is use a watcher somewhere.
+
+[00:00:37]
+So use a watcher at some point to change one of the values. So you can also use a method for other things. You can also use a conditional or whatever you want, but use a watcher somewhere. If we look at the code pen we have button at click, get taco click me to order a taco and the h2 is where is my taco.
+
+[00:01:01]
+We have our order status right now is no or as an empty string and the order submitted is no. And I gave you the method of get taco but I didn't put anything inside of it. So you have to figure out what you're gonna put inside of there.
+

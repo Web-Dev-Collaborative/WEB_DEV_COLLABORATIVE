@@ -1,0 +1,111 @@
+.modal-ele{
+
+    .move-note{
+        width: 730px;
+        height: 644px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .header{
+            padding: 25px 15px;
+            margin: 0 10px;
+            border-bottom: 1px solid $light-gray;
+            display: flex;
+            justify-content: space-between;
+
+            h1{
+                font-size: 18px;
+            }
+            i{
+                padding-right: 5px;
+                padding-top: 5px;
+            }
+        }
+
+        ul{
+            height: -webkit-fill-available;
+            padding: 25px;
+            li{
+                display: flex;
+                height: 38px;
+                align-items: center;
+                background: transparent;
+                color: $dark-gray;
+
+                h2{
+                    background: inherit;
+                    margin: 0 10px;
+                    font-size: 16px;
+                    color: inherit;
+                    font-weight: normal;
+                }
+                i{
+                    background: inherit;
+                    color: inherit;
+                }
+                .checkmark{
+                    visibility: hidden;
+                    padding: 0 15px;
+                    color: $blue;
+                }
+                p{
+                    background: inherit;
+                    color: inherit;
+                    font-family: $body;
+                    font-size: 13px;
+                }
+            }
+
+            li:hover{
+                background-color: $light-gray;
+            }
+            li.selected{
+                background-color: $light-gray;
+            }
+            li.selected:hover{
+                background: $light-blue;
+            }
+            .checkmark.selected{
+                visibility: visible;
+            }
+        }
+
+        .buttons{
+            text-align: right;
+            padding: 20px 25px;
+            padding-top: 20px;
+            border-top: 1px solid $border-gray;
+            border-radius: 0 0 5px 5px;
+            button{
+                padding: 9px 15px;
+                font-size: 15px;
+                border-radius: 5px;
+                margin-left: 10px;
+            }
+
+            .move{
+                background-color: $blue;
+                color: white;
+            }
+
+            .cancel{
+                border: 1px solid $dark-gray;
+                color: $text-gray;
+            }
+
+            .cancel:hover{
+                color: $dark-gray;
+            }
+
+            .move:hover{
+                background-color: $hover-blue;
+            }
+
+            .move:disabled{
+                cursor: not-allowed;
+                background-color: $border-gray;
+            }
+        }
+    }
+}

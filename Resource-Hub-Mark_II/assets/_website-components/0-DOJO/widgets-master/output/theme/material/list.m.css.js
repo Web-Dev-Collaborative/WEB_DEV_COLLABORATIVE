@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/list","root":"list-m__root__IsS88 mdc-menu__mdc-menu__vcrav mdc-list__mdc-list__31_Va","divider":"list-m__divider__1Ff8B mdc-list__mdc-list-divider__Yr9i2"};

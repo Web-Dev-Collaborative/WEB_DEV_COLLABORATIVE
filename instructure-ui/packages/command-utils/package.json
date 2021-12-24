@@ -1,0 +1,30 @@
+{
+  "name": "@instructure/command-utils",
+  "version": "8.3.0",
+  "description": "Node CLI utilties made by Instructure Inc.",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "type": "commonjs",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui.git"
+  },
+  "homepage": "https://instructure.github.io/instructure-ui/",
+  "bugs": "https://github.com/instructure/instructure-ui/issues",
+  "scripts": {
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4",
+    "concurrently": "^6",
+    "cross-env": "^7",
+    "execa": "^5",
+    "which": "^2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

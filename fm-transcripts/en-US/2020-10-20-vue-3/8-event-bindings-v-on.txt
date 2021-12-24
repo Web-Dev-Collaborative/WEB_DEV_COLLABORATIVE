@@ -1,0 +1,21 @@
+[00:00:00]
+>> V-ON or the at symbol. So V-ON is another one of those modifiers that's super, super useful. So we're going to use an at sign, because it's a shortcut. It's something that we can get going with, and it's a little bit more legible than writing V-ON, V-ON, V-ON.
+
+[00:00:14]
+So it's extremely useful. It's for binding to events like click and mouse enter. You're able to pass in a parameter for the events like e, you don't have to pass it in to the initial way that you call it. And I'll explain this in a minute, you can just pass it into the method if you're using it that way.
+
+[00:00:33]
+We can also use ternary directly. And at first, we're going to just use ternary directly, because I'm going to just show you all the directives first, but don't worry. In the next section, I'll show you how to wire those up to methods so that you can write actual functions that are called once you do something with a click event.
+
+[00:00:50]
+So let's say we have this backpack. And in this backpack, we wanna increase the quantity of the backpack. But we don't want them to be able to order negative backpacks, right? [LAUGH] There's no such thing as negative backpacks, maybe then we'd owe them the customer money I'm not sure.
+
+[00:01:07]
+So if we wanted to do this super quickly inside of a click event, we could say, at click, and then we say if the counter is greater than zero, then we make the counter less. Otherwise, just state zero. And here we're increasing the counter. So if it's just a small bit of ternary logic or a small bit of other kind of logic, it's totally fine to execute here.
+
+[00:01:31]
+Anything more robust than this, you're not gonna write a full function in here. You're gonna move into our view instance. So here we have the counter. And you can see those click events file. You can do multiple bindings, I sometimes make games in view. And this is really handy for making games in view or something of that sort.
+
+[00:01:54]
+So like let's say I wanna bind both to a click event and also to something with a key at the same time. Because let's say they're using their keyboard or they're also using their mouse. I could say V-ON or at, and then we can say mouse down, do this, mouse up, do that.
+

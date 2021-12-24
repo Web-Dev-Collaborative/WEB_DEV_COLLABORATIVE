@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/title-pane","root":"title-pane-m__root__1r02A","titleButton":"title-pane-m__titleButton__3ZXHV button-m__nativeResetRoot__18WbL","arrow":"title-pane-m__arrow__28QJI","open":"title-pane-m__open__2nPrX","content":"title-pane-m__content__1iB3f","contentTransition":"title-pane-m__contentTransition__1MySh"};

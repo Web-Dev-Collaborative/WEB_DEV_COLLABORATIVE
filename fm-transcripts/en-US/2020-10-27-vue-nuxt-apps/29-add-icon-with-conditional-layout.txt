@@ -1,0 +1,45 @@
+[00:00:00]
+>> Alright, so let's create an SVG icon with like sort of conditional layout. And what I mean by that is, we're not actually going to use V else here would, but we totally can. We saw that in the game part of the course too. What I'm gonna do is I'm gonna just use a regular media query just in CSS to hide and show some things in our logo.
+
+[00:00:23]
+So I'm gonna go back to the game resources. Let's go to the terminal and I think one of these is game resources. Game resources code, in our game resources, we have a food logo. And this is an SVG that I've optimized. And I also have those well named IDs and circles and things like that, again, SVG OMG is a great place to do that.
+
+[00:00:50]
+I also have an SVG course if you're interested in learning more. So if we go back to our app, and in here, what we wanna do is we wanna create a thing called app logo.view. And we put it in our components. And we're gonna say the base, I can actually drop the div.
+
+[00:01:13]
+Because I have, I'm returning this SVG, which is also an HTML element. I don't need these. But what I do need I have a view box on here and it will scale in any direction, which is awesome. But really for our purposes for this logo, we really just wanna say width is 40 and height is 40.
+
+[00:01:38]
+And remember, in the last part of the course I said like def says like the staging area for SVG, I would actually rather use my scoped styles for this. So I'm gonna pull these out of def's, I can put them inside of my scoped styles. The next thing I'm gonna do is I'm gonna make it semantic and good for screen readers.
+
+[00:02:01]
+So I'm gonna say area labeled by, and I'm gonna say whatever ID name I want. So, I'm gonna call this logo and it has to be unique. And beneath it, and it has to be the first thing beneath here. I'm gonna say title id is logo and the title.
+
+[00:02:26]
+And inside here I'll say logo showing plate and fork and knife. Cool, the last thing I'm gonna do here is I'm gonna also say role is presentation. Because you can actually have the screen reader read out all of these little bits, but the screen reader, it's not helpful to blind people for the screen reader to read out all of these bits.
+
+[00:02:54]
+So by saying role image or role presentation, what I'm doing here is I'm saying, why don't you skip all of that and just focus on the title? Cool, so, in this, what it's gonna give me is a black logo at first because SVG is when they don't have a fill associated with them will default to black.
+
+[00:03:14]
+And we also have a stroke of black here. So I want to make sure that I'm passing in a white one cuz we have a dark background. I'm also gonna say so for the whole SVG to fill of white. Let's go back to our app. We didn't add it to the app yet.
+
+[00:03:33]
+So we need to add it to the app. We have our app logo. And instead of saying home, we wanna add that app logo. So I'm gonna say V Import Export app logo. We go in here, we say app logo. Cool, and now we should be able to see it if we refresh the page, cool.
+
+[00:03:58]
+We have our empty cart, but you can see this nice little logo in the corner here, and it makes our nav a little bit bigger too. So what I wanna do is I wanna just show the plates in the fork into the knife, and all that detail on desktop.
+
+[00:04:11]
+But when it's on mobile, I wanted actually all the plate pieces to be gone and those are expressed with little circles. So if we go back to the app logo, These circles are what I want to remove. So what I can do is I can say, at media screen and max width 600 px.
+
+[00:04:36]
+And we're gonna say circles, Display none. And the reason I'm showing this to you is because I think that SVG is really flexible. And building apps this way is really flexible. I could have also made a data property, where I use the window width, and then I use Vf to check things and stuff.
+
+[00:05:00]
+But I can also use a media query and say like, hey, if it's 600. Maybe I made the max width at media screen and max width is 600 px circles, display none. I might have the resolution up too high to be able to see this. But when you are working with a smaller screen, let's see if I can.
+
+[00:05:28]
+No, I would need a different resolution for my screen for you to be, there you go. Once I make it a 100%, you can see that the circles are actually removed. So if I go bigger or i go smaller then you can see tada. We have a slightly different logo with less detail on mobile, and then on desktop we can show that, cool.
+

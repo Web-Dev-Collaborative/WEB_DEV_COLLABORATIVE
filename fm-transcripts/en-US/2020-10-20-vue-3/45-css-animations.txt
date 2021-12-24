@@ -1,0 +1,54 @@
+[00:00:00]
+>> We're still using the CSS, the transition component, but we can add classes based on enter active and leave active. So when something is actively changing inside, we're toggling that appearance, we can add a class and then declare a bunch of keyframes and animations. We can even plug into CSS animation library like there's animate.css And this library will allow you to just kind of plug into these class names.
+
+[00:00:36]
+So you could say, enter active class and then whatever you wanted from animate.CSS. Or you could declare it yourself, you could say, simplest example is this, we can hook into CSS animation library. So, let's say I have a ball. And I want to bounce the ball. And I want to say the enter active class is bounce in, and the leave active class is roll out.
+
+[00:01:00]
+So here we want to keep it dry. I'm using some sass in order to do so. If you're not familiar with that, this is a mix in. It's basically like a function that I'm allowed to extend the parameter into. So what I'm saying here is I want to transform that ball.
+
+[00:01:15]
+And I wanna, the value I wanna change is that y axis because I'm gonna do 0 on the x axis and 0 on the z axis. So I'm gonna declare it to go up and down and up and down and up and down and up and down. And you know that you can't do a transition in CSS that way, right because we have to declare many states.
+
+[00:01:34]
+Now in order to actually use this, I'll say, animation, bounce at key frames. I'm referencing bounce in, the amount of seconds, the ease that I want to use and both as the film mode. As another note, you do wanna move things with transforms instead of margins or top or left.
+
+[00:01:55]
+Margins, top, left, those types of things will cause repeats if you start to move it. You can see in the browser that it's not hardware accelerated, it's not moving well across the page and it's causing repeats. If you use transforms, first of all, that's great. But if you use translate 3D and you have a zero on the z axis, that's called the null transform hack.
+
+[00:02:19]
+And what it does is allow the browser to know that we wanna hardware accelerate that element. So here we've got a bouncing ball. And we're gonna get it away. And a bouncing ball and we get to go away. And then of course, you can see we're doing multiple things for each one of these.
+
+[00:02:38]
+So in this case, we want to use a CSS animation. You can use custom eases, I think custom eases are really fun to use because they give your animation a little bit more flair and a little bit more uniqueness. So you can use this awesome tool by Leah Voru.
+
+[00:02:57]
+Okay, which one is gonna get there first? It's a trick question. They're gonna both get there at the same time. [LAUGH] So, that's actually a joke I stole from Val Head, who's an awesome animator. So, here we're gonna use a bunch of things to create a different cubic bezier value.
+
+[00:03:14]
+And you can see this passed in here and you can copy it and you can also see what the kind of default ones look like as well. So, animation without the transition component, because that can happen. We mentioned that we're using the transition component and that we could bind to things.
+
+[00:03:31]
+So let's go look at this in a code pen. Push this button to do something you shouldn't be doing. Click me. No! [LAUGH] So basically what we're doing here is we've got this not activated state, which is false. And we're saying, if we have, we're creating a class binding to shake for not activated.
+
+[00:03:55]
+And when we click this, we make not activated true. And we add in this Vf. So if we look at our code in the CSS, you can see we have this shake, it's got an animation, we're making sure to hardware accelerate it. And the rest of these are hardware acceleration as well.
+
+[00:04:17]
+And here we're making this transform that goes back and forth and back and forth and back and forth. So we're applying that class based on a conditional. You can also interpolate values. Remember this, where we move across the screen. This is a style binding, but you can interpolate lots of values.
+
+[00:04:38]
+You can interpolate anything. And you can actually create animations by doing, by using this type of interpolation, by moving this across. And in order to make it a little bit smooth, what I've done is I've said, transition 0.2 seconds, background color ease, so that as it's moving across the page, and it's getting these different values and moving through these different values, it's gonna apply a bit of a transition and make that a little bit softer, so that it's not cutting across all those values.
+
+[00:05:08]
+And we're gonna even do an activated Wally with hand gestures, and stuff by the end of this. One note, when you're working with animation, there's a thing called transform origin. So if you start to spin something, what you'd assume is that it would spin around the center axis.
+
+[00:05:27]
+That is just not true. [LAUGH] In HTML, we have this default of 00. So what usually happens when people start working with animation is they'll start to rotate something, and it will go from this top corner and go whoa, whoa [LAUGH]. And you really don't want that to happen.
+
+[00:05:48]
+So what you'll say is transform origin 50% 50%. Or let's say you wanted to make a robot with arms. You need to think of that arm as a box cuz that's how the browser interprets everything. So if I wanted to make this arm, I would have to figure out like, okay, I'm going zero percent, and then zero percent, but on this side it's 100% and zero percent.
+
+[00:06:10]
+Or if the leg is here, so you can kind of look at this as a guide of where you should be setting them. You can also say top and left and center and things, but I tend to say that you should be using percentages in case you need to tweak them a little bit.
+

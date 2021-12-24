@@ -1,0 +1,115 @@
+html {
+    font-size: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(244, 244, 244);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+small {
+    font-size: 1.2rem;
+}
+
+h1 {
+    font-size: 5.4rem;
+}
+
+.flash {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    border-radius: 3px;
+}
+
+.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgb(220, 53, 69);
+}
+
+.info {
+    border: 1px solid rgb(0, 123, 255);
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 95vw;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 20px;
+}
+
+.card {
+    padding: 20px 40px;
+    border-radius: 3px;
+    display: flex;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.card--title {
+    margin-bottom: 5px;
+    font-size: 32px;
+}
+
+.card--image {
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.label {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+}
+
+.input {
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem;
+    line-height: 2.8rem;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.button {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    transition: background-color 250ms;
+    border-radius: 20px;
+    font-size: 1.4rem;
+}
+
+.form {
+    max-width: 600px;
+    margin: 3rem auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}

@@ -1,0 +1,82 @@
+---
+title: Content switcher
+description:
+  Content switchers manipulate the content shown following an exclusive or
+  “either/or” pattern. It is used to toggle between two or more content sections
+  within the same space on screen.
+tabs: ['Usage', 'Style', 'Code', 'Accessibility']
+---
+
+<PageDescription>
+
+Preview the content switcher component with the React live demo. For detailed
+code usage documentation, see the Storybooks for each framework below.
+
+</PageDescription>
+
+## Documentation
+
+<Row className="resource-card-group">
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+    subTitle="React"
+    href="https://react.carbondesignsystem.com/?path=/story/components-contentswitcher--default"
+    >
+
+<MdxIcon name="react" />
+
+  </ResourceCard>
+</Column>
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+      subTitle="Angular (Community)"
+      href="https://angular.carbondesignsystem.com/?path=/story/components-content-switcher--basic"
+      >
+
+<MdxIcon name="angular" />
+
+  </ResourceCard>
+</Column>
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+      subTitle="Vue (Community)"
+      href="http://vue.carbondesignsystem.com/?path=/story/components-cvcontentswitcher--default"
+      >
+
+<MdxIcon name="vue" />
+
+  </ResourceCard>
+</Column>
+</Row>
+
+## Live demo
+
+<ComponentDemo
+  components={[
+    {
+      id: 'content-switcher',
+      label: 'Content switcher',
+    },
+  ]}>
+  <ComponentVariant
+    id="content-switcher"
+    knobs={{
+      Switch: ['disabled'],
+    }}
+    links={{
+      React:
+        'https://react.carbondesignsystem.com/?path=/story/components-contentswitcher--default',
+      Angular:
+        'https://angular.carbondesignsystem.com/?path=/story/components-content-switcher--basic',
+      Vue:
+        'http://vue.carbondesignsystem.com/?path=/story/components-cvcontentswitcher--default',
+      Vanilla:
+        'https://the-carbon-components.netlify.com/?nav=content-switcher',
+    }}>{`
+<ContentSwitcher onChange={console.log}>
+  <Switch name={'first'} text='First section' />
+  <Switch name={'second'} text='Second section' />
+  <Switch name={'third'} text='Third section' />
+</ContentSwitcher>
+`}</ComponentVariant>
+</ComponentDemo>

@@ -1,0 +1,27 @@
+{% extends "base_form.html" %}
+{% load crispy_forms_tags %}
+
+{% block form_header %}Signup{% endblock %}
+{% block form_action %}{% url 'signup' %}{% endblock %}
+{% block form-content %}
+  {% if form.errors %}
+      <div class="form-group has-error">
+        <span class="help-block">{{ form.text.errors }}</span>
+      </div>
+  {% endif %}
+  {{form|crispy}}
+  <div id="div_id_type" class="form-group">
+    <label for="id_type" class="form-control-label  requiredField">
+      Type<span class="asteriskField">*</span>
+    </label>
+    <div class="">
+      <select name="type" class="select form-control" required="" id="id_type">
+        <option value="" selected="">---------</option>
+        <option value="individual">Individual</option>
+        <option value="company">Company</option>
+      </select>
+    </div>
+  </div>
+{% endblock %}
+
+{% block submit-value %}Signup{% endblock %}

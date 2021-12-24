@@ -1,0 +1,15 @@
+
+.tags-modal{
+    position: absolute;
+    left: 310px;
+    height: -webkit-fill-available;
+    width: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.452);
+    z-index: 5;
+    
+    .tags{
+        width: 330px;
+        height: -webkit-fill-available;
+    }
+}

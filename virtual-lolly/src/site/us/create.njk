@@ -1,0 +1,50 @@
+{% extends 'layouts/base.njk' %}
+
+{% block main %}
+
+<form name="new-lolly" action="/new" method="POST">
+  <div class="lolly">
+    <div class="giftLolly">
+    {%  include "svg/lolly-image.svg" %}
+    </div>
+    <div class="flavours">
+    <label for="flavourTop" class="pickerLabel">
+       <input type="color" class="colourpicker" id="flavourTop" name="flavourTop" value="#d52358" />
+    </label>
+    <label for="flavourMiddle" class="pickerLabel">
+       <input type="color" class="colourpicker" id="flavourMiddle" name="flavourMiddle" value="#e95946" />
+    </label>
+        <label for="flavourBottom" class="pickerLabel">
+       <input type="color" class="colourpicker" id="flavourBottom" name="flavourBottom" value="#deaa43" />
+    </label>
+    </div>
+    <div class="info">
+      <div class="details">
+        <p>
+          <label for="recipientName">To</label>
+          <input type="text" id="recipientName" name="recipientName" placeholder="A {{ localize["lolly"] }} for..." />
+        </p>
+        <div class="message">
+         <label for="message">Say something nice</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        </div>
+        <p>
+          <label for="sendersName">From</label>
+          <input type="text" id="sendersName" name="sendersName" placeholder="from your friend..." />
+        </p>
+      </div>
+
+      <input type="submit" value="Freeze this {{ localize["lolly"] }} and get a link">
+
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block scripts %}
+  {% set js %}
+    {% include "js/core.js" %}
+    {% include "js/colorPicker.js" %}
+  {% endset %}
+  <script>{{ js | jsmin | safe }}</script>
+{% endblock %}

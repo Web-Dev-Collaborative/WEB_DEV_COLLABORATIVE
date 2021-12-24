@@ -1,0 +1,39 @@
+<center>
+  <p>
+    Congratulations, <%= @user.name %>! You received the <b><%= @badge.title %></b> badge!
+  </p>
+  <p style="text-align:center;padding:20px 0px">
+    <img src="<%= @badge.badge_image_url %>" style="height:200px" alt="<%= @badge.title %> badge">
+  </p>
+  <p>
+    <%= @badge.description %>
+  </p>
+
+  <% if @badge_achievement.rewarding_context_message.present? %>
+    <p>
+      <em>
+        <%= @badge_achievement.rewarding_context_message.html_safe %>
+      </em>
+    </p>
+    <br />
+  <% end %>
+
+  <p>
+    <a
+      href="<%= user_url(@user) %>"
+      style="font-weight:bold;color:white;background:#4e57ef;padding: 5px 10px;border-radius:3px;text-decoration:none">
+      Check out your profile
+    </a>
+  </p>
+
+  <% unless @badge.credits_awarded.zero? %>
+    <hr style="opacity:0.4;width: 150px;margin: 30px auto;" />
+    <p>
+      You also get <strong><a href="<%= credits_url %>"><%= @badge.credits_awarded %> new credits</a></strong> to use for <strong><a href="<%= listings_url %>">community listings</a></strong><br />
+      if you have anything you'd like to promote. 🎉
+    </p>
+    <p>
+      <strong><a href="<%= app_url(about_listings_url) %>">More information about listings<a></strong>
+    </p>
+  <% end %>
+</center>

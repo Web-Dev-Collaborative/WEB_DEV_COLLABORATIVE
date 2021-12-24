@@ -1,0 +1,122 @@
+[00:00:00]
+>> Speaker 1: What I want you to do here, you're gonna leave your API server running. And for now I'm gonna shut off Webpack. And I'm gonna change that to be yarn watch because we still need to compile our Webpack code. But we're not going to be reading from the dev server anymore.
+
+[00:00:15]
+We're going got be requesting it from our Expressor that we just wrote. And now, we're going to do NODE_ENV=server node server.js.
+>> Speaker 1: So now it says, listening on 8080. So if I come onto here and refresh 8080 on here. Notice we're still getting our website and everything is kind of fine.
+
+[00:00:50]
+I don't think we're gonna get any console errors.
+>> Speaker 1: We screwed up hot reload. I will show you how to fix hot reload with this. But that's why it's saying, hey I'm trying to find hot reload, that's because we're not talking to the dev server anymore, we're talking to the node server that we wrote, right?
+
+[00:01:11]
+But now what's more interesting about this, this is what it was before, right? Totally empty, if I refresh, look at how much stuff now is coming down, right? This is a fully rendered experience.
+>> Speaker 1: Which is pretty cool right? Now something I wanna show you that's perhaps even more impressive about this.
+
+[00:01:34]
+Oops, so I'm gonna come in here, and I'm gonna click right there.
+>> Speaker 1: I forgot how to do this with Chrome dev tools. Settings.
+>> Speaker 1: I am going to disable JavaScript. Wherever disable JavaScript is.
+>> Speaker 2: You passed it, it was on the right under [INAUDIBLE].
+>> Speaker 1: Disable JavaScript, right?
+
+[00:02:05]
+So now as long as the dev tools are open, JavaScript is gonna be disabled. So now if I refresh the page.
+>> Speaker 1: [LAUGH] you know what's going on here? It's styles components doesn't work without JavaScript. That's a problem. So, that's something you accept when you take on styles components.
+
+[00:02:27]
+But notice that everything is still actually being rendered out okay. I can actually click on to Game of Thrones and it's gonna take me into the page. I can go back. I can click S video. So I'm actually able to, besides the styles component stuff, I'm able to still navigate my site, right?
+
+[00:02:43]
+Because what's happening, if you look at my server here, it's just routing to each one of these. It's making a full server request, right? The server side rendering that code, and then just sending it back down to you, right? So we made our page work without JavaScript. Really, anymore, that's not really much of a problem.
+
+[00:03:02]
+Almost every client that's going to be accessing your page is gonna have JavaScript enabled. But let's say you have a JavaScript error, right? You're still going to be able to work, right? It's kind of this progressive enhancement idea that's typically a pretty good idea, I would say, right?
+
+[00:03:20]
+
+>> Speaker 1: So, I think that's really cool, that's because it is really cool. If you weren't using styled components, that would be a little bit more impressive, but I digress. Any questions about service side rendering?
+>> Speaker 2: So, the idea is just that the first page that the client loads is pre-rendered and once React takes over, it goes back to it's old single page application and behavior?
+
+[00:03:51]
+
+>> Speaker 1: Exactly. So, what this is gonna buy for you. One it's gonna buy you a lot with Google, right? Because you're gonna send that markup faster which Google is then going to rank higher and it's going to be more controllable in a sense that, yes the Google crawler does run JavaScript, but it's imperfect for sure If you send a predetermined markup, you get to control what Google's scrolling over, right?
+
+[00:04:14]
+So it's a big SCO in for sure. It's a big win for perceived web performance, right? If you're on 2G connection in the middle of nowhere, or just maybe you're stuck on crappy wi-fi or something like that, this is gonna load a whole lot faster. And there's just tons and tons and tons of data out there that says, if you load faster, users will give you more money, right?
+
+[00:04:37]
+In some capacity. Whether that's more page clicks, to get more ad revenue, or your funnel's faster on your e-commerce website, all of that, right? So this is a win. If you can service side render, I recommend it.
+>> Speaker 1: Any other questions?
+>> Speaker 3: And this is to get you ready to put your site on to production?
+
+[00:04:59]
+
+>> Speaker 1: Mm-hm. So you are typically are gonna do the service side rendering I would say, it doesn't always have to be just for a production, but yeah. But yeah, you definitely want to be doing a production. What I would do in this particular case, my God, look at that.
+
+[00:05:13]
+[LAUGH] That's the hot module reload just losing its mind. I would do the webpack dev server for local development, because that's a really nice developer experience, and you don't care if it's server-side rendering or not. And then when I send it off to production, I'll let server-side rendering happen just in production.
+
+[00:05:37]
+
+>> Speaker 2: And you said hopefully when you click on the button, React is loaded. What happens if React hasn't loaded yet?
+>> Speaker 1: What I just showed you here, our site works without JavaScript, right? Because that's actually a real link, it's an A tag that goes to that, so it's gonna hit your server again, make a full request, and come back.
+
+[00:05:57]
+So, in that particular case, everything's gonna work. However if it's something that pops up a modal or something like that, it's just not gonna work, right? Nothing's gonna happen. However.
+>> Speaker 2: What about our dispatch?
+>> Speaker 1: For sure.
+>> Speaker 2: Events.
+>> Speaker 1: Yeah, so what'll happen then if I'm able to type in there before React and Redux have bootstrapped?
+
+[00:06:24]
+It's gonna blow it away, right? Because it's gonna bootstrap and say my state is actually empty string. However, that's usually not a problem. We're talking like, you're gonna load that first pay load, and then within a 100 milliseconds you're gonna get the JS and once the js is down, that parsing and bootstrapping is gonna be 5 to 15 milliseconds at most.
+
+[00:06:49]
+Users don't make decisions that fast, right? You would have to be like prepared with your fast twitch muscles, okay now click it, right? Even on a slow connection ,right? In other words it's not something I find myself concerned a lot with. I mean definitely instruments if that is something you're worried about.
+
+[00:07:11]
+But it has yet to be a problem for me.
+>> Speaker 2: It is good to keep in mind, especially on a set like this where downloading the JavaScript will contend with all the posters, right? If you have large images or something. And you can only download so many of those in parallel, and, yeah.
+
+[00:07:31]
+
+>> Speaker 1: Most definitely, I mean this is loading large posters, right? Because I'm super lazy and I didn't wanna downscale them. [LAUGH] But, you definitely should worry about things like that like compressing your images, making sure that right, like you have like thumbnails for the right pages and full-size for the other ones.
+
+[00:07:48]
+For sure.
+>> Speaker 1: Yeah, Mark.
+>> Speaker 4: If you make the API calls to node, how do you make sense or is that rendering?
+>> Speaker 1: So this is you are getting into the questions about hydration and things like that. So for example, if I click on here, ideally, when I was service side rendering, I would not come down and make a request, right?
+
+[00:08:22]
+Node.
+>> Speaker 1: Ideally, I would come to here and I wouldn't be making this request, right? I would already have that loaded because I loaded it from the server, right? This is a really touchy situation to get this correct, right? So a big key about server-side rendering which I actually should address, is if you come in here, and we're gonna zoom in, and we're going to look for this thing right here.
+
+[00:08:53]
+Data-react-checksum. So this is basically, your app gets run through this hashing algorithm they generate a hash. Then when you get down to the client, it's going to render for the first time, run the hashing algorithm again, and make sure that those hashes match. So that you're generating the same markup on the server as you are on the client.
+
+[00:09:11]
+If those mismatch, in fact I'll show you how you can, we'll just make a mismatch really quick. If I put, I don't know, like here, I'm just gonna put an h1 that's going to render out math.random.
+>> Speaker 1: So this will be different on the client, right? Because every time you're on math.random, it's gonna give you a different output, so it'll be different on the client than it is on the server.
+
+[00:09:39]
+So if I load this again, it's gonna say, what the hell are you doing?
+>> Speaker 1: So.
+>> Speaker 1: Right there, that's what I'm talking about it says, hey React tried to reuse the markup that you sent down there but, hey you messed up, right? What I got on the client is different than what I got on the server, I'm gonna blow everything away.
+
+[00:10:03]
+So all of those performance benefits are actually now worse right? Because you had to pay all the extra costs to get all that server side rendering done, it's gonna say, you messed up. I'm just gonna blow it away and then restart. So, that's something you definitely have to be careful about.
+
+[00:10:18]
+So, getting into the hydration side of things, getting it to have the ability to have API requests before they're made, is tough, right? Because when you first create your app, you're doing with the thought in mind that it's going to request it from the API. So with Redux, it's actually not too bad, you just have to make sure that you're providing the same initial state.
+
+[00:10:39]
+So you have to have a kind of variable initial state, based on if the context's available or not. But the problem with that is, you have to make sure the context is both available on the server and on the client. Plus it can still do it if you navigate to that page without that being hydrated, right?
+
+[00:10:58]
+So, what I'm trying to paint a picture of here is, it's a bit of a complicated mess to kind of preempt those API requests, and you have to weigh your answers of, is this worth it to me to try and do? It's possible for sure. But it's tough.
+
+[00:11:14]
+And we're actually gonna deal with this problem with even more in depths here in just a second because we're gonna do code splitting, which compounds this problem.
+

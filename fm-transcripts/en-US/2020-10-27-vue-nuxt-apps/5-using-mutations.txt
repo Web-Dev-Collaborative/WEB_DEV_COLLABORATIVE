@@ -1,0 +1,56 @@
+[00:00:00]
+>> We also wanna send that to the store, right? We wanna make sure that the store knows that globally, we've selected mechanic as our character. So let's go back, we're gonna say, in the app.view, we're gonna add a button. And it's not gonna be as part of that v4 link loop that we have here, because we're just making one button.
+
+[00:00:23]
+So we wanna say button@click, and we'll call this pick character. And then we'll say pick your character, cool. We don't have a method called pick character yet, so we should make one of those. So we go back down below and I'm gonna say methods, pick character. And at first, I'm just gonna console log what we've got going on here, so I'm gonna say, console.log.
+
+[00:01:04]
+This .character input. Remember, we have to say, this dot when we're accessing something from methods from data. So anytime we're gonna use even like the computed properties or anything we're bringing to the store, we're saying this dot here. So if we go back and refresh, we've got mechanic again, I'm going to say, pick your character, and if we go into the app, you can see that, that character is mechanic and in our console, we're now logging mechanic, excellent.
+
+[00:01:38]
+So what we wanna do is, we wanna send that stuff to the store. We actually wanna do two things in the store. I did this twice, so that's four, but two things in the store. What we wanna do in the store is, we wanna be able to update the character as we mentioned before.
+
+[00:01:52]
+But we also wanna update the UI state because as soon as they select their character, it's no longer the start of the game. We wanna put them into the ability to pick the questions and things like that. So what we're gonna do is, we're gonna go into the store, and we're gonna make some mutations.
+
+[00:02:10]
+Mutations, again, remember, are synchronous and they're the only way to update the state currently. So right now, what we're gonna do is, we're gonna make a mutation, and that's gonna be called pick character. In there, I'm gonna pass in the state and the character, and I'm going to say, state.character equals the character that we've chosen, right?
+
+[00:02:37]
+So we're gonna go state.character equals character. Cool, that's one mutation. The other one is going to be updating the UI state. So we're gonna say, update UI state, we again, pass in the states and the UI state. And I'm going to say state.ui state equals UI state. So from here, what we wanna do is, we wanna call those mutations and that's called committing.
+
+[00:03:14]
+So we wanna commit these two mutations inside of the method from this piece of the app. So what we wanna do is, we wanna say, this .dollar signs store .commit. And we say, what did I call it? Pick character I think, pick character. And we're gonna pass in this .character input, thank you vs code.
+
+[00:03:44]
+So we're passing in whatever they selected there. We also are now gonna send a new UI state to the store, this .store, .commit. And we're gonna say update UI state. And we're not gonna pass in something that's from the template or something that we're storing, we're actually gonna pass in a string.
+
+[00:04:07]
+And we're gonna call it character chosen. So now the UI state will know it's gonna be in view x, but this will know that that's the UI state that we're in. And any other component that we had for this whole game would also be able to kind of grab that and say, okay, that's the UI state that we're dealing with right now.
+
+[00:04:29]
+So if we go back here, and we have our button now, we can pick our character. If I pick mechanic and I pick my character, I can go back into View, I can see that the character input is mechanic, but the character is mechanic too. And you can check that in the store, we have our character chosen is our UI state, and the character is mechanic.
+
+[00:04:58]
+Here's where things get really fun, we can now add in the component of the character based on which one we chose. So we can go in here, and we can say all right, the character name. Instead of saying character name, let's now say character, awesome. And then we also wanna add in some folks, so let's add in a friend, let's add in our score but bubble thing.
+
+[00:05:33]
+And we're gonna say component is character because that component, we're really grabbing whichever name came through for us, the artists, the baker the mechanic here. But we didn't import those components yet, they're still chillin over here, and this ything does not know anything about that. So what I'm gonna do is, I'm gonna say, V import artist.
+
+[00:06:09]
+From the components, and then I'm also going to say, artists here, and we have to import a few of these. Usually, you don't import so many at once, but we're gonna import a bunch of people, and make sure that they're all available to us. So we have, I think six of them, and then we've got six of these components.
+
+[00:06:34]
+And I can use the Option key to select multiple at the same time. So I can say you're a baker, and I'm kinda going by what's in the sidebar here. Your friend, Oops, not a friend. Then we go and grab this one, and we say mechanic, and then we've got our score.
+
+[00:07:11]
+And we've got our zombie. We're not gonna use the zombie quite yet, but I'm loading it for you because you are going to be using it at the end. And I accidentally brought in artists choice, cool.
+>> Baker got deleted from the components.
+>> It did? Thank you so much, I would have blown up, appreciate it, cool.
+
+[00:07:40]
+So now, what we should see are our mechanic, and our little doodle here. So this is our friend, and this is our mechanic. And if I go to the start again and I select Baker instead, there's our Baker. And if I go to the beginning again, and I select artist, there's our artist, pretty cool.
+
+[00:08:00]
+So now, we're loading in different characters conditionally, hence they're all of these different components, excellent. The next thing that we wanna do is, we wanna be able, we brought in the questions, but what we wanna say is, we wanna give her a question index. Because what we wanna do is, we wanna say, all right, you're answering questions, and every time you answer one, the question index is gonna move forward, it's gonna go to the next one and the next one
+

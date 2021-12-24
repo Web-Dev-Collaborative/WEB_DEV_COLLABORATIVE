@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>WebMock Intro</title>
+
+		<meta name="description" content="Testing Infrastructure">
+		<meta name="author" content="Jonas Finnemann Jensen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="reveal.js-3.1.0/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js-3.1.0/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js-3.1.0/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js-3.1.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+    <h1>WebMock</h1>
+	<p>
+		<small>Dustin J. Mitchell</small>
+	</p>
+</section>
+
+<section>
+	<h3>Use Case</h3>
+
+<pre><code># client.py
+import requests, json
+
+def make_api_call(base_url, content):
+    r = requests.post('{}/events'.format(base_url),
+                      json.dumps(content))
+    return r.json
+</code></pre>
+</section>
+
+<section>
+    <h3>Tests</h3>
+<pre><code># test_client.py
+import client 
+from nose.tools import eq_
+
+def test_make_api_call():
+    eq_(client.make_api_call('http://api.allizom.org', {}),
+        {'result': 'ok'})
+</code></pre>
+
+...but then tests depend on an external resource
+
+</section>
+
+<section>
+    <h3>Tests (local server)</h3>
+<pre><code># test_client.py
+import client 
+from nose.tools import eq_
+
+def test_make_api_call():
+    eq_(client.make_api_call('http://localhost:98537', {}),
+        {'result': 'ok'})
+</code></pre>
+
+...but then you have to set up the test server first, and hope that port isn't in use
+
+</section>
+<section>
+    <h3>Tests (webmock)</h3>
+<pre><code># test_client.py
+import client 
+from nose.tools import eq_
+from webmock import mock_server
+
+def simple_app(environ, start_response):
+    headers = [('Content-type', 'application/json')]
+    start_response('200 OK', headers)
+    return ['{"result": "ok"}']
+
+def test_make_api_call():
+    with mock_server(simple_app) as port:
+        url = 'http://localhost:{}'.format(port)
+        eq_(client.make_api_call(url, {}),
+            {'result': 'ok'})
+</code></pre>
+
+</section>
+<section>
+    <h3>Tests (webmock, MockApp)</h3>
+<pre><code># test_client.py
+import client 
+from nose.tools import eq_
+from webmock import mock_server, MockApp
+
+def test_make_api_call():
+    app = MockApp()
+    with mock_server(app) as port:
+        url = 'http://localhost:{}'.format(port)
+        eq_(client.make_api_call(url, {}),
+            {'result': 'ok'})
+    app.assert_called_once_with('POST /events')
+</code></pre>
+
+</section>
+
+<section>
+The assertion methods available are:
+
+<ul>
+    <li> <tt>assert_called_with(call)</tt> -- assert that the most recent request matches <tt>call</tt></li>
+    <li> <tt>assert_called_once_with(call)</tt> -- assert that only one request was made and that it matches <tt>call</tt></li>
+    <li> <tt>assert_any_call(call)</tt> -- assert that the any request matches <tt>call</tt></li>
+    <li> <tt>assert_has_call([call, call, ..], any_order=False)</tt> -- assert that the given calls all occurred.  If <tt>any_order</tt> is false, the calls must be sequential.</li>
+</ul>
+
+</section>
+<section>
+
+The mock app's behavior can be adjusted in some minor ways.
+For anything more complex, build a custom WSGI app.
+
+<ul>
+<li> <tt>MockApp(response='403 Forbidden')</tt> -- customize the HTTP response (default is "200 OK")</li>
+<li> <tt>MockApp(body='hello world\n')</tt> -- customize the response body (default is empty)</li>
+<li> <tt>MockApp(headers=[('X-Auth', 'abc123')])</tt> -- customize the response headers</li>
+</ul>
+
+</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="reveal.js-3.1.0/lib/js/head.min.js"></script>
+		<script src="reveal.js-3.1.0/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

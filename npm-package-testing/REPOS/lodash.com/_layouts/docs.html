@@ -1,0 +1,37 @@
+---
+layout: base
+---
+
+<header>
+  <div class="container">
+    <div class="header-section logo-section">
+      <div class="logo">
+        <a href="/" title="Lodash">Lodash</a>
+      </div>
+      <div class="header-group">
+        <select id="version" aria-label="Choose the Lodash version">
+          <option value="" {% if page.version == null %}selected{% endif %} disabled>Version</option>
+          {% for release in site.releases %}
+          <option value="{{ release }}" {% if page.version == release %}selected{% endif %}>{{ release }}</option>
+          {% endfor %}
+          <option value="1.3.1">1.3.1</option>
+        </select>
+      </div>
+    </div>
+    <div class="header-section mobile-menu">
+      <a href="#"><i class="fa fa-bars" aria-hidden="true"></i>Menu</a>
+    </div>
+  </div>
+</header>
+<div class="doc-main">
+  {% capture scripts %}class="doc-container">
+    {% assign resources = site.vendor.js %}
+    {% assign resources = resources | unshift:site.builds[page.version] %}
+    {% for res in resources %}
+      {% assign protocol = res.href | slice:0,6 %}
+    <script src="{{ res.href }}"{% if res.integrity and protocol == 'https:' %} integrity="{{ res.integrity }}" crossorigin{% endif %}{% if res.async %} async{% endif %}></script>
+    {% endfor %}
+    <script src="/assets/js/docs.js" async></script>
+  {% endcapture %}
+  {{ content | replace_first:'class="doc-container">',scripts }}
+</div>

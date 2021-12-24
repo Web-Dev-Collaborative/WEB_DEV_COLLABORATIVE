@@ -1,0 +1,11 @@
+{
+  "name" : "High Performance in the Critical Rendering Path",
+  "authors" : [
+    {
+      "name" : "Nicolas Bevacqua",
+      "twitter" : "@nzgb"
+    }
+  ],
+  "youtubeId" : "1iWSokC29vQ",
+  "tags" : [ "critical", "http2", "render-path" ]
+}

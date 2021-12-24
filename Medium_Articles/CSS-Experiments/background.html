@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animation</title>
+  <link rel="stylesheet" href="./background.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      display: block;
+      margin: 4px;
+      zoom: 0.64;
+    }
+
+    ul {
+      column-width: auto;
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+    }
+
+    a {
+      color: red;
+      font-size: 11;
+      white-space: normal;
+    }
+
+    li {
+      overflow: visible;
+      margin: auto;
+      font-size: 16px;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: normal;
+      color: red !important;
+      word-wrap: break-word;
+      height: 30px;
+      text-align: left;
+      padding: 1.2em 1em 0;
+      box-shadow: 0 0 5px;
+      margin: 1em;
+      /* display: grid; */
+      /* -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px; */
+    }
+
+    .stars1 {
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="https://github.com/bgoonz" class="github-corner" aria-label="View source on Github"><svg width="80"
+      height="80" viewBox="0 0 250 250"
+      style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
+      aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path
+        d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+        fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm">
+      </path>
+      <path
+        d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+        fill="currentColor" class="octo-body"></path>
+    </svg></a>
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+  <div id='title'>
+    <span>
+      ------------------------------------------HI----------------------------------------------
+    </span>
+    <a href="https://github.com/bgoonz/Medium_Articles.git">
+      <br>
+      </br>
+      <br>
+      </br>
+      <a href="https://604a9a491d62aa00071b4153--youthful-mahavira-d6eff7.netlify.app/"> ✅HOME &nbsp;</a>
+      <div id="ToC" class="my_class " style="font-weight:800;"></div>
+      <div class="wrapper">
+        <a href="./directory.html"> ✅NAVIGATION &nbsp;</a>
+        <ul>
+
+          <li class=""><a href="./WebDevelopmentEnvironmentSetupfcfafe.html">
+              ✅Web Development Environment Setup
+              &nbsp;</a></li>
+          <li class=""><a href="./Gists/directory.html">
+              ✅Useful Gists &nbsp;</a></li>
+          <li class=""><a href="./_AnIntroductiontoMarkdownBonusMarkdownTemplatesIncludedcede.html">
+              ✅_AnIntroductiontoMarkdownBonusMarkdownTemplatesIncludedcede.html &nbsp;</a></li>
+          <li class=""><a href="./_AQuickGuidetoBigONotationMemoizationTabulationandSortingAlgorithmsbyExampleffc.html">
+              ✅_AQuickGuidetoBigONotationMemoizationTabulationandSortingAlgorithmsbyExampleffc.html &nbsp;</a></li>
+          <li class=""><a href="./_BasicWebDevelopmentEnvironmentSetupfcfafe.html">
+              ✅_BasicWebDevelopmentEnvironmentSetupfcfafe.html &nbsp;</a></li>
+          <li class=""><a href="./_CompleteJavaScriptReferenceGuidecdbdb.html">
+              ✅_CompleteJavaScriptReferenceGuidecdbdb.html &nbsp;</a></li>
+          <li class=""><a href="./_DeployReactAppToHerokuUsingPostgresExpressbea.html">
+              ✅_DeployReactAppToHerokuUsingPostgresExpressbea.html &nbsp;</a></li>
+          <li class=""><a href="./_EmmetCheatSheeted.html"> ✅_EmmetCheatSheeted.html &nbsp;</a></li>
+          <li class=""><a href="./_ExpressQuickSheetfcca.html"> ✅_ExpressQuickSheetfcca.html &nbsp;</a></li>
+          <li class=""><a href="./_FetchQuickSheetb.html"> ✅_FetchQuickSheetb.html &nbsp;</a></li>
+          <li class=""><a href="./_FundamentalDataStructuresInJavaScriptffcb.html">
+              ✅_FundamentalDataStructuresInJavaScriptffcb.html &nbsp;</a></li>
+          <li class=""><a href="./_GitTricksed.html"> ✅_GitTricksed.html &nbsp;</a></li>
+          <li class=""><a href="./_LearnCSSSoThatYourSiteDoesntLookLikeGarbageba.html">
+              ✅_LearnCSSSoThatYourSiteDoesntLookLikeGarbageba.html &nbsp;</a></li>
+          <li class=""><a href="./_ModulesInJavascriptae.html"> ✅_ModulesInJavascriptae.html &nbsp;</a></li>
+          <li class=""><a href="./_PostgresqlCheatSheetbde.html"> ✅_PostgresqlCheatSheetbde.html &nbsp;</a></li>
+          <li class=""><a href="./_PostgreSQLSetupForWindowsWSLUbuntuab.html">
+              ✅_PostgreSQLSetupForWindowsWSLUbuntuab.html
+              &nbsp;</a></li>
+          <li class=""><a href="./_PythonStudyGuideforaJavaScriptProgrammercfdfdbdfb.html">
+              ✅_PythonStudyGuideforaJavaScriptProgrammercfdfdbdfb.html &nbsp;</a></li>
+          <li class=""><a href="./_RegularExpressionsdfbebb.html"> ✅_RegularExpressionsdfbebb.html &nbsp;</a></li>
+          <li class=""><a href="./_VsCodeExtensionReadmeCompilationccca.html">
+              ✅_VsCodeExtensionReadmeCompilationccca.html
+              &nbsp;</a></li>
+          <li class=""><a href="./_WebDevResourcesecdd.html"> ✅_WebDevResourcesecdd.html &nbsp;</a></li>
+          <li class=""><a href="./_WritingFilesUsingPythondbf.html"> ✅_WritingFilesUsingPythondbf.html &nbsp;</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</body>
+
+</html>

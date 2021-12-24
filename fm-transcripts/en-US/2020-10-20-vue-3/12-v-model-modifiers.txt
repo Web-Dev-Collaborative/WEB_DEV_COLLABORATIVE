@@ -1,0 +1,15 @@
+[00:00:00]
+>> Modifiers I mentioned before that Vue gives us some things that make it really easy because it's like, hey, you probably need to do this over and over again. Don't worry, I've got your back. So these modifiers are really helpful. The v-model.trim will strip any leading or trailing whitespace from the bound string.
+
+[00:00:18]
+The v-model.number changes strings to number inputs JavaScript is a fun beast, in a way [LAUGH] it loves to coerce things. So in this case, we can absolutely make sure that our numbers are numbers and not strings when we start to handle them. V-model.lazy won't populate the content automatically, it will wait to bind until an event happens.
+
+[00:00:40]
+So it listens to change events, instead of input. And I use the v-model.lazy a lot to aid in performance. So in this demo itself, I actually am using the v-model.lazy. I am lazy because I'm not actually doing anything with this input until I click Write Me, right? I don't need to keep track of every single update.
+
+[00:01:05]
+I just need it once I'm done. So that's a good use case for the v-model.lazy. It's also really good for form validations, like let's say you're going to do some validations and you don't want it error as the person's typing, you want it to evaluate once they're done.
+
+[00:01:21]
+That's a really good use case for v-model.lazy as well.
+

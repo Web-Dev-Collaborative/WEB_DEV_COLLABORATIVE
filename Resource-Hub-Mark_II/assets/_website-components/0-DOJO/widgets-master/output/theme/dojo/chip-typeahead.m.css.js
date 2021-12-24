@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/chip-typeahead","root":"chip-typeahead-m__root__sjZeg","value":"chip-typeahead-m__value__2uqjJ","selectedIcon":"chip-typeahead-m__selectedIcon__3Y90y","input":"chip-typeahead-m__input__2EPdN","inputWrapper":"chip-typeahead-m__inputWrapper__2u6zp","values":"chip-typeahead-m__values__ebPIz"};

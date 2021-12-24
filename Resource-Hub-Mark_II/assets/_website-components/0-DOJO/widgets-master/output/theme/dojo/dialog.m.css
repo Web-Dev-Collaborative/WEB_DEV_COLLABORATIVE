@@ -1,0 +1,83 @@
+.dialog-m__root__NAZCT {
+	color: var(--color-text-primary);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+	font-family: var(--font-family);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.dialog-m__main__3spJM {
+	background-color: var(--color-background);
+	color: var(--color-text-primary);
+	border: var(--border-width) solid var(--color-border);
+	-webkit-box-shadow: var(--box-shadow-dimensions-large) var(--color-box-shadow-strong);
+	box-shadow: var(--box-shadow-dimensions-large) var(--color-box-shadow-strong);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	height: calc(75 * var(--grid-base));
+	left: 50%;
+	max-height: 100%;
+	max-width: 100%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: calc(80 * var(--grid-base));
+}
+.dialog-m__underlayVisible__3Eqbz {
+	background-color: var(--color-box-shadow-strong);
+}
+.dialog-m__title__1P-PZ {
+	border-bottom: var(--border-width) solid var(--color-border);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	font-size: var(--font-size-title);
+	height: calc(7 * var(--grid-base));
+	padding: calc(2 * var(--grid-base));
+	position: relative;
+	text-align: left;
+}
+.dialog-m__content__6tbsZ {
+	-webkit-box-flex: 1;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	overflow: auto;
+	padding: calc(2 * var(--grid-base));
+}
+.dialog-m__close__2sN1M {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 0;
+	padding: var(--grid-base);
+	position: absolute;
+	right: calc(2 * var(--grid-base));
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	color: var(--color-text-primary);
+}
+.dialog-m__close__2sN1M .dialog-m__closeIcon__3LrDH {
+	font-size: var(--font-size-title);
+}
+.dialog-m__actions__sY9bD {
+	border-top: 1px solid var(--color-border);
+	padding: calc(2 * var(--grid-base));
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+}
+/*# sourceMappingURL=dialog.m.css.map*/

@@ -1,0 +1,20 @@
+<div class="liquid-comment">
+  <% if comment %>
+    <div class="details">
+      <a href="/<%= comment.user.username %>">
+        <img class="profile-pic" src="<%= Images::Profile.call(comment.user.profile_image_url, length: 50) %>" alt="<%= comment.user.username %> profile image" />
+      </a>
+      <a href="/<%= comment.user.username %>">
+        <span class="comment-username"><%= comment.user.name %></span>
+      </a>
+      <%= render "comments/comment_date", decorated_comment: comment.decorate %>
+    </div>
+    <div class="body">
+      <%= comment.safe_processed_html %>
+    </div>
+  <% else %>
+    <div class="body">
+      <p>Comment Not Found</p>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+[00:00:00]
+>> Props. It's kind of like how you're used to using them. They are reactive and now they're passed into setup. So, if we're working with props we could declare it the same way we could either do it in an array, in a string in array. Or we could say type number required true, give it a default, things like that.
+
+[00:00:21]
+And then in that initial setup, we would pass in props. And that's how we would work with it. And so from here, what we would say is props dot count. So in order to access that piece we could say, props count, so we're declaring the props here. We pass it into setup, and then we say props dot count.
+
+[00:00:46]
+Context, it's passed as the second argument in setup, so it's always gonna be props and then context. And context is like the dollar sign that you are used to seeing before. So you could say context dot omit and the event, so remember when we use dollar sign omit, this is how you would use context.
+
+[00:01:05]
+So things like omit attrs, things like that would be passed in here. Or you could destructure it and instead of passing in context, you could pass an emit in an object, and then just say emit event name. Instead of saying context dot emit we would just say emit.
+

@@ -1,0 +1,259 @@
+#flickr_badge_wrapper {
+  background: 0 0 !important;
+  border: 0 !important
+}
+
+#flickr_badge_uber_wrapper {
+  margin: 0 auto
+}
+
+#flickr_badge_uber_wrapper td {
+  border: 0 !important
+}
+
+#flickr_badge_uber_wrapper a:hover,
+#flickr_badge_uber_wrapper a:link,
+#flickr_badge_uber_wrapper a:active,
+#flickr_badge_uber_wrapper a:visited {
+  color: #777 !important
+}
+
+.widget_recent_comments td {
+  border: 0;
+  padding: 5px 5px 10px;
+  vertical-align: top
+}
+
+.widget_authors ul,
+.widget_author_grid ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.widget_authors img {
+  float: none;
+  vertical-align: middle
+}
+
+.widget_authors li:before,
+.widget_authors li:after {
+  content: "";
+  display: table
+}
+
+.widget_authors li:after {
+  clear: both
+}
+
+.widget_authors a {
+  text-decoration: none
+}
+
+#wpstats {
+  display: none
+}
+
+#respond {
+  padding-top: 0 !important
+}
+
+h3#reply-title {
+  margin-top: 0 !important
+}
+
+h3.sd-title {
+  font-size: 16px;
+  clear: none;
+  color: #e6edf0
+}
+
+#respond p.comment-subscription-form label,
+#respond .form-submit input,
+#respond .form-submit input#comment-submit,
+#respond .comment-form-fields input[type=submit],
+#respond p.form-submit input[type=submit],
+#respond input[type=submit],
+#commentform #submit,
+.highlander-dark #respond .comment-form-fields label,
+.highlander-dark #respond label {
+  font-weight: 400;
+  font-family: "Alegreya Sans", Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: none
+}
+
+div#jp-relatedposts h3.jp-relatedposts-headline {
+  font-size: 14px;
+  font-family: Oswald, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase
+}
+
+.rating-msg {
+  color: #e6edf0;
+  font-size: 18px;
+  font-size: 1rem;
+  vertical-align: top
+}
+
+.widget_bgcom_social_media_icons_widget li a:before {
+  font-size: 32px;
+  margin-right: .21875em
+}
+
+.geolocation-chip .noticon {
+  display: inline-block;
+  vertical-align: middle
+}
+
+.geolocation-chip {
+  margin-bottom: 1em
+}
+
+.reblogger-note img.avatar {
+  float: left;
+  padding: 0;
+  border: 0
+}
+
+.reblogger-note-content {
+  margin: 0 0 20px
+}
+
+.bgcom-reblog-snapshot .reblog-from img {
+  margin: 0 .75em 0 0;
+  padding: 0;
+  border: 0
+}
+
+.bgcom-reblog-snapshot .reblogger-note img.avatar {
+  float: left;
+  padding: 0;
+  border: 0;
+  margin: 0 .5em 0 0
+}
+
+.bgcom-reblog-snapshot {
+  margin-bottom: 1em
+}
+
+.bgcom-reblog-snapshot p.reblog-from {
+  margin: 0 0 1em
+}
+
+.bgcom-reblog-snapshot p.reblogger-headline {
+  line-height: 32px;
+  margin: 0 0 1em
+}
+
+.bgcom-reblog-snapshot .reblogged-content {
+  margin: 0 0 1em
+}
+
+.reblog-post .bgcom-enhanced-excerpt-content {
+  border-left: 3px solid #eee;
+  padding-left: 15px
+}
+
+.reblog-post ul.thumb-list {
+  display: block;
+  list-style: none;
+  margin: 2px 0;
+  padding: 0;
+  clear: both
+}
+
+.reblog-post ul.thumb-list li {
+  display: inline;
+  margin: 0;
+  padding: 0 1px;
+  border: 0
+}
+
+.reblog-post ul.thumb-list li a {
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+.reblog-post ul.thumb-list li img {
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+.reblog-post .bgcom-enhanced-excerpt {
+  clear: both
+}
+
+.reblog-post .bgcom-enhanced-excerpt address,
+.reblog-post .bgcom-enhanced-excerpt li,
+.reblog-post .bgcom-enhanced-excerpt h1,
+.reblog-post .bgcom-enhanced-excerpt h2,
+.reblog-post .bgcom-enhanced-excerpt h3,
+.reblog-post .bgcom-enhanced-excerpt h4,
+.reblog-post .bgcom-enhanced-excerpt h5,
+.reblog-post .bgcom-enhanced-excerpt h6,
+.reblog-post .bgcom-enhanced-excerpt p {
+  font-size: 100% !important
+}
+
+.reblog-post .bgcom-enhanced-excerpt blockquote,
+.reblog-post .bgcom-enhanced-excerpt pre,
+.reblog-post .bgcom-enhanced-excerpt code,
+.reblog-post .bgcom-enhanced-excerpt q {
+  font-size: 98% !important
+}
+
+.reblog-from img {
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  padding: 0;
+  border: 0
+}
+
+.reblog-source {
+  margin-bottom: 0;
+  font-size: .8em;
+  line-height: 1
+}
+
+.reblog-source .more-words {
+  color: #668eaa
+}
+
+.bgcom-reblog-snapshot .reblog-post {
+  box-shadow: 0 0 0 1px rgba(46, 68, 83, .1) inset, 0 1px 1px rgba(46, 68, 83, .05);
+  border-radius: 4px;
+  padding: 24px
+}
+
+.bgcom-reblog-snapshot .reblogger-note {
+  margin: 0 0 1em;
+  overflow: hidden
+}
+
+.bgcom-reblog-snapshot p.reblogger-headline {
+  line-height: 32px;
+  margin: 0 0 1em
+}
+
+.bgcom-reblog-snapshot .reblogger-note-content {
+  margin: 0;
+  padding: 0
+}
+
+body .bgcom-reblog-snapshot .reblogger-note-content blockquote {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border: none
+}
+
+.bgcom-reblog-snapshot .reblogger-note-content blockquote p:last-child {
+  margin-bottom: 0
+}

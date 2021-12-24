@@ -1,0 +1,54 @@
+[00:00:00]
+>> Our first step is to make a game. This is going to be really fun. All right, so if we look at this alien zombies game, that's at alien zombies dot netlify dot app. You're an alien zombie in order to survive on Earth. You have to pretend to be a human on this planet you took over the body of a nearby human.
+
+[00:00:21]
+But the trouble is their best friend showed up. So they look a little suspicious. You have to answer the right questions to make sure your identity is kept a secret. So you have to pick which human you're going to pretend to be. So I could say like Baker.
+
+[00:00:37]
+And then, you say what's your dog's name? Well, my Baker, so probably Wolfgang Puck, what's your favorite hobby? Extreme ironing? Maybe What's your favorite color? Transparence is cereal soup. Yes, I'm Jake, Jason link stuff in case you're wondering Jason link store food does front end masters courses here things everything is super sandwich and it's not what you can't be cereal.
+
+[00:01:07]
+Okay, so far we're doing good. What's the most imaginative insult you can come up with? You're a substitute teacher with no lesson plan. Your faces have melted welly that I looked up Scottish insults. You eat buttons off the remote. Okay, you eat buttons off the remote. Alright, if peanut butter wasn't called peanut butter, what would it be called brown paste legume.
+
+[00:01:29]
+I'm really proud of legume. Get it glue legume Okay, anyway, groundnuts moose will say groundnuts moose. I lost. All right. Okay, so we've got this like wonky face. So you can see that through this application. I, you know, I'm kind of like figuring out who I am and then I'm tracking through these questions, and then I'm figuring out if I won or lost and We can play again at the end, and there's like a butterfly in the studio.
+
+[00:01:59]
+That's so nice. Cool. So in the repo, in that GitHub repo that we mentioned earlier, building web apps with view, the game resources directory is going to be the starter for the game. The resources and all the material. But before we dive in, even to creating the app or looking at the resources, we're gonna look really quickly at how the graphics were built and feel free to move forward if that kind of thing doesn't interest you, but I get a lot of questions sometimes on how to even put together something like that.
+
+[00:02:33]
+Truthfully, I bought the background, I bought those characters on Shutterstock or something, I go into illustrator. And I've the background is loaded separately as a separate SVG as you're gonna see. And then I have this SVG, where I have a bunch of these characters that I've placed on top of one another.
+
+[00:02:54]
+Then I make sure that all of my layers are named well. I've got a mechanic, that's a group that height has all the mechanic that has an artist that has a zombie We're gonna have a part of this course, where the zombie gets revealed if you start losing, we have a clip group that shows those things.
+
+[00:03:13]
+And here are the clip paths that show and hide them. We have a scoreboard with a needle, good and bad and the rainbow. So basically I've put all of these things in, and I've named them appropriately Alien Bubble. Friend bubble. And the reason why that's important is because if I export this and say, export as, and I say, like SVG I can say show code here.
+
+[00:03:50]
+And it will show me all this code and all of these IDs that I used for things like what did I say friend bubble are things that actually exist in the code. So all of these pieces become HTML elements with IDs and classes, just like you'd use in a regular application.
+
+[00:04:10]
+And SVG is really good for this because everything stays really stable. I don't have to Worry about positioning things anywhere because it's working with a coordinate system and it just keeps it steady in that thing. So I don't have to specify all of those little pieces. I can just add, IDs to things cool.
+
+[00:04:29]
+In the resources directory, if we open up VS code, we'll see a few different things. One of them I actually gave you the original SVG for the alien zombie original source so that if you wanted to load it into illustrator or another graphics editor, you could play with it and see it before I optimised it.
+
+[00:04:47]
+In the interest of time. What I've done is I've taken all those groups, those like GID, alien artist Baker friend, and I've turned them into view components. And all this is I'm pulling that group out of that big thing you saw, you know I was referencing that by the ID and I'm just dumping it directly in the template.
+
+[00:05:12]
+I just have, all I have is the template with that group. And I don't have scripts or, you know, styles or anything. You don't need those actually, they're optional if you're not using them. So I did that for artists, for Baker for friend, and so on and so forth and for the score as well.
+
+[00:05:29]
+And you can see that that rainbow and the needle and things like that are actually you know, bad Good needle, all of those things that we had in Illustrator are in this file. So now that they're components, I can load them into a thing that I called base SVG, which is the, you know, the base of that whole thing and I can actually plop those pieces in, but now I can plop them in as components and you remember the Friend bubble was what they were saying an alien bubble.
+
+[00:06:01]
+I've got some text, you can work with text and SVG, and it loads the same. You can style it with fonts and things like that. So I have a background that you saw here as well that's more static. That's not part of that one, big SVG. So now I'm placing all of these things inside of this SVG.
+
+[00:06:22]
+I also have a mean dot SCSS file that I'm gonna use for all the styling. We're not gonna dive too far into styling today we're really going to just work with the view applications the way that they are. And what we're gonna do is add like a global style sheet so that we can get going really quickly and and use that but there again, there are other courses like Jen Kramer teaches a wonderful course on CSS if you're interested to know more, we're going to write a little bit of CSS, but that's not the main focus of the course.
+
+[00:06:53]
+So we also have things like your aliens zombie, you know, intro text, those questions we asked. I've got in, you know an array of objects here. So we're going to learn how to piece all of these pieces together into the application.
+

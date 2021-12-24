@@ -1,0 +1,14 @@
+{
+  "name" : "CSSCSS",
+  "grunt" : {
+    "url" : "https://github.com/peterkeating/grunt-csscss"
+  },
+  "gulp" : {
+    "url" : "https://github.com/morishitter/gulp-csscss"
+  },
+  "node" : {
+    "url" : "https://github.com/zmoazeni/csscss"
+  },
+  "description" : "csscss will parse any CSS files you give it and let you know which rulesets have duplicated declarations.",
+  "tags" : [ "css", "duplication" ]
+}

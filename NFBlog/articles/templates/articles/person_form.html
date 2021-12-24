@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block stuff %}
+  <div class="container d-flex justify-content-center">
+    <div class="col-6">
+      <div class="card">
+        <h4 class="card-header">
+          {% if object %}
+            Edit {{object.name}}
+          {% else %}
+            Add a person
+          {% endif %}
+        </h4>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            {% if object %}
+              <input class="btn btn-primary" type="submit" name="" value="Edit {{object.name}}">
+              <a class="btn btn-danger" href="{% url 'delete_person' person.id %}">Delete {{object.name}}</a>
+            {% else %}
+              <input class="btn btn-primary" type="submit" name="" value="Add person">
+            {% endif %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

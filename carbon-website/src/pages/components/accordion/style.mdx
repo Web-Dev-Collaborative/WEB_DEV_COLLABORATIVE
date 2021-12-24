@@ -1,0 +1,91 @@
+---
+title: Accordion
+description:
+  The accordion component delivers large amounts of content in a small space
+  through progressive disclosure. The user gets key details about the underlying
+  content and can choose to expand that content.
+tabs: ['Usage', 'Style', 'Code', 'Accessibility']
+---
+
+## Color
+
+| Class                     | Property   | Color token |
+| ------------------------- | ---------- | ----------- |
+| `.bx--accordion__title`   | color      | `$text-01`  |
+| `.bx--accordion__content` | color      | `$text-01`  |
+| `.bx--accordion__arrow`   | fill       | `$icon-01`  |
+| `.bx--accordion__item`    | border-top | `$ui-03`    |
+
+### Interactive states
+
+| Class                            | Property   | Color token    |
+| -------------------------------- | ---------- | -------------- |
+| `.bx--accordion__heading:hover`  | background | `$hover-ui`    |
+| `.bx--accordion__title:focus`    | border     | `$focus`       |
+| `.bx--accordion__title:disabled` | background | `$disabled-02` |
+| `.bx--accordion__arrow:disabled` | fill       | `$disabled-02` |
+| `.bx--accordion__item--disabled` | border-top | `$disabled-01` |
+
+<Row>
+<Column colLg={12}>
+
+![accordion interactive states](images/accordion-style-2.png)
+
+</Column>
+</Row>
+
+<Caption>Examples of enabled, hover, focus, and disabled states</Caption>
+
+## Typography
+
+All accordion titles are set in sentence case. See the accordion
+[content guidelines](/components/accordion/usage#content) for more details.
+
+| Class                     | Font-size (px/rem) | Font-weight   | Type token      |
+| ------------------------- | ------------------ | ------------- | --------------- |
+| `.bx--accordion__title`   | 14 / 0.875         | Regular / 400 | `$body-long-01` |
+| `.bx--accordion__content` | 14 / 0.875         | Regular / 400 | `$body-long-01` |
+
+## Structure
+
+There is no max-height for an open panel but an accordion may
+[scroll](/components/accordion/usage#scrolling-content) if constrained by
+vertical space. The width of an accordion varies based on the content, layout,
+and page design. The icon used in the header is a `chevron`.
+
+| Class                          | Property       | px/rem   | Spacing token |
+| ------------------------------ | -------------- | -------- | ------------- |
+| `.bx--accordion__heading`      | height         | 40 / 2.5 | –             |
+| `.bx--accordion__item`         | border-top     | 1        | –             |
+| `.bx--accordion__arrow`        | size           | 16 / 1   | –             |
+| `.bx--accordion__arrow`        | padding-right  | 16 / 1   | `$spacing-05` |
+| `.bx--accordion__title`        | margin-left    | 16 / 1   | `$spacing-05` |
+| `.bx--accordion__content`      | padding-right  | 25%      | –             |
+| `.bx--accordion__content`      | padding-top    | 8 / 0.5  | `$spacing-03` |
+| `.bx--accordion__content`      | padding-left   | 16 / 1   | `$spacing-05` |
+| `.bx--accordion__item--active` | padding-bottom | 24 / 1.5 | `$spacing-06` |
+
+<div className="image--fixed">
+
+![Structure and spacing measurements for accordion](images/accordion-style-3.png)
+
+</div>
+
+<Caption>Structure and spacing measurements for accordion | px / rem</Caption>
+
+### Margin right
+
+Accordions have a variable right margin that changes based on its width.
+Accordions that are 640px and wider have a `margin-right: 25%` with the
+percentage being based off the width of the container it is placed in. At
+smaller widths, the `margin-right` is a fixed size.
+
+Body copy, including titles, in an accordion always follows the margin-right
+rules. However, inputs and other components may still expand to the full width
+of the accordion panel.
+
+| Accordion width | Margin-right | Spacing token |
+| --------------- | ------------ | ------------- |
+| > 640           | 25%          | –             |
+| 420-640px       | 64px / 4rem  | `$spacing-10` |
+| < 420           | 16px / 1rem  | `$spacing-05` |

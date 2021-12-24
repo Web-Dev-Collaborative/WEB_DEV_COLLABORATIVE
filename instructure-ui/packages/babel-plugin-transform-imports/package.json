@@ -1,0 +1,25 @@
+{
+  "name": "@instructure/babel-plugin-transform-imports",
+  "version": "8.3.0",
+  "description": "A babel plugin made by Instructure Inc.",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "type": "commonjs",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui.git"
+  },
+  "homepage": "https://instructure.github.io/instructure-ui/",
+  "bugs": "https://github.com/instructure/instructure-ui/issues",
+  "scripts": {
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "globby": "^10.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

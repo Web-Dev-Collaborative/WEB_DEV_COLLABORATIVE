@@ -1,0 +1,18 @@
+{
+  "name": "<%= NAME %>",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "ui-build --bundle --watch -p 3000",
+    "build": "ui-build --bundle",
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix",
+    "clean": "ui-build --clean",
+    "open:sandbox": "ui-scripts open-sandbox"
+  },
+  "dependencies": {
+<%= DEPENDENCIES %>
+  },
+  "devDependencies": {
+<%= DEV_DEPENDENCIES %>
+  }
+}

@@ -1,0 +1,181 @@
+[00:00:00]
+>> Brian Holt: Let's go on to arrays.
+>> Brian Holt: Arrays are an ordered list of something or anything. So here I have daysOfTheWeek, and I have them in order here. So that's the big key about Arrays is there's order to an array, right. This the first thing, this is the second thing, this is the third thing, right, whereas objects have no order.
+
+[00:00:28]
+Despite the fact that I declared these in some order, inside of that object they're not stored in that order. Right so, once it's declared in that order I can't get them back out in that order, there's no guarantee of order at all with an object. Whereas with arrays it's very ordered, so I can be guaranteed that if this is the first thing here, this is the first thing I'm gonna get out of it as well.
+
+[00:00:51]
+So if I looked down here, when I console.log that, I get this array back that looks like that.
+>> Brian Holt: Arrays start at zero. Okay, so when I say daysOfTheweek(0), index zero is the first element in the array. I know that's a little weird, but programmers always start at zero.
+
+[00:01:12]
+If you remember, when I was doing my for loop, I said let i equal zero, just in general everyone starts at zero, and that's just the way it is, and get used to it. There's like one programming language that starts at one and everyone makes fun of it.
+
+[00:01:29]
+[LAUGH] So, anyway, just get used to that the zero index is the first state. Which makes index 1, as you can see here, index 1 is the second element in the array. So if I asked for index 1, I'm getting Tuesday.
+>> Brian Holt: This actually makes a lot of the math easier, so in the end you'll end up being grateful for this.
+
+[00:01:50]
+But just be aware that indexes start at 0, okay? So index 6 is the last element to the array, it's the seventh thing, so that would be Sunday.
+>> Brian Holt: Questions?
+>> Brian Holt: Okay, so this is how you access something in the array. You use these square brackets, and you put a number in there.
+
+[00:02:21]
+
+>> Brian Holt: That's just how it works.
+>> Brian Holt: So that's what those square brackets are for, anything between square brackets you'll notice that we declare these using square brackets. Those are gonna be arrays, notice they don't have a key, they actually are getting a key. The key for this one It's implied by the order, so I gave this as the first thing, so its key is actually zero.
+
+[00:02:47]
+This one gets one, this one gets two, but I don't actually have to declare those things, they just get put there depending on what order I put them in, so it's implicit.
+>> Brian Holt: So, arrays have a bunch of additional pieces of information another bunch of function other built in all right that we were talking about before they have bunch from.
+
+[00:03:08]
+So for example I can ask how many are there? So I can say primenumbers.length and I get 8, there are 8 thing in this array, so that means it goes from 0 to 7 cuz 7 will be the last thing of length 8.
+>> Brian Holt: You can count one, two, three, four, five, six, seven, eight.
+
+[00:03:33]
+
+>> Brian Holt: So that's what length we'll give you, it's a property. So note this is not a function, right, this is a property, there's no parentheses at the end. It's not calling a function, it's just a property that's set on it that's called length. Now there is a function called join, if you wanna take an entire array and you wanna make one string out of it you can call join.
+
+[00:03:52]
+And what join does, you give it some sort of what are they called? Delimiter is what it's technically called, but it's whatever I'm gonna put between each element in the array. So I gave it this space pipe space, right? So you can see here, between each one of these there's a space pipe space.
+
+[00:04:13]
+I could have easily put, I don't know, asterisks between it.
+>> Brian Holt: I didn't know my font did that, [LAUGH] that's my font that makes it like the cute little wreath looking thing, that's adorable.
+>> [LAUGH]
+>> Brian Holt: But you can put whatever you want in here. If I was super vain I could put my name or something like that, right?
+
+[00:04:36]
+[LAUGH] That's how it joins them together. I'm not vain though, right? No, not at all. Okay, questions?
+>> Brian Holt: Okay.
+>> Brian Holt: So, what happens if I wanna add an element to an array? So, I've created this array and I wanna start putting things into it, there's a thing called push.
+
+[00:04:58]
+And what push does is it puts another element on the end of the array. So I have these courses right here, right, a bunch of courses that are on Front End Masters, and then what I'll do is, I'll do Courses.Push and then I'll push another one on. So I give it another object to put on there, and then if I look down here you'll see that Sean Larkin's course is on the end here, and that's the one I pushed on here.
+
+[00:05:26]
+So that's what push does, it just shoves another one on the end.
+>> Brian Holt: You might ask, what happens if I want to put it on the front? [LAUGH] There is a function, I'm not kidding Unshift, I think it is. Is the literally the worst name for that, why is it called unshift?
+
+[00:05:47]
+Well if you wanna remove something from the front of the array it's called shift, and I'm sure in the room someone is like well what's the opposite of shifting? Unshifting, [LAUGH] and so they called it that. [LAUGH] Anyway, you never use it, but just so you know, it's out there.
+
+[00:06:03]
+You use push quite a bit, cuz it's just putting something on the end.
+>> Brian Holt: Okay, what happens if I want to overwrite something? So on here, I have my course here, Complete intro to React. I'm about to come back and do v4 of it, so what I can do here, is I can reference courses2 =, right, so is assigned if you remember that's what we said that's gonna be.
+
+[00:06:23]
+And so if I look down here, you can see it's overwritten that one and yeah, by setting that to be something else, make sense?
+>> Brian Holt: I actually could've even gone in here and done this. So rather than assigning that, I could've said course2, and then I could've said .course and then just change that part.
+
+[00:06:51]
+
+>> Brian Holt: So the only thing that I change, because the teacher name didn't change. I have not changed my name since last time I was here, as far as I know. And now I can say course2.course = this, and if you go down here and look, sure enough, just the course name has changed.
+
+[00:07:08]
+Does that make sense?
+>> Brian Holt: Cool, cuz course two is an object, right? Maybe it will make more sense of like Brian's course.
+>> Brian Holt: Courses is 2,
+>> Brian Holt: And then done Brian'sCourse.
+>> Brian Holt: Sometimes like if that helps you to separate it into two lines to pull out in one line, and then second line to modify it, go right ahead.
+
+[00:07:49]
+
+>> Brian Holt: Make your code as readable as possible for yourself, you can see it down here it still looks the same way.
+>> Brian Holt: So we talked about push, we talked about overrinding, that's a good one. [LAUGH] Yeah, if you override something, it'll throw away what was there before, and it'll replace it with something else.
+
+[00:08:16]
+
+>> Brian Holt: So what happens if I wanted to go through and individual log something in the array? Well I've actually already given you all the tools to do this, we can use a for loop to do it. So if you go right here and I say for (let i = 0; i < cities.length; right?
+
+[00:08:33]
+Because cities.length in this particular case is five, right, that means the last element in the array is index four, right? Cuz it's always length minus one is the last element in the array. So, don't go past cities.length, i++, and then I can do console.log cities of i, right, cuz it's gonna change every single iteration of the array.
+
+[00:08:56]
+So it's gonna do it on index 0, then index 1, then index 2, 3, 4, and it's gonna finish. So that's how you get down here the first ones, Seattle, San Francisco, Salt Lake, Amsterdam and Hong Kong.
+>> Brian Holt: Any questions about method 1 here?
+>> Brian Holt: Trying to decide if people are asleep or if this is just being perfectly explained.
+
+[00:09:24]
+
+>> [LAUGH]
+>> Speaker 2: I just don't, [COUGH] I guess I don't understand why fully or how you utilize that. Are you just saying to pull one of those items out of the list, or to add?
+>> Brian Holt: Like, why are we doing this?
+>> Speaker 2: Yeah, that part. Method 1 versus method 2, maybe I just missed it.
+
+[00:09:50]
+
+>> Brian Holt: Yeah, ignore method 2 for the moment.
+>> Speaker 2: Okay.
+>> Brian Holt: So const city = cities [i], so this is one individual city right now, I'm doing console.log[city] and say like city.toupperCase there you go, and you can see the difference. So this little bit right here pulls out for one iteration, one loop, right, it pulls out the city that's at that particular index, right?
+
+[00:10:21]
+So, for city of zero, it pulls out Seattle, right? So now city is Seattle and the console.logs city or Seattle to uppercase, so that's why you get SEATTLE right here. That loop finishes, this gets i++, right, so now it's index 1, right? We go back again, cities of i, this is gonna be cities of 1, right?
+
+[00:10:42]
+So it pulls out San Francisco then it's gonna do console.log. San Francisco two upper case and that's how we get San Francisco down here.
+>> Speaker 2: Okay.
+>> Brian Holt: Make sense?
+>> Speaker 2: Yep.
+>> Brian Holt: Cool. So, that's that, you can shortcut that by just saying cities(i) right here, cities(i), and then we can cut this out right here.
+
+[00:11:06]
+It's just a little bit more compressed, but if you find it more readable to do it the other way, please do.
+>> Brian Holt: Okay, so that is using a for loop, this is something that we've used before, we're used to seeing i and for loops, and things like that.
+
+[00:11:25]
+Let's talk about method 2, method 2 is a thing called ForEach. This is a function that's built into arrays, right, so every array has a method on it. Let's talk about the word method for just a second, I've probably have been using that before. A function is just a function, we've talked about that, a method is a function on an object.
+
+[00:11:49]
+Or you can also just use method, to mean pretty much function, technically it's a function on an object, but I hear people use the word method just all the time. So, more or less when I say the words method just assume that I mean function. There's also like procedure, there's a bunch of words for functions.
+
+[00:12:08]
+Most of the time people either say function or method, it varies language by language. There's some languages that use the word like method more. Does that make sense? Okay, sometimes it's just that vocabulary, sometimes I have a hard time unraveling. Okay, forEach() is technically a method, it's a function, [LAUGH] okay, and it's a function that you give another function to, right.
+
+[00:12:34]
+So, this is what we would call an anonymous function. And this function is going to be run once in every item in the array, right? So this method, in fact, let's just do this, if I do, let numberOfTimesRan, right now it's been done 0 times and I'm gonna do.
+
+[00:13:01]
+NumberOfTimesRan ++, so every time this function gets run this is gonna get incremented. So if I come down here at the bottom and I say console.log numberOfTimesRan, what's that number gonna be? How many items are in the array? Five, so, down here, 5, right? So, this function gets run five times, one time for each item in the array.
+
+[00:13:30]
+And then, down here, I'm seeing console.logcity, city is being injected as a parameter from cities. And that's what for reach does for you, that's the point of for each. So, that's why you're able to see Seattle, San Francisco, let's just make this to make it more clearer. toLowerCase,
+
+[00:13:56]
+
+>> Brian Holt: And you can see here, these are the ones being logged out by forEach. This is two different ways to accomplish the same goal, and this is what for each does for you. Questions about for each?
+>> Speaker 2: Is there a preferred method when you're programming to use the for each or a loop?
+
+[00:14:14]
+
+>> Brian Holt: It depends on who you ask for sure, it's definitely a matter of preference. I use for each constantly and use for loops far less, this is a personal preference. This is more towards what they call functional programming, which I'm a big fan of. And there are other people that don't like it quite as much.
+
+[00:14:35]
+If you ask, for example, a hard-core Java developer, probably far less a fan of functional programming. But if you ask someone that's like a Haskell programmer, or something like that, they would laugh at you for using a for loop because they're a jerk. [LAUGH] So, do what works for you, if one of these methods feels better or looks better to you then absolutely do that one.
+
+[00:15:01]
+In fact, I'm curious, who prefers method one? Just a raise of hands here in the room. And who here prefers method two? All right, so actually what you can do, there's a phantom other parameter here that it's also injecting and I hereto been ignoring. And this index, if I just did index, comma, space, you can see here it actually is injecting the index, as well.
+
+[00:15:30]
+
+>> Brian Holt: This is like the tip of an iceberg of functional programming. There is another Kyle Simpson course called Functional Programming Lite, there's also Brian Lonstor's course, which is on both Phenomenal courses on Front End Masters. Brian Longworth also has a book so does Kyle, they're all really good ways of getting into functional programming, it's more stuff like this, like method two up here.
+
+[00:15:57]
+I will say that I've never taught this to developers on the first time that they're learning to program. And it's because I used to be scared of functional programming. And at some point, I realized this is actually a really good way for people to get into it and to get exposed to it early.
+
+[00:16:11]
+Because, it took me probably five years into my career before I started doing programming like this. And my code is much better now, I think.
+>> Speaker 2: That's why I'd actually recommend Bianca's fundamentals to functional JavaScript course.
+>> Brian Holt: Okay she has us [CROSSTALK]
+>> Speaker 2: Cover that bridge between the basics of JavaScript to starting to use functional methods.
+
+[00:16:32]
+
+>> Brian Holt: Totally, so yeah definitely check out Bianca's course. I definitely endorse Bianca as a teacher in general, a lot of my teaching style is based on hers. So, I'd like to say I borrowed it but I definitely just stole it, [LAUGH] she's phenomenal.
+>> Brian Holt: Questions about this? I don't really test you on this, there's a lot more deeper rabbit hole to go down here, I just wanted to expose it to you ealier.
+
+[00:17:01]
+So the journey will feel impossible sometimes, so if this feels hard, it's cuz that's okay. But Jerome's a really awesome guy, that is objects in a arrays.
+

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block stuff %}
+<form method="POST">
+ {% csrf_token %}<input class="btn btn-danger btn-lg" type="submit" value="WHY??!">
+ <a class="btn btn-primary btn-lg" href="{% url 'person' object.slug %}">كنسل</a>
+</form>
+{% endblock %}

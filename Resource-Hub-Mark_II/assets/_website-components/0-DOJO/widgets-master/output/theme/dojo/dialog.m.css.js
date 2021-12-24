@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/dialog","root":"dialog-m__root__NAZCT","main":"dialog-m__main__3spJM","underlayVisible":"dialog-m__underlayVisible__3Eqbz","title":"dialog-m__title__1P-PZ","content":"dialog-m__content__6tbsZ","close":"dialog-m__close__2sN1M","closeIcon":"dialog-m__closeIcon__3LrDH","actions":"dialog-m__actions__sY9bD"};

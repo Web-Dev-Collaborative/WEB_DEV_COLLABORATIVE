@@ -1,0 +1,35 @@
+- name: Cloud computing
+  date: 2016
+
+- name: Scrum and Kanban
+  date: 2015
+
+- name: Joel test score
+  date: 2012
+
+- name: OOP, MVC and vendors
+  date: 2009
+
+- name: Extensions, Modules, Packages and Plugins
+  date: 2008
+
+- name: Versioning, TDD and CI / CD
+  date: 2007
+
+- name: Pipeline, Risk and Rollback
+  date: 2006
+
+- name: System and Dependency managers
+  date: 2005
+
+- name: Extreme Programming (XP)
+  date: 2004
+
+- name: Hypothesis Testing and Modus tollens
+  date: 2004
+
+- name: Agile and Protocols
+  date: 2000
+
+- name: Tasks and Sharing by mIRC and Mailing List
+  date: 1996

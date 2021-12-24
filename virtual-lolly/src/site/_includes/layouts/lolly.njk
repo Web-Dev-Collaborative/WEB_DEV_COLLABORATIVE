@@ -1,0 +1,27 @@
+{% extends 'layouts/base.njk' %}
+
+{% set localize = strings[language] %}
+
+{% block extraStyle %}
+.lollyTop { fill: {{ item.data.flavourTop }}; }
+.lollyMiddle { fill: {{ item.data.flavourMiddle }}; }
+.lollyBottom { fill: {{ item.data.flavourBottom }}; }
+{% endblock %}
+
+{% block main %}
+  <div class="lolly">
+    <div class="giftLolly">
+    {%  include "svg/lolly-image.svg" %}
+    </div>
+    <div class="info">
+      <div class="details">
+        <p id="recipient" class="recipient">{{ item.data.recipientName }}</p>
+        <div id="message" class="message"> {{ item.data.message }}</div>
+        <p id="from" class="from"> — {{ item.data.sendersName }}</p>
+      </div>
+      <p class="bytheway">{{ item.data.sendersName }} made this virtual {{ localize['lolly'] }} for you. You can <a href="/create">make your own</a> to send to a friend who deserve some sugary treat which won't rot their teeth</p>
+
+    </div>
+  </div>
+{% endblock %}
+

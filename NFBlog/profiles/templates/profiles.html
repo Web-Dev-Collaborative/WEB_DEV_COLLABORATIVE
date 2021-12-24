@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load components %}
+
+{% block title %}Profiles{% endblock %}
+
+{% block stuff %}
+  <ul>
+    {% for profile in profiles %}
+      <h1>{{profile.user.username}}</h1>
+    {% endfor %}
+  </ul>
+{% endblock %}

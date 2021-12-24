@@ -1,0 +1,226 @@
+---
+csp:
+  default-src: [
+    "'none'"
+  ]
+  child-src: [
+    "'self'",
+    'data:',
+    'ms-appx-web:',
+    'ghbtns.com',
+    'runkit.com',
+    '*.runkit-embed.com',
+    'runkit-embed.com',
+    'platform.twitter.com'
+  ]
+  connect-src: [
+    'lodash.report-uri.com',
+    'lodash.report-uri.io'
+  ]
+  img-src: [
+    "'self'",
+    'data:',
+    '*.2mdn.net',
+    '*.adsafeprotected.com',
+    'ad.atdmt.com',
+    '*.buysellads.com',
+    '*.buysellads.net',
+    '*.c3tag.com',
+    '*.convertro.com',
+    'ad.doubleclick.net',
+    'www.google-analytics.com',
+    'www.launchbit.com',
+    'launchbit.com',
+    'assets.servedby-buysellads.com',
+    '*.serving-sys.com'
+  ]
+  font-src: [
+    "'self'",
+    'data:',
+    'fonts.gstatic.com',
+    'cdn.jsdelivr.net'
+  ]
+  frame-src: [
+    "'self'",
+    'data:',
+    'ms-appx-web:',
+    'ghbtns.com',
+    'runkit.com',
+    '*.runkit-embed.com',
+    'runkit-embed.com',
+    'platform.twitter.com'
+  ]
+  manifest-src: [
+    "'self'"
+  ]
+  script-src: [
+    "'self'",
+    '*.carbonads.com',
+    'srv.carbonads.net',
+    'adn.fusionads.net',
+    'www.google-analytics.com',
+    'cdn.jsdelivr.net',
+    'embed.runkit.com'
+  ]
+  style-src: [
+    "'self'",
+    'cdn.jsdelivr.net'
+  ]
+hints:
+  all: [
+    '</sw.js>; rel=serviceworker',
+    '<https://cdn.jsdelivr.net/>; rel=preconnect; pr=1.0; crossorigin',
+    '<//runkit.com/>; rel=dns-prefetch; pr=0.25; crossorigin',
+    '<//cdn.carbonads.com/>; rel=dns-prefetch; pr=0.25',
+    '<//srv.carbonads.net/>; rel=dns-prefetch; pr=0.25'
+  ]
+  home: [
+    '<//ghbtns.com/>; rel=dns-prefetch; pr=1.0; crossorigin',
+    '<//platform.twitter.com/>; rel=dns-prefetch; pr=1.0; crossorigin'
+  ]
+---
+{% capture EOL %}
+{% endcapture %}
+
+{% assign all = page.hints.all %}
+{% assign docs = site.data.init.array %}
+{% assign home = page.hints.home %}
+
+{% comment %}
+Add resource hints for site-wide css.
+{% endcomment %}
+{% for href in site.css.all %}
+  {% capture hint %}<{{ href }}>; rel=preload; as=style; pr=1.0{% endcapture %}
+  {% assign all = all | push:hint %}
+{% endfor %}
+
+{% comment %}
+Add resource hints for site-wide vendor css.
+{% endcomment %}
+{% for res in site.vendor.css %}
+  {% capture hint %}<{{ res.href }}>; rel=preload; as=style; pr=1.0; crossorigin{% endcapture %}
+  {% assign all = all | push:hint %}
+{% endfor %}
+
+{% comment %}
+Add resource hints for site-wide font faces.
+{% endcomment %}
+{% for family in site.font-face %}
+  {% for style in family[1] %}
+    {% for href in style[1] %}
+      {% if href contains '.woff2' %}
+        {% capture hint %}<{{ href }}>; rel=preload; as=font; pr=1.0; crossorigin{% endcapture %}
+        {% assign all = all | push:hint %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+
+{% comment %}
+Add resource hints for site-wide js.
+{% endcomment %}
+{% for href in site.js.all %}
+  {% capture hint %}<{{ href }}>; rel=preload; as=script; pr=1.0{% endcapture %}
+  {% assign all = all | push:hint %}
+{% endfor %}
+
+{% comment %}
+Add site-wide hints to docs and homepage hints.
+{% endcomment %}
+{% for hint in all %}
+  {% assign docs = docs | push:hint %}
+  {% assign home = home | push:hint %}
+{% endfor %}
+
+{% comment %}
+Add resource hints for home js.
+{% endcomment %}
+{% for href in site.js.home %}
+  {% capture hint %}<{{ href }}>; rel=preload; as=script; pr=1.0{% endcapture %}
+  {% assign home = home | push:hint %}
+{% endfor %}
+
+{% comment %}
+Add resource hints for docs js.
+{% endcomment %}
+{% for href in site.js.docs %}
+  {% capture hint %}<{{ href }}>; rel=preload; as=script; pr=1.0{% endcapture %}
+  {% assign docs = docs | push:hint %}
+{% endfor %}
+
+{% comment %}
+Add resource hints for docs vendor js.
+{% endcomment %}
+{% for res in site.vendor.js %}
+  {% capture hint %}<{{ res.href }}>; rel=preload; as=script; pr=1.0; crossorigin{% endcapture %}
+  {% assign docs = docs | push:hint %}
+{% endfor %}
+
+{% comment %}
+Add link headers for non-doc pages.
+{% endcomment %}
+{% for page in site.html_pages %}
+  {% assign parts = page.url | split:'/' %}
+  {% if parts.size == 2 %}
+{{ page.url | replace_first:'.html','*' }}
+  Link: {{ all | join:', ' }}
+  {% endif %}
+{% endfor %}
+
+{% comment %}
+Add link headers for the homepage.
+{% endcomment %}
+/
+  Link: {{ home | join:', ' }}
+
+/index*
+  Link: {{ home | join:', ' }}
+
+{% comment %}
+Add link header for doc pages.
+{% endcomment %}
+/docs/*
+  Link: {{ docs | join:', ' }}
+
+{% for res in site.builds %}
+/docs/{{ res[0] }}*
+  Link: <{{ res[1].href }}>; rel=preload; as=script; pr=1.0; crossorigin
+{% endfor %}
+
+{% comment %}
+Add CSP header directives.
+{% endcomment %}
+{% assign connect-src = page.csp.connect-src %}
+
+{% for entry in page.csp %}
+  {% unless entry[0] == 'connect-src' %}
+    {% capture directive %}{{ entry[0] }} {{ entry[1] | join:' ' }}; {% endcapture %}
+    {% assign csp = csp | append:directive %}
+    {% for src in entry[1] %}
+      {% unless src == 'data:' or src == "'none'" %}
+        {% assign connect-src = connect-src | push:src %}
+      {% endunless %}
+    {% endfor %}
+  {% endunless %}
+{% endfor %}
+
+{% capture connect-src %}connect-src {{ connect-src | uniq | join:' ' }}; {% endcapture %}
+{% assign csp = csp | append:connect-src %}
+
+/*
+  Access-Control-Allow-Origin: https://lodash.com
+  Referrer-Policy: origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Content-Security-Policy: {{ "
+    block-all-mixed-content;
+    report-uri https://lodash.report-uri.io/r/default/csp/enforce;
+  " | replace:EOL,' ' | append:csp }}
+
+/*.appcache
+  Cache-Control: no-cache
+  Content-Type: text/cache-manifest
+
+/*.webmanifest
+  Content-Type: application/manifest+json

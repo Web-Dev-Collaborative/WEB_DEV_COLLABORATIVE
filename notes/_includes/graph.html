@@ -1,0 +1,56 @@
+{% for graph in include.data %}
+<div class="col {{ graph.class }}">
+<canvas id="{{ graph.id }}" height="500" width="500"></canvas>    
+<script>
+    var ctx = document.getElementById("{{ graph.id }}");
+    var data = {
+    labels: "{{ graph.aspects }}".split(","),
+    datasets: [{
+    {% if graph.type == "radar" %}
+        label: "{{ graph.label }}",
+        backgroundColor: "rgba(179,181,198,0.2)",
+        borderColor: "#3385FF",
+        pointBackgroundColor: "#3385FF",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#3385FF",
+        pointHoverBorderColor: "#3385FF",
+    {% else %}
+        backgroundColor: ['rgb(255, 99, 132)','rgb(255, 159, 64)',
+    'rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(54, 162, 235)',
+    'rgb(153, 102, 255)','rgb(201, 203, 207)'],
+    {% endif %}
+        data: [{{ graph.percentage }}]
+        }]
+    };
+    var myChart = new Chart(ctx, {
+    type: "{{ graph.type }}",
+    data: data,
+    options: {
+    {% if graph.type == "radar" %}
+        scale: {
+            responsive: true,
+            ticks: {min: 0, max: 100},
+            lineArc: false,
+            pointLabels: {fontSize: 14},
+        },
+        scaleFontSize: 0,
+        legend: {display: false},
+    {% else %}
+        circumference: Math.PI,
+        legend: {
+            position: 'left',
+        },
+        title: {
+            display: true,
+            text: "{{ graph.label }}"
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        }
+    {% endif %}
+    }
+    });
+</script>
+</div>
+{% endfor %}

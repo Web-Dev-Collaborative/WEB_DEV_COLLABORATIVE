@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/button","root":"button-m__root__28pvq","pressed":"button-m__pressed__3sV_C","disabled":"button-m__disabled__f4Azn","label":"button-m__label__mkUVZ"};

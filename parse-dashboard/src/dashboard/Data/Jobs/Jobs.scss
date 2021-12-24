@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2016-present, Parse, LLC
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ */
+.jobsFlow {
+  padding: 120px 0 100px 0;
+}
+
+.buttonCell {
+  > a:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.empty {
+  
+}

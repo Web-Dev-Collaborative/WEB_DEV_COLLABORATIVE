@@ -1,0 +1,23 @@
+{
+  "presets": [
+    // webpack understands the native import syntax, and uses it for tree shaking
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    // Specifies what level of language features to activate.
+    // Stage 2 is "draft", 4 is finished, 0 is strawman.
+    // See https://tc39.github.io/process-document/
+    "stage-2",
+    // Transpile React components to JavaScript
+    "react"
+  ],
+  "plugins": [
+    // Treat React JSX elements as value types and hoist them to the highest scope
+    "transform-react-constant-elements",
+    // Turn JSX elements into exploded React objects
+    "transform-react-inline-elements"
+  ]
+}

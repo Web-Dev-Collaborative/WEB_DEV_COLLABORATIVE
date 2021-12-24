@@ -1,0 +1,114 @@
+[00:00:00]
+>> Brian Holt: I'm going to show you how to build for production now. Cuz everything we've done so far, most of it's been about developer experience, and I want to actually show you how to get down and actually serve it for production. So the first thing is we're going to do is we're going to go into our webpack config.
+
+[00:00:15]
+So as you can see right now, our bundle is like five goddamn megabytes, which is purely unacceptable, right? It's to the point of ridiculousness. But it's development, so it doesn't matter. Cuz I'm just pulling from local hosts. I'm literally just pulling for myself, so.
+>> Brian Holt: Let's go ahead and make this a little bit nicer to deal with.
+
+[00:00:39]
+So what I'm gonna do here is I'm gonna say const config= this and then module.exports = config; and then I'm gonna do some manipulation down here. So what I'm gonna do is I'll leave this just for development as is, and then if production, so I'm gonna say if (process.env.NODE_ENV === 'production') then we're gonna make some differences to how we're gonna build for webpack.
+
+[00:01:13]
+The first thing that we're gonna do is we're going to get rid of, our entry is going to be this, right?
+>> Brian Holt: Then you're gonna say, config.entry = blah,
+>> Brian Holt: Cuz we don't want all the hot module reload stuff, we can just leave all that out. We're gonna say devtool = false, config.devtool = false.
+
+[00:01:44]
+That's just gonna say, get me no source maps which is what you want.
+>> Brian Holt: DevServer doesn't really matter because we're not gonna be running the devServer in production so you can I need that there. Resolve is fine, stats is fine, plug in is just gonna be an empty array.
+
+[00:02:04]
+I don't think that's actually necessary but it's good just to be explicit. The reason why I don't think this is necessary is because webpack is smart enough to say, hey, we don't need a HotModule reload in production. I'm just not gonna these but that's fine, and then you can meet the rules, that's fine as well.
+
+[00:02:24]
+Let's go to our server real quick. And we're gonna bring in another module. We're gonna say const compression = require compression. Typically you're not going to do gzip on your note server. You'll be doing it further out, something at the Nginx level or the Apache level or whatever you're using for your reverse proxy, right?
+
+[00:02:53]
+We're not going to be using one today so I wanted to show you what the gzip bodies looked like, so we're going to do it here at the express level. Just so you can see what that looks like. So we gonna say a server.use compression, this is gonna do all of our gzipping and that being that fun stuff for us.
+
+[00:03:14]
+Okay, now what I want you to do is that I want you to come, you can stop your server Now I want you to say, yarn build and then we're gonna do -- -p so that -p is letting web pack know I'm building for production now. So give it everything you can to make this as small as possible.
+
+[00:03:46]
+
+>> Brian Holt: It's gonna take a second,
+>> Brian Holt: So That's still really big. Why is that so big? It should be a lot smaller. Sourcemaps is usually the thing that's super unruly about this. Yeah.
+>> Brian Holt: Well that is definitely Hot Module reload stuff.
+>> Brian Holt: Let's figure this out. So obviously it's not running with the production note and stuff cuz we're not picking up those changes.
+
+[00:04:42]
+So open Webpack again
+>> Brian Holt: What is going on here? Okay, console.log, process sub env
+>> Brian Holt: And let's just start that and see what happens,
+>> Brian Holt: What i'm interested in is the NODE ENV. There's a lot of stuff in my process.env. Let's do that, process dot NODE_ENV.
+>> Brian Holt: Undefined, okay, that's a problem.
+
+[00:05:38]
+So let's go ahead and go back and say NODE_ENV=production yarn build -- -p. Let's try that. Now we see production. So now hopefully we'll get much smaller bundle sizes.
+>> Brian Holt: This should take a second. Got a bunch of stuff here, we're seeing no Hot Module reload stuff. So 266 better, right?
+
+[00:06:17]
+36 here, 37, and 38 here. But keep in mind here that this is minified. This is uglified, this is not gzipped yet, right? So we actually need to go to our browser to figure out what this is gonna look when it's gzipped. So if I refresh again, I need my server running so I'm gonna say yarn start
+
+[00:06:42]
+
+>> Brian Holt: And I refresh again.
+>> Brian Holt: Why did that get bigger? That's bizarre.
+>> Brian Holt: No, that's right, cuz it was 220 gzipped, or sorry, it was 220 minified and now it's 76 gzipped. So we got down to 76 kilobytes, and then 11 for the first bundle. Browse here 12 for that one, and 12 for that one.
+
+[00:07:10]
+Much better, right? So the thing to keep in mind with React is it's about 45 kbs gzipped and mimefied. And that's the production build, right? They give you a separate build for debug that has more useful error messaging and things like that. So, out of the door we already lost 45.
+
+[00:07:34]
+So our entire app that we built took about 35 kilobytes. With everything else that includes Redux, reduxthunk, all those things.They're pretty small libraries, really the only heavy lifter is react and probably the second one is going to be axios I think. The one kind of crappy thing about moving to redux is previously only details cared about Axios.
+
+[00:08:04]
+And actually we could probably be clever about this.
+>> Brian Holt: Yeah. Yeah, we got a little bit of time. Let's try it. Okay, so what I'm gonna do here is I'm gonna create a new file and say this is like when go into JS. And we're going to say this is a sync actions.js and I'm going to go in and go to my action creators.
+
+[00:08:36]
+And I'm going to pull out, get API details. And I'm gonna move this into its own file, cuz right now, web pack can't separate files, right? It can't separate files from each other and this is getting the setSearchTerm and addAPIData are needed in other places in the site.
+
+[00:08:58]
+But this is only needed for details. If you go to async actions I just created. I'm going to paste that. Then I'm also going to import axios from axios. I'm going to add api data from ./action creators.
+>> Brian Holt: I'm gonna go back to actionCreators, and I'm going to remove axios here, okay?
+
+[00:09:33]
+So now these are in separate files. So now I can only include this file in details which just means I'm going to inflate the size of my details bundle, but I'm going to deflate the size of my main bundle. A big goal here is you want to deflate your main bundle, cause that one is going to get loaded on every route.
+
+[00:09:48]
+On landing and on search, we want that bundle to be as small as possible. Now we need to go into details.jsx and we're going to get API details from a sync actions. We also broke our test, but no one cares about tests. That's what I call async actions.
+
+[00:10:13]
+So, let's clean this out, and we're gonna run our build again. And hopefully what we should see is the size of the details bundle go up and the other ones go down.
+>> Brian Holt: Fingers crossed, otherwise this is gonna be really dumb. Okay, I broke stuff, whatever, that's fine.
+
+[00:10:41]
+Yeah, I should have Flow. But,
+>> Brian Holt: What you can see here now is we have the size of this bundle right here, a little bit higher, and now these ones are tiny, tiny, tiny bundles right
+>> Brian Holt: So now if we can do Yarn start again, let's see what these actually translate to when we start building our app.
+
+[00:11:10]
+So if I refresh here and look at my network,
+>> Brian Holt: These are bytes. No actually that's reading from cache. But this is 1.7 kilobytes now, right. Before it was 11. Now if you go into details, it's 12 still, it's a little bit bigger. So I'm not making a ton of difference here, the difference between 1 kilobyte and 12 is not huge.
+
+[00:11:33]
+But what I'm trying to demonstrate to you the principal of is if I can make that dependency graph lean into particular routes that only need it there. So now axios is only included on details, right? And if I load landing. So if it only load landing, I'm not getting axils which is super cool.
+
+[00:11:53]
+So I'm trying to demonstrate to you just like, mental model of thinking of how to manage your dependency graph. Let's go ahead and put this in package.json of how to build. So we have build, and I'm going to put those to be -p whenever I call build, and then I'm going to say build:dev, if you ever wanna build for dev and not necessarily do watch or anything like that, it's always good to have that ability.
+
+[00:12:18]
+We're going to have webpack dash d, which is how you build for dev. And just to make this explicit I'm gonna say, NODE_ENV=production and NODE_ENV=development.
+>> Brian Holt: Okay, so let's push a branch real quick.
+>> Brian Holt: Before I push a branch, let's actually go ahead and fix our Lint error since I'm not gonna modify this again.
+
+[00:12:59]
+So I'm gonna export default actually here. That's gonna make this stop doing that. Why are you upset? And we need this to be a flow file. Okay, then we're going to go modify
+>> Brian Holt: Details. So this is just gonna be getAPIDetails cuz now it's the default export from asyncActions': and we also broke out tests.
+
+[00:13:30]
+So let's go fix the test real quick, which is gonna be action creators, action Isn't that actionCreators.spec, right? Up here we're gonna get this from asyncAction. So import law from ../asyncActions. And now everything should be fixed.
+>> Brian Holt: Actions.
+>> Brian Holt: Okay so, let me push a branch, this will be 30.
+

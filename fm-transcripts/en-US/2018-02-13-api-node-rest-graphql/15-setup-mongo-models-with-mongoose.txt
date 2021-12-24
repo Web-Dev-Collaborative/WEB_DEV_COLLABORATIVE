@@ -1,0 +1,88 @@
+[00:00:02]
+>> Scott Moss: So if you go into song.mongo you'll see something like this. You'll see a schema that's completely empty and then you see all this other stuff underneath it. Let's take a note what's going on here. First, we're importing Mongoose, which is ODM. We make an object called schema that is empty.
+
+[00:00:16]
+We'll do some work in here in a minute. And then what we do is we make something called a song schema which is an instance of a new mongoose.schema. And basically that's just, I'm taking this object. I'm gonna create a mongoose schema from this object using the new schema method.
+
+[00:00:32]
+And then what you do is you take that schema and you create a model from it. It's very similar to what you do in most databases. You create a schema. That gives you a table. You can think of it like this. Except for a model, it's the table now.
+
+[00:00:44]
+So I'm creating a schema based off of these rules that we have yet to define. And then with that schema, I'm going to create a model in the database by this name called song and I'm gonna reference it here so I can use it to do things in my application.
+
+[00:01:03]
+
+>> Scott Moss: So this pattern you'll see in almost every single model file. This is the same pattern. Create a schema, create a model, export the model. This model right here on line nine is the thing that you will be using in your code to create, find, delete, move, update.
+
+[00:01:15]
+That's what you'll be using for that resource, populate. All that's here. Now the important part is this part right here data modeling which is schema. And actually how to create a schema. So we have a lot of people here use Mongo. Who here has used Mongoose schemas? A few people, okay, so you pretty much know how powerful they are.
+
+[00:01:34]
+You can do a lot of things. We're not gonna get into really advanced stuff like custom validators and all that crazy stuff, but we are gonna model some data here. So there is some test associated with this, so you can just go whatever you want. I'm writing to check every single field on here, like required and all that stuff.
+
+[00:01:51]
+But let's just walk through how we can do some of this stuff with the schema and how it works with models. So the way it works is you have an object for your schema. And then what you do is, the properties on those objects are the names of the fields that the object's gonna have.
+
+[00:02:07]
+So for instance, let's just not worry about Song right now. We're just gonna make a completely different one. So let's just call this one a dogSchema, okay? So this is a dogSchema. And basically the way Mongoose needs it, like I said, the keys are the names of the fields you want.
+
+[00:02:24]
+So what's something a dog would have?
+>> Speaker 2: Name.
+>> Scott Moss: Name, okay. And now we have to tell Mongoose what type this is. So you could say String. Mongoose uses the built-in natives inside of JavaScript for the types. So String, capital S, is a native in JavaScript. It's a native primitive type, right?
+
+[00:02:43]
+So we can say String. We can also do a little bit more here. We can say hey, type is String, which is the same thing that I had before but the reason I expanded on an object is because I want to do something. I want to make this required.
+
+[00:02:56]
+So I can say required true. So this allows me to say hey, a dog has a name whose type is string and it is also required. That's what that's saying. I can also take it a step further and say, you know what, this name also has to be unique for the entire database, so unique: true.
+
+[00:03:11]
+So now no two dogs can have the same name.
+>> Scott Moss: So let's move on to another one. Let's say we wanted to know if this dog was, I don't know, old or not, I don't know. IsOld, is it an old dog, right? So, we say this is a type Boolean, cuz it's true or false, so we'll put that.
+
+[00:03:37]
+We can also say this type is Boolean. It is also required, but we're not gonna make this unique cuz it's a Boolean, that wasn't making any sense. But we will give it a default of false. By default, all dogs are not old, unless you specifically say that it's old.
+
+[00:03:54]
+Yes?
+>> Speaker 3: Do the types have to be primitives, or can you define complex objects in the types?
+>> Scott Moss: The types have to be primitives.
+>> Scott Moss: Actually, you know what? Maybe you might be able to pass in, depending on what version of Mongoose you're on, I'll look it up after this.
+
+[00:04:10]
+But I would say it's safe to use primitives for now. But if you're asking me if you can do things like this, or I'm sorry, that's a bad example. [LAUGH] More like Car, I would imagine no, and if you could I would say probably stay away from it, because now you're referencing some class that's in the code, when really you should be referencing some other model, right?
+
+[00:04:30]
+So that's what you wanna do, that's what we're gonna get to next. So if you wanna reference another type, that type should be a model, not something that's code level, something database level, right? So if you wanna do that, so if you can, I wanna reference the dog's owner that would be some other shape.
+
+[00:04:47]
+So the way we would do that is let's say this type is actually gonna be mongoose.Schema with a capital S .Types with a capital T .ObjectId. It's really long. Basically every id in Mongoose or in Mongo really is called an object id. It's technically an object, but at read time it's really a string, that's how they treat their IDs, so we're saying this owner, its type is an ID.
+
+[00:05:15]
+But that alone is not good enough so what we do is we say ref imagine we have some owner model somewhere, reference the owner model. So this tells the mongoose is when we call populate, I'm like hey, I wanna get a pet whose name is Gary, and I want to also get their owner, and populate the owner.
+
+[00:05:32]
+So it'll go get Gary, it'll get us the name, the isOld. And then for owner instead of giving us back an ID, it'll take this ID, go to the owner's model, and get the owner with that ID, and put it here. So this owner would no longer be an ID, it'll be an object of the owner.
+
+[00:05:48]
+Gonna populate it at runtime. So that's how you would reference other shapes in the database. It's a reference so you got that. You can also do things like, let me see. You can say faveFoods and this is an array of strings. So now you got favorite foods. I mean there's a lot of things you can do here, you can do geospacial indexes, you can do custom validators.
+
+[00:06:16]
+There's a lot of stuff, we really won't get into all of that, but yeah, this is the basics of creating a schema with Mongoose. So you would take that schema then you would pass it into mongoose.Schema and you'll get back a mongoose schema. Mongoose has to validate that this is real, and yeah, cool, yeah, yeah, we like that, we like that, here you go.
+
+[00:06:36]
+Then you take that schema and you exchange it for a model. This method right here mongoose.model, if you just pass it in without a schema, it'll try to retrieve a model called song. If you pass it in with a schema it'll set a model called song, so it's a getter and a setter.
+
+[00:06:50]
+So without the schema it'll try to retrieve it, with the schema it'll try to set it, remember that. There's also stuff we can do here, we can do hooks, we can do custom methods and stuff like that. For instance if I wanted to say you know what, I wanna do something every time before this song schema is validated.
+
+[00:07:10]
+So I can say song schema, not you. .pre('validate'). And this function will run before every time the schema is validated. So before any error's thrown because you didn't pass in the right type or you didn't meet the validations I can run this function. You can also do pre save, post save, pre find one and update.
+
+[00:07:30]
+There's a lot of different trade offs between what you're doing. But yeah, these are hooks. So this is really great to do things like subscribing to data via web hooks. The data changed, send a update to everybody subscribed on this web hook or something like that. So it's really cool, send off an email notification or whatever you want to do.
+
+[00:07:47]
+A lot of different stuff you can do inside of it. It's really cool.
+

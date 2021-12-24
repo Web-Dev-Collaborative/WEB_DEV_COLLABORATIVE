@@ -1,0 +1,66 @@
+[00:00:00]
+>> So we put the content into the dynamic page. I hope you had a little bit of fun putting this on the page, because you can actually make the page look however you want. Once you have that object, you could really create multiple kinds of layouts. You could put things all over the place.
+
+[00:00:21]
+We're creating a Nuxt food app this way, but you could see if you wanted to create a new app of your own, you can make any design or layout that you so chose. And you could even put it in that layouts area, right? We could make a completely different layout for that dynamic page.
+
+[00:00:39]
+The next thing that we're gonna do is we're gonna create a Toast component with a slot. We're gonna create a really simple, simple toast component. And the reason we're gonna do that is if we look back at our Nuxt food app, like if I refresh here, let's go back to Restaurants, let's go to Soup Dumplings.
+
+[00:01:02]
+If I add something to the cart, I want to know that something happened, right? I'm going to get like a little number here, but I also want to know somewhere on the page like that I actually added something to a cart. So the next thing that we're gonna do is we're gonna create this toast component, but we're gonna create it in such a way that we can reuse it over and over again.
+
+[00:01:25]
+And we talked a bit about slots, and slots are really great for reusable components or logic. They're really good for plopping in a bit of content. So, a toast is a good example of something like this, a modal is a good example of something like this. It's good for adding content quickly to a similar component or unit.
+
+[00:01:44]
+I might wanna style them all the same, but just add different types of content to that thing. So, it can be used for composition of multiple things. Name slots exist for more complex information. In my previous course It talks about name slots, and I used a couple of different examples, like I made a taco blog with taco if some.
+
+[00:02:06]
+If you want further details, you can go back to that course, we're not going to use named slots today, we're just going to use a default slot. But if you wanted to just check out some of that other material, you can check it out in the other course.
+
+[00:02:18]
+So, let's go back, and we're gonna make a new component called AppToast. And we're gonna make sure that it's not in this directory but rather in the components directory. Here we're gonna save the base, and you're like a V base expert now. We're going to say div class toast.
+
+[00:02:41]
+In real applications we'd probably style all of the toast component inside this scoped area here. But for the purposes of demonstration, I've loaded all of the styles already in main.css. So here, this is a very simple component, right? We're going to just put slot, and then, not scott, slot.
+
+[00:03:05]
+And so we're going to pass in a little bit of information there. We're going to go back to our ID, our underscore ID page. I'm going to collapse some of these sections, but I'm going to open this section with all of these details. Because inside this section, which was kind of laid out at the top, I want to add in that AppToast.
+
+[00:03:32]
+And I'm going to parse something into this AppToast, so I'm gonna leave it empty for now. I also have to import. You can start to see why these snippets are kind of helpful, like I'm doing that a lot, right? I'm adding in this component over and over and over again, and I'm saying like, okay, the name, name, name.
+
+[00:03:52]
+So that's kind of repetitive and those pieces can be helpful for that. No, go back here,here, here, here, toast. Now we're adding in the toast, and so I've got my app toast component, and then I'm also going to say something in there. Like I want to let the user know that order was submitted.
+
+[00:04:20]
+So I'm going to say order submitted, and then wind break and then say we want probably want to give them someplace else to go. So like check out more restaurants, and then I'm gonna say vnuxtl, so that gives me that link thing. I'm gonna throw restaurants in here, and here.
+
+[00:04:55]
+So right now, if we go to the page, it will just be chillin on the page, which we don't want it always chillin on the page even if we haven't submitted something. So what we want to do is we didn't want to do a nice V if, but we also have to give it something to V if off of.
+
+[00:05:12]
+So here, we're gonna say, if cart submitted, and we want to give it a false at first, we wanna say it's not submitted right now. And we're going to say, for this toast, v-if cart submitted. So now it should not be there at first. And what we want to do is once we click that button, then it says the toast, right then it gives us the toast.
+
+[00:05:45]
+So where is our button? Our button is right here. This button is gonna get an at click handler of AddToCart because that's really what primarily it's gonna do. So we're gonna make sure that we're able to add to the cart. I'm gonna collapse this computed for a moment.
+
+[00:06:10]
+And say the method, and we're gonna say AddToCart. The first thing that we're gonna do when we're adding to that cart, is we're gonna say cart submitted is true, right? So we're gonna say this .cart submitted equals true, not minus true equals true, equals true. And so we're able to kind of put, say all right, if we click that button and we know that it's submitting to the cart, then we're all good there.
+
+[00:06:49]
+But we also want to gather a lot of the stuff that we are gonna add to the cart and put that inside of there. Now, right now I have like a way that I named some of these things like count. And then there is also like combined price, and we also wanna current item to get the item.
+
+[00:07:12]
+So, we could feasibly destructure and add a bunch of things at once, but since the form output that we're currently trying to gather is all just like the naming is a little bit different, it doesn't totally make it super efficient. Because I want to say like item is this .currentItem .item, but count is this .count, and so on and so forth.
+
+[00:07:42]
+So I'm just gonna write these as like options is, oops, items is this.item options. And addOns is this.itemaddOns, thank you VS code, combinedPrice equals this.combinedPrice. Now, you might have guessed what we're going to do next, what we're going to do next is actually add this to a cart, but we want the store to hold the cart, right?
+
+[00:08:17]
+So, basically what we want this method of add to cart to do is to not just say this .cartSubmitted true, which now works. So let's go check that out. Let's go over here. We'll refresh the page, I will say Add to cart, and now you see that order is submitted.
+
+[00:08:38]
+So the next thing that we want to do is add to that cart, but first let's go back to our to do list. So we wanted to create a reusable toast component with a slot, so that's what we did.
+

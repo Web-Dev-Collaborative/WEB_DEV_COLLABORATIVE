@@ -1,0 +1,8 @@
+{
+  "short_name": "Cloudinary Sample App",
+  "name": "Cloudinary React Sample App",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

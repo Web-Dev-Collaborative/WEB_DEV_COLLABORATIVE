@@ -1,0 +1,15 @@
+[00:00:00]
+>> All right, so we're gonna look at the solution now for the composition API piece. So, we said const, reactive to two refs and watch effect, so, I'm bringing in those pieces. And you could have used reactive in two refs or you could have used refs, either one is totally fine.
+
+[00:00:22]
+Here I'm saying const state is reactive, I'm holding that new comment. And remember, these are just like that data return, so, I have the same information that I would have had in that data return that we were used to. Then we have function add comment. That's this.state.comments.pushstatenewcomment. So, rather than saying this.comments, you can start getting used to saying state.comments.
+
+[00:00:49]
+So, that's a difference there, state.comments.push, state.newcomment. We are saying state.newcomment=empty string, we're using a watch effect. And like I said before, if we're using watch effect, I don't have to say what I'm gonna be watching. Unlike the watchers, but previously where I would have had to say the property.
+
+[00:01:10]
+I'm saying console.log new value and I can automatically just say, state.newcomment, really nice. And so, then I can say two refs, the state, and I'm also saying, add comment. Because that's that function, I want to make sure that I'm returning that function as well. And the template stays totally the same, the template is not changing.
+
+[00:01:30]
+That surface API has not changed.
+

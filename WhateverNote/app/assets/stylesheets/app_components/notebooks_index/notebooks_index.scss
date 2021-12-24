@@ -1,0 +1,184 @@
+.notebooks-index{
+    width: -webkit-fill-available;
+    padding: 25px 30px;
+
+    table{
+        border-collapse: collapse;
+        width: -webkit-fill-available;
+        thead{
+            text-align: left;
+            background-color: $light-gray;
+            .title{
+                width: 200px;
+            }
+            tr{
+                th:first-of-type{
+                    padding-left: 10px;
+                }
+                th:last-of-type{
+                    padding-right: 10px;
+                }
+                font-family: $body;
+                font-size: 12px;
+            }
+            border-bottom: 1px solid $border-gray;
+        }
+
+        tr{
+            height: 35px;
+            font-family: $body;
+            font-size: 14px;
+        }
+
+        tr:nth-of-type(even){
+            background-color: $light-gray;
+        }
+        
+        tr:hover{
+            background-color: $border-gray;
+        }
+
+        .note{
+            .title{
+                padding-left: 45px;
+                h3{
+                    padding: 0;
+                }
+                i{
+                    padding-right: 10px;
+                }
+            }
+        }
+
+        .title{
+            display: flex;
+            padding-top: 8px;
+           
+            h3{
+                margin: 0;
+                font-size: 15px;
+                padding-left: 10px;
+                font-weight: normal;
+            }
+            p{
+                padding-left: 5px;
+                color: $text-gray;
+                background: inherit;
+            }
+            i{
+                background: inherit;
+                padding-left: 5px;
+                align-self: center;
+            }
+            .caret{
+                padding: 5px;
+                padding-left: 15px;
+                max-width: 5px;
+            }
+        }
+
+        .actions{
+            width: 40px;
+            text-align: right;
+            position: relative;
+        }
+
+        .title:hover{
+            cursor: pointer;
+            h3{
+                text-decoration: underline;
+            }
+        }
+
+        .options{
+            background: inherit;
+            min-width: 25px;
+            text-align: center;
+            width: auto;
+            border-radius: 3px;
+            i{
+                background-color: transparent;
+                color: gray;
+                transition: color 0.125s;
+            }
+        }
+
+        .options:hover{
+            background-color: inherit;
+            cursor: pointer;
+            i{
+                color: $dark-blue;
+            }
+            .description{
+                opacity: 1;
+                z-index: 3;
+            }
+        }
+
+        .options-dropdown{
+            position: absolute;
+            z-index: 5;
+            right: 10px;
+            top: 35px;
+            width: 165px;
+            box-shadow: 0 0 5px $gray;
+            box-sizing: border-box;
+            padding: 5px 0;
+            font-family: $body;
+
+            li{
+                li{
+                    padding: 5px 20px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $dark-gray;
+                    border:none;
+                }
+                ul{
+                    padding: 5px 0;
+                }
+                border-bottom: 1px solid $light-gray;
+            }
+
+            li:last-of-type{
+                border: none;
+            }
+
+            li:hover{
+                background-color: $light-gray;
+                cursor: pointer;
+            }
+        }
+
+        .right.description{
+            right: -55px;
+            transform: none;
+            .arrow{
+                left: 63%;
+            }
+            
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+            transform: translate(-38%, 0);
+            margin-top: 15px;
+            width: max-content;
+            padding: 12px;
+            background-color: $dark-blue;
+            color:white;
+            border-radius: 5px;
+            
+            .arrow{
+                z-index: 4;
+                position: absolute;
+                top: -5px;
+                width: 0; 
+                height: 0; 
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent; 
+                border-bottom:7px solid $dark-blue;
+                background: transparent 
+            }
+        }
+    }
+}

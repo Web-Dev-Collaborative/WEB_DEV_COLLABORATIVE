@@ -1,0 +1,54 @@
+[00:00:00]
+>> Okay, so let's start with this app.vue and we'll go back to our backpack shop. This app.vue this vue.create app that we've been working with this whole time, is very similar to that. So I'm gonna grab the data from inside here. So we're gonna add that data, I'm actually gonna remove the component of HelloWorld because we're not gonna use it.
+
+[00:00:29]
+And I'm gonna remove it here. And actually, I'm gonna remove the vue logo as well. So we've just got div id app, I'm gonna remove this style here. And you can see it's given us SCSS because we asked for that when we were working with the CLI as well.
+
+[00:00:47]
+And I'm gonna go grab the styles from here. Then we'll go back and we're gonna put them here. There's a thing that I didn't mention which is the vue style guide. If you go into the docs, there is a style guide that makes some recommendations for how to work with vue apps.
+
+[00:01:13]
+And inside that style guide, you'll see that what we suggest is either putting global styles in a main dot CSS file, or an app, or the top level app component. Anything below that, any component below that should have scoped on it, which means that it's scoping to just that area.
+
+[00:01:33]
+So I'm gonna save that. The other thing that we had was a font, so I'm gonna go in grab this font from this area, we'll go back to VS code, we go into the index.html, and I add the link to the font here. Cool, then we go back again and I'm gonna go into my HTML and I'm gonna take all of the HTML that was in that first top level, and I'm gonna put it into my app.
+
+[00:02:05]
+So I go back into my app, div id app. There we go. Now, right now I'm not even gonna look, cuz I know what's happening is it's erroring because am adding an app child. And that app child doesn't exist yet. So let's make that app child component. So I'm gonna make a new component, and I'm gonna save it and it's gonna say AppChild.vue, I'm gonna save it in components.
+
+[00:02:34]
+And here I'm gonna type vbase, this is my snippet to output some boilerplate. So I have a lot of different snippets that allow you to work really, really quickly. This will allow me to output all of the things that are necessary for me to set up a single file component with ease.
+
+[00:02:50]
+So now go back to this here, we're gonna go grab everything inside the child. We don't need to state that there's a relationship with the child anymore, because we know that we're in there. So I'm able to put this in. So we save that. And then once again, we go back and we gonna get the state of this component.
+
+[00:03:20]
+So we don't need the template, because that's already associated, and we go back here. And inside export defaults, we put the props and we put the data. Now if I wanted to import that component again, I'm gonna use my snippet. So I'll say vImport-export, and what it will give me is some boilerplate to add that in.
+
+[00:03:43]
+So I'll say AppChild is what I named it, and I can't have to export default. So I want to do that, so that I can have access to it. And okay, we coded for a long time without looking at anything. So we should probably look at it now and see if we have any errors.
+
+[00:04:00]
+So we'll go over here, and here we are, we see our full setup from the code pen. So what's different? What do we do that's different that's in this kind of application. We have all of our app child's style. So if I wanted to know something about this child component, I would go to this file and I see all the information here.
+
+[00:04:22]
+Every piece of this is optional. So if I have no information here, I could totally remove that. And it's very clear what this component is in does, it's right there. If I look at this app, now I know that I'm importing this app child. Here this is here's the template, here is the data in the manifest and here is my SAS.
+
+[00:04:49]
+[LAUGH] So what I'm gonna do from here, is I'm gonna go back to my terminal. And did I save it? I think I saved it, cool, cool. And try to save you, saved, okay. Now I'm gonna go back to my terminal. And I'm gonna use a thing that's called hub.
+
+[00:05:10]
+Hub is a command line tool for making GitHub repos. So I can say, hub create, I'm gonna pass in -p, which allows me to make private repo and I could name it something but I wanted to just use the name of the directory. So I'll say hub create -p and this will run.
+
+[00:05:30]
+And so now I say git add -A, git commit -m, and then we'll say initial commit Git push -u origin master. So we're pushing that up. And then if I go to the setup, I should see everything deployed right over here. So now I have it all set up on GitHub.
+
+[00:06:05]
+Now, the next thing I'm gonna do is I'm gonna go to netlify, and I'm gonna deploy it. So I log in. It's saying new site from git, GitHub. Then I authorize GitHub. I say setup1. Click on this. We're gonna branch to deploy as master, our build command is gonna be, if you are confused on how to find where the build commands are, you can go to the readme and the readme tells you exactly what you need.
+
+[00:06:48]
+So you can copy and paste this right in here. Yarn run build, we'll go back. Builds command and in the publish directory is gonna be dist deploy site. So you can see it's starting to get this site deploy and process and stuff. While that's happening, you can see that I set that -p and that is private now.
+
+[00:07:15]
+And so what we're doing is we're gonna deploy the entire site that we just created so that we're taking it all the way from this CodePen example, all the way to a deployed site. And in the repo, if you want to see this, its setup1.
+

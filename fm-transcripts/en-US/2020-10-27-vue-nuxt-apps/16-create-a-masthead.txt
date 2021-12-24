@@ -1,0 +1,36 @@
+[00:00:00]
+>> So the next thing that we wanna do is we wanna create a nice masthead for that index page, we wanna say have that beautiful header image come in. And so, we're going to go back and we're gonna create a hero, I actually made this hero generator because, I think I've made hundreds of heroes before and every single time I'd be, wait, what did I do again?
+
+[00:00:23]
+And so I made this hero generator so that you can kind of play with some defaults and some button radiuses, and you can play with the Gradient Overlay and things like that. And so we have some code output here that I have ready for you when you play with that code.
+
+[00:00:39]
+So, it's forkable and stuff on GitHub, so if we go back to our application, and we create a thing called app header.view, and I'm gonna put this in the components directory. And I'm gonna say, the vbase, I'm gonna paste the code that was copy pastable below because it has some HTML and some CSS.
+
+[00:01:03]
+I'm gonna grab the HTML, and I'm going to place it here, so we have a masthead, and then I'm gonna grab all of this CSS, and I'm going to place it inside my CSS. Let me get rid of this stuff, note that because we're in side one of the components inside the application, we now are using scoped that scoped tag.
+
+[00:01:31]
+Cool, there's a couple things I wanna do here, I already made a button style that's for the entire application, so I don't need the button styles here. The next thing that I wanna do is, I want to make sure that this URL is pointing to an actual image that we have.
+
+[00:01:46]
+So to point to our assets file, I'm going to do that ~ like you saw before, assets, and then header image.jpg. And now I'm gonna bring that header on to the index page because right now it's not actually anywhere, right and we're gonna say vimport export appheader, And then I have the Appheader.
+
+[00:02:23]
+And now let's take a look at what we've got, I might have to restart the server. Go back to the homepage, and there we go, we've got this big, bright, beautiful image, that's an alliteration, and we've got this hero generator. So, you can already start to see how we might need to change this a little bit.
+
+[00:02:42]
+First of all, this white text, even with the shadow right over this, it's not that legible. So let's put it in the corner where there's a lot of dark news happening. Also, I wanna have a lot more information below the fold here but, if I have the hero covering this entire space, it's not so clear to people that they can scroll down.
+
+[00:03:03]
+So I'm gonna make it not cover the full height. The other thing is this is enormous font, so maybe we should make the font a little bit smaller. So we're gonna come back into the Appheader, and we're gonna remove all of the things that make it centered, which are all of these flexbox things.
+
+[00:03:22]
+And I even commented if you don't want it to take up the full screen reduce this number, so I'm gonna reduce it to 80. And then in the h1 I mentioned it was really, really big, let's change this to 8vmin instead of 11 vmin. And I'm also gonna give it a little bit of padding because right now it's going to just jet up against the page.
+
+[00:03:46]
+So let's go back and look at it, and that's a little bit better, right? Although it still says the hero generator and when a hero comes along, so we probably wanna change some of that markup. So we're gonna say Next Food App, and then beneath it, we're gonna say See Restaurants.
+
+[00:04:10]
+Cool, And we go back, and now we've got Nuxt Food App and See restaurants, doing pretty good so far.
+

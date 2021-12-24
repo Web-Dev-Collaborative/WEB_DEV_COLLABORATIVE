@@ -1,0 +1,105 @@
+.side-bar{
+    .user-dropdown.hidden{
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    
+    .user-dropdown{
+        position: absolute;
+        z-index: 2;
+        box-sizing: border-box;
+        left: 2px;
+        top: 60px;
+        opacity: 1;
+        width: 270px;
+        max-height: 100%;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        background: whitesmoke;
+        border-radius: 3px;
+        padding: 10px 0;
+        box-shadow: 0 0 10px $darkest-blue;
+        transition: opacity 0.5s;
+        
+        h3{
+            color: $gray;
+            margin-top: 8px;
+            margin-left: 20px;
+            margin-bottom: 0;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        li{
+            background-color: transparent;
+            margin: 8px 0px;
+            border-bottom: 1px solid $light-gray;
+    
+            p{
+                font-family: $body;
+                font-weight: bold;
+                font-size: 14px;
+                padding: 5px 0;
+                padding-left: 20px;
+                color: $dark-blue;
+                background-color: inherit;
+                transition: inherit;
+            }
+
+        }
+        
+        #settings{
+            height: 38px;
+        }
+        
+        li:last-of-type{
+            border-bottom: none;
+        }
+    
+        li:hover p, li:hover #user-info{
+            cursor: pointer;
+            background-color: $light-gray;
+        }
+    
+        #user-info{
+            display: flex;
+            align-items: center;
+            background: transparent;
+            padding: 2px 20px;
+            margin: 8px 0;
+            transition: background-color 0.25s;
+    
+            i{
+                background: inherit;
+                padding-right: 20px;
+                color: $dark-blue;
+            }
+            img{
+                width: 30px;
+                height: 30px;
+                height: 100%;
+                padding: 3px;
+                border-radius: 50%;
+                background: $greenish-blue;
+            }
+            div{
+                background: inherit;
+                padding-left: 10px;
+                h3{
+                    margin: 0;
+                    color: $dark-blue;
+                    font-size: 16px;
+                }
+    
+                p{
+                    background: inherit;
+                    font-size: 12px;
+                    color: $gray;
+                    font-weight: 600;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

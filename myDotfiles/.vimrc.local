@@ -1,0 +1,107 @@
+if filereadable(expand("$ADMIN_SCRIPTS/master.vimrc"))
+  source $ADMIN_SCRIPTS/master.vimrc
+  if filereadable("/home/engshare/admin/scripts/vim/biggrep.vim")
+    source /home/engshare/admin/scripts/vim/biggrep.vim 
+  endif
+endif
+
+" autocomplete fix...
+command! -nargs=1 Tbgs call BigGrepVsplit('tbgs', <q-args>)
+command! -nargs=1 Fbgs call BigGrepVsplit('fbgs', <q-args>)
+command! -nargs=1 Cbgs call BigGrepVsplit('cbgs', <q-args>)
+set number
+
+noremap <Space>w :w <CR>
+
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+
+" next tab with C-o
+noremap <C-o> :tabn<CR>
+" prev tab with Alt-C
+noremap ø :tabp<CR>
+
+function MoveToNextTab()
+  "there is only one window
+  if tabpagenr('$') == 1 && winnr('$') == 1
+    return
+  endif
+  "preparing new window
+  let l:tab_nr = tabpagenr('$')
+  let l:cur_buf = bufnr('%')
+  if tabpagenr() < tab_nr
+    close!
+    if l:tab_nr == tabpagenr('$')
+      tabnext
+    endif
+    sp
+  else
+    close!
+    tabnew
+  endif
+  "opening current buffer in new window
+  exe "b".l:cur_buf
+endfunc
+" open up a new tab with comma t
+noremap ,t <Esc>:call MoveToNextTab()<CR>
+" move the window to the left or right with comma h/k
+" YEAHHHHH
+noremap ,h <C-w>r<CR>
+noremap ,k <C-w>R<CR>
+
+" turn off annoying undercase stuff
+vnoremap u a
+vnoremap U A
+
+set shortmess+=A
+
+hi Visual cterm=reverse ctermbg=Black
+hi Search cterm=reverse ctermbg=Black
+
+Bundle 'git://github.com/altercation/vim-colors-solarized'
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
+set ruler
+
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set smarttab
+set ai
+set si
+set wrap
+set nocompatible
+
+:hi CursorLine cterm=NONE,underline guibg=#F4F4F4
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#59292
+match OverLength /\%81v.\+/
+
+" Make curr window 80chars 
+set winwidth=85
+nmap <Tab> <c-w><c-w>
+autocmd WinEnter * wincmd =
+autocmd VimResized * wincmd =
+
+" Change selected text from NameLikeThis to name_like_this.
+vnoremap ,u :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
+" Change selected text from name_like_this to NameLikeThis.
+vnoremap ,c :s/_\([a-z]\)/\u\1/g<CR>gUl
+
+" Alt H does hack toggle remap
+noremap ˙ :HackToggle<CR>
+noremap π :set invpaste paste?<CR>
+
+" this is pretty sweet -- /search as normal, but then do
+" cs strokes to cut the search. replace it with something,
+" hit Esc to quit out, and then you can do n to jump to next match
+" and then . to replace it if wanted.
+vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+omap s :normal vs<CR>
+

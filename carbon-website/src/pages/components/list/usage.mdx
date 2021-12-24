@@ -1,0 +1,159 @@
+---
+title: List
+description:
+  Lists are vertical groupings of related content. List items begin with either
+  a number or a bullet.
+tabs: ['Usage', 'Style', 'Code', 'Accessibility']
+---
+
+<PageDescription>
+
+Lists are vertical groupings of related content. List items begin with either a
+number or a bullet.
+
+</PageDescription>
+
+<AnchorLinks>
+
+<AnchorLink>Overview</AnchorLink>
+<AnchorLink>Live demo</AnchorLink>
+<AnchorLink>Variants</AnchorLink>
+<AnchorLink>Content</AnchorLink>
+<AnchorLink>Feedback</AnchorLink>
+
+</AnchorLinks>
+
+## Overview
+
+Lists consist of related content grouped together and organized vertically.
+
+Use bulleted lists when you don't need to convey a specific order for list
+items.
+
+Use numbered lists when you need to convey a priority, hierarchy, or sequence
+between list items.
+
+## Live demo
+
+<ComponentDemo
+  components={[
+    {
+      id: 'ordered',
+      label: 'Ordered list',
+    },
+    {
+      id: 'unordered',
+      label: 'Unordered list',
+    },
+  ]}>
+  <ComponentVariant
+    id="ordered"
+    links={{
+      React:
+        'https://react.carbondesignsystem.com/?path=/story/components-orderedlist--default',
+      Angular:
+        'https://angular.carbondesignsystem.com/?path=/story/components-list--basic',
+      Vue:
+        'http://vue.carbondesignsystem.com/?path=/story/components-cvlist--default',
+      Vanilla: 'https://the-carbon-components.netlify.com/?nav=list',
+    }}>{`
+    <OrderedList>
+      <ListItem>
+        Ordered list level 1
+      </ListItem>
+      <ListItem>
+        Ordered list level 1
+        <OrderedList nested>
+          <ListItem>
+            Ordered list level 2
+          </ListItem>
+          <ListItem>
+            Ordered list level 2
+          </ListItem>
+          <ListItem>
+            Ordered list level 2
+          </ListItem>
+        </OrderedList>
+      </ListItem>
+      <ListItem>
+        Ordered list level 1
+      </ListItem>
+    </OrderedList>
+  `}</ComponentVariant>
+  <ComponentVariant
+    id="unordered"
+    links={{
+      React:
+        'https://react.carbondesignsystem.com/?path=/story/components-unorderedlist--default',
+      Angular:
+        'https://angular.carbondesignsystem.com/?path=/story/components-list--basic',
+      Vue:
+        'http://vue.carbondesignsystem.com/?path=/story/components-cvlist--default',
+      Vanilla: 'https://the-carbon-components.netlify.com/?nav=list',
+    }}>{`
+      <UnorderedList>
+        <ListItem>
+          Unordered list level 1
+        </ListItem>
+        <ListItem>
+          Unordered list level 1
+          <UnorderedList nested>
+            <ListItem>
+              Unordered list level 2
+            </ListItem>
+            <ListItem>
+              Unordered list level 2
+            </ListItem>
+            <ListItem>
+              Unordered list level 2
+            </ListItem>
+          </UnorderedList>
+        </ListItem>
+        <ListItem>
+          Unordered list level 1
+        </ListItem>
+      </UnorderedList>
+  `}</ComponentVariant>
+</ComponentDemo>
+
+## Variants
+
+| Variant         | Purpose                                                                            |
+| --------------- | ---------------------------------------------------------------------------------- |
+| Unordered lists | To present content of equal status or value.                                       |
+| Ordered lists   | Imply sequence and order, and are commonly used when giving a set of instructions. |
+
+## Content
+
+#### Length
+
+Generally, lists should be used to present simple pieces of information. For
+more complex sets of data, consider using a
+[data table](/components/data-table/usage).
+
+#### Order
+
+Arrange list items in a logical way. For example, if the list is about resource
+use, the default order might be highest resource use to lowest. Grouping items
+in categories into smaller, more specific lists might be more meaningful in some
+contexts. Alternatively, organize in alphabetical or numeric order.
+
+#### Text
+
+Use list items that are grammatically parallel. For example, do not mix passive
+voice with active voice or declarative sentences (statements) with imperative
+sentences (direct command).
+
+<Row>
+<Column colLg={8}>
+
+![Example of a list](images/list-usage-1.png)
+
+</Column>
+</Row>
+
+## Feedback
+
+Help us improve this component by providing feedback, asking questions, and
+leaving any other comments on
+[GitHub](https://github.com/carbon-design-system/carbon-website/issues/new?assignees=&labels=feedback&template=feedback.md).

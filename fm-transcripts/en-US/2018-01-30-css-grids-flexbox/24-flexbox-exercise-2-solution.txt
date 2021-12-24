@@ -1,0 +1,96 @@
+[00:00:00]
+>> Jen Kramer: What went well, what seemed to work okay, and or where did you get stuck?
+>> Speaker 2: I had some little margin problems.
+>> Jen Kramer: You had some margin problems?
+>> Speaker 2: That I had just kinda turn around.
+>> Jen Kramer: Okay.
+>> Speaker 2: And the only difference I can see between our two pages is the testimonials goes up and down just a little bit.
+
+[00:00:18]
+
+>> Jen Kramer: Just a tiny little bit.
+>> Speaker 2: Right.
+>> Jen Kramer: If we had infinite time, we could tweak until perfection, right? Yeah, okay, I'm not gonna worry about that, that the testimonials are a little higher or a little lower depending, okay? How about everybody else?
+>> Speaker 3: Same. [LAUGH]
+>> Jen Kramer: Same, it's basically just the testimonials and where they fit in the space?
+
+[00:00:39]
+
+>> Speaker 3: Yeah, in relation to the inside of the text.
+>> Jen Kramer: Okay, that in relation to the text?
+>> Speaker 3: Yeah.
+>> Jen Kramer: Fair enough, okay, so I tend not to be that much of a perfectionist and sort of let things like that go. Obviously, if you had lots of design time remaining with this, so you would sit there and tweak away.
+
+[00:00:57]
+But I question how much you're actually gonna learn by doing that. [LAUGH] So I'll show you my answer here which is what you can follow along here in the end folder. So if you look in the end folder, this is what my solution look like. So I had some things going on here.
+
+[00:01:17]
+I have a class here. I've left the rows in place. The ul of the navigation, I gave it a class of full-width. So I created a new class called full-width. Because what I found with the row that I had existing, it didn't stretch quite all the way across and I think I had a little bit of a gap on either side, right?
+
+[00:01:38]
+A little 4% margin gap, it wasn't lining up well as I recall when I put the solution together. So I created a class to get around that particular problem. The thing that's really notable here for me is the way that I handle the sidebar over here. So of course, the main content of this has got an article with a class of col-3.
+
+[00:02:03]
+That's no different than what we've already looked at with the grid system that we prototyped. But here with my sidebar, what I wound up doing was this div, I put a div around the side or maybe that was already there. But I've changed its classes so that it's both a flex item and a flex row.
+
+[00:02:24]
+[LAUGH] See how I do that? So I have the flex item, the col-1-4. And it's also a row and this sides become the flex items. So basically, I have a little bit of a nested grid going on here. Does that make sense? Okay, so then if we take a look at the CSS associated with that particular piece, cuz I think that's the one sort of area that had a level of difficulty to this.
+
+[00:02:52]
+Is that fair to say? Pretty much everything else was pretty straightforward on this example. So let's look at the CSS and how I dealt with that. I'll start down here at the desktop.
+>> Jen Kramer: So at the desktop,
+>> Jen Kramer: I have a flex item that's the sidebar with 100% width, okay?
+
+[00:03:18]
+So instead of it being 92% that had a margin on either side, it didn't really want that in this case. So I give it a flex-basis of 100%. In the tablet portion of this, I added that, that the flex-basis was going to be 44%, okay?
+>> Jen Kramer: And then, up here in the mobile styles, outside of the media queries, I have a flex-basis of 100%.
+
+[00:03:51]
+And I added a bit of margin with this as well. Okay, so then, when you display the page,
+>> Jen Kramer: Then,
+>> Jen Kramer: We shrink it down, we hit our breakpoint, then I wind up with my two boxes underneath like this. And then everything should stack on top of each other at some point in time like that.
+
+[00:04:21]
+And I put in some extra padding here, because I thought it looked nicer, and you know, stuff like that, little design considerations. Does that make sense to everybody? What I did and why? Do we have anybody else who did a different approach who'd like to share? I'm not saying I have a lock on the perfect way of doing this, or even the only way of doing it.
+
+[00:04:44]
+
+>> Speaker 4: My said she used your, col-classes, and then used flex with it.
+>> Jen Kramer: Correct, yes, absolutely, you could use the same classes that were already there from the floats, and you just repurpose them all to be flex-box. You get rid of the float part, you get rid of the width part, and then replace those with the appropriate flex properties.
+
+[00:05:04]
+That's definitely a way of doing that.
+>> Speaker 4: What happened with the pizza image?
+>> Jen Kramer: With the pizza image.
+>> Speaker 3: It's a trick question.
+>> Speaker 5: It had breaks on the lower.
+>> Jen Kramer: You mean the pie of the month down here?
+>> Speaker 5: Yeah.
+>> Jen Kramer: Is that what we're talking about?
+
+[00:05:19]
+The pie of the month?
+>> Speaker 4: When you shrink the viewport.
+>> Jen Kramer: Which of course is pie day pie, ha ha ha.
+>> Speaker 4: Yeah, the pie.
+>> Jen Kramer: These are all numbers all over it. So when you shrink it, what's going on with this? Is that the question?
+>> Speaker 3: Only at the image.
+
+[00:05:36]
+
+>> Jen Kramer: So yeah, so since this is flex-box, the boxes are stretching. The testimonial box is stretching to accommodate the content here. So of course, the pie box here is also going to stretch, right? The border's gonna stretch, but of course, the image is not. So that's what's going on here.
+
+[00:05:52]
+Does that help?
+>> Speaker 4: Yeah, I think so.
+>> Jen Kramer: Okay, and
+>> Jen Kramer: Let's put it to this dimension here. So you'll notice that we have this space over here on the side as well that comes from, I had a style in here that locked down. It might have been outside the media query.
+
+[00:06:17]
+That locked down this, the maximum size of those images to 225 or 250 pixels, did sort of a hack.
+>> Jen Kramer: Search for it.
+>> Jen Kramer: Yeah, okay, that's one of them, that's the article image, and yeah, so here's the sidebar images. And you see here that I've rounded some of the corners, width of 100%, but a max width of 250 pixels.
+
+[00:06:48]
+And so this is a hack for leads beautifully until a chapter from now. So this is a hack to make the images scale as we make the page larger or smaller. Because they can go, quote, 100% of the container width up to a maximum of 250 pixels. And at that point it stops enlarging those.
+

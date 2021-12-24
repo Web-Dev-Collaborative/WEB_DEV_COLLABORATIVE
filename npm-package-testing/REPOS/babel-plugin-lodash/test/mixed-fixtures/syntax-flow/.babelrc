@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "@babel/syntax-flow"
+  ],
+  "presets": [
+    ["@babel/env", {
+      "targets": {
+        "node": 6
+      }
+    }]
+  ]
+}

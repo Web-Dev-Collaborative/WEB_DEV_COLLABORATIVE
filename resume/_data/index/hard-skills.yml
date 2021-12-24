@@ -1,0 +1,37 @@
+# hard skills section data
+
+- label: 
+  id : languages
+  title : I'm a developer
+  class: l6
+  type: radar
+#  aspects: c++ 2004, java 2004, js 2001, bash 2004, python 1996, perl 2004, php 2004, lisp 2004
+  aspects: perl 2004, java 2004, js 2001, bash 2004, python 1996, php 2004
+  percentage: 70, 70, 80, 90, 85, 80
+
+- label: 
+  id : services
+  title: I'm a operator
+  class: l6
+  type: radar
+#  aspects: hosting 2011, LAPP 2008, LAMP 2004, serverless 2016, containers 2008, MEAN 2011, J(O)LT 2005
+  aspects: hosting 2011, LAMP 2004, serverless 2016, containers 2008, MEAN 2011
+  percentage: 80, 80, 90, 85, 70
+
+- label: 
+  id : cloud
+  title: I'm online since 1996
+  class: l6
+  type: radar
+#  aspects: mIRC 1996, SaaS 1996, GitHub 2012, AWS 2016, DBaaS 2016, PaaS 2001
+  aspects: SaaS 1996, GitHub 2012, AWS 2016, DBaaS 2016, PaaS 2001
+  percentage: 80, 90, 90, 90, 80
+
+- label: 
+  id : sport
+  title: Sport is health
+  class: l6
+  type: radar
+#  aspects: Swimming instructor 1998, Skate 1986, Carving 2016, Functional training 2018, Longboard 2014, Swimming 1984
+  aspects: walking, ping pong, swimming, functional training, carving, biking
+  percentage: 70, 80, 80, 85, 70, 70

@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/two-column-layout","root":"two-column-layout-m__root__cY11m","small":"two-column-layout-m__small__2sTw2","divider":"two-column-layout-m__divider__1OqrL"};

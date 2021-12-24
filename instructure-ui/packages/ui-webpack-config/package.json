@@ -1,0 +1,39 @@
+{
+  "name": "@instructure/ui-webpack-config",
+  "version": "8.3.0",
+  "description": "A shared webpack config made by Instructure Inc.",
+  "author": "Instructure, Inc. Engineering and Product Design",
+  "type": "commonjs",
+  "main": "./config/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instructure/instructure-ui.git"
+  },
+  "homepage": "https://instructure.github.io/instructure-ui/",
+  "bugs": "https://github.com/instructure/instructure-ui/issues",
+  "scripts": {
+    "lint": "ui-test --lint",
+    "lint:fix": "ui-test --lint --fix"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@instructure/config-loader": "^8.3.0",
+    "@instructure/ui-babel-preset": "^8.3.0",
+    "@instructure/ui-component-examples": "^8.3.0",
+    "css-loader": "^3.2.0",
+    "dotenv": "^8.1.0",
+    "eslint-loader": "^3.0.0",
+    "file-loader": "^4.2.0",
+    "postcss-reporter": "^6.0.1",
+    "react-dev-utils": "^11.0.3",
+    "style-loader": "^1.0.0",
+    "stylelint": "^10",
+    "terser-webpack-plugin": "^2.1.0",
+    "thread-loader": "^2.1.3",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.40.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+
+<head>
+	<title>Roland's portfolio 👨‍💻</title>
+  <meta property="og:url" content="https://rolandlevy.co.uk/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Roland's portfolio 👨‍💻" />
+  <meta property="og:description" content=" full-stack software developer specialising in front-end: JavaScript, Vue, React, Express, Node etc..." />
+  <meta property="og:image" content="https://rolandlevy.co.uk/images/profile-photo-600-600.png" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="styles/import.css" rel="stylesheet" type="text/css" />
+	<link href="styles/root.css" rel="stylesheet" type="text/css" />
+	<link href="styles/reset.css" rel="stylesheet" type="text/css" />
+	<link href="styles/normalize.css" rel="stylesheet" type="text/css" />
+	<link href="styles/backgrounds.css" rel="stylesheet" type="text/css" />
+	<link href="styles/main.css" rel="stylesheet" type="text/css" />
+	<link href="styles/theme.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+
+<body>
+  <main class="container vertical-align-all">
+
+      <div class="success-bg">
+        <section class="section m-t-100">
+
+          <div class="limit panel border-radius-5px p-30">
+            <h2>Success 👍</h2>
+            <p class="paragraph">Thanks for getting in touch! I will respond shortly.</p>
+          </div>
+
+          <div class="limit m-t-30">
+            <a href="/index.html" class="btn dark vertical-align">
+              <div><i class="fas fa-arrow-left left"></i></div>
+              <div>Back</div>
+            </a>
+          </div>
+          
+        </section>
+      </div>
+      
+    </main>
+    <footer>
+      <p>&copy; 2020 Roland Levy. Home-made with vanilla JavaScript and pure CSS &#9889;</p>
+    </footer>
+    
+    <script>
+      const savedTheme = window.localStorage.getItem('theme') || '';
+      const html = document.querySelector('html');
+      html.dataset.theme = savedTheme;
+    </script>
+
+  </body>
+</html>

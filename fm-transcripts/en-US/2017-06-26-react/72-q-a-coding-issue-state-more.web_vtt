@@ -1,0 +1,156 @@
+WEBVTT
+
+1
+00:00:01.044 --> 00:00:05.407
+&gt;&gt; Speaker 1: How would you use Redux
+with something like local storage?
+
+2
+00:00:05.407 --> 00:00:07.190
+Have you done that before?
+&gt;&gt; Brian Holt: So
+
+3
+00:00:07.190 --> 00:00:10.859
+you can definitely dump your state to
+local storage, and then load it back.
+
+4
+00:00:10.859 --> 00:00:15.100
+So you can hydrate and
+rehydrate from any number of sources.
+
+5
+00:00:15.100 --> 00:00:16.601
+There are plug ins specifically,
+
+6
+00:00:16.601 --> 00:00:20.120
+like I think it's called Redux Offline
+if I remember correctly.
+
+7
+00:00:20.120 --> 00:00:21.998
+That will do a bunch of that stuff for
+you.
+
+8
+00:00:21.998 --> 00:00:25.008
+I'm not gonna show you here
+because I haven't done it and
+
+9
+00:00:25.008 --> 00:00:26.962
+I'm not gonna improvise on the fly.
+
+10
+00:00:26.962 --> 00:00:31.961
+But there's a bunch of tooling and
+libraries around Redux that will do
+
+11
+00:00:31.961 --> 00:00:36.979
+that for you, for sure.
+&gt;&gt; Speaker 1: And
+
+12
+00:00:36.979 --> 00:00:39.366
+then with Redux, so essentially,
+
+13
+00:00:39.366 --> 00:00:42.797
+instead of setState you're using dispatch?
+&gt;&gt; Brian Holt: Yes,
+
+14
+00:00:42.797 --> 00:00:49.743
+that's astute.
+&gt;&gt; Brian Holt: The interesting
+
+15
+00:00:49.743 --> 00:00:55.368
+thing with React which I have not shown
+you, is you can actually do reducers and
+
+16
+00:00:55.368 --> 00:00:59.048
+actions and
+things like that with React directly.
+
+17
+00:00:59.048 --> 00:01:04.029
+So you can kinda treat React State as
+if it was like a mini-Redux store,
+
+18
+00:01:04.029 --> 00:01:05.449
+that's possible.
+
+19
+00:01:05.449 --> 00:01:09.303
+Cuz you can actually give
+instead of giving React objects
+
+20
+00:01:09.303 --> 00:01:13.638
+to update the state with,
+you can actually hand it functions and
+
+21
+00:01:13.638 --> 00:01:16.865
+those functions can be like reducers,
+right?
+
+22
+00:01:16.865 --> 00:01:21.747
+So that's possible as well.
+&gt;&gt; Speaker 3: I've got a couple of
+
+23
+00:01:21.747 --> 00:01:23.852
+questions regarding flow.
+
+24
+00:01:23.852 --> 00:01:32.076
+So are we going to end up creating
+a type definition for our state?
+
+25
+00:01:32.076 --> 00:01:36.714
+Cuz right now,
+kind of just evaporated what our state is.
+
+26
+00:01:36.714 --> 00:01:40.869
+There's nothing that tells us
+the shape of our state tree,
+
+27
+00:01:40.869 --> 00:01:45.273
+right?
+&gt;&gt; Brian Holt: Yeah, yeah, no,
+
+28
+00:01:45.273 --> 00:01:49.011
+I think sort of,
+I think is the answer to your question.
+
+29
+00:01:49.011 --> 00:01:52.816
+So it's smart enough to say
+that this is a string here.
+
+30
+00:01:52.816 --> 00:01:55.997
+And by setting the default state to
+string, it's going to be a string.
+
+31
+00:01:55.997 --> 00:01:59.965
+And so if we ever modify it from being
+a string, it knows, it's like, hey,
+
+32
+00:01:59.965 --> 00:02:01.021
+you messed this up.
+

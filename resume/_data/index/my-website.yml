@@ -1,0 +1,53 @@
+- name: leonids
+  date: 2019
+  descr: "For this resume and my notes, I forked a jekyll theme closed and I added some features for setting up all from configuration file or each page. I am going to fix some issues and I am waiting for sharing with the original repository all new features!"
+  website: https://bilardi.github.io/leonids/
+  github: https://github.com/bilardi/leonids/
+  link:
+    - icon: fa-tags
+      url: https://bilardi.github.io/notes/
+      title: My notes
+    - icon: fa-tags
+      url: https://pandle.github.io/net/
+      title: PandLe
+
+- name: homepage v2.0
+  date: 2019
+  descr: "I wanted to simplify the front cover and a makeover is always important."
+  website: https://bilardi.github.io/
+  github: https://github.com/bilardi/homepage
+
+- name: site clone
+  date: 2018
+  descr: "What is an easy way to download your old web site and to convert it to a simple Jekyll theme? I forked and contributed this simple repository for downloading my simple web sites. So I converted all my old web sites."
+  github: https://github.com/bilardi/siteclone/
+
+- name: bookmarks v3.0
+  date: 2015
+  descr: "I refactored my bookmarks based on the delicious api and bootstrap theme. So I could use delicious for adding with any devices and browsering it anyways. Now it is only a jekyll theme, and delicious api does not work anymore."
+  website: https://bilardi.github.io/bookmarks/
+  github: https://github.com/bilardi/bookmarks/
+
+- name: comics
+  date: 2007
+  descr: "This is a draft of my comics: I did not share my comic strips yet."
+  website: https://bilardi.github.io/comics/
+  github: https://github.com/bilardi/comics/
+
+- name: homepage v1.0
+  date: 2007
+  descr: "I were very easy for me to create simple web pages, so I started to share more materials and I needed a front cover."
+  website: https://bilardi.github.io/homepage-v1.0/
+  github: https://github.com/bilardi/homepage-v1.0/
+
+- name: bookmarks v2.0
+  date: 2004
+  descr: "I refactored my bookmarks based on the file exported from browser. So I could align easily any computer used with my bookmarks. Now it is only a jekyll theme, but the first commit contains the magic."
+  website: https://bilardi.github.io/bookmarks-v2.0/
+  github: https://github.com/bilardi/bookmarks-v2.0/
+
+- name: bookmarks v1.0
+  date: 1998
+  descr: "I always needed a bookmarks, so I really started with my first web pages by collecting my links of interest. I recovered only the homepage, because that single page remained online: see website link."
+  website: http://xoomer.virgilio.it/tosearch/
+  github: https://github.com/bilardi/bookmarks-v1.0/

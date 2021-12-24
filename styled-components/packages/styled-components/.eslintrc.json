@@ -1,0 +1,11 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "globals": {
+    "__SERVER__": true,
+    "__VERSION__": true
+  },
+  "env": {
+    "jest": true,
+    "browser": true
+  }
+}

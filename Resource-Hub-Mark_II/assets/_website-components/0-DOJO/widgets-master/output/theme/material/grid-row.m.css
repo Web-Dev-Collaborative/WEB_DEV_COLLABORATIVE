@@ -1,0 +1,12 @@
+.grid-row-m__root__2ChCw {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: calc(var(--mdc-theme-grid-base) * 5);
+}
+.grid-row-m__selected__3PMcJ {
+	background-color: var(--mdc-theme-on-surface);
+}
+.grid-row-m__selectable__1O-yD:hover {
+	background-color: var(--mdc-theme-on-surface-hover);
+}
+/*# sourceMappingURL=grid-row.m.css.map*/

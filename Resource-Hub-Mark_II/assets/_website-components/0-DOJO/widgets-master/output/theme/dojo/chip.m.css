@@ -1,0 +1,23 @@
+.chip-m__root__38BHL {
+	font-family: var(--font-family);
+	height: calc(var(--grid-base) * 4);
+	background-color: var(--color-background-inverted);
+	border-radius: calc(var(--grid-base) * 2);
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	color: var(--color-background);
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+.chip-m__label__qUnxa,
+.chip-m__root__38BHL {
+	padding-left: var(--grid-base);
+	padding-right: var(--grid-base);
+}
+.chip-m__clickable__1N1eC,
+.chip-m__closeIcon__1SV6f {
+	cursor: pointer;
+}
+/*# sourceMappingURL=chip.m.css.map*/

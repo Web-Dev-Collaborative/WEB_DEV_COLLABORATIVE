@@ -1,0 +1,34 @@
+{% include vars.html %}
+
+<hr class="footer-divider">
+
+<div class="container">
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="footer-item">Yarn</span>
+      <span class="footer-item"><a href="https://github.com/yarnpkg/yarn/blob/master/LICENSE">{{i18n.site_bsd_license}}</a></span>
+      <span class="footer-item"><a href="{{url_base}}/org/code-of-conduct">{{i18n.site_code_of_conduct}}</a></span>
+    </div>
+
+    <div class="footer-right">
+      {% if layout.shitty %}
+        <span class="footer-item"><a href="https://en.wikipedia.org/wiki/Hector_Janse_van_Rensburg">Artwork by Shitty Watercolour</a></span>
+      {% endif %}
+
+      {% if vars_active_language.tag == "en" %}
+        <span class="footer-item"><a href="https://github.com/yarnpkg/website/edit/master/{{page.path}}">{{i18n.site_edit_this_page}}</a></span>
+      {% else %}
+        <span class="footer-item"><a href="{{url_base}}/org/translations">{{i18n.site_edit_this_page}}</a></span>
+      {% endif %}
+    </div>
+  </footer>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{{ site.gacode }}', 'auto');
+  ga('send', 'pageview');
+</script>

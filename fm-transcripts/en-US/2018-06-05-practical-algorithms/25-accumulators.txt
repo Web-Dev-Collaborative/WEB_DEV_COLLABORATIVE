@@ -1,0 +1,69 @@
+[00:00:00]
+>> Bianca Gandolfo: This is an accumulator,
+>> Bianca Gandolfo: The accumulator technique. And what we do is, as we build a solution, we keep passing it. So for example, let's do, what do you think I'm about to do? Can anyone guess what's gonna happen next? I'm gonna play the closure, or the closure game, I calling it weird things, the call set game.
+
+[00:00:37]
+So, my gosh, this is a lot of stuff going on, but let's call it. We're gonna call joinElements, let's put it at the top. So our array looks like this, and then our join string is this letter e. So what this function is doing is, it's going to join this array with the string here.
+
+[00:01:09]
+So this array is going to be joined, so array.join is a native array method. So you can join a list with a comma, for example, that's a common use case for the .join. So if you have a series of whatever, fruit would be a common thing, you can do array.join.
+
+[00:01:27]
+And then it'll say apples, bananas, oranges, like that. However, it's a thing that's nice, but it's a bit annoying, because in English we wanna put the and in there. So you say apples, bananas, and oranges. And so you may wanna write your own pretty join, where it keeps track of when you're the second to last one, and will add an and in there as appropriate, with or without the Oxford comma.
+
+[00:01:53]
+The programmer's choice, I guess it's probably the product person's choice or whoever's in charge of that, who knows. So we're doing that, except we're doing it recursively, and we're using a technique called the accumulator technique. And let's take a peek at how that works. So we have our two arguments that are passed in, we're defining this function.
+
+[00:02:18]
+So we're not pushing this function on to the call stack because we have not called it yet. However, we're gonna call it, down here, we're initializing it with a couple values. So we're gonna call this recurse function.
+>> Bianca Gandolfo: We're gonna push that, so our index is gonna be 0, and then the resultSoFar is an empty string.
+
+[00:02:44]
+So the first thing we wanna do is add the resultSoFar, which is empty string, we wanna give it the very first value, which is s. So we're calling, we're looking up into the parent scope, getting array.index, index is 0. So we're looking at s, everyone following where we're getting s from?
+
+[00:03:09]
+So now resultSoFar is s, cuz empty string plus s is s. Math, just kidding, it's not math.
+>> Bianca Gandolfo: So if the index is at the end of the array, this is our base case, did we get to the end, we're gonna return. So we're not there yet., index is 0, so we're going to go into our recursive case.
+
+[00:03:40]
+So we're going to return index + 1, key, we need to get closer to our base case. Which is when we have gone through the entire array, we're looping. We're just looping through this array, and at every index, we're giving it a string.
+>> Bianca Gandolfo: Cool, so now we're going to, so this index, so we're gonna call this.
+
+[00:04:09]
+Let's just push it, so we're gonna be calling it with index 0 + 1, which is 1. The resultSoFar, which is our s, and then our join string, remember, is the e. Again, you're reaching up, and getting it from our parent scope. Okay, this is where we left off,
+
+[00:04:38]
+
+>> Bianca Gandolfo: This is where we left off before, wait, no it's not, I'm lying to you, this is where we left off. Okay, so now we're hopping in, we have these things to worry about, sorry, we're concatenating this. So actually, what we're passing is se, you see where the accumulation is happening?
+
+[00:05:01]
+We're accumulating by adding things together, and then we're passing it down into our recursion each time. So now our index is gonna be 1, our resultSoFar is se. Okay, so what is index at i, we're gonna have that one, so.
+>> Bianca Gandolfo: And this is a +=, right, so we're going to be building this string out.
+
+[00:05:34]
+So we started with resultSoFar, which we passed in. And the next item in the array, which is cr, so now we get secr, cool? Is index at the end of the array, and this -1, you guys are aware, is cuz arrays are zero-indexed, that's why we have to do the -1.
+
+[00:05:58]
+It is not, so we're gonna go into this other case where we're going to call our recursion. What are the variables that we're calling with, index + 1 is gonna be 2, and resultSoFar + joinString. So here's our resultSoFar, and we're gonna reach up and get our joinString, which was e.
+
+[00:06:19]
+And then pop this on again, oops, that's not we're popping on. We're not even popping, sorry, we're pushing, we're pushing this onto the stack. Cuz our index in this case is 2, then we have the string that's being constructed. So again, we're going to take our resultSoFar, which is this, and then we're going to add the next one, uh-oh, a word is appearing, which is t.
+
+[00:06:54]
+Are we at the end of our array, index is 2, array.length- 1 is 1, 2, 3, 4, there's 4. There, actually, it's 1, 2, 3, 4, yeah, it's 4, so we're not there. And we're gonna keep going, and as we loop through this array, we are going to be concatenating our string.
+
+[00:07:18]
+And this is the accumulator method that, each time, after each loop, not only are we incrementing our index, but we're saving some result. And that result is getting passed down into our recursion. So this is some work that's getting done, where we are doing some operation, and we're also getting closer to our base case, cool, mm-hm?
+
+[00:07:51]
+
+>> Student: The string at index 3, is that t space cod, rather than just t?
+>> Bianca Gandolfo: Yeah, thank you.
+>> Bianca Gandolfo: What could it say, I don't know, it's so mysterious. Any questions about this, I'm not gonna keep going with it, cuz you guys, I think, kinda get the picture.
+
+[00:08:17]
+The one thing to note before we move on is, eventually, when we reach this, we're gonna return the resultSoFar. Which, as you see, is gonna be this string that we built up, we accumulated through our recursive calls. And so that will return that, and since we're returning this recursion, this will be returned.
+
+[00:08:37]
+And it will keep popping and popping and popping until we will finally return here. And that's gonna return, where we initially called it.
+

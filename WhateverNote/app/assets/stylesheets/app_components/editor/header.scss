@@ -1,0 +1,212 @@
+.rich-text-editor{
+    .header{
+        position: relative;
+
+        div{
+            transition: opacity 0.25s, z-index 0.25s;
+        }
+
+        #first-header{
+            display: flex;
+            justify-content: space-between;
+            height: 30px;
+            // padding: 5px 0;
+            padding-bottom: 15px;
+            margin-top: 15px;
+
+            .description{
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+                transform: translate(-38%, 0);
+                margin-top: 15px;
+                width: max-content;
+                padding: 12px;
+                background-color: $dark-blue;
+                color:white;
+                border-radius: 5px;
+
+                .arrow{
+                    z-index: 4;
+                    position: absolute;
+                    left: 43%;
+                    top: -5px;
+                    width: 0; 
+                    height: 0; 
+                    border-left: 7px solid transparent;
+                    border-right: 7px solid transparent; 
+                    border-bottom:7px solid $dark-blue;
+                    background: transparent 
+                }
+            }
+
+            .right{
+                padding-right: 10px;
+
+                .right.description{
+                    right: -5px;
+                    transform: none;
+                    .arrow{
+                        left: 71%;
+                    }
+                }
+
+                .note-options{
+                    padding: 10px 5px;
+                    min-width: 25px;
+                    text-align: center;
+                    width: auto;
+                    position: relative;
+                    border-radius: 3px;
+                    i{
+                        background-color: transparent;
+                        color: gray;
+                        transition: color 0.125s;
+                    }
+                }
+    
+                .note-options:hover{
+                    background-color: $lightest-blue;
+                    cursor: pointer;
+                    i{
+                        color: $dark-blue;
+                    }
+                    .description{
+                        opacity: 1;
+                        z-index: 3;
+                    }
+                }
+    
+                .options-dropdown{
+                    position: absolute;
+                    z-index: 5;
+                    top:45px;
+                    right: 10px;
+                    width: 160px;
+                    box-shadow: 0 0 5px $gray;
+                    box-sizing: border-box;
+                    padding: 5px 0;
+                    font-family: $body;
+
+                    li{
+                        li{
+                            padding: 5px 20px;
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: $dark-gray;
+                            border:none;
+                        }
+                        ul{
+                            padding: 5px 0;
+                        }
+                        border-bottom: 1px solid $light-gray;
+                    }
+
+                    li:last-of-type{
+                        border: none;
+                    }
+
+                    li:hover{
+                        background-color: $light-gray;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .left{
+                padding-left: 10px;
+                display: flex;
+                align-items: center;
+
+                .left.description{
+                    left: -5px;
+                    transform: none;
+                    .arrow{
+                        left:13%;
+                    }
+                }
+                
+                .size-toggle{
+                    display: none;
+                    padding: 10px 5px;
+                    width: auto;
+                    border-radius: 3px;
+                    position: relative;
+                    min-width: 25px;
+                    text-align: center;
+                    margin-right: 10px;
+                    i{
+                        background-color: transparent;
+                        color: gray;
+                        transition: color 0.125s;
+                    }
+                }
+
+                .size-toggle:hover{
+                    background-color: $lightest-blue;
+                    cursor: pointer;
+                    i{
+                        color: $dark-blue;
+                    }
+                    .description{
+                        opacity: 1;
+                        z-index: 3;
+                    }
+                }
+
+                .show{
+                    display: block;
+                }
+
+                .notebook-info{
+                    border-left: 1px solid $light-gray;
+                    display: flex;
+                    align-items: center;
+                    button{
+                        margin-left: 10px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        i{
+                            padding-right: 5px;
+                        }
+                    }
+
+                    .move{
+                        opacity: 0;
+                        padding: 10px;
+                        position: relative;
+                        i{
+                            color: $dark-blue;
+                            text-align: center;
+                            background-color: inherit;
+                            padding:0;
+                        }
+                        .description{
+                            visibility: hidden;
+                            left: 5px;
+                        }
+                    }
+
+                    .move:hover{
+                        background-color: $lightest-blue;
+                        cursor: pointer;
+                        .description{
+                            visibility: visible;
+                            opacity: 1;
+                            z-index: 3;
+                        }
+                    }
+
+                    button:hover {
+                        background-color: $lightest-blue;
+                    }
+                }
+                .notebook-info:hover .move{
+                    opacity: 1;
+                }
+            }
+        }
+
+    }
+    
+}

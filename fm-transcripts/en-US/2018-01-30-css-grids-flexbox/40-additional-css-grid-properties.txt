@@ -1,0 +1,109 @@
+[00:00:00]
+>> Jen Kramer: So now that we've got that in place and we have our shapes, the next thing that we're probably interested in doing is cleaning up these sizes a little bit. So what I did in the painting, kinda like in a cooking show where Julia Childs slides the turkey into the oven and says in three hours it looks like this.
+
+[00:00:15]
+And she opens the top oven and pulls out the baked turkey. We're doing the same thing here. So what I did here with my painting was I used a tool that comes with Firefox called the Web Developer toolbar, and it's got one of those rulers on it that measures things in pixels.
+
+[00:00:32]
+You may have a similar tool. It may not be from the Web Developer toolbar. But we basically need some kind of tool that can measure pixels. Okay, so the web developer tool bar that I have plugged in is right here. If you type Web Developer tool bar into Google you'll find it.
+
+[00:00:47]
+It's an extension from Chris Patrick and it's available for both Chrome and Firefox. It was one of the earliest web development tools that was out there. And once you've got the web developer toolbar in place, if you go to, here's Miscellaneous, and then Display Ruler, this particular one, you can drag this little ruler around.
+
+[00:01:13]
+And sort of, let's make it match up here with c. One of the nice things is that you can blow up your image and the pixel dimensions here are still the same. So we can drag this around and come up with a size. And it's reporting that size up here.
+
+[00:01:31]
+So this is 453 by 435 pixels, okay? So, this is the kind of thing that you can do with a tool like this and you can measure the sizes of this particular squares. And so I went ahead and did all that for you. You can thank me later.
+
+[00:01:47]
+[LAUGH] And so what we're going to do then in our CSS we're gonna scroll back and up here to the wrapper. And we're gonna introduce two more properties to this. One is grid-template-rows. And the other is grid-template-columns, okay? So these two properties are a way of calling out a grid system for your whole entire webpage.
+
+[00:02:17]
+So you could say here to your browser, I would like to create some number of rows, some number of columns and I can give all those rows and columns dimensions on the page, okay? And I'm just gonna do this in pixels for now. There are plenty of other units you can use that are not pixels.
+
+[00:02:36]
+But given the fact that we are creating a painting that has a very fixed size, and we're not worried about content or anything, we're just gonna do this first example all in pixels. And then I'll introduce you to some of those probably much better units for doing website design and development later on today.
+
+[00:02:57]
+So basically the numbers that I came up with here for my template rows and template columns are as follows, so 170 pixels, 210 pixels, 61 pixels, and 61 pixels. Okay, so those will be our four rows. And if you take a look at the painting you can see where that comes from, 170 for this a, 210 for this b.
+
+[00:03:27]
+And then the heights of f and g are about the same, about 61 pixels tall, okay. So that's where those come from. Yes?
+>> Speaker 2: So you can enter any sort of number in there?
+>> Jen Kramer: Yes
+>> Speaker 2: And it'll just keep knowing for how many columns forever?
+>> Jen Kramer: Yes, so the fact that I'm going to now call out four numbers here, the grid system will create four rows for me and those are going to basically be the heights of those rows.
+
+[00:03:55]
+When we combine it with the columns it probably makes a little bit more sense but those are how tall those rows are going to be. And then for our columns, we're going to have the numbers of 124 pixels, 376 pixels, and 42 pixels, okay? So, those are gonna be our three columns.
+
+[00:04:16]
+So, you can see how those numbers intersect to form squares on the page.
+>> Jen Kramer: [COUGH] Now what happens if we happen to have, we go through H, I think on this page. What if we had I, J, K, and L? What would happen at that point?
+>> Jen Kramer: Will anyone take a guess?
+
+[00:04:38]
+
+>> Speaker 3: Probably automatically create a new-
+>> Jen Kramer: It will keep creating more rows and more columns according to this sort of pattern, okay? Great, so then for the grid gap we set that up as 10 pixels initially. Change that to 30px 20px. Okay, so grid-gap can be specified in, of course, sort of the column basis or on the row basis.
+
+[00:05:11]
+And we have two numbers here, you can think of this just like we do with margin:0 auto, which you've probably put in a web page before, right? Zero is the top and the bottom, auto is the left and the right. Same kinda thing here, 30 pixels is the top and the bottom, or the space between the rows.
+
+[00:05:28]
+20 pixels is the up and down, or the space between the columns. Make sense? Okay, now, because this is a painting, the exact layout here, because I can't specify my grid gap precisely for every single one of these gaps, we'll be off by few pixels in the painting but we'll be pretty close.
+
+[00:05:53]
+
+>> Jen Kramer: Close enough for our purposes. So if you refresh your web page, you should see we're getting pretty close to what that is.
+>> Jen Kramer: And you can probably finesse those numbers a little bit more and get it even closer.
+>> Jen Kramer: But, you get the idea. Anybody have any questions at this point?
+
+[00:06:20]
+
+>> Jen Kramer: Yes.
+>> Speaker 2: Is there any way to color that grid gap or is that just background space?
+>> Jen Kramer: What a wonderful question. That's totally a plan. That's the next thing we're gonna go into is how we're gonna put the colors in. And any other questions at this point?
+
+[00:06:36]
+
+>> Speaker 4: Without specifying any additional rows, will that take on an auto height? Keeping the last value 42 pixels or restart it 124 pixels.
+>> Jen Kramer: Sure, let's go on ahead and try it. So I'm just gonna go ahead and add some more rows here, and I'm not gonna have any classes associated with them.
+
+[00:07:03]
+
+>> Jen Kramer: Or some more divs I should say. All right, so there's some more stuff. If we were to display that,
+>> Jen Kramer: Here we go. They're showing up down here at the bottom as lines because I have no content in them. So let me just give you a little bit of content.
+
+[00:07:44]
+
+>> Jen Kramer: So you can see down here at the very bottom of the web page there's some additional roles that were added. Those are those extra divs that I've put in. They're as tall as their content, which is like three letters, okay? Because we didn't specify where they're supposed to go.
+
+[00:08:04]
+This is again part of that what's called the implicit grid. As you start your re-documentation, you'll hear about the explicit grid and the implicit grid. The explicit grid in this document are the things that we've actually called out dimensions for, all right? And the implicit grid, it's just gonna continue on trying to fit the additional items that you add according to the pattern that you established, okay?
+
+[00:08:32]
+
+>> Jen Kramer: Okay, cool, I'm gonna go ahead and take those out, cuz we don't really actually want those.
+>> Jen Kramer: Okay, so then the last part of finishing out the painting here is this, we just going to add a few colors. So I'm gonna add a background color
+>> Jen Kramer: Of black to my wrapper here.
+
+[00:08:58]
+
+>> Jen Kramer: And I'm gonna take out my background image. So you can either erase that or you can just comment it out.
+>> Jen Kramer: I'm also gonna comment out the opacity of the divs, cuz I want that now at 100%, not at 50%.
+>> Jen Kramer: Okay? And then all you have to do is look at the painting.
+
+[00:09:23]
+So c is gonna be red, d is gonna be blue and g is going to be yellow. I haven't taken the time to figure out the exact hex color for these. I'm just using red, blue and yellow. But you are certainly welcome to get your little eyedroppers out and figure out exactly what the hex colors are.
+
+[00:09:40]
+So to this, I will simply add, here on letter c, a background color of red, on d, a background color of blue.
+>> Jen Kramer: And I'll make the text white in there too so it'll be a little easier to see. And then finally on g I'll add a background color of yellow.
+
+[00:10:18]
+
+>> Jen Kramer: Okay.
+>> Jen Kramer: So if you go ahead and refresh. You get something that looks pretty close to that original painting.
+

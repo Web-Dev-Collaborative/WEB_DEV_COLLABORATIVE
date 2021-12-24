@@ -1,0 +1,96 @@
+[00:00:00]
+>> Let's talk about the Composition API, the com and also some custom directives. So we're getting into some more advanced features in this section here. The Composition API is brand new in Vue 3, and a lot of times people will even say, Vue 3 is the Composition API.
+
+[00:00:17]
+That's not true, we're not deprecating the Options API, which is what we've been using all day today. The Composition API is additive, we're not losing anything else, we're bringing in a new advanced feature. Previously, we worked a lot with mixins, a thing called mixins. And those were kind of moving away from, in order to work with the Composition API more, and I'll describe why that's such a great thing.
+
+[00:00:44]
+Before we move on into that, I do wanna mention that Evan has a keynote about some of the key differences that he kind of goes through in this keynote, for all of the things that happened when he was kind of going from Vue 2 to Vue 3. And at one point we wrote everything in classes.
+
+[00:01:04]
+At one point we were thinking about moving in a direction and then we changed gears, and he reflects on all of those changes and what occurred. So you can see a timeline of all of those events. So, if you're interested in some of those changes and what made things go into that, especially things like how RFC review process worked, he goes into a lot of detail.
+
+[00:01:27]
+One of the things I wanted to share with you is that this took 2years, it's a whole rewrite, Vue 2 to Vue 3, even though the surface API is the same. There was 37 RFCs, [LAUGH] 2,000 commits, and a tremendous amount of work in sub-projects too. So this is just in the new repo, and then there's also new versions of other projects as well.
+
+[00:01:53]
+So let's talk about the Composition API. It's a common situation, you have two components that are pretty similar, they share the same basic functionality, but there's something that's a bit different about each of them, so you come to a crossroads. Do I split this component into two separate components or do I keep one component with enough variance with props that I can alter each one?
+
+[00:02:15]
+Enter the Composition API. I like this quote by Michael Feathers. Object-Oriented programming makes code understandable by encapsulating moving parts, functional programming makes code understandable by minimizing moving parts. And so in this kind of state of mind, this is more of a functional programming model where we're trying to encapsulate, or we're trying to take smaller pieces of something and making them more available for use in other ways.
+
+[00:02:44]
+Which is why we call it the Composition API, because we can compose it. The Composition API allows you to encapsulate one piece of functionality, so you can use it in different components throughout the application. If written correctly, they're pure, they don't modify or change things outside of the function scope.
+
+[00:03:01]
+So you'll always reliably get the same value with the same inputs on multiple executions. They're also very clear what they're returning. You'll see this as we start to dive into the API, but they state very clearly what you're being given at the end, so this can be really powerful.
+
+[00:03:20]
+The Composition API was built off of React hooks. So if you're familiar with React hooks, you will feel very at home. It was built off of that primary case, but then it was modified for Vue and Composition API. When hooks first came out, this tweet went over why this is so powerful.
+
+[00:03:39]
+So this is a React component that's very large. It handles a lot of different pieces of moving parts. And if you take all of the different responsibilities and you encapsulate them into different pieces and group them together, this is one of the strengths of hooks and also the Composition API, that we're keeping like logic together.
+
+[00:04:02]
+So you're really thinking about one thing at a time. Also, because it's written in TypeScript, it has extremely good TypeScript support. So previously, when we were working with this tacos empty string, we said do you like tacos? Yes or no, you're a monster. So this should look familiar to you at this point.
+
+[00:04:25]
+This is what this looked like, we had the createApp, we mounted app and we returned the empty string. And in the HTML, we have the yes, or the v if or v else. If we do the same thing with the Composition API, what we're doing is we're saying const ref equals Vue.
+
+[00:04:45]
+Then inside of our app, we have this setup function. We're saying const tacos equals ref, and that's that empty string. So the tacos are an empty string. So this is, basically, you can think of this a little bit like what we have in data before. But then I mentioned that we're explicitly returning something.
+
+[00:05:07]
+We are returning tacos. So we're very literally saying this piece of data return this piece of data exactly. So we know what we're getting is tacos. If you look at the HTML, the HTML is not different. This part did not change at all, what's changed is this piece.
+
+[00:05:27]
+Why are we changing? Why is this an advanced feature and how come we use something like this? There's a couple of different reasons, one is with mixins previously, one couldn't consume another. So when we're working with composition, and the reason why we call it composition, is you can actually turn this more into a function and then you could have one thing call another.
+
+[00:05:52]
+So a use case of that would be at a certain window width you want to turn on a type of animation that fires only when you're on desktop. [COUGH] So you have one that uses the window width, the next one that calls a particular animation that you might use elsewhere, and you can use it in a bunch of different places.
+
+[00:06:12]
+So what we can do here is also write our components. So this is really flexible. We can write a component this way, or we can just create a JavaScript file that only has this part and not the template part. So we can just work with just the functionality.
+
+[00:06:26]
+If I wanted to just, and we will do that, don't worry, where we're we're just taking one bit of logic and we're taking in that little bit of logic, and it doesn't really work with a template at all. So what did we do? We took this const app and data, return tacos and we made it into this setup.
+
+[00:06:50]
+So we use set up, we say const tacos equals ref, and that's an empty string. We're returning tacos at the end. So the things that are different is, we're returning tacos, this setup is unique to the Composition API, and this const tacos equals ref, that's basically like our data.
+
+[00:07:16]
+So ref, we use ref in the template the same, but if we use it in a function, we would extract it with taco.value. So rather than using methods which hang off of that, we've got the Vue instance with data and methods, rather than writing methods now, we're just writing functions.
+
+[00:07:34]
+So we've got the const count = ref(0), we create a function that says count.value ++. So whatever we access in refs, we're saying dot value, so we create these as functions of their own. We can also do a thing called reactive. Instead of declaring refs over and over and over again, and I'll show you a bigger component because it can get really repetitive to be like ref, ref, ref, ref, ref.
+
+[00:08:05]
+We can also create something that's called reactive, where we can create an object that we used like the data before. Where we have count, and then, messages, a string and a few other things. So we can pass that object into reactive. And this whole const state, you don't have to call it state, that's becoming a kind of normal thing to do now with Composition API, but you don't have to declare it as state.
+
+[00:08:33]
+But we will say const state equals reactive count is 0. And then if we have that same incrementer, we're saying function increment, and this time we're doing state.count. So we'll do state.count instead of, before we were finding .value off of ref. So if we have a bigger component, let's say, and we have const ref equals Vue.
+
+[00:08:55]
+In the setup, we have const restaurantName, let's taco about it. Our options are in this array. We've got Lengua, Carnitas, and so on and so forth. The ref can be a number, the ref could be another number. The ref can be a Boolean, but we're basically saying ref, ref, ref, ref, ref, ref, ref, to hold the data.
+
+[00:09:17]
+Then if we wanted to increment something, I would say numItems. Let's say that that's the thing that we're incrementing, numItems.value, that's how we get the value out. And then at the end we're returning all of the things, we're returning restaurant name options, we're even returning this function. We're returning addItems as well.
+
+[00:09:38]
+So if we look at a code pen that does this. We've got our order, let's taco bout it. And we've got our options. Okay, so now we can add an item, add an item, add an item. Now, if we look at it in the beta dev tools, we can see the setup, we can see all of the addItems, delivery time, free delivery, and the numItems, and you can see this increase.
+
+[00:10:06]
+So you can see that all in the setup in those dev tools. Now, these are a lot of things to create, and then return, right? So let's look at how we would do this in the reactive. We would pass in reactive, and I'm also going to show you something called to refs.
+
+[00:10:25]
+So we would say const state equals reactive, and then this should look pretty familiar to you. This is more similar to how we worked with data before when we're saying data return, where we've got the restaurant name, the options, the numItems, and these are all attached to an object.
+
+[00:10:40]
+So that object is just like how we use data. And here we've got that function, addItems, and instead of having to declare all of these pieces, what we could say is toRefs and pass in state. And that allows us to say, pass in all of whatever's in reactive, and this spread operator allows us to work with it in the templates without saying state dot this dot dadada.
+
+[00:11:07]
+So instead of saying state.restaurantName over and over again, state.options, we can just use restaurantName, options and things like that. So If you were more comfortable in the Options API, or you want to see something that looks a little bit like that in the Composition API, this is what that looks like.
+
+[00:11:26]
+So here we've got the same kind of thing, and we've got this const state. And if we open this in the dev tools, and click on the root, you will also see this in setup the same way. So it's the same kind of way of working, except now we're able to put things in an object.
+

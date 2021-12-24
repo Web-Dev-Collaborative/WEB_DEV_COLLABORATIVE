@@ -1,0 +1,23 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+django = "==2.0.2"
+django-crispy-forms = "==1.7.0"
+pillow = "==5.0.0"
+pytz = "==2018.3"
+django-markdown-deux = "*"
+
+
+[dev-packages]
+
+
+
+[requires]
+
+python_version = "3.6"

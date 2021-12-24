@@ -1,0 +1,17 @@
+version: '3'
+services:
+  couchdb:
+    volumes:
+      - app-couchdb-data:/opt/couchdb/data
+    deploy:
+      placement:
+        constraints:
+          - node.labels.${STACK_NAME}.app-couchdb-data == true
+  proxy:
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+volumes:
+  app-couchdb-data:

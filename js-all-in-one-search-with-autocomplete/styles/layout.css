@@ -1,0 +1,36 @@
+/*////////*/
+/* Layout */
+/*////////*/
+
+.v-align, h-align, 
+.btn, .search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v-align, .btn, .search-btn {
+  flex-direction: column;
+}
+
+.h-align, .btn, .search-btn {
+  flex-direction: row;
+}
+
+.row {
+  display: flex;
+  width: fit-content;
+  z-index: 5;
+}
+
+.column-left {
+  width: var(--search-input-width);
+}
+
+.column-right {
+  flex: 1;
+}
+
+.p-30 {
+  padding: 30px;
+}

@@ -1,0 +1,10 @@
+.grid-row-m__root__NKTOq {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: calc(var(--grid-base) * 5);
+	border-top: var(--border-width) solid var(--color-border);
+}
+.grid-row-m__root__NKTOq:nth-child(2) {
+	border-top: 0;
+}
+/*# sourceMappingURL=grid-row.m.css.map*/

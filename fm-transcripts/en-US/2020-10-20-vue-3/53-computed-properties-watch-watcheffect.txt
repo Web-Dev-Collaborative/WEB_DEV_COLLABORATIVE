@@ -1,0 +1,24 @@
+[00:00:00]
+>> Computed properties are actually gonna hand hang off in the same way, with refs or reactive. But what we'll do is we'll turn return a function called computed, so in this case we've got a count of 0, if we wanna double that count, we would say computed, and then we return state.count * 2.
+
+[00:00:21]
+So that's how we would work with computed inside of the composition API. For watch, it's pretty much the same as the old options API and you have access to the new and old values. So, if I wanted to pass in the state, which is count, I would say I wanna watch the state, the newValue and the oldValue.
+
+[00:00:41]
+And then I have access to newValue.count inorder to do that same kind of watching effect that you saw before. So, in our older demo what we did in order to increase that state in watchers, is we had watch, numItems were newValue and oldValue, I could console.log(newValue). Let's see if I can just open up the console here and say add item, no code pen hits me today.
+
+[00:01:16]
+We go into New Item, we go into > view, into the > Console, and we add 1, 2, 3. And I'm showing you all of the things that I'm accessing here. Now, if we wanna do the same thing in the composition API, it's like you saw earlier. Where we add an item 1 2 3, and that composition API looks like this.
+
+[00:02:00]
+Remember, you have to pass in watch at the top, along with reactive and toRefs, but you would pass state into watch and then you could say, newValue.numItems. There's a new thing called watchEffect, they're like watchers but with small differences, it executes the function immediately. Rather than watch that's waiting for something to change after everything's been mounted, it executes it immediately.
+
+[00:02:30]
+And it tracks all the reactive state properties it used during the execution as dependencies. This is pretty neat, so you don't actually have to state the exact thing that you want to watch unlike the options API where you had to say, okay, I wanna watch count, I'm gonna say count here, watchEffect, it's watching all of them.
+
+[00:02:48]
+So here we can say console.log(state.count) and that watchEffect is going to do that. So here we've got that watchEffect, and again, remember you have to pass it in at the top. And so we're passing in state.nums, and if we look at the console, the big difference here, we see a 0 immediately, right?
+
+[00:03:14]
+As I mentioned, we're executing it immediately, unlike watch. And so here now you can see as it changes, it goes up.
+

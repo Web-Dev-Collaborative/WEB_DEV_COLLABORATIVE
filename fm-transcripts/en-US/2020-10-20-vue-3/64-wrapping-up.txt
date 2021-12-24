@@ -1,0 +1,33 @@
+[00:00:00]
+>> I have a kind of silly example that I'll show you really quickly. That's a little weather notifier that will end on. So if I have this like little weather notifier I can make a drizzle apocalypse. And then I say, okay, thank you. And then I can make a weather notification, what a windy day, okay, thanks.
+
+[00:00:23]
+And then I say here comes the sun. [NOISE] And then I can make a tornado. [NOISE] Okay, thanks. And then actually if I press it again it loops right back around to the first one. We can use vuex and CodePen if we like or just with a script tag.
+
+[00:00:46]
+We don't have to use it in an application and I'm gonna show you just a little bit of this and not go into too many details. Okay, so what we have inside this pen is a store with the state. And what we have is the show weather which is false.
+
+[00:01:02]
+And what we're gonna do is we're gonna toggle it when we want to see the weather. We're also gonna say that the template, we're gonna number some templates, and we're gonna use that component is and we're gonna say template is zero. And we're gonna say, if toggling the state, as, we have this mutation where we have a toggle, where we toggle that state.show whether, we also update the template by saying, keep advancing until you get to the fourth one and then go back to the first one using a mod.
+
+[00:01:32]
+And while you're doing that, please toggle as well, cool. Like I mentioned before we have that app that's a whole ecommerce site, and that has a vuex store in it, where we're doing all sorts of this kind of logic. And if you wanted to see a kind of a bigger example, you could go in here and see how we have these mutations, how we're committing an action if we're actually reaching out to a function, a serverless function as well.
+
+[00:02:03]
+So if you wanted to see an example that uses a vuex store and kind of doles out information to multiple components. Congratulations, you learned so much today. We went through [LAUGH] directives, we went through methods computed watchers. We talked about animation, we talked about the composition API, w e talked about creating our own custom directives.
+
+[00:02:24]
+We did so many things, we built apps with ViewCLI and next we learned about ViewX. You should be really proud of yourself if you got to this point because we covered so much ground and it was really truly an honor to be here because I love talking about view and I love being here on front end masters, I think it's an amazing platform.
+
+[00:02:46]
+If you need further resources, the vue docs are a great resource. We try to cover everything and kind of human readable english like we're talking to you. We have the vue repo, if you want to kind of go through the code we did a lot in that reactivity section where we talked about the code base, maybe you want to check it out.
+
+[00:03:03]
+There's the nuxt docs, the vuex docs. There's this really cool GitHub repo called awesome view that has a collection of men, just so many resources, if you wanted to dive in and find a million resources for learning vue, or cookbook entries and things like that, that's available to you there.
+
+[00:03:24]
+There's also a vue newsletter. And what's unique about the vue newsletter is Damian who writes the vue newsletter is on the vue core team. So really these updates that are put into the vuew newsletter are really important updates. They're the things that we all agree on are like the things that we need to be talking about the most.
+
+[00:03:42]
+So if you wanted to keep up to date with vue and no more, this is a great way of doing that, you can subscribe to that. Thank you so much for being here today.
+

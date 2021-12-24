@@ -1,0 +1,31 @@
+[00:00:00]
+>> Brian Holt: So what I'm gonna do now is I'm going to enable Sublime Linter for Sublime, which I already have enabled. But this is basically a tool that's going to continuously run ESLint against my code, and it's going to highlight it if something's wrong with it. So if I say const or let x =5,
+
+[00:00:31]
+
+>> Brian Holt: So now if you look in here, it might be kind of hard to see but I promise that it's there. There's a faint red outline around the x and you can see little red dot there in the gutter. So if I click on it, and this is almost too small for me to read, but at the very, very, bottom, that really infinitesimally small text that tells me what my error is.
+
+[00:00:56]
+So it says x is assigned a value, but never used. So this should be a const, instead. So one of the things that ESLint is gonna enforce on me is if you never reassign something, it's gonna force you to make it a const. So now if I change this to const x = 5 it's still going to be an error because I never used it, right?
+
+[00:01:16]
+So now let's say I say, console.log x. And then now, the red has gone away, right? Cuz now I'm actually using it. You have the red here that's outlined React because this is undefined, right? It doesn't see anywhere where React is defined. And then this console.log is outlined because that's a warning so you'd use console.log.
+
+[00:01:46]
+Typically, you don't wanna ship that to production, that's why it's a warning. And then this function here is a warning because it wants a name.
+>> Brian Holt: Right, the reason why it forces you to put a name is it makes stack traces much more useful if it has a name on it.
+
+[00:02:08]
+
+>> Speaker 2: What was the Sublime example again?
+>> Brian Holt: It's called Sublime Linter. So you have to install two things for Sublime specifically. You have to install a package called Sublime Linter. And then you have to install another one called sublimelinter-contrib-eslint.
+>> Brian Holt: So I guess I can do, list packages.
+
+[00:02:35]
+So the first one is sublimelinter, and the second one is sublimelinter-contrib-eslint.
+>> Speaker 2: I'm using Atom so.
+>> Speaker 2: Skip that part.
+>> Brian Holt: There's atom-lint, I think is what it's called, Atom dash lint.
+>> Speaker 2: Atom lenter?
+>> Brian Holt: I think it's just Atom-lint.
+

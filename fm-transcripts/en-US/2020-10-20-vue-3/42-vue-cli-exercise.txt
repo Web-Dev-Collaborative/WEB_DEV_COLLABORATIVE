@@ -1,0 +1,3 @@
+[00:00:00]
+>> All right, exercise time, we are gonna take the component solution, or you can grab this pen, [LAUGH], and we're gonna set it up with Vue CLI in a real build process. And you're going to take this existing app, and we are going to refactor it. So you're gonna take the component and that regular app part, and you're going to go through it and make sure that you have all of the setup that you would with Vue CLI.
+

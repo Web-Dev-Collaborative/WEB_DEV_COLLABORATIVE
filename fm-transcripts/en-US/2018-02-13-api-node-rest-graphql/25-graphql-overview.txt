@@ -1,0 +1,74 @@
+[00:00:00]
+>> Scott Moss: Yesterday, we covered and we went through building out a API using Express and Node. We took somewhat of a pragmatic approach using metaprogramming to generate common things for our REST API. We finished off with some testing. So if you did some of that testing yesterday, that's awesome.
+
+[00:00:17]
+Today, we're gonna jump right into GraphQL and talk about some different approaches, walk through one of my favorite approaches with GraphQL and how we can use it together with what we already built yesterday and then go from there. Who here has used GraphQL?
+>> Scott Moss: Well, okay, Scott, give me a definition of what is GraphQL to you?
+
+[00:00:41]
+What is it?
+>> Scott: It's a data query language that allows us to define exactly what we're looking for from the backend without,
+>> Scott: Yeah.
+>> Scott Moss: That sounds right.
+>> Scott: Yeah.
+>> Scott Moss: A query language that lets you define exactly what you want from the backend and consume it in such a way, okay.
+
+[00:01:00]
+What about you?
+>> Speaker 3: [LAUGH] Yeah, I don't know that I have much to add. I think that was pretty good. I think that it's nice because it's, yeah, it provides the data that the client needs. It's not this whole massive amount of.
+>> Scott Moss: Nice, okay, in both the definitions, I liked that both of you all mentioned that it's what the client wants.
+
+[00:01:21]
+And that's what's very important about GraphQL. It's like an approach from the client's perspective like hey, this is what I want. So, what is GraphQL? This is the definition I got from the Internet. GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
+
+[00:01:40]
+GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more. Makes it easier to evolve APIs over time and enables powerful developer tools. Yeah, that's a Internet definition, right? So, what is it really?
+
+[00:01:59]
+Here's my definition of GraphQL. It's a query language for your API. Clients describe how they want their data and the shape of it using a query language very similar to JSON. So if you know JSON, you'll see some familiarities with GraphQL. There's definitely some differences, but you'll seem very familiar with it.
+
+[00:02:17]
+Those requests are validated against a Schema that you create on your server. So you have the queries that your client sends. Your server has a matching Schema that validates those queries. And your server then satisfies the shape however it wants using resolvers. So, basically, you could think of it as, who here's used TypeScript?
+
+[00:02:38]
+It's like TypeScript for your APIs, almost. It's like, you can put an abstraction in front of your API that strictly prohibits basically what shapes of data that can come through the API and GraphQL strictly checks that. And it allows the client to descriptly say hey, I want this object with this name, these properties in this order and this shape.
+
+[00:03:02]
+And then on the backend, you respond to that using resolvers. That sounds pretty complicated, cuz you're like wait, how do I do all that? You'll see. And it does all this with one URL. You know with REST we had to make different URLs for different resources, different actions?
+
+[00:03:20]
+GraphQL does this with one URL. There's only one, ever. So can be used in tandem with your current API. So we built the REST API yesterday. We could use GraphQL together with the REST, sitting side-by-side. We can have GraphQL underneath the REST API. We can have GraphQL on top of the REST API.
+
+[00:03:40]
+It's pretty much however you wanna do it. Today, we're gonna use them together, side by side. And at the end of the day, I'm gonna talk about how you can have GraphQL sit underneath REST and also next to it at the same time. Only needs one route for all requests, and you'll see what I'm talking about.
+
+[00:03:57]
+That sounds crazy, it sounded crazy to me the first time. I was like, how? That doesn't make any sense. You'll see. Doesn't care about how you resolve the data, just has to match the shapes. So remember when we made controllers yesterday? Those controllers respond to all the routes that we created.
+
+[00:04:14]
+You can think of resolvers as controllers but way more granular. Whereas a controller responds to a request, a resolver responds to a shape or a field on a shape. It can literally respond to just one field, it depends on how you write your resolvers. So you can think of them as just microcontrollers that can do whatever they want.
+
+[00:04:35]
+
+>> Scott Moss: You don't need versions ever again for your API because the URL is always the same. And you can change your Schema as much as you want. You might need versions for your Schema [LAUGH] or your data types, but you definitely don't need versions for your API. It's the same API, it's the same URL so you don't have to do that anymore.
+
+[00:04:52]
+And once you learn it, if you do a lot of client-side development, you're gonna love GraphQL. You're gonna love it. The benefit of GraphQL might not be so obvious on the server until you start doing advanced things, then you'll see it. But the benefit is immediate if you're writing client code.
+
+[00:05:08]
+If you're writing anything client, whether that's mobile or web, you'll immediately see the benefit of GraphQL. So although we're doing a server side today, we are gonna go over some stuff where you can see the benefit. But the benefit is definitely way better on the front end where you're consuming the API.
+
+[00:05:22]
+The consuming of the API definitely benefits from GraphQL more so than the implementer of the API. Does that make sense? Okay, cool, any questions on this? Yo.
+>> Speaker 4: So, would this be considered kind of a replacement for the need to have filters and things like that, that you would typically use when you're doing a REST API?
+
+[00:05:41]
+
+>> Scott Moss: So GraphQL itself does not do the filtering, you have to implement the filtering yourself in the resolvers. But it provides the mechanism that facilitates that filter. So just like you would in REST. For instance, if you made a REST call and on the query string you were like I wanna get /user query string first name equals whatever, you would still have to build that in your controller.
+
+[00:06:05]
+You still gotta do that in your resolver. It's very much the same. It's just the way GraphQL provides it it's way more strict. So, for instance, if you did that in REST, you would have to check to see that query string was there and do some stuff. Whereas GraphQL is like, it's guaranteed there if you said it has to be there.
+
+[00:06:23]
+Otherwise, it wouldn't have gotten there. It wouldn't have even gotten past GraphQL cuz Graph would be like, no, I need a filter here. You're not even going there. So it's very strict like that. All this will make sense when we start building, but yes, you can do all of that.
+

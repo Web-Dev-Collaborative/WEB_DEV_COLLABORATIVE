@@ -1,0 +1,96 @@
+[00:00:00]
+>> Okay, the last thing that we're gonna talk about today is Vuex. I love Vuex, I think it's fantastic, especially when you start to have to coordinate a ton of logic, or a lot of details throughout an application. Vuex really saves me a lot of effort and time, and I'll explain why.
+
+[00:00:21]
+So what is it? It's a centralized store for sharing data and logic, and even shared methods, or async. You can think about it a little bit like it's the brains of the application. It's really good for unidirectional data flow. So we're not throwing things up and down and around.
+
+[00:00:37]
+We have all of that state in one place. Remember, we talked a little bit before about making sure that we're not changing things in multiple spots, and we know who truly owns the state of something. It's built off of the concept of Redux, a lot of the kind of flux application architecture.
+
+[00:00:56]
+So flux application architecture came first. Then Redux worked off of that. And then Vue worked off of Redux, and kind of simplified the API just a little bit, so it's similar to Redux. You could still use Redux, if you like. But Vuex is really what I recommend for Vue applications.
+
+[00:01:15]
+So why? In a complex single page application, passing state between many different components, and especially deeply nested, or sibling components can get complicated very quickly. Having one centralized place to access your data can help you stay organized. Before when we were doing those amid examples, you could see that were passing things down, passing things back up.
+
+[00:01:38]
+But what if you're in the state where you have to pass it up two times, or you have to pass it down two times, or if you have to pass it up and back down? Or what if there's something that many, many components need to know about all at the same time?
+
+[00:01:51]
+So having all of that in one place, and then giving it to the components as they need, it makes a lot of sense. It keeps everything really organized. And that can be really, really helpful for working with applications. When would you use it? Sometimes people just say you just know.
+
+[00:02:11]
+That's not super helpful. So [LAUGH] let's dive in just another step further. Or you have multiple instances of children or siblings communicating with each other. You have, like I just mentioned, multiple pieces of people kind of talking around the application. I would still use emit for examples like a select that I need to use over and over again, because I wanna keep that select kind of state encapsulated, even if I want the parent component of the select to know about something.
+
+[00:02:42]
+I don't necessarily wanna hold that in the store, because, again, I don't want it to be brittle. So for something that's being reused again and again and again, that's really good for those emit pieces. But when we're talking about knowing the state of a cart, so that a component can know about it in a dynamic page.
+
+[00:02:59]
+And the cart can know about it, and this process can know about it. And we start to see multiple things need to be tied to that one piece of state, that's when it can be really helpful. Or, if you need it to be self-documenting. And what I mean by that is, I'd like to see what all of the state looks like, and keep it in one organized spot.
+
+[00:03:23]
+Like I mentioned, it's the brain of their application. So basically, what you're telling a maintainer who comes after you, here's the really important stuff. Here's the stuff that's not presentational, or something like that. This is the stuff that's the main application state that you should really pay attention to.
+
+[00:03:39]
+And I wanna mention, I'm gonna dive into Vuex on a really simple top level. But if you want to go into a lot of depth with Vuex, Divya has a course on Frontend Masters that dives into a really complicated state with Vuex, and goes into modules, and really does a deep dive.
+
+[00:03:58]
+So once you're done with the section, if you want to know more, I highly suggest looking at Divya's course. So it's not a replacement for single component methods. And the reason why I say this is, let's say you've got this single component, and you're keeping a computed property in there because of something that's going on.
+
+[00:04:15]
+You might be tempted to put it in the store. But what happens if you put too many things in the store is that it becomes hard for the maintainer to look through that state. It becomes less self-documenting, because now they're having to sort through all of this stuff when really just the component needed to know about that one piece.
+
+[00:04:35]
+So use it in light of reading it, as well as writing it. So how would I add it? I could do npm i vuex, yearn add vuex if you have an existing Vue project. And I would set it up this way within my source directory. I create another directory named store, and inside it, I put a file named index.js.
+
+[00:04:55]
+Now, when we worked with UCLI, it set that up for us already, right? It already set up a directory called store in an index.js method or file. So if you're curious if you ever get lost or confused, you can always just set up a project from scratch, and add in Vuex and say, that's the kind of default setting.
+
+[00:05:17]
+This is my preference, and a few other people's preferences. You could also just create a store file in that same directory, or in the same source directory if you like, doesn't necessarily have to be in store, unless you're using Nuxt. And then any file that's in the store directory is what Nuxt will kinda sniff out to create that store.
+
+[00:05:39]
+Vue cli will create this for you. Nuxt will also create that store directory for you. So the initial setup in store.js would look something like this. And in fact, you saw this earlier. You saw this boilerplate when we created that Vue CLI. So this is what it looks like, import Vue, Vuex, Vue.use(Vuex).
+
+[00:06:00]
+And then it gives us state, mutations, actions and modules. I am gonna cover another thing that's in here, that's called getters. I'm not gonna cover modules, cuz that's what Divya covers in her course. It's kind of a whole nother course, it could be, but I am gonna cover getters.
+
+[00:06:17]
+Alternatively [LAUGH], Nuxt expects a different formatting for this store. And if you use my snippets, how I mentioned I make those Vue snippets for VS code have some boilerplate. There's vstore, and then there's vstore2. Vstore is this boilerplate, vstore2 is the next boilerplate. Nuxt, if you use this, it will be fine.
+
+[00:06:40]
+Nuxt will just call it say, hey, you're using Vuex in Classic Mode, and we'd like you to move over. I think it's really funny that it calls it classic mode, like it's so old or something [LAUGH]. Maybe [INAUDIBLE] two years old, and it's classic mode. But anyway, so this is the store that Nuxt expects with kind of export, const, state, getters, mutations and actions.
+
+[00:07:02]
+In our main.js file, we perform the following update. So we would add in import store from wherever you decided to put it in our case store index. And you would say store store inside the Vue piece. But actually, you could just say store, cuz we can do some destructuring.
+
+[00:07:22]
+State is what you might expect the state of the application. And it's similar how to how we use data in components, or ref now, or reactive, so that kind of centralized state. Getters will make values that are able to show statically in our templates. In other words, getters can read the value, but not mutate the state.
+
+[00:07:41]
+I'll explain this in a very simple way. Getters are kind of like computer properties. They are another Vue on to the same data. So if you can think of state like data, getters are like a computed property. They're giving you another Vue on to that state. Mutations will allow us to update the state, but they'll always be synchronous.
+
+[00:08:04]
+Mutations are the only way to change the data of the state and the store. Actions allow us to update the state asynchronously, but they'll use an existing mutation. And this can be really helpful if you need to perform a few different mutations at once in a particular order, or reach out to a server.
+
+[00:08:23]
+So here's a very basic abstract example that we're gonna go through while we look at this. We're in this new vuex.store. We've got the state is counter 0. We've been doing a lot of counters lately. In the getters, we have triple counter, where we pass in state, returning state.counter times 3.
+
+[00:08:42]
+This is similar to the computer properties that you've gotten used to seeing before, except it's in the store now. Mutations are the are mutating the state. They're always synchronous. So here, we've got increment, we're passing in the state, and we can also pass a payload in into this.
+
+[00:09:04]
+We're representing that with number. But you might notice in a lot of applications, they use the term payload. So state and num, and we're setting state.counter is going to be increased by num, that's what we're changing. And this action allows us to do asynchronous operations. Now typically, I would do async/await in here, and I'd call out to an API, we'll do that on Friday.
+
+[00:09:32]
+But for the purposes of demonstration, and just to keep it simple for now, cuz you're learning a new concept, we'll just use a simple set timeout. So this commits the mutation, it's asynchronous. So this is showing it passed with a payload represented as asyncNum. And for this, I'm just showing you an example that's an object.
+
+[00:09:52]
+The reason why I'm showing you an example that's an object is because if you need to use two different properties, you can't pass in two parameters, you have to pass in one. So what we would do is pass in an object that held both, right? So we would say async.by and async.duration.
+
+[00:10:08]
+And here, we're committing this increment. So this action is committing, remember, we said we can't change anything in actions. But we can call this mutation by saying commit and async by. So this will wait and use the mutation. So actions are dispatched, and mutations are committed there that we use commit.
+
+[00:10:35]
+So we have to pass in commit here.
+

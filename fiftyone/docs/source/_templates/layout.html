@@ -1,0 +1,162 @@
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+<link href="https://fonts.googleapis.com/css?family=Palanquin:400,600,700,800" rel="stylesheet">
+<link href="https://voxel51.com/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block custom_header %}
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  {% if banner_link %}
+  <a href="{{ banner_link }}" style="color:white">
+  {% endif %}
+  {% if banner_message %}
+    <div class="banner show">
+      {{ banner_message }}
+    </div>
+  {% endif %}
+  {% if banner_link %}
+  </a>
+  {% endif %}
+
+  <nav id="nav__main" class="nav__main">
+    <div class="nav__main__logo">
+      <a href="{{link_home}}">
+        <img src="https://voxel51.com/images/logo/voxel51-logo-horz-color-600dpi.png" />
+      </a>
+    </div>
+
+    <div id="nav__main__mobilebutton--on">
+      <a href="javascript:void(0);" onclick="navMobileButton()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <div id="nav__main__mobilebutton--off">
+      <a href="javascript:void(0);" onclick="navMobileButton()">
+        <i class="fa fa-times"></i>
+      </a>
+    </div>
+
+    <div id="nav__main__items">
+      <div class="nav__item">
+        <a href="{{link_fiftyone}}">Product</a>
+      </div>
+      <div class="nav__item">
+        <a href="{{link_docs_fiftyone}}">Docs</a>
+      </div>
+      <div class="nav__item">
+        <a href="{{link_voxel51_medium}}">Blog</a>
+      </div>
+      <div class="nav__item">
+        <a href="{{link_voxel51_slack}}">Community</a>
+      </div>
+
+      <div class="nav__item mobile_only">
+        <a href="{{link_voxel51_github}}fiftyone">GitHub</a>
+      </div>
+
+      <div class="nav__item">
+        <a href="{{link_press}}">Press</a>
+      </div>
+
+      <div class="nav__item desktop_only">
+        &nbsp <a href="{{link_voxel51_github}}fiftyone"><i class="fa fa-github fa-header-icon"></i></a>
+      </div>
+
+    </div>
+  </nav>
+</div>
+{% endblock %}
+
+{% block custom_mobile_menu %}
+{# delete PyTorch's menu because our own is reused on mobile #}
+{% endblock %}
+
+{% block menu %}
+{{ toctree(maxdepth=10, collapse=True, includehidden=True, titles_only=True) }}
+{% endblock %}
+
+{% block custom_footer %}
+<footer class="footer-wrapper" id="docs-tutorials-resources">
+<div class="footer pytorch-container">
+  <div class="footer__logo">
+    <a href="{{link_home}}"><img src="https://voxel51.com/images/logo/voxel51-logo-horz-color-600dpi.png" /></a>
+  </div>
+
+  <div class="footer__address">
+    {{address_main_line1}}<br />
+    {{address_main_line2}}
+  </div>
+
+  <div class="footer__contact">
+    <a href="mailto:{{email_info}}">{{email_info}}</a><br />
+    {{phone_main}}
+  </div>
+
+  <div class="footer__links">
+    <div class="footer__links--col2">
+      <p class="nav__item--brand">Product</p>
+      <a href="{{link_fiftyone}}">FiftyOne</a>
+      <a href="{{link_fiftyone_tutorials}}">Tutorials</a>
+      <a href="{{link_fiftyone_examples}}">Examples</a>
+    </div>
+    <div class="footer__links--col3">
+      <p class="nav__item--brand">Resources</p>
+      <a href="{{link_ourstory}}">About Us</a>
+      <a href="{{link_voxel51_medium}}">Blog</a>
+      <a href="{{link_press}}">Press</a>
+    </div>
+  </div>
+
+  <div class="footer__icons">
+    <ul class="list-inline">
+      <li>
+        <a href="{{link_voxel51_linkedin}}">
+          <i class="fa fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{{link_voxel51_github}}">
+          <i class="fa fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{{link_voxel51_twitter}}">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{{link_voxel51_facebook}}">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer__copyright">
+    <ul class="list-inline">
+      <li>
+        &copy; 2021 Voxel51 Inc.
+      </li>
+      <li>
+        <a href="{{link_privacypolicy}}">Privacy Policy</a>
+      </li>
+      <li>
+        <a href="{{link_termsofservice}}">Terms of Service</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</footer>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141773487-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141773487-1');
+</script>
+{% endblock %}

@@ -1,0 +1,35 @@
+.main-card {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: white;
+  background-image: url(https://frontendmasters.github.io/bootcamp/layout/postIT_bg.png);
+  background-size: 60px;
+  box-shadow: 0px 10px rgba(36, 40, 39, 0.5);
+  padding: 20px;
+}
+
+.lesson-title {
+  font-size: 32px;
+  padding: 25px 30px 2px 30px;
+  font-family: "PosterizerKGRough", "Courier New", Courier, monospace;
+  color: #2c2825;
+  text-align: center;
+}
+
+.lesson-content {
+  padding: 0 0 15px 0;
+  color: #2c2825;
+  overflow: hidden;
+}
+
+@media (min-width: 680px) {
+  .lesson-content {
+    padding-right: 15px;
+  }
+}
+
+.lesson-content a {
+  color: #923a21;
+  padding-left: 0;
+}

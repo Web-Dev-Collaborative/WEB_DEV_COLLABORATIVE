@@ -1,0 +1,25 @@
+[00:00:00]
+>> Sean Larkin: The goal for you is to now understand. So once we're done with this section, we're gonna dive into actually building up the config, adding features, adding loaders, adding support for things, and maybe talking about why. And it's gonna be a lot more comfortable once you understand what these things are doing.
+
+[00:00:20]
+I find that more useful than just having you arbitrarily code with me a bunch of stuff that you're like what is this? So there's four core concepts. So the first one is called entry, and we kind of had an introduction to this already. The entry point, really, it's not like the entry property on the config.
+
+[00:00:42]
+We're talking about more as the concept. So say you have this diagram, and you have some code, and some modules, and you have a toppable file. I think I was writing angular at the time when I created this and so there was a bootstrap file. And it imports a component, and that component imports some lib and also some other components.
+
+[00:01:03]
+And that lib has a dependency. This is how JavaScript works. And let's say we get really weird and sometimes your dependencies aren't just JavaScript. Sometimes for a component library, you might rely on some SaaS or CSS or whatever. But the point is that that top file, that is your entry point.
+
+[00:01:27]
+That is the entry. It is the root of what is now kind of a graph here, right? And it's the first JavaScript file to kinda kick off your functionality. And so we define this using an entry property in the configuration. There's a couple ways or a couple different types of data types that you can pass into the entry property.
+
+[00:01:51]
+But the simplest is just a string, which is just a relative path. And you can even see here, you can step through the code, webpack is gonna trace through each of these imports. And then recursively look for other dependencies in those files until creates a graph.
+>> Sean Larkin: And that's the entry point, that's what the entry is.
+
+[00:02:15]
+It's very simple, it's not complex in what is happening behind the scenes either. We just passed that string to webpack's compiler and then it goes and resolves it and tries to create a graph. So when you think about entry as the concept, the entrypoint or the entry property, the entry concept is really about telling webpack what you want to include in the browser.
+
+[00:02:40]
+What do you want your code to be bundled in its contents? And it works together with the output property.
+

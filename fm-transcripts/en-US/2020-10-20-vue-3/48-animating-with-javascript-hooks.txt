@@ -1,0 +1,63 @@
+[00:00:00]
+>> Let's talk about JavaScript hooks. This is my favorite part. I love animating with JavaScript. And it's not that I hate CSS or anything. It's that JavaScript is much more powerful for animation and a lot of animation that I like writing is interactive. And so JavaScript is just really good at interactivity.
+
+[00:00:19]
+And it also gives us some really nice things that we can play around with like timelines, or like the ability to change those things based on a progress like we saw in that watchers demo. This is another reason why I really like JavaScript. CSS has limited handles. And what I mean by that is, if we look back at this cubic-bezier I have two handles to work with, but I have no more.
+
+[00:00:43]
+When I wanted to bounce that ball, I had to say, go up and down, and up and down, and up and down, and up and down, and up and down. And I have to say all of that stuff. I have to state all of that stuff. JavaScript allows for multiple handles, which means that I can actually just say go here from here and apply a bounce ease.
+
+[00:01:05]
+So if I look at GreenSock's Ease Visualizer here's that kinda two bezier handle bits. If I go into a bounce, I can literally just say, the duration is this, use the ease of bounce, and move this across the page. I could also do elastic and I have some configurations I can use for this.
+
+[00:01:29]
+So I can change this a bunch of different ways. So it allows me to create these effects really, really fast, and they're really dynamic. So when we're working with the transition component, we still wrap it in a transition component. What we'll use instead is the @ sign, that V on @ sign, and we have a bunch of different hooks.
+
+[00:01:54]
+We have before-enter, after-enter, after-cancelled, so on and so forth. But really, it's also very important that you bind CSS false. What that does is it tells you don't sniff the CSS to hook into the transition component. Because what view will do is go check out all the CSS and try to find the corresponding CSS.
+
+[00:02:16]
+This makes it much faster. It's like ditch the CSS. [LAUGH] We're working in JavaScript. So make sure that you add that. And you don't have to add all of these, right? I just showed you all of these different hooks. And that looks really daunting, really you can just say, @enter and then a method, @leave and then a method.
+
+[00:02:34]
+So it works the same way a click event would, where you're hooking into a method called enterEL leaveEL. And then we're saying CSS false. This is what I use nine times out of ten. So most basic example of hooking into that in our methods, we'd say enterEL, we pass the EL that we're manipulating, and called done at the end.
+
+[00:02:58]
+Then same with leave. So remember this demo where we had the good place to type things. And then we were able to bring things on and bounce them around and move them around. And I told you you had the knowledge of the first bit of it and that we would go into the second bit of it, and now is the time to do that.
+
+[00:03:18]
+So what we're going to do is we have, this is a good place to type things. We have that text area with vmodel.lazy that is attached to that message. And then here, that message that we showed on the book is wrapped in a transition component. That transition component has a beforeEnter hook and an enter hook.
+
+[00:03:44]
+It doesn't have a leave hook because it just disappears on leave, doesn't do anything to leave. So that again, this has a conditional on it, and this transition is like when this component is mounted, then do these things. So if we look at the beforeEnter, we have a bunch of things that we're setting we're setting transform perspective, perspective, transform style and auto alpha.
+
+[00:04:10]
+You might ask yourself, like why am I declaring these in JavaScript? I could actually in CSS, grab this element and say all of these things. I don't have to do it right at the beforeEnter hook. The reason why I do this in the beforeEnter hook sometimes is, these pieces if you know anything about perspective or transform perspective.
+
+[00:04:30]
+They change the way that we are able to see that element. Like you saw that Tron thing was moving around in space because of a perspective. But they don't do anything right away. Only when you start to see it when it's moving can you really tell those pieces.
+
+[00:04:49]
+So what can happen is, and has happened to me for sure, it's like let's say I'm working with a bunch of other people on a project. And in my CSS, I declare a bunch of stuff like this. They might look at this and be like, what does this do this doesn't do anything and developers love to delete code.
+
+[00:05:05]
+So [LAUGH] they might just be like, I'm gonna delete a bunch of code and be a hero and get rid of all of this stuff. What the beforeEnter hook allows me to do is document that a little bit for a developer who comes after me and say, this is being used for animation.
+
+[00:05:21]
+Please don't delete it because it's actually going to be used for that. So we have the EnterEl and done. One thing to note, Greensock, the thing that I keep mentioning has this awesome method called onComplete. So rather than just calling done at the end, I will pass onComplete done into a timeline and then it will let Greensock know as soon as onComplete happens fire that done.
+
+[00:05:52]
+So I'm doing some looping through things and math.randomy things and I'm throwing things around the page because I wanna little bit of chaos in order to play with things. So I have these kind of, I'm splitting the words apart. I'm using this library to split words apart and then I'm throwing them in z's and y's all over the place and then I'm asking them to come back home to 000.
+
+[00:06:17]
+So it starting out at 000, but I'm in the initial state, I take it and I put it somewhere else. And then I say go somewhere else and do all these somewhere else things and then come back home at the end. So you might ask, why do you use split text for something like this?
+
+[00:06:34]
+You could just break apart these letters. That's totally true. But one thing that split text does is it honors line breaks. So this is a good tight place to type things isn't all over the page or whatever. It is exactly in the same format as what's above it.
+
+[00:06:52]
+Which was important to me for this demo, cool. So this is going over that code again. And again, this is a good place to put all of the elements gSAP.set is a way of setting those things before you start working. And again, onComplete = done, it has to be an object passed in to the gSAP timeline.
+
+[00:07:17]
+If you're not using gSAP timelines, you can just say done like this.
+

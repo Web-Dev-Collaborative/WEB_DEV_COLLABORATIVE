@@ -1,0 +1,63 @@
+[00:00:00]
+>> So I'm gonna do a demo of a walk through, we're gonna create a project from scratch. I already have Vue CLI installed, but if you don't have Vue CLI installed, you can do npm i -g which is installing it globally, @vue/cli. And then to create a project, I'll say vue create my-project.
+
+[00:00:22]
+And in the repo, the end state of what we're building is in setup1. So what I'm gonna do is I'm gonna take this previous example that we looked at earlier, and kind of saw this store kinda piece, and we're gonna refactor it. And we're gonna put all of these components into a Vue CLI app, so you can see what the similarities and differences are.
+
+[00:00:44]
+So if I go into my terminal and I say vue create setup1, then what will happen is Vue will, my computer's a little bit slow here. Usually it happens quite quickly, it will offer you a bunch of different examples so you can go through this one, a simple one and default one.
+
+[00:01:09]
+And you can actually even create one and name it. I'm gonna manually select feature, so you can see how this works. So in this one you could say, okay, I wanna use babel, I wanna toggle these features, I wanna use vuex or something like that. If you wanted to use TypeScript, you see how we're gonna do that.
+
+[00:01:28]
+If you wanted to add a router, if you wanted to add CSS pre-processors, you can read. But [LAUGH] basically you're able to toggle all of these pieces with the spacebar and so I'm gonna click Return. And then I can decide between node-sass or dart-sass, I typically use node-sass.
+
+[00:01:45]
+I like to use package-json. It's really whatever you like, and I mentioned before that you could save the preset that you just created for future projects if you wanna name it and then it always is available. So then I can say, no I'm not interested in making it for future projects, it's going to start building this whole thing for me, which is super nice.
+
+[00:02:06]
+By the way, you might notice some sparkles in my terminal and that's because I'm a major nerd and I use a thing called, what is it called? I forget the name of it, but I will link it up in the readme and it just makes terminal sparkles. My husband told me that he thought I would get sick of it, but I have not gotten sick of it.
+
+[00:02:26]
+I've been using it for two years and I still really like my sparkles. Okay, so if you go back to this as a reminder of what we were doing before, we had this ScriptType x template, which was the child and this is the app. And this is okay, but what's not okay about it or what's not ideal about it is that it's not so clear what things are and where they're going.
+
+[00:02:53]
+And also we're having to look back and forth to different sections. I'm looking at this app in this one place and this component in a different place. And so I have to kind of see, kind of exchange that knowledge a little bit differently. So now it will tell me what I do in order to go into the setup.
+
+[00:03:12]
+So I'll say cd setup1, and then I'll say yarn serve, little bit laggy on my keyboard, I apologize for that. So okay, if we're looking back at this, back pop the original one, what's good about it is that we're able to use components. But what could be better about it is, now I'm looking in one place for the parent, one place for the child.
+
+[00:03:35]
+It's a little confusing which one of these is associated with which? The app component is on that one and then this state is to this one. So it's not exactly, perfectly clear. So what's really nice is when we're working with an app, we can use this process and that Vue CLI will kick this all up for us.
+
+[00:03:57]
+Now if we wanted to look at what kind of defaults it gives us, so I'll like open a new tab, and then I'll open up code. And then VS code and then, what we have is our setup. Inside source, we have some defaults that we have here. So one thing that you might notice is this App.vue component.
+
+[00:04:25]
+All of those single file components that I mentioned will have the extension .vue and we're gonna start off with this App.vue. What's nice also about the CLI is it kind of starts us off with a few component so you can see where things live. So we've got got that div id app, we've got this HelloWorld component.
+
+[00:04:47]
+You can see we're importing HelloWorld from components HelloWorld. This name piece is not super important, it works fine without that. We have this components of HelloWorld. And if we go into HelloWorld, you can see all of those links that we saw earlier on the page. So if I go back to Chrome, You can see, Welcome to Your Vue.js App and all of those links.
+
+[00:05:16]
+So if we go back to Visual Studio Code for a minute, we have that App.vue with the template that I mentioned. The script that I mentioned, and some default styles, as well as all of these links here, and the scripts and some default styles here. So you can see how we would start to encapsulate this and also how all of it that you need is just in that one area.
+
+[00:05:43]
+There's also a couple other things I wanted to highlight here. We're gonna talk about Vuex later today. We did say in that CLI builds that we wanted Vue CLI to give us a store and some boilerplate. So it gave us a store and some boilerplate, it added in store and index.js and so we don't have to manually add that now.
+
+[00:06:06]
+If you're wondering how all of this is mounted and done cuz you saw it in those code pins that we actually mounted to an app. What it does is in main.js, we've got import Vue, import App, import store and then we got the store is passed in here and here.
+
+[00:06:27]
+And then we're rendering this h of App. h in this case stands for HyperScript. I have a long article that I'll link up that explains why it's called HyperScript, it's like, what is the h for in Vue? I think you can google what is the h for in Vue and it explains all of those things.
+
+[00:06:46]
+The other thing is that when we build all of these files, if you go in the public folder, you'll see the index.HTML that this is being built into. And if you needed to add a font or other links, you would do it in inside of here. So that gives us access to if we needed to call out to a link for a global style or something.
+
+[00:07:12]
+And as we move into Nuxt, we're going to talk a little bit more about how we render this, because it's done completely differently in Nuxt. Nuxt is a meta framework so it uses Vue under the hood, but it is a framework on top of Vue. It's like Vue's version of Next.
+
+[00:07:33]
+So React has Next, Vue has Nuxt. I know that's very confusing. We'll go over it a little bit more in a minute.
+

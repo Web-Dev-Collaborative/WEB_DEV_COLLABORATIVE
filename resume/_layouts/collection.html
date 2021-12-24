@@ -1,0 +1,43 @@
+---
+layout: default
+---
+{% assign collection-class = site.collection[page.collection].class %}
+{% assign collection-list = site[page.collection] %}
+{% capture page_title %}{{ page.title | downcase }}{% endcapture %}
+{% assign collection-template = "collections/" | append: page.collection | append: ".html" %}
+<div class="row">
+  <div class="col l7">
+    <div class="row">
+      <div class="col">
+    {% if page.collection and page.hide-cloud == false %}
+        {% include collections/cloud.html class=collection-class col=collection-list %}
+    {% endif %}
+        <header class="page-header">
+          <h2>{{ page.title }}</h2>
+        </header>
+        <article class="page-content">
+          {{ content }}
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="col l4 offset-l1">
+    <div class="row">
+      <div class="{{ collection-class }}-list">
+            {% for col in collection-list %}
+              {% capture element_name %}{{ col | first }}{% endcapture %}
+              {% if element_name == page_title %}
+                {% if page.list == "timeline" %}
+                  {% capture col_name %}{{ col | first }}{% endcapture %}
+                  {% assign col_list=collection-list[col_name] %}
+                  {% include collections/timeline.html list=col_list %}
+                {% else %}
+                  {% include {{ collection-template }} %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+---
+layout: base
+---
+
+<header>
+  <div class="container">
+    <div class="header-section logo-section">
+      <div class="logo">
+        <a href="/" title="Lodash">Lodash</a>
+      </div>
+      <div class="header-group">
+        <h1>Lodash</h1>
+        <h2>A modern JavaScript utility library delivering modularity, performance &amp; extras.</h2>
+      </div>
+    </div>
+    <div class="header-section">
+      {% assign href = '/docs/' %}
+      {% unless jekyll.environment == 'production' and site.github.hostname != 'github.com' %}
+        {% assign href = href | append:site.release %}
+      {% endunless %}
+      <a href="{{ href }}" class="btn primary">Documentation</a>
+      <a href="{{ site.links.repo }}/wiki/FP-Guide" class="btn">FP Guide</a>
+    </div>
+  </div>
+</header>
+<div class="container main">
+  {{ content }}
+</div>
+<footer>
+  <div class="container">
+    <p>Site made with <i class="fa fa-heart" aria-label="love"></i> by <a href="https://twitter.com/veksenn">@veksenn</a> &amp; <a href="https://twitter.com/ZTHall">@zthall</a>.</p>
+    <p>Maintained by the <a href="{{ site.links.org }}/people">core team</a> with help from <a href="{{ site.links.repo }}/graphs/contributors">our contributors</a>.
+  </div>
+</footer>
+{% assign res = site.builds[site.release] %}
+{% assign protocol = res.href | slice:0,6 %}
+{% if res.integrity and protocol == 'https:' %}
+<script src="{{ res.href }}" integrity="{{ res.integrity }}" async crossorigin></script>
+{% else %}
+<script src="{{ res.href }}" async></script>
+{% endif %}

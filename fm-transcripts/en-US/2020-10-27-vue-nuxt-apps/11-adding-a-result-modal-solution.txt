@@ -1,0 +1,48 @@
+[00:00:00]
+>> Let's go over the solution to this exercise. So we looked at how we could go through and create this bigger and see if we can win the game and we won. Let's play again and we start over again. Let's check out the code. So if you needed to find it It is the game solution in the repo.
+
+[00:00:24]
+So if we look at the code, we have that game, start Vf uiState _start. And that's the same as it used to be. But we've added in a different thing for this section that we added here. So instead of the V else because that takes all conditions, we're gonna say V elsif.
+
+[00:00:42]
+Uistate is character chosen, so that it's only that state, and then we'll put the VLs else on game state finished. So we're only gonna show that V else. We're only gonna show that game state finish if these two are not true if we look at the game state finish, we are bringing in the UI state.
+
+[00:01:01]
+And you could have done it a couple of ways, right? You could have use map state, you could have use computer property called the UI state and said this return this.store.state.ui state either one is fine and correct. So, one thing we wanna do is we wanna show a conditional for if the UI state one you show you one If not you lost.
+
+[00:01:24]
+You could have also put these on the H tos it's up to you. So it's inside that modal. Then we placed that face in the face icon that we had in the game resources in here. And you had two options. You could say the path class, we were gonna bind that class to won or lost.
+
+[00:01:44]
+So if the UI state is lost, then we're gonna create a class called frown and turn it upside down with that class. Otherwise it won't have the frown class and it'll just be normal. And we do need to ,there's a couple different ways of doing this. We do need to also add cls3, that's a class that was already using.
+
+[00:02:06]
+So I could do this here. Or I could have wrapped this in a G tag which is a group and changed it with the G tag and then I wouldn't have had to add this extra parameter to the bound class. We also have a button that says add, click, restart.
+
+[00:02:27]
+And you could have named it whatever you like, in methods, we have restart and it says this dot store commit restart game. So we're gonna go up to the store and we're gonna make sure to change the game from there because that's where all of the game logic is.
+
+[00:02:42]
+In that store, we have a restart game and we're passing the state. We say the UI state is start again. So we wanna make sure we set it back to start we also need to reset two things. The score we need to reset to zero and we also need to reset the question index back to zero.
+
+[00:03:01]
+And so that will restart the game and allow us to play fresh. So that is all of the things that you need to kind of restart this game here. You might have noticed one extra thing though. If we go back to our alien zombie game, I'm goinna try to lose here.
+
+[00:03:20]
+Pick an artist. I'm gonna say Woofgang Puck, cause I know that that's wrong. I'm actually gonna start showing this zombie, based on whether or not I'm winning or losing. So this is a little bit of extra credit. If you're losing you're gonna slowly have this face melt off, so I'm gonna have another slide for this.
+
+[00:03:45]
+So make the characters face melt off and expose the zombie. So if you wanna take it a step further, when you're done with this piece of the course, you can use clip paths that are set up. They're already set up for you in deaths. If we were working with SVG, you can think of we know we have this base SVG here.
+
+[00:04:05]
+In here, you can think of deaths as like a staging area. If you did theatre, it's they're waiting backstage. That's like a bunch of stuff that we're not gonna really use inside the SPVG immediately it's stuff that you're like hold this for use later. And inside here we have some clip paths.
+
+[00:04:24]
+We have the bottom clip path and the top clip path. And we're going to add the zombie and add some character clips for that. I wrote this article called masking versus clipping when to use each and it goes over what CSS and SVG masks and clip paths are.
+
+[00:04:45]
+This is extra credit because it's not necessary for writing applications, but if you wanna start to make games like this, sometimes we wanna hide, and show things. And this clip paths can be really powerful for hiding, and showing bits of information. But are helpful to the user. So that's an extra thing that you can do use gsap to control the animation with a watcher kind of like we did with that needle for the score.
+
+[00:05:14]
+So the solution is in the game solution and the repo including the extra credit if you wanted to check it out. Awesome.
+

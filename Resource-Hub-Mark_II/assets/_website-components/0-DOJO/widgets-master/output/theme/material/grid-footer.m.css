@@ -1,0 +1,20 @@
+.grid-footer-m__root__1Me__ {
+	min-height: 52px;
+	padding-right: 24px;
+	padding-left: 24px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	color: var(--mdc-text-color);
+	font-size: var(--mdc-theme-font-size-small);
+	font-family: var(--mdc-theme-font-family);
+	border-top: 1px solid var(--mdc-theme-separator);
+}
+/*# sourceMappingURL=grid-footer.m.css.map*/

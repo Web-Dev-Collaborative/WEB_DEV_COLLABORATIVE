@@ -1,0 +1,15 @@
+{
+  "name" : "Best Practices for a Faster Web App with HTML5",
+  "authors" : [
+    {
+      "name" : "Paul Irish",
+      "twitter" : "@paul_irish"
+    }
+  ],
+  "date" : "2010-06-18",
+  "stats" : {
+    "length" : 1930
+  },
+  "url" : "http://www.html5rocks.com/en/tutorials/speed/quick/",
+  "tags" : [ "loading", "best practices" ]
+}

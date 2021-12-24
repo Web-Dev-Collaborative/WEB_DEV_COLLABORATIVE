@@ -1,0 +1,6 @@
+{ 
+  "$id": "/schemas/basic-data-types/boolean/boolean.json#",
+  "type": "boolean",
+  "title": "Boolean Type Schema",
+  "description": "Demonstrates a boolean type schema."
+}

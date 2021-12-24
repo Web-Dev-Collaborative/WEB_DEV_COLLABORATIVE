@@ -1,0 +1,266 @@
+- id: docs_getting_started
+  title: docs_getting_started_title
+  description: docs_getting_started_description
+  tags: ["intro"]
+  pages:
+  - id: docs_getting_started
+    path: /docs/getting-started
+  - id: docs_install
+    path: /docs/install
+  - id: docs_usage
+    path: /docs/usage
+
+- id: docs_yarn_workflow
+  title: docs_yarn_workflow_title
+  description: docs_yarn_workflow_description
+  tags: ["intro", "basics"]
+  pages:
+  - id: docs_yarn_workflow
+    path: /docs/yarn-workflow
+  - id: docs_creating_a_project
+    path: /docs/creating-a-project
+  - id: docs_managing_dependencies
+    path: /docs/managing-dependencies
+  - id: docs_installing_dependencies
+    path: /docs/installing-dependencies
+  - id: docs_version_control
+    path: /docs/version-control
+  - id: docs_install_ci
+    path: /docs/install-ci
+
+- id: docs_cli
+  title: docs_cli_title
+  description: docs_cli_description
+  tags: ["api", "basics", "cli"]
+  pages:
+  - id: docs_cli_index
+    path: /docs/cli/
+  - id: docs_cli_add
+    path: /docs/cli/add
+    tags: ["cli-add"]
+    description: docs_cli_add_description
+  - id: docs_cli_audit
+    path: /docs/cli/audit
+    tags: ["cli-audit"]
+  - id: docs_cli_autoclean
+    path: /docs/cli/autoclean
+    tags: ["cli-autoclean"]
+  - id: docs_cli_bin
+    path: /docs/cli/bin
+    tags: ["cli-bin"]
+  - id: docs_cli_cache
+    path: /docs/cli/cache
+    tags: ["cli-cache"]
+  - id: docs_cli_check
+    path: /docs/cli/check
+    tags: ["cli-check"]
+  - id: docs_cli_config
+    path: /docs/cli/config
+    tags: ["cli-config"]
+  - id: docs_cli_create
+    path: /docs/cli/create
+    tags: ["cli-create"]
+  - id: docs_cli_dedupe
+    path: /docs/cli/dedupe
+    tags: ["cli-dedupe"]
+  - id: docs_cli_generate_lock_entry
+    path: /docs/cli/generate-lock-entry
+    tags: ["cli-generate-lock-entry"]
+  - id: docs_cli_global
+    path: /docs/cli/global
+    tags: ["cli-global"]
+  - id: docs_cli_help
+    path: /docs/cli/help
+    tags: ["cli-help"]
+  - id: docs_cli_import
+    path: /docs/cli/import
+    tags: ["cli-import"]
+  - id: docs_cli_info
+    path: /docs/cli/info
+    tags: ["cli-info"]
+  - id: docs_cli_init
+    path: /docs/cli/init
+    tags: ["cli-init"]
+  - id: docs_cli_install
+    path: /docs/cli/install
+    tags: ["cli-install"]
+  - id: docs_cli_licenses
+    path: /docs/cli/licenses
+    tags: ["cli-licenses"]
+  - id: docs_cli_link
+    path: /docs/cli/link
+    tags: ["cli-link"]
+  - id: docs_cli_list
+    path: /docs/cli/list
+    tags: ["cli-list"]
+  - id: docs_cli_lockfile
+    path: /docs/cli/lockfile
+    tags: ["cli-lockfile"]
+  - id: docs_cli_login
+    path: /docs/cli/login
+    tags: ["cli-login"]
+  - id: docs_cli_logout
+    path: /docs/cli/logout
+    tags: ["cli-logout"]
+  - id: docs_cli_outdated
+    path: /docs/cli/outdated
+    tags: ["cli-outdated"]
+  - id: docs_cli_owner
+    path: /docs/cli/owner
+    tags: ["cli-owner"]
+  - id: docs_cli_pack
+    path: /docs/cli/pack
+    tags: ["cli-pack"]
+  - id: docs_cli_policies
+    path: /docs/cli/policies
+    tags: ["cli-policies"]
+  - id: docs_cli_prune
+    path: /docs/cli/prune
+    tags: ["cli-prune"]
+  - id: docs_cli_publish
+    path: /docs/cli/publish
+    tags: ["cli-publish"]
+  - id: docs_cli_remove
+    path: /docs/cli/remove
+    tags: ["cli-remove"]
+  - id: docs_cli_run
+    path: /docs/cli/run
+    tags: ["cli-run"]
+  - id: docs_cli_self_update
+    path: /docs/cli/self-update
+    tags: ["cli-self-update"]
+  - id: docs_cli_tag
+    path: /docs/cli/tag
+    tags: ["cli-tag"]
+    description: docs_cli_tag_description
+  - id: docs_cli_team
+    path: /docs/cli/team
+    tags: ["cli-team"]
+  - id: docs_cli_test
+    path: /docs/cli/test
+    tags: ["cli-test"]
+  - id: docs_cli_unlink
+    path: /docs/cli/unlink
+    tags: ["cli-unlink"]
+  - id: docs_cli_upgrade
+    path: /docs/cli/upgrade
+    tags: ["cli-upgrade"]
+  - id: docs_cli_upgrade_interactive
+    path: /docs/cli/upgrade-interactive
+    tags: ["cli-upgrade-interactive"]
+  - id: docs_cli_version
+    path: /docs/cli/version
+    tags: ["cli-version"]
+  - id: docs_cli_versions
+    path: /docs/cli/versions
+    tags: ["cli-versions"]
+  - id: docs_cli_why
+    path: /docs/cli/why
+    tags: ["cli-why"]
+  - id: docs_cli_workspace
+    path: /docs/cli/workspace
+    tags: ["cli-workspace"]
+  - id: docs_cli_workspaces
+    path: /docs/cli/workspaces
+    tags: ["cli-workspaces"]
+
+- id: docs_migrating_from_npm
+  title: docs_migrating_from_npm_title
+  description: docs_migrating_from_npm_description
+  tags: ["intro", "basics", "migrating"]
+  pages:
+  - id: docs_migrating_from_npm
+    path: /docs/migrating-from-npm
+
+- id: docs_creating_a_package
+  title: docs_creating_a_package_title
+  description: docs_creating_a_package_description
+  tags: ["intro", "basics", "authoring"]
+  pages:
+  - id: docs_creating_a_package
+    path: /docs/creating-a-package
+  - id: docs_publishing_a_package
+    path: /docs/publishing-a-package
+
+- id: docs_dependencies
+  title: docs_dependencies_title
+  description: docs_dependencies_description
+  tags: ["intro", "basics", "dependencies"]
+  pages:
+  - id: docs_dependencies
+    path: /docs/dependencies
+  - id: docs_dependency_types
+    path: /docs/dependency-types
+  - id: docs_dependency_versions
+    path: /docs/dependency-versions
+    tags: ["dependencies-versions"]
+    description: docs_dependency_versions_description
+  - id: docs_selective_version_resolutions
+    path: /docs/selective-version-resolutions
+    tags: ["dependencies-versions"]
+    description: docs_selective_version_resolutions_description
+
+- id: docs_configuration
+  title: docs_configuration_title
+  description: docs_configuration_description
+  tags: ["configuration"]
+  pages:
+  - id: docs_configuration_index
+    path: /docs/configuration
+  - id: docs_configuration_package_json
+    path: /docs/package-json
+    tags: ["package-json"]
+  - id: docs_configuration_envvars
+    path: /docs/envvars
+    tags: ["envvars"]
+  - id: docs_configuration_yarnrc
+    path: /docs/yarnrc
+    tags: ["yarnrc"]
+  - id: docs_configuration_yarn_lock
+    path: /docs/yarn-lock
+    tags: ["yarn-lock"]
+
+- id: docs_offline_mirror
+  title: docs_offline_mirror_title
+  description: docs_offline_mirror_description
+  pages:
+  - id: docs_offline_mirror
+    path: /docs/offline-mirror
+  - id: docs_prune_offline_mirror
+    path: /docs/prune-offline-mirror
+
+- id: docs_workspaces
+  title: docs_workspaces_title
+  description: docs_workspaces_description
+  pages:
+  - id: docs_workspaces
+    path: /docs/workspaces
+
+- id: docs_plugnplay
+  title: docs_plugnplay_title
+  description: docs_plugnplay_description
+  pages:
+  - id: docs_plugnplay_overview
+    path: /docs/pnp
+  - id: docs_plugnplay_getting_started
+    path: /docs/pnp/getting-started
+  - id: docs_plugnplay_troubleshooting
+    path: /docs/pnp/troubleshooting
+
+- id: yarn_organization
+  title: yarn_organization_title
+  description: yarn_organization_description
+  tags: ["internal"]
+  pages:
+  - id: organization
+    path: /org
+  - id: code_of_conduct
+    path: /org/code-of-conduct
+  - id: contributing
+    path: /org/contributing
+  - id: translations
+    path: /org/translations
+  - id: release_process
+    path: /org/release-process
+  - id: governance
+    path: /org/governance

@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-language" content="en-us">
+  <meta name="csrf-token" value="abI2zOnZnZ4lK2hhXDpfWnEsePWz7XmLPaj0IDqr">
+  <title> | bgoonz | GistLog - Your dev blog delivered</title>
+
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="">
+  <meta itemprop="description" content="
+Front-End Checklist
+
+  The Front-End Checklist is an exhaustive list of all elements you need to have / to test before launching your site / HTML page to production.
+
+
+
+ 
+
+
+
+It is based on Front-End developers&#039;">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://gistlog.co/bgoonz/2d1e852b77d4c8aa04bab0dd14703ddd">
+  <meta property="og:description" content="
+Front-End Checklist
+
+  The Front-End Checklist is an exhaustive list of all elements you need to have / to test before launching your site / HTML page to production.
+
+
+
+ 
+
+
+
+It is based on Front-End developers&#039;">
+  <meta property="og:site_name" content="GistLog">
+
+
+  <link rel="icon" type="image/png" href="https://gistlog.co/img/favicon.png">
+  <link rel="stylesheet" href="http://brick.a.ssl.fastly.net/Roboto:100,300,400,700">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+  <link href="https://gistlog.co/css/app.css" rel="stylesheet">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="font-sans border-t-8 border-blue-darker bg-grey-lightest">
+  <div class="flex flex-col h-screen">
+    <div id="app" class="flex-auto">
+      <nav class="container mx-auto mt-4">
+        <a href="https://gistlog.co/" title="GistLog by Tighten"
+          class="w-full flex items-center text-blue-darker no-underline">
+          <img width="50px" src="https://gistlog.co/img/gistlog-logo.svg" alt="GistLog logo." class="mr-2">
+          <h1 class="text-2xl"><span class="font-bold">Gist</span>Log</h1>
+        </a>
+      </nav>
+
+
+      <div class="container gistlog__container">
+        <div class="avatar">
+          <a href="https://gistlog.co/bgoonz" target="_blank">
+            <img src="https://avatars.githubusercontent.com/u/66654881?v=4" alt="bgoonz - Laravel">
+          </a>
+        </div>
+        <div class="py-8 gistlog sm:px-8">
+          <article class="px-4 my-8 sm:px-8">
+            <h1 class="gistlog__title" v-pre></h1>
+            <span class="table mx-auto font-light" v-pre>
+              by <a href="https://gistlog.co/bgoonz" class="font-bold no-underline text-blue-dark">bgoonz</a>
+            </span>
+
+            <div class="gistlog__content">
+              <div v-pre>
+                <p><a href="https://frontendchecklist.io/" rel="nofollow"><img
+                      src="https://github.com/thedaviddias/Front-End-Checklist/blob/master/src/img/banners/front-end-checklist-banner-light.jpg?raw=true"
+                      alt="Front-End Checklist Logo" style="max-width:100%;"></a></p>
+                <h2 align="center"><a href="https://frontendchecklist.io/" rel="nofollow">Front-End Checklist</a></h2>
+                <p align="center">
+                  <em>The Front-End Checklist is an exhaustive list of all elements you need to have / to test before
+                    launching your site / HTML page to production.</em>
+                </p>
+                <p><a
+                    href="https://gitter.im/Front-End-Checklist/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"
+                    rel="nofollow"><img
+                      src="https://camo.githubusercontent.com/302af9f69db66ff30b12f9b98450455d6198c3a281c2680d24a8bbd94e67840f/68747470733a2f2f6261646765732e6769747465722e696d2f46726f6e742d456e642d436865636b6c6973742f4c6f6262792e737667"
+                      alt="Join the chat at https://gitter.im/Front-End-Checklist/Lobby"
+                      data-canonical-src="https://badges.gitter.im/Front-End-Checklist/Lobby.svg"
+                      style="max-width:100%;"></a><br>
+                  <a href="https://github.com/thedaviddias/Front-End-Checklist/"><img
+                      src="https://camo.githubusercontent.com/b03b5bac74248e99b1bb7b8704da05f0153d531bd56eb133361d02141fc2d0ce/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f46726f6e74254532253830253931456e645f436865636b6c6973742d666f6c6c6f7765642d627269676874677265656e2e737667"
+                      alt="Front‑End_Checklist followed"
+                      data-canonical-src="https://img.shields.io/badge/Front%E2%80%91End_Checklist-followed-brightgreen.svg"
+                      style="max-width:100%;"></a><br>
+                  <a href="#backers"><img
+                      src="https://camo.githubusercontent.com/aff08f137c46ec8b0eefdcb471431104de14e3b7fef96b6f11e4c99d7b442344/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f66726f6e742d656e642d636865636b6c6973742f6261636b6572732f62616467652e737667"
+                      alt="Backers on Open Collective"
+                      data-canonical-src="https://opencollective.com/front-end-checklist/backers/badge.svg"
+                      style="max-width:100%;"></a> <a href="#sponsors"><img
+                      src="https://camo.githubusercontent.com/3b5607f90b43da116151562f81cd936900f4004bd41422cec653acab7b3a1953/68747470733a2f2f6f70656e636f6c6c6563746976652e636f6d2f66726f6e742d656e642d636865636b6c6973742f73706f6e736f72732f62616467652e737667"
+                      alt="Sponsors on Open Collective"
+                      data-canonical-src="https://opencollective.com/front-end-checklist/sponsors/badge.svg"
+                      style="max-width:100%;"></a><br>
+                  <a href="https://github.com/thedaviddias/Front-End-Checklist/graphs/contributors"><img
+                      src="https://camo.githubusercontent.com/41c6bab58fe466141a911758726647e737cca31e6c5a84b0797ef7c7b010e756/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6e7472696275746f72732f7468656461766964646961732f46726f6e742d456e642d436865636b6c6973742e737667"
+                      alt="Contributors"
+                      data-canonical-src="https://img.shields.io/github/contributors/thedaviddias/Front-End-Checklist.svg"
+                      style="max-width:100%;"></a><br>
+                  <a href="https://stackshare.io/thedaviddias/front-end-checklist" rel="nofollow"><img
+                      src="https://camo.githubusercontent.com/2cf9861d0396129842bd55d6e8ceefab07aafa1f00cb8040ec3a849f0e54c3a1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f746563682d737461636b2d3036393066612e7376673f7374796c653d666c6174"
+                      alt="StackShare"
+                      data-canonical-src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat"
+                      style="max-width:100%;"></a><br>
+                  <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="nofollow"><img
+                      src="https://camo.githubusercontent.com/90cbb26907a2e8a092d334981bb960ae729c5fe774e50c5eae34a6c409b52c3b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4343302d677265656e2e737667"
+                      alt="CC0" data-canonical-src="https://img.shields.io/badge/license-CC0-green.svg"
+                      style="max-width:100%;"></a></p>
+                <p>It is based on Front-End developers' years of experience, with the additions coming from some other
+                  open-source checklists.</p>
+                <h2>Table of Contents</h2>
+                <ol>
+                  <li><strong><a href="#head">Head</a></strong></li>
+                  <li><strong><a href="#html">HTML</a></strong></li>
+                  <li><strong><a href="#webfonts">Webfonts</a></strong></li>
+                  <li><strong><a href="#css">CSS</a></strong></li>
+                  <li><strong><a href="#images">Images</a></strong></li>
+                  <li><strong><a href="#javascript">JavaScript</a></strong></li>
+                  <li><strong><a href="#security">Security</a></strong></li>
+                  <li><strong><a href="#performance-1">Performance</a></strong></li>
+                  <li><strong><a href="#accessibility">Accessibility</a></strong></li>
+                  <li><strong><a href="#seo">SEO</a></strong></li>
+                  <li><strong><a href="#translations">Translations</a></strong></li>
+                </ol>
+                <hr>
+                <h2>How to use?</h2>
+                <p>All items in the <strong>Front-End Checklist</strong> are required for the majority of the projects,
+                  but some elements can be omitted or are not essential (in the case of an administration web app, you
+                  may not need RSS feed for example). We choose to use 3 levels of flexibility:</p>
+                <ul>
+                  <li>![Low][low_img] means that the item is <strong>recommended</strong> but can be omitted in some
+                    particular situations.</li>
+                  <li>![Medium][medium_img] means that the item is <strong>highly recommended</strong> and can
+                    eventually be omitted in some really particular cases. Some elements, if omitted, can have bad
+                    repercussions in terms of performance or SEO.</li>
+                  <li>![High][high_img] means that the item <strong>can't be omitted</strong> by any reason. You may
+                    cause a dysfunction in your page or have accessibility or SEO issues. The testing priority needs to
+                    be on these elements first.</li>
+                </ul>
+                <p>Some resources possess an emoticon to help you understand which type of content / help you may find
+                  on the checklist:</p>
+                <ul>
+                  <li>
+                    <g-emoji class="g-emoji" alias="book"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>:
+                    documentation or article
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>:
+                    online tool / testing tool
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="video_camera"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f9.png">📹</g-emoji>:
+                    media or video content
+                  </li>
+                </ul>
+                <blockquote>
+                  <p>You can contribute to the <em><strong>Front-End Checklist App</strong></em> reading the <a
+                      href="https://github.com/thedaviddias/Front-End-Checklist/blob/master/README_APP.md">README_APP
+                      file</a> which explain everything about the project.</p>
+                </blockquote>
+                <hr>
+                <h2>Head</h2>
+                <blockquote>
+                  <p><strong>Notes:</strong> You can find <a href="https://github.com/joshbuchea/HEAD">a list of
+                      everything</a> that could be found in the <code>&lt;head&gt;</code> of an HTML document.</p>
+                </blockquote>
+                <h3>Meta tag</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Doctype:</strong> ![High][high_img] The Doctype is HTML5 and is at the top of all your HTML
+                    pages.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c1">&lt;!doctype html<span class="pl-kos">&gt;</span></span> <span class="pl-c">&lt;!-- HTML5 --&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding"
+                        rel="nofollow">Determining the character encoding - HTML5 W3C</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <p><em>The next 3 meta tags (Charset, X-UA Compatible and Viewport) need to come first in the head.</em>
+                </p>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Charset:</strong> ![High][high_img] The charset (UTF-8) is declared correctly.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Set character encoding for the document --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">charset</span>="<span class="pl-s">utf-8</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>X-UA-Compatible:</strong> ![Medium][medium_img] The X-UA-Compatible meta tag is present.
+                  </li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Instruct Internet Explorer to use its latest rendering engine --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">http-equiv</span>="<span class="pl-s">x-ua-compatible</span>" <span class="pl-c1">content</span>="<span class="pl-s">ie=edge</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx"
+                        rel="nofollow">Specifying legacy document modes (Internet Explorer)</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Viewport:</strong> ![High][high_img] The viewport is declared correctly.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Viewport for responsive web design --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">viewport</span>" <span class="pl-c1">content</span>="<span class="pl-s">width=device-width, initial-scale=1, viewport-fit=cover</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Title:</strong> ![High][high_img] A title is used on all pages (SEO: Google calculates the
+                    pixel width of the characters used in the title, and it cuts off between 472 and 482 pixels. The
+                    average character limit would be around 55-characters).</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Document Title --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">title</span><span class="pl-kos">&gt;</span>Page Title less than 55 characters<span class="pl-kos">&lt;/</span><span class="pl-ent">title</span><span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title" rel="nofollow">Title -
+                        HTML - MDN</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://www.sistrix.com/serp-snippet-generator/" rel="nofollow">SERP Snippet
+                        Generator</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Description:</strong> ![High][high_img] A meta description is provided, it is unique and
+                    doesn't possess more than 150 characters.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Meta Description --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">description</span>" <span class="pl-c1">content</span>="<span class="pl-s">Description of the page less than 150 characters</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Adding_an_author_and_description"
+                        rel="nofollow">Meta Description - HTML - MDN</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Favicons:</strong> ![Medium][medium_img] Each favicon has been created and displays
+                    correctly. If you have only a <code>favicon.ico</code>, put it at the root of your site. Normally
+                    you won't need to use any markup. However, it's still good practice to link to it using the example
+                    below. Today, <strong>PNG format is recommended</strong> over <code>.ico</code> format (dimensions:
+                    32x32px).</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Standard favicon --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">icon</span>" <span class="pl-c1">type</span>="<span class="pl-s">image/x-icon</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://example.com/favicon.ico</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-c">&lt;!-- Recommended favicon format --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">icon</span>" <span class="pl-c1">type</span>="<span class="pl-s">image/png</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://example.com/favicon.png</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://www.favicon-generator.org/" rel="nofollow">Favicon Generator</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://realfavicongenerator.net/" rel="nofollow">RealFaviconGenerator</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://github.com/audreyr/favicon-cheat-sheet">Favicon Cheat Sheet</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://css-tricks.com/favicon-quiz/" rel="nofollow">Favicons, Touch Icons, Tile Icons,
+                        etc. Which Do You Need? - CSS Tricks</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://caniuse.com/#feat=link-icon-png" rel="nofollow">PNG favicons - caniuse</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Apple Web App Meta:</strong> ![Low][low_img] Apple meta-tags are present.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Apple Touch Icon (at least 200x200px) --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">apple-touch-icon</span>" <span class="pl-c1">href</span>="<span class="pl-s">/custom-icon.png</span>"<span class="pl-kos">&gt;</span>
+
+<span class="pl-c">&lt;!-- To run web application in full-screen --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">apple-mobile-web-app-capable</span>" <span class="pl-c1">content</span>="<span class="pl-s">yes</span>"<span class="pl-kos">&gt;</span>
+
+<span class="pl-c">&lt;!-- Status Bar Style (see Supported Meta Tags below for available values) --&gt;</span>
+<span class="pl-c">&lt;!-- Has no effect unless you have the previous meta tag --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">apple-mobile-web-app-status-bar-style</span>" <span class="pl-c1">content</span>="<span class="pl-s">black</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html"
+                        rel="nofollow">Configuring Web Applications</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html"
+                        rel="nofollow">Supported Meta Tags</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Windows Tiles:</strong> ![Low][low_img] Windows tiles are present and linked.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Microsoft Tiles --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">msapplication-config</span>" <span class="pl-c1">content</span>="<span class="pl-s">browserconfig.xml</span>" /&gt;</pre>
+                </div>
+                <p>Minimum required xml markup for the <code>browserconfig.xml</code> file is as follows:</p>
+                <div class="highlight highlight-text-xml">
+                  <pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>utf-8<span class="pl-pds">"</span></span>?&gt;
+&lt;<span class="pl-ent">browserconfig</span>&gt;
+   &lt;<span class="pl-ent">msapplication</span>&gt;
+     &lt;<span class="pl-ent">tile</span>&gt;
+        &lt;<span class="pl-ent">square70x70logo</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>small.png<span class="pl-pds">"</span></span>/&gt;
+        &lt;<span class="pl-ent">square150x150logo</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>medium.png<span class="pl-pds">"</span></span>/&gt;
+        &lt;<span class="pl-ent">wide310x150logo</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>wide.png<span class="pl-pds">"</span></span>/&gt;
+        &lt;<span class="pl-ent">square310x310logo</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>large.png<span class="pl-pds">"</span></span>/&gt;
+     &lt;/<span class="pl-ent">tile</span>&gt;
+   &lt;/<span class="pl-ent">msapplication</span>&gt;
+&lt;/<span class="pl-ent">browserconfig</span>&gt;</pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://msdn.microsoft.com/en-us/library/dn320426(v=vs.85).aspx" rel="nofollow">Browser
+                        configuration schema reference</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Canonical:</strong> ![Medium][medium_img] Use <code>rel="canonical"</code> to avoid
+                    duplicate content.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Helps prevent duplicate content issues --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">canonical</span>" <span class="pl-c1">href</span>="<span class="pl-s">http://example.com/2017/09/a-new-article-to-read.html</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://support.google.com/webmasters/answer/139066?hl=en" rel="nofollow">Use canonical
+                        URLs - Search Console Help - Google Support</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://webmasters.googleblog.com/2013/04/5-common-mistakes-with-relcanonical.html"
+                        rel="nofollow">5 common mistakes with rel=canonical - Google Webmaster Blog</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>HTML tags</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Language attribute:</strong> ![High][high_img] The <code>lang</code> attribute of your
+                    website is specified and related to the language of the current page.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">html</span> <span class="pl-c1">lang</span>="<span class="pl-s">en</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Direction attribute:</strong> ![Medium][medium_img] The direction of lecture is specified on
+                    the html tag (It can be used on another HTML tag).</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">html</span> <span class="pl-c1">dir</span>="<span class="pl-s">rtl</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir"
+                        rel="nofollow">dir - HTML - MDN</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Alternate language:</strong> ![Low][low_img] The language tag of your website is specified
+                    and related to the language of the current page.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">alternate</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://es.example.com/</span>" <span class="pl-c1">hreflang</span>="<span class="pl-s">es</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Conditional comments:</strong> ![Low][low_img] Conditional comments are present for IE if
+                    needed.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx" rel="nofollow">About
+                        conditional comments (Internet Explorer) - MSDN - Microsoft</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>RSS
+                        feed:</strong> ![Low][low_img] If your project is a blog or has articles, an RSS link was
+                      provided.</p>
+                  </li>
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>CSS
+                        Critical:</strong> ![Medium][medium_img] The CSS critical (or "above the fold") collects all the
+                      CSS used to render the visible portion of the page. It is embedded before your principal CSS call
+                      and between <code>&lt;style&gt;&lt;/style&gt;</code> in a single line (minified).</p>
+                  </li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://github.com/addyosmani/critical">Critical by Addy Osmani on GitHub</a> automates
+                      this.
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>CSS order:</strong> ![High][high_img] All CSS files are loaded before any JavaScript files
+                    in the <code>&lt;head&gt;</code>. (Except the case where sometimes JS files are loaded
+                    asynchronously on top of your page).</li>
+                </ul>
+                <h3>Social meta</h3>
+                <p><em><strong>Facebook OG</strong></em> and <em><strong>Twitter Cards</strong></em> are, for any
+                  website, highly recommended. The other social media tags can be considered if you target a particular
+                  presence on those and want to ensure the display.</p>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Facebook Open Graph:</strong> ![Low][low_img] All Facebook Open Graph (OG) are tested and no
+                    one is missing or with a false information. Images need to be at least 600 x 315 pixels, although
+                    1200 x 630 pixels is recommended.</li>
+                </ul>
+                <blockquote>
+                  <p><strong>Notes:</strong> Using <code>og:image:width</code> and <code>og:image:height</code> will
+                    specify the image dimensions to the crawler so that it can render the image immediately without
+                    having to asynchronously download and process it.</p>
+                </blockquote>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:type</span>" <span class="pl-c1">content</span>="<span class="pl-s">website</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:url</span>" <span class="pl-c1">content</span>="<span class="pl-s">https://example.com/page.html</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:title</span>" <span class="pl-c1">content</span>="<span class="pl-s">Content Title</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:image</span>" <span class="pl-c1">content</span>="<span class="pl-s">https://example.com/image.jpg</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:description</span>" <span class="pl-c1">content</span>="<span class="pl-s">Description Here</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:site_name</span>" <span class="pl-c1">content</span>="<span class="pl-s">Site Name</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:locale</span>" <span class="pl-c1">content</span>="<span class="pl-s">en_US</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-c">&lt;!-- Next tags are optional but recommended --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:image:width</span>" <span class="pl-c1">content</span>="<span class="pl-s">1200</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">property</span>="<span class="pl-s">og:image:height</span>" <span class="pl-c1">content</span>="<span class="pl-s">630</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developers.facebook.com/docs/sharing/webmasters/" rel="nofollow">A Guide to
+                        Sharing for Webmasters</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developers.facebook.com/docs/sharing/best-practices/" rel="nofollow">Best
+                        Practices - Sharing</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      Test your page with the <a href="https://developers.facebook.com/tools/debug/"
+                        rel="nofollow">Facebook OG testing</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Twitter Card:</strong> ![Low][low_img]</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">twitter:card</span>" <span class="pl-c1">content</span>="<span class="pl-s">summary</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">twitter:site</span>" <span class="pl-c1">content</span>="<span class="pl-s">@site_account</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">twitter:creator</span>" <span class="pl-c1">content</span>="<span class="pl-s">@individual_account</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">twitter:url</span>" <span class="pl-c1">content</span>="<span class="pl-s">https://example.com/page.html</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">twitter:title</span>" <span class="pl-c1">content</span>="<span class="pl-s">Content Title</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">twitter:description</span>" <span class="pl-c1">content</span>="<span class="pl-s">Content description less than 200 characters</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">name</span>="<span class="pl-s">twitter:image</span>" <span class="pl-c1">content</span>="<span class="pl-s">https://example.com/image.jpg</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started"
+                        rel="nofollow">Getting started with cards — Twitter Developers</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      Test your page with the <a href="https://cards-dev.twitter.com/validator" rel="nofollow">Twitter
+                        card validator</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>HTML</h2>
+                <h3>Best practices</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>HTML5 Semantic Elements:</strong> ![High][high_img] HTML5 Semantic Elements are used
+                    appropriately (header, section, footer, main...).</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="http://htmlreference.io/" rel="nofollow">HTML Reference</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>Error
+                        pages:</strong> ![High][high_img] Error 404 page and 5xx exist. Remember that the 5xx error
+                      pages need to have their CSS integrated (no external call on the current server).</p>
+                  </li>
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                      <strong>Noopener:</strong> ![Medium][medium_img] In case you are using external links with
+                      <code>target="_blank"</code>, your link should have a <code>rel="noopener"</code> attribute to
+                      prevent tab nabbing. If you need to support older versions of Firefox, use <code>rel="noopener
+                        noreferrer"</code>.</p>
+                  </li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://mathiasbynens.github.io/rel-noopener/" rel="nofollow">About rel=noopener</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Clean up comments:</strong> ![Low][low_img] Unnecessary code needs to be removed before
+                    sending the page to production.</li>
+                </ul>
+                <h3>HTML testing</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>W3C compliant:</strong> ![High][high_img] All pages need to be tested with the W3C validator
+                    to identify possible issues in the HTML code.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://validator.w3.org/" rel="nofollow">W3C validator</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>HTML Lint:</strong> ![High][high_img] I use tools to help me analyze any issues I could have
+                    on my HTML code.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://dirtymarkup.com/" rel="nofollow">Dirty markup</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://sonarwhal.com/" rel="nofollow">Sonar a linting tool for the web</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Link checker:</strong> ![High][high_img] There are no broken links in my page, verify that
+                    you don't have any 404 error.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://validator.w3.org/checklink" rel="nofollow">W3C Link Checker</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Adblockers test:</strong> ![Medium][medium_img] Your website shows your content correctly
+                    with adblockers enabled (You can provide a message encouraging people to disable their adblocker).
+                  </li>
+                </ul>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>Webfonts</h2>
+                <blockquote>
+                  <p><strong>Notes:</strong> Using webfonts may cause Flash Of Unstyled Text/Flash Of Invisible Text -
+                    consider having fallback fonts and/or utilizing webfont loaders to control behavior.</p>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developers.google.com/fonts/docs/technical_considerations" rel="nofollow">Google
+                        Technical considerations about webfonts</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Webfont format:</strong> ![High][high_img] WOFF, WOFF2 and TTF are supported by all modern
+                    browsers.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://caniuse.com/#feat=woff" rel="nofollow">WOFF - Web Open Font Format - Caniuse</a>.
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://caniuse.com/#feat=woff2" rel="nofollow">WOFF 2.0 - Web Open Font Format -
+                        Caniuse</a>.
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://caniuse.com/#feat=ttf" rel="nofollow">TTF/OTF - TrueType and OpenType font
+                        support</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://css-tricks.com/snippets/css/using-font-face/" rel="nofollow">Using @font-face -
+                        CSS-Tricks</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>Webfont
+                        size:</strong> ![High][high_img] Webfont sizes don't exceed 2 MB (all variants included).</p>
+                  </li>
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>Webfont
+                        loader:</strong> ![Low][low_img] Control loading behavior with a webfont loader</p>
+                  </li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://github.com/typekit/webfontloader">Typekit Web Font Loader</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>CSS</h2>
+                <blockquote>
+                  <p><strong>Notes:</strong> Take a look at <a href="https://cssguidelin.es/" rel="nofollow">CSS
+                      guidelines</a> and <a href="https://sass-guidelin.es/" rel="nofollow">Sass Guidelines</a> followed
+                    by most Front-End developers. If you have a doubt about CSS properties, you can visit <a
+                      href="http://cssreference.io/" rel="nofollow">CSS Reference</a>. There is also a short <a
+                      href="http://codeguide.co/" rel="nofollow">Code Guide</a> for consistency.</p>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Responsive Web Design:</strong> ![High][high_img] The website is using responsive web
+                    design.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>CSS Print:</strong> ![Medium][medium_img] A print stylesheet is provided and is correct on
+                    each page.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Preprocessors:</strong> ![Low][low_img] Your project is using a CSS preprocessor (e.g <a
+                      href="http://sass-lang.com/" rel="nofollow">Sass</a>, <a href="http://lesscss.org/"
+                      rel="nofollow">Less</a>, <a href="http://stylus-lang.com/" rel="nofollow">Stylus</a>).</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Unique ID:</strong> ![High][high_img] If IDs are used, they are unique to a page.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Reset CSS:</strong> ![High][high_img] A CSS reset (reset, normalize or reboot) is used and
+                    up to date. <em>(If you are using a CSS Framework like Bootstrap or Foundation, a Normalize is
+                      already included into it.)</em></li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://meyerweb.com/eric/tools/css/reset/" rel="nofollow">Reset.css</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://necolas.github.io/normalize.css/" rel="nofollow">Normalize.css</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://getbootstrap.com/docs/4.0/content/reboot/" rel="nofollow">Reboot</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>JS prefix:</strong> ![Low][low_img] All classes (or id- used in JavaScript files) begin with
+                    <strong>js-</strong> and are not styled into the CSS files.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">id</span>="<span class="pl-s">js-slider</span>" <span class="pl-c1">class</span>="<span class="pl-s">my-slider</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-c">&lt;!-- Or --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">div</span> <span class="pl-c1">id</span>="<span class="pl-s">id-used-by-cms</span>" <span class="pl-c1">class</span>="<span class="pl-s">js-slider my-slider</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>embedded or inline CSS:</strong> ![High][high_img] Avoid at all cost embedding CSS in
+                    <code>&lt;style&gt;</code> tags or using inline CSS: only use for valid reasons (e.g.
+                    background-image for slider, critical CSS).</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Vendor prefixes:</strong> ![High][high_img] CSS vendor prefixes are used and are generated
+                    accordingly with your browser support compatibility.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://autoprefixer.github.io/" rel="nofollow">Autoprefixer CSS online</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>Performance</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Concatenation:</strong> ![High][high_img] CSS files are concatenated in a single file
+                    <em>(Not for HTTP/2)</em>.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Minification:</strong> ![High][high_img] All CSS files are minified.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Non-blocking:</strong> ![Medium][medium_img] CSS files need to be non-blocking to prevent
+                    the DOM from taking time to load.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://github.com/filamentgroup/loadCSS">loadCSS by filament group</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf">Example of preload
+                        CSS using loadCSS</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Unused CSS:</strong> ![Low][low_img] Remove unused CSS.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://uncss-online.com/" rel="nofollow">UnCSS Online</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://github.com/purifycss/purifycss">PurifyCSS</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage"
+                        rel="nofollow">Chrome DevTools Coverage</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>CSS testing</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Stylelint:</strong> ![High][high_img] All CSS or SCSS files are without any errors.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://stylelint.io/" rel="nofollow">stylelint, a CSS linter</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://sass-guidelin.es/" rel="nofollow">Sass guidelines</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>Responsive web
+                        design:</strong> ![High][high_img] All pages were tested at the following breakpoints: 320px,
+                      768px, 1024px (can be more / different according to your analytics).</p>
+                  </li>
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>CSS
+                        Validator:</strong> ![Medium][medium_img] The CSS was tested and pertinent errors were
+                      corrected.</p>
+                  </li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://jigsaw.w3.org/css-validator/" rel="nofollow">CSS Validator</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Desktop Browsers:</strong> ![High][high_img] All pages were tested on all current desktop
+                    browsers (Safari, Firefox, Chrome, Internet Explorer, EDGE...).</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Mobile Browsers:</strong> ![High][high_img] All pages were tested on all current mobile
+                    browsers (Native browser, Chrome, Safari...).</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>OS:</strong> ![High][high_img] All pages were tested on all current OS (Windows, Android,
+                    iOS, Mac...).</li>
+                </ul>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Design fidelity:</strong> ![Low][low_img] Depending the project and the quality of the
+                    creatives, you may be asked to be close to the design. You can use some tools to compare creatives
+                    with your code implementation and ensure consistency.</li>
+                </ul>
+                <blockquote>
+                  <p><a
+                      href="https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?hl=en"
+                      rel="nofollow">Pixel Perfect - Chrome Extension</a></p>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Reading direction:</strong> ![High][high_img] All pages need to be tested for LTR and RTL
+                    languages if they need to be supported.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://hacks.mozilla.org/2015/09/building-rtl-aware-web-apps-and-websites-part-1/"
+                        rel="nofollow">Building RTL-Aware Web Apps &amp; Websites: Part 1 - Mozilla Hacks</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://hacks.mozilla.org/2015/10/building-rtl-aware-web-apps-websites-part-2/"
+                        rel="nofollow">Building RTL-Aware Web Apps &amp; Websites: Part 2 - Mozilla Hacks</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>Images</h2>
+                <blockquote>
+                  <p><strong>Notes:</strong> For a complete understanding of image optimization, check the free ebook
+                    <strong><a href="https://images.guide/" rel="nofollow">Essential Image Optimization</a></strong>
+                    from Addy Osmani.</p>
+                </blockquote>
+                <h3>Best practices</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Optimization:</strong> ![High][high_img] All images are optimized to be rendered in the
+                    browser. WebP format could be used for critical pages (like Homepage).</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://github.com/imagemin/imagemin">Imagemin</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      Use <a href="https://imageoptim.com/" rel="nofollow">ImageOptim</a> to optimise your images for
+                      free.
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      Use <a href="https://kraken.io/web-interface" rel="nofollow">Kraken.io</a> awesome alternative for
+                      both png and jpg optimization. Up to 1mb per files on free plan.
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://tinypng.com/" rel="nofollow">TinyPNG</a> losslessly optimise png, apng (animated
+                      png) and jpg images. Free and paid version available.
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="http://quasimondo.com/ZorroSVG/" rel="nofollow">ZorroSVG</a> jpg-like compression for
+                      transparent images using svg masking.
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://github.com/svg/svgo">SVGO</a> a Nodejs-based tool for optimizing SVG vector
+                      graphics files.
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://jakearchibald.github.io/svgomg/" rel="nofollow">SVGOMG</a> a web-based GUI
+                      version of SVGO for optimising your svgs online.
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Picture/Srcset:</strong> ![Medium][medium_img] You use picture/srcset to provide the most
+                    appropriate image for the current viewport of the user.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/" rel="nofollow">How
+                        to Build Responsive Images with srcset</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Retina:</strong> ![Low][low_img] You provide layout images 2x or 3x, support retina display.
+                  </li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Sprite:</strong> ![Medium][medium_img] Small images are in a sprite file (in the case of
+                    icons, they can be in an SVG sprite image).</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Width and Height:</strong> ![High][high_img] Set <code>width</code> and <code>height</code>
+                    attributes on <code>&lt;img&gt;</code> if the final rendered image size is known (can be omitted for
+                    CSS sizing).</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Alternative text:</strong> ![High][high_img] All <code>&lt;img&gt;</code> have an
+                    alternative text which describe the image visually.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://axesslab.com/alt-texts/" rel="nofollow">Alt-texts: The Ultimate Guide</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Lazy loading:</strong> ![Medium][medium_img] Images are lazyloaded (A noscript fallback is
+                    always provided).</li>
+                </ul>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>JavaScript</h2>
+                <h3>Best practices</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>JavaScript Inline:</strong> ![High][high_img] You don't have any JavaScript code inline
+                    (mixed with your HTML code).</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Concatenation:</strong> ![High][high_img] JavaScript files are concatenated.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Minification:</strong> ![High][high_img] JavaScript files are minified (you can add the
+                    <code>.min</code> suffix).</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developers.google.com/speed/docs/insights/MinifyResources" rel="nofollow">Minify
+                        Resources (HTML, CSS, and JavaScript)</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>JavaScript security:</strong> ![High][high_img]</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet#Guidelines_for_Developing_Secure_Applications_Utilizing_JavaScript"
+                        rel="nofollow">Guidelines for Developing Secure Applications Utilizing JavaScript</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong><code>noscript</code> tag:</strong> ![Medium][medium_img] Use <code>&lt;noscript&gt;</code>
+                    tag in the HTML body if a script type on the page is unsupported or if scripting is currently turned
+                    off in the browser. This will be helpful in client-side rendering heavy apps such as React.js, see
+                    <a href="https://webdesign.tutsplus.com/tutorials/quick-tip-dont-forget-the-noscript-element--cms-25498"
+                      rel="nofollow">examples</a>.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">noscript</span><span class="pl-kos">&gt;</span>
+  You need to enable JavaScript to run this app.
+<span class="pl-kos">&lt;/</span><span class="pl-ent">noscript</span><span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Non-blocking:</strong> ![Medium][medium_img] JavaScript files are loaded asynchronously
+                    using <code>async</code> or deferred using <code>defer</code> attribute.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developers.google.com/speed/docs/insights/BlockingJS" rel="nofollow">Remove
+                        Render-Blocking JavaScript</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Optimized and updated JS libraries:</strong> ![Medium][medium_img] All JavaScript libraries
+                    used in your project are necessary (prefer Vanilla Javascript for simple functionalities), updated
+                    to their latest version and don't overwhelm your JavaScript with unnecessary methods.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="http://youmightnotneedjquery.com/" rel="nofollow">You may not need jQuery</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://plainjs.com/" rel="nofollow">Vanilla JavaScript for building powerful web
+                        applications</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Modernizr:</strong> ![Low][low_img] If you need to target some specific features you can use
+                    a custom Modernizr to add classes in your <code>&lt;html&gt;</code> tag.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://modernizr.com/download?setclasses" rel="nofollow">Customize your Modernizr</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>JavaScript testing</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>ESLint:</strong> ![High][high_img] No errors are flagged by ESLint (based on your
+                    configuration or standards rules).</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://eslint.org/" rel="nofollow">ESLint - The pluggable linting utility for JavaScript
+                        and JSX</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>Security</h2>
+                <h3>Scan and check your web site</h3>
+                <blockquote>
+                  <ul>
+                    <li><a href="https://securityheaders.io/" rel="nofollow">securityheaders.io</a></li>
+                    <li><a href="https://observatory.mozilla.org/" rel="nofollow">Observatory by Mozilla</a></li>
+                    <li><a href="https://asafaweb.com/" rel="nofollow">ASafaWeb - Automated Security Analyser for
+                        ASP.NET Websites</a></li>
+                  </ul>
+                </blockquote>
+                <h3>Best practices</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>HTTPS:</strong> ![Medium][medium_img] HTTPS is used on every pages and for all external
+                    content (plugins, images...).</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://letsencrypt.org/" rel="nofollow">Let's Encrypt - Free SSL/TLS Certificates</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://www.ssllabs.com/ssltest/index.html" rel="nofollow">Free SSL Server Test</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="http://caniuse.com/#feat=stricttransportsecurity" rel="nofollow">Strict Transport
+                        Security</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>HTTP Strict Transport Security (HSTS):</strong> ![Medium][medium_img] The HTTP header is set
+                    to 'Strict-Transport-Security'.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://hstspreload.org/" rel="nofollow">Check HSTS preload status and eligibility</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet"
+                        rel="nofollow">HTTP Strict Transport Security Cheat Sheet - OWASP</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.owasp.org/index.php/Transport_Layer_Protection_Cheat_Sheet"
+                        rel="nofollow">Transport Layer Protection Cheat Sheet - OWASP</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Cross Site Request Forgery (CSRF):</strong> ![High][high_img] You ensure that requests made
+                    to your server-side are legitimate and originate from your website / app to prevent CSRF attacks.
+                  </li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet"
+                        rel="nofollow">Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet - OWASP</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Cross Site Scripting (XSS):</strong> ![High][high_img] Your page or website is free from XSS
+                    possible issues.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet"
+                        rel="nofollow">XSS (Cross Site Scripting) Prevention Cheat Sheet - OWASP</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet" rel="nofollow">DOM
+                        based XSS Prevention Cheat Sheet - OWASP</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Content Type Options:</strong> ![Medium][medium_img] Prevents Google Chrome and Internet
+                    Explorer from trying to mime-sniff the content-type of a response away from the one being declared
+                    by the server.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options"
+                        rel="nofollow">X-Content-Type-Options - Scott Helme</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>X-Frame-Options (XFO):</strong> ![Medium][medium_img] Protects your visitors against
+                    clickjacking attacks.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options"
+                        rel="nofollow">X-Frame-Options - Scott Helme</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://tools.ietf.org/html/rfc7034" rel="nofollow">RFC7034 - HTTP Header Field
+                        X-Frame-Options</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Content Security Policy:</strong> ![Medium][medium_img] Defines how content is loaded on
+                    your site and from where it is permitted to be loaded. Can also be used to protect against
+                    clickjacking attacks.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://scotthelme.co.uk/content-security-policy-an-introduction/" rel="nofollow">Content
+                        Security Policy - An Introduction - Scott Helme</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://scotthelme.co.uk/csp-cheat-sheet/" rel="nofollow">CSP Cheat Sheet - Scott
+                        Helme</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.owasp.org/index.php/Content_Security_Policy_Cheat_Sheet" rel="nofollow">CSP
+                        Cheat Sheet - OWASP</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://content-security-policy.com/" rel="nofollow">Content Security Policy
+                        Reference</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>Performance</h2>
+                <h3>Best practices</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Page weight:</strong> ![High][high_img] The weight of each page is between 0 and 500 KB.
+                  </li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://tools.pingdom.com/" rel="nofollow">Website Page Analysis</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://www.webpagetest.org/" rel="nofollow">WebPageTest</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://evilmartians.com/chronicles/size-limit-make-the-web-lighter" rel="nofollow">Size
+                        Limit: Make the Web lighter</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>Minified
+                        HTML:</strong> ![Medium][medium_img] Your HTML is minified.</p>
+                  </li>
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>Lazy
+                        loading:</strong> ![Medium][medium_img] Images, scripts and CSS need to be lazy loaded to
+                      improve the response time of the current page (See details in their respective sections).</p>
+                  </li>
+                  <li class="task-list-item">
+                    <p><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"> <strong>Cookie
+                        size:</strong> ![Medium][medium_img] If you are using cookies be sure each cookie doesn't exceed
+                      4096 bytes and your domain name doesn't have more than 20 cookies.</p>
+                  </li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://tools.ietf.org/html/rfc6265" rel="nofollow">Cookie specification: RFC 6265</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies" rel="nofollow">Cookies</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="http://browsercookielimits.squawky.net/" rel="nofollow">Browser Cookie Limits</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Third party components:</strong> ![Medium][medium_img] Third party iframes or components
+                    relying on external JS (like sharing buttons) are replaced by static components when possible, thus
+                    limiting calls to external APIs and keeping your users activity private.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://simplesharingbuttons.com/" rel="nofollow">Simple sharing buttons generator</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>Preparing upcoming requests</h3>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://css-tricks.com/prefetching-preloading-prebrowsing/" rel="nofollow">Explanation of
+                        the following techniques</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>DNS resolution:</strong> ![Low][low_img] DNS of third-party services that may be needed are
+                    resolved in advance during idle time using <code>dns-prefetch</code>.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">dns-prefetch</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://example.com</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Preconnection:</strong> ![Low][low_img] DNS lookup, TCP handshake and TLS negotiation with
+                    services that will be needed soon is done in advance during idle time using <code>preconnect</code>.
+                  </li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">preconnect</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://example.com</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Prefetching:</strong> ![Low][low_img] Resources that will be needed soon (e.g. lazy loaded
+                    images) are requested in advance during idle time using <code>prefetch</code>.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">prefetch</span>" <span class="pl-c1">href</span>="<span class="pl-s">image.png</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Preloading:</strong> ![Low][low_img] Resources needed in the current page (e.g. scripts
+                    placed at the end of <code>&lt;body&gt;</code>) in advance using <code>preload</code>.</li>
+                </ul>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">preload</span>" <span class="pl-c1">href</span>="<span class="pl-s">app.js</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf"
+                        rel="nofollow">Difference between prefetch and preload</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>Performance testing</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Google PageSpeed:</strong> ![High][high_img] All your pages were tested (not only the
+                    homepage) and have a score of at least 90/100.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://developers.google.com/speed/pagespeed/insights/" rel="nofollow">Google
+                        PageSpeed</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://testmysite.withgoogle.com/" rel="nofollow">Test your mobile speed with Google</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://www.webpagetest.org/" rel="nofollow">WebPagetest - Website Performance and
+                        Optimization Test</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://gtmetrix.com/" rel="nofollow">GTmetrix - Website speed and performance
+                        optimization</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>Accessibility</h2>
+                <blockquote>
+                  <p><strong>Notes:</strong> You can watch the playlist <a
+                      href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g"
+                      rel="nofollow">A11ycasts with Rob Dodson</a>
+                    <g-emoji class="g-emoji" alias="video_camera"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f9.png">📹</g-emoji>
+                  </p>
+                </blockquote>
+                <h3>Best practices</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Progressive enhancement:</strong> ![Medium][medium_img] Major functionality like main
+                    navigation and search should work without JavaScript enabled.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.youtube.com/watch?v=kBmvq2cE0D8" rel="nofollow">Enable / Disable JavaScript
+                        in Chrome Developer Tools</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Color contrast:</strong> ![Medium][medium_img] Color contrast should at least pass WCAG AA
+                    (AAA for mobile).</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://leaverou.github.io/contrast-ratio/" rel="nofollow">Contrast ratio</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h4>Headings</h4>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>H1:</strong> ![High][high_img] All pages have an H1 which is not the title of the website.
+                  </li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Headings:</strong> ![High][high_img] Headings should be used properly and in the right order
+                    (H1 to H6).</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="video_camera"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f9.png">📹</g-emoji>
+                      <a href="https://www.youtube.com/watch?v=vAAzdi1xuUY&amp;index=9&amp;list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g"
+                        rel="nofollow">Why headings and landmarks are so important -- A11ycasts #18</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h4>Landmarks</h4>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Role banner:</strong> ![High][high_img] <code>&lt;header&gt;</code> has
+                    <code>role="banner"</code>.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Role navigation:</strong> ![High][high_img] <code>&lt;nav&gt;</code> has
+                    <code>role="navigation"</code>.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Role main:</strong> ![High][high_img] <code>&lt;main&gt;</code> has
+                    <code>role="main"</code>.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.w3.org/WAI/GL/wiki/Using_ARIA_landmarks_to_identify_regions_of_a_page"
+                        rel="nofollow">Using ARIA landmarks to identify regions of a page</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.w3.org/TR/wai-aria/roles#roles_categorization" rel="nofollow">ARIA roles
+                        categorization</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>Semantics</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Specific HTML5 input types are used:</strong> ![Medium][medium_img] This is especially
+                    important for mobile devices that show customized keypads and widgets for different types.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="http://mobileinputtypes.com/" rel="nofollow">Mobile Input Types</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>Form</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Label:</strong> ![High][high_img] A label is associated with each input form element. In
+                    case a label can't be displayed, use <code>aria-label</code> instead.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute"
+                        rel="nofollow">Using the aria-label attribute - MDN</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <h3>Accessibility testing</h3>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Accessibility standards testing:</strong> ![High][high_img] Use the WAVE tool to test if
+                    your page respects the accessibility standards.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="http://wave.webaim.org/" rel="nofollow">Wave testing</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Keyboard navigation:</strong> ![High][high_img] Test your website using only your keyboard
+                    in a previsible order. All interactive elements are reachable and usable.</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Screen-reader:</strong> ![Medium][medium_img] All pages were tested in a screen-reader
+                    (VoiceOver, ChromeVox, NVDA or Lynx).</li>
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Focus style:</strong> ![High][high_img] If the focus is disabled, it is replaced by visible
+                    state in CSS.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="video_camera"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4f9.png">📹</g-emoji>
+                      <a href="https://www.youtube.com/watch?v=srLRSQg6Jgg&amp;index=5&amp;list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g"
+                        rel="nofollow">Managing Focus - A11ycasts #22</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>SEO</h2>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Google Analytics:</strong> ![High][high_img] Google Analytics is installed and correctly
+                    configured.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://analytics.google.com/analytics/web/" rel="nofollow">Google Analytics</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="http://www.gachecker.com/" rel="nofollow">GA Checker (and others)</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Headings logic:</strong> ![Medium][medium_img] Heading text helps to understand the content
+                    in the current page.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="http://khan.github.io/tota11y/#Try-it" rel="nofollow">Tota11y, tab Headings</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>sitemap.xml:</strong> ![High][high_img] A sitemap.xml exists and was submitted to Google
+                    Search Console (previously Google Webmaster Tools).</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://websiteseochecker.com/html-sitemap-generator/" rel="nofollow">Sitemap
+                        generator</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>robots.txt:</strong> ![High][high_img] The robots.txt is not blocking webpages.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://varvy.com/robottxt.html" rel="nofollow">The robots.txt file</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      Test your robots.txt with <a href="https://www.google.com/webmasters/tools/robots-testing-tool"
+                        rel="nofollow">Google Robots Testing Tool</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Structured Data:</strong> ![High][high_img] Pages using structured data are tested and are
+                    without errors. Structured data helps crawlers understand the content in the current page.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://developers.google.com/search/docs/guides/intro-structured-data"
+                        rel="nofollow">Introduction to Structured Data - Search - Google Developers</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://rdfa.info/" rel="nofollow">RDFa - Linked Data in HTML</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://json-ld.org/" rel="nofollow">JSON-LD</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://www.w3.org/TR/microdata/" rel="nofollow">Microdata</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      Test your page with the <a href="https://developers.google.com/structured-data/testing-tool/"
+                        rel="nofollow">Structured Data Testing Tool</a>
+                    </li>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      Complete list of vocabularies that can be used as structured data. <a
+                        href="http://schema.org/docs/full.html" rel="nofollow">Schema.org Full Hierarchy</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Sitemap HTML:</strong> ![Medium][medium_img] An HTML sitemap is provided and is accessible
+                    via a link in the footer of your website.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://support.google.com/webmasters/answer/183668?hl=en" rel="nofollow">Sitemap
+                        guidelines - Google Support</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <ul class="contains-task-list">
+                  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox">
+                    <strong>Pagination link tags:</strong> ![Medium][medium_img] Provide <code>rel="prev"</code> and
+                    <code>rel="next"</code> to indicate paginated content.</li>
+                </ul>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="hammer_and_wrench"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f6e0.png">🛠</g-emoji>
+                      <a href="https://technicalseo.com/seo-tools/rel-prev-next/" rel="nofollow">Pagination
+                        (rel="prev/next") Testing Tool</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <blockquote>
+                  <ul>
+                    <li>
+                      <g-emoji class="g-emoji" alias="book"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
+                      <a href="https://support.google.com/webmasters/answer/1663744?hl=en" rel="nofollow">Pagination
+                        guidelines - Google Support</a>
+                    </li>
+                  </ul>
+                </blockquote>
+                <div class="highlight highlight-text-html-basic">
+                  <pre><span class="pl-c">&lt;!-- Example: Pagination link tags for page 2 of a paginated list --&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">prev</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://example.com/?page=1</span>"<span class="pl-kos">&gt;</span>
+<span class="pl-kos">&lt;</span><span class="pl-ent">link</span> <span class="pl-c1">rel</span>="<span class="pl-s">next</span>" <span class="pl-c1">href</span>="<span class="pl-s">https://example.com/?page=3</span>"<span class="pl-kos">&gt;</span></pre>
+                </div>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+                <hr>
+                <h2>Translations</h2>
+                <p>The Front-End Checklist is also available in other languages. Thanks for all translators and their
+                  awesome work!</p>
+                <ul>
+                  <li>
+                    <g-emoji class="g-emoji" alias="jp"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ef-1f1f5.png">🇯🇵
+                    </g-emoji> Japanese: <a
+                      href="https://github.com/miya0001/Front-End-Checklist">miya0001/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="es"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1ea-1f1f8.png">🇪🇸
+                    </g-emoji> Spanish: <a
+                      href="https://github.com/eoasakura/Front-End-Checklist-ES">eoasakura/Front-End-Checklist-ES</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="cn"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e8-1f1f3.png">🇨🇳
+                    </g-emoji> Chinese: <a
+                      href="https://github.com/JohnsenZhou/Front-End-Checklist">JohnsenZhou/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="kr"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f0-1f1f7.png">🇰🇷
+                    </g-emoji> Korean: <a
+                      href="https://github.com/kesuskim/Front-End-Checklist">kesuskim/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="brazil"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e7-1f1f7.png">🇧🇷
+                    </g-emoji> Portuguese: <a
+                      href="https://github.com/jcezarms/Front-End-Checklist">jcezarms/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="vietnam"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1fb-1f1f3.png">🇻🇳
+                    </g-emoji> Vietnamese: <a
+                      href="https://github.com/euclid1990/Front-End-Checklist">euclid1990/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="taiwan"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f9-1f1fc.png">🇹🇼
+                    </g-emoji> Traditional Chinese: <a
+                      href="https://github.com/EngineLin/Front-End-Checklist">EngineLin/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="fr"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1eb-1f1f7.png">🇫🇷
+                    </g-emoji> French: <a
+                      href="https://github.com/ynizon/Front-End-Checklist">ynizon/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="ru"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f7-1f1fa.png">🇷🇺
+                    </g-emoji> Russian: <a
+                      href="https://github.com/ungear/Front-End-Checklist">ungear/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="tr"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1f9-1f1f7.png">🇹🇷
+                    </g-emoji> Turkish: <a
+                      href="https://github.com/eraycetinay/Front-End-Checklist">eraycetinay/Front-End-Checklist</a>
+                  </li>
+                  <li>
+                    <g-emoji class="g-emoji" alias="de"
+                      fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f1e9-1f1ea.png">🇩🇪
+                    </g-emoji> German: <a
+                      href="https://github.com/xFuture603/Front-End-Checklist">xfuture603/Front-End-Checklist</a>
+                  </li>
+                </ul>
+                <hr>
+                <h2>Front-End Checklist Badge</h2>
+                <p>If you want to show you are following the rules of the Front-End Checklist, put this badge on your
+                  README file!</p>
+                <p>➔ <a href="https://github.com/thedaviddias/Front-End-Checklist/"><img
+                      src="https://camo.githubusercontent.com/b03b5bac74248e99b1bb7b8704da05f0153d531bd56eb133361d02141fc2d0ce/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f46726f6e74254532253830253931456e645f436865636b6c6973742d666f6c6c6f7765642d627269676874677265656e2e737667"
+                      alt="Front‑End_Checklist followed"
+                      data-canonical-src="https://img.shields.io/badge/Front%E2%80%91End_Checklist-followed-brightgreen.svg"
+                      style="max-width:100%;"></a></p>
+                <div class="highlight highlight-source-lisp">
+                  <pre>[![Front‑End_Checklist followed](https://img.shields.io/badge/Front‑End_Checklist-followed-brightgreen.svg)](https://github.com/thedaviddias/Front-End-Checklist/)</pre>
+                </div>
+                <p><strong><a href="#table-of-contents">
+                      <g-emoji class="g-emoji" alias="arrow_up"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2b06.png">⬆</g-emoji>
+                      back to top
+                    </a></strong></p>
+
+                <div class="mt-8 mb-2 text-xs text-grey-darker">
+                  Created 5 days ago |
+                  Updated 5 days ago
+                </div>
+
+                <div>
+                  <a class="text-xs no-underline text-blue"
+                    href="https://gist.github.com/2d1e852b77d4c8aa04bab0dd14703ddd" target="_blank">View on GitHub</a>
+                </div>
+              </div>
+
+              <div class="pt-4 mb-8">
+                <h2 class="mb-2 text-2xl">Comments</h2>
+
+                <form method="POST" class="flex flex-col mb-2 -mt-2 flex-end"
+                  action="https://gistlog.co/comment/2d1e852b77d4c8aa04bab0dd14703ddd">
+                  <input type="hidden" name="_token" value="abI2zOnZnZ4lK2hhXDpfWnEsePWz7XmLPaj0IDqr">
+                  <label for="comment" class="hidden">Comment</label>
+                  <textarea id="comment" name="comment"
+                    class="w-full px-4 py-3 text-base border border-solid rounded text-grey border-grey"
+                    placeholder="Join the discussion&hellip;" required></textarea>
+                  <div class="flex justify-end flex-1">
+                    <a class="btn-github" href="https://gistlog.co/auth/github">
+                      <span class="w-6 mr-2 text-white fill-current">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1024 1024"
+                          enable-background="new 0 0 1024 1024" xml:space="preserve">
+                          <path
+                            d="M512 0C229.25 0 0 229.25 0 512c0 226.25 146.688 418.125 350.156 485.812 25.594 4.688 34.938-11.125 34.938-24.625 0-12.188-0.469-52.562-0.719-95.312C242 908.812 211.906 817.5 211.906 817.5c-23.312-59.125-56.844-74.875-56.844-74.875-46.531-31.75 3.53-31.125 3.53-31.125 51.406 3.562 78.47 52.75 78.47 52.75 45.688 78.25 119.875 55.625 149 42.5 4.654-33 17.904-55.625 32.5-68.375C304.906 725.438 185.344 681.5 185.344 485.312c0-55.938 19.969-101.562 52.656-137.406-5.219-13-22.844-65.094 5.062-135.562 0 0 42.938-13.75 140.812 52.5 40.812-11.406 84.594-17.031 128.125-17.219 43.5 0.188 87.312 5.875 128.188 17.281 97.688-66.312 140.688-52.5 140.688-52.5 28 70.531 10.375 122.562 5.125 135.5 32.812 35.844 52.625 81.469 52.625 137.406 0 196.688-119.75 240-233.812 252.688 18.438 15.875 34.75 47 34.75 94.75 0 68.438-0.688 123.625-0.688 140.5 0 13.625 9.312 29.562 35.25 24.562C877.438 930 1024 738.125 1024 512 1024 229.25 794.75 0 512 0z" />
+                        </svg>
+                      </span>
+                      Sign in with GitHub
+                    </a>
+                  </div>
+                </form>
+
+                <gist-comments gist-author="bgoonz" gist-id="2d1e852b77d4c8aa04bab0dd14703ddd"></gist-comments>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col lg:flex-row bg-grey-darkest justify-center items-center text-xs md:text-sm text-white mt-4 py-4">
+      <div>
+        <a href="https://gistlog.co/" class="text-blue-lighter no-underline hover:text-white">GistLog</a>
+        &copy; 2021
+        <span class="hidden lg:inline-block">|&nbsp;</span>
+      </div>
+
+      <div>
+        Brought to you by the lovely humans at
+        <a href="https://tighten.co/" class="text-blue-lighter no-underline hover:text-white">Tighten</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://gistlog.co/js/app.js"></script>
+  <script>
+    ( function () {
+      autosize( document.querySelectorAll( 'textarea' ) );
+    } )();
+  </script>
+  <script>
+    ( function () {
+      const alerts = document.querySelectorAll( '.js-auto_dismiss' );
+      if ( typeof ( alerts ) !== undefined ) {
+        alerts.forEach( ( el ) => setTimeout( () => fadeOut( el ), 4500 ) );
+      }
+    } )();
+
+    function fadeOut( el ) {
+      el.style.opacity = 1;
+      ( function fade() {
+        if ( ( el.style.opacity -= .1 ) < 0 ) {
+          el.style.display = "none";
+        } else {
+          requestAnimationFrame( fade );
+        }
+      } )();
+    }
+  </script>
+</body>
+
+
+</html>

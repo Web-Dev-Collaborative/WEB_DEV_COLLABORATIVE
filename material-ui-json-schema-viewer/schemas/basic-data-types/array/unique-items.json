@@ -1,0 +1,10 @@
+{
+  "$id": "/schemas/basic-data-types/array/unique-items.json#",
+  "type": "array",
+  "items": {
+    "type": "number"
+  },
+  "uniqueItems": true,
+  "title": "Array Type Schema (+ Unique Items)",
+  "description": "Demonstrates a schema where each of the items in an array is unique."
+}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block stuff %}
+
+  {{profile.civil_id}}
+
+  {% if current_user %}
+    <div class="jumbotron">
+      <h1>SENSITIVE INFORMATION</h1>
+      <p>please hide me</p>
+    </div>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,177 @@
+.auth{
+    height: 900px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: transparent;
+
+    #auth-background{
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        height: 100vh;
+        opacity: 0.2;
+    }
+
+    #reference{
+        z-index: 2;
+        position: absolute;
+        bottom: -40px;
+        right: 0;
+        background: transparent;
+        color: $lightest-blue;
+    }
+
+    .appear{
+        transition: opacity 1s, background-color 0.5s;
+    }
+    
+    .login-form, .signup-form{
+        z-index: 2;
+        height: auto;
+        max-height: 800px;
+        width: 515px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.164);
+        position: relative;
+
+        .form-logo{
+            margin-top: 10px;
+            margin: 55px auto;
+            width: 300px;
+            img{
+                margin: 0 auto;
+                width: 80px;
+            }
+            h2 {
+                text-align: center;
+                font-size: 35px;
+                font-family: 'Playfair Display', serif;
+                font-style: bolder;
+                color: black;
+                padding-left: 5px;
+            }
+            p{
+                margin-top: 10px;
+                text-align: center;
+                font-family: $body;
+                font-size: 15px;
+            }
+        }
+
+        form {
+            margin: 0 auto;
+            width: 300px;
+            padding-bottom: 140px;
+
+            .errors {
+                margin-bottom: 10px;
+                margin-left: 10px;
+                color:#CC4539;
+                font-size: 13px;
+                li{
+                    color: inherit;
+                }
+            }
+
+            input{
+                box-sizing: border-box;
+                width: 300px;
+                padding: 10px;
+                border: 1px solid $lightest-blue;
+                border-radius: 3px;
+                margin-bottom: 10px;
+                font-family: $body;
+                font-size: 15px;
+            }
+
+            .appear{
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
+            }
+            
+            .appear.active{
+                position: inherit;
+                right: 0;
+                top: 50px;
+                visibility: visible;
+                opacity: 1;
+            }
+
+            button{
+                box-sizing: border-box;
+                width: 300px;
+                height: 45px;
+                text-align: center;
+                background-color: $dark-blue;
+                color: white;
+                font-family: $title;
+                font-size: 17px;
+                font-weight: bold;
+                border-radius: 3px;
+            }
+
+            button:hover{
+                background-color: $blue;
+            }
+        }
+
+        .demo{
+            margin: 0 auto;
+            width: 300px;
+
+            button{
+                box-sizing: border-box;
+                width: 300px;
+                height: 45px;
+                text-align: center;
+                border: 1px solid rgb(211, 211, 211);
+                color: $gray;
+                font-family: $title;
+                font-size: 17px;
+                font-weight: normal;
+                border-radius: 3px;
+                i{
+                    color: $dark-blue;
+                    opacity: 0.7;
+                    padding-right: 20px;
+                }
+            }
+    
+            button:hover{
+                background-color: rgb(247, 247, 247);
+            }
+
+            p{
+                text-align: center;
+                margin: 10px;
+                font-family: $body;
+                color: $gray;
+                font-size: 14px;
+            }
+        }
+
+        .auth-options{
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: $body;
+            font-size: 14px;
+            
+            a{
+                line-height: 2.5;
+                font-size: 16px;
+                color: $dark-blue;
+            }
+
+            a:hover{
+                color: $blue;
+            }
+        }
+    }
+
+}

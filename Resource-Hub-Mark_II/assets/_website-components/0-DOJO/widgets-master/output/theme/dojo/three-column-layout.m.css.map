@@ -1,0 +1,1 @@
+{"version":3,"sources":["dojo/three-column-layout.m.css"],"names":[],"mappings":"AAAA;CACC,mCAAmC;CACnC;;AAED;CACC,mCAAmC;CACnC","file":"three-column-layout.m.css","sourcesContent":[".three-column-layout-m__leading__10E32 {\n\twidth: calc(var(--grid-base) * 40);\n}\n\n.three-column-layout-m__trailing__1__Yd {\n\twidth: calc(var(--grid-base) * 40);\n}\n"],"sourceRoot":""}

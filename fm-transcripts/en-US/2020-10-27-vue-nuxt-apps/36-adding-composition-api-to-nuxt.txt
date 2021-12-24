@@ -1,0 +1,39 @@
+[00:00:00]
+>> What we're building now with Vue2, and keep in mind that this course is made at a particular point in time when U3 is just coming out and Nuxt is just supporting it. So, these things might move around in the future and in fact, I think in the future, you won't have to do any of this stuff.
+
+[00:00:19]
+But if you are working with it right now, here's what we would do to make this setup work in Nuxt. So I'm gonna go over to my terminal and I'm going to close this out. I'm gonna close this out and I'm gonna go up one directory, and I'm gonna say go into the compapi-start and we're gonna say yarn dev up, yarn.
+
+[00:01:00]
+And, we have our localhost here that's building. So what we have is this Count that we can increase and we have our Homepage. Let's look at what we have inside that homepage. So some major differences that we have coming in. We have to bring in TypeScript in order to use it with Nuxt currently, so I have a tsconfig.json so that I can work with TypeScript within Nuxt.
+
+[00:01:34]
+The next thing that we need to make sure of is that we have a plugin, where we bring in the composition-api. Again, this is not something that you probably have to do in the far future, but for now, we're going to create a plugin that imports Vue from vue, imports VueCompositionApi.
+
+[00:01:53]
+And it's so standard that we might need to do this that is actually my default V plugin for my VS code snippets, if you write V plugin, that's what it's gonna assume you want right now. We also have to install it. So we have to install @vue/composition-api. So we we're installing @vue/composition-api.
+
+[00:02:21]
+And then we're bringing it in through this plugin, which we will then register in nuxt.config. So if we go into nuxt.config, remember before we installed that plugin by saying plugins/tilda, plugins/composition-api, we're gonna do the same here. We also want to bring in the build module of @nuxt/typescript-build, so that we can make sure to work with Nuxt in TypeScript.
+
+[00:02:51]
+Now if we go into our page, this count is just the same, like as I mentioned before, in templates it's very similar. So this surface API for directives, and the templates have not changed in composition-api. Here what I wanna do is I wanna actually defineComponent. I need to say script lang equals ts.
+
+[00:03:13]
+I just need to say import defineComponent, ref and watchEffect. So anything that I'm using, I'm gonna bring in and I'm gonna say export default defineComponent. Here I will pass in setup, and there I will say like const count = ref is 0. You can also use reactive as we used before.
+
+[00:03:35]
+If I wanted to addToCount I say count.value, if I was using reactive it would be state dot whatever the thing is that you decided, so state.count. We also have a thing called watchEffect which is similar to watch. So, in this, we have access to any watched properties. The only difference between watchEffects and watchers are not the only difference, few differences between watchEffects and watchers from the options API is, you'll note that I don't have to declare what thing I'm watching.
+
+[00:04:08]
+I'm actually just watching everything, so I can access those values willy nilly. That's not a technical term, but I can access whatever I want, that's either setup in refs, or reactive, or props, or what have you. And I don't have to say like in watch for the options API, I would have had to say count.
+
+[00:04:32]
+Here I'm not saying that I'm saying console.log(count.value). And remember, we've got to return. So we've got to return the count. And we've got to return any function we want executed. We don't have return our watcher because our watcher is part of the reactivity system. So if I look here in Vue, so we've got our console.log, this was the other change between watch and watchEffect.
+
+[00:05:03]
+WatchEffect runs immediately, whereas watchers, once you change it, it's invoked. For watchEffect, you can see that zero happening right away. That zero is happening right away because, as soon as it's instantiated, that watchEffect is gonna run and anything inside of it is gonna run as well. So now, from here I can Increase the Count.
+
+[00:05:24]
+And you can see that property change.
+

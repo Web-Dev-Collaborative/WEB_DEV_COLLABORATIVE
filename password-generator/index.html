@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Generator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Google APIs -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- This is my Navbar outside of a container. -->
+    <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary custom-border">
+        <h1 class="navbar-brand d-flex justify-content-center text-white custom-background">Password Generator</h1>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+    </nav>
+
+    <section>
+    <div class="container mt-5 mb-5">
+            <div class="row d-flex justify-content-center">
+                <h2>Password Generator</h2>
+                <div class="result-container d-flex justify-content-center">
+                    <!-- <span id="result"></span> -->
+                    <button class="btn" id="clipboard">
+                    <i class="far fa-clipboard"></i>
+                    </button>
+                    <hr class="row 2 d-flex justify-content-center">
+                </div>
+            </div>
+
+            
+
+        <div class="row 3 d-flex justify-content-center">
+            <div class="setting">
+                <label for="length">How many characters?</label>
+                <input type="number" id="length" min="8" max="128" value="8"/>
+            </div>
+        </div>
+
+        <div class="row 4 d-flex justify-content-center">
+            <label for="uppercase">Uppercase letters</label>
+            <input type="checkbox" id="uppercase" checked />
+        </div>
+
+        <div class="row 5 d-flex justify-content-center">
+            <label for="lowercase">Lowercase letters</label>
+            <input type="checkbox" id="lowercase" checked />
+        </div>
+
+        <div class="row 6 d-flex justify-content-center">
+            <label for="numbers">Include numbers</label>
+            <input type="checkbox" id="numbers" checked />
+        </div>
+
+        <div class="row 7 d-flex justify-content-center">
+            <label for="symbols">Include symbols (i.e., !, @, #)</label>
+            <input type="checkbox" id="symbols" checked />
+        </div>
+
+        <div id=textAreaRow>
+            <div class="col-xs-12 col-sm-12 row 8 d-flex justify-content-center">
+                <textarea readonly id="result" placeholder="Your Secure Password"
+                    aria-label="Generated Password"></textarea>
+        </div>
+
+        <div class="btn">
+            <button class="btn btn-large bg-secondary text-white align-content-center" id="generate">Generate Password
+            </button>
+        </div>
+
+        <div class="btn">
+            <button class="btn btn-large bg bg-secondary text-white align-content-center" id="clipboard">Copy to Clipboard
+            </button>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer fixed-bottom footer-dark bg-secondary d-flex justify-content-center custom-footerborder">
+        <p class="navbar-brand text-white">Alia Kyle Perry 2019 &copy;</p>
+    </footer>  
+
+    <!-- JavaScript Code -->
+    <script src="password.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+</body>
+</html>

@@ -1,0 +1,84 @@
+/*//////////////*/
+/* Search input */
+/*//////////////*/
+
+#search-input {
+  padding: var(--item-padding);
+  width: inherit;
+  border: 1px solid var(--mid-grey);
+  border-right: none;
+  outline: none;
+  max-height: var(--search-button-size);
+}
+
+#search-input.results {
+  border-bottom: 1px solid var(--light-grey);
+}
+
+#search-input.badword {
+  color: var(--alert-color);
+}
+
+/*//////////////*/
+/* Autocomplete */
+/*//////////////*/
+
+#autocomplete {
+  display: block;
+  margin: 0;
+  border: 1px solid var(--mid-grey);
+  border-top: none;
+  height: fit-content;
+  width: inherit;
+}
+
+#autocomplete.hide {
+  display: none;
+  height: 0;
+}
+
+#autocomplete, #search-input {
+  line-height: 1.5;
+}
+
+#autocomplete > ul {
+  margin: 0;
+  padding: 0;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+#autocomplete > ul > li:not(:last-child) {
+  border-bottom: 1px solid var(--light-grey);
+} 
+
+#autocomplete > ul > li {
+  background-color: #fff;
+  padding: var(--item-padding);
+  cursor: pointer;
+  list-style: none;
+  transition: all 0.15s ease;
+} 
+
+#autocomplete > ul > li:hover,
+#autocomplete > ul > li:focus {
+  background-color: var(--lighter-grey);
+  transition: all 0.15s ease;
+}
+
+/*/////////////*/
+/* Placeholder */
+/*/////////////*/
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--mid-grey);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: var(--mid-grey);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: var(--mid-grey);
+}

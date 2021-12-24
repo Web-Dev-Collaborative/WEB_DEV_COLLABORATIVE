@@ -1,0 +1,7 @@
+<div class="archive">
+  <div class="timeline" id="timeline">
+    {% for item in include.data %}
+          <div class="archive-title {{ include.class }}"><div class="archive-year"><strong>{{ item.date }}</strong> {% if item.job %}{{ item.job }} @ {% endif %}<a href="{{ item.link }}">{{ item.name }}</a></div>{% if item.rating-bar %}{% include rating-bar.html rbs=item.rating-bar %}{% endif %}</div>
+    {% endfor %}
+  </div>
+</div>

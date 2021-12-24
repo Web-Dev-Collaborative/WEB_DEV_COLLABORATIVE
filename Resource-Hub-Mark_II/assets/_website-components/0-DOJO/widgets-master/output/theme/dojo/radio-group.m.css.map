@@ -1,0 +1,1 @@
+{"version":3,"sources":["dojo/radio-group.m.css"],"names":[],"mappings":"AAAA;CACC,UAAU;CACV,UAAU;CACV,WAAW;CACX,gCAAgC;CAChC;;AAED;CACC,WAAW;CACX","file":"radio-group.m.css","sourcesContent":[".radio-group-m__root__3VCTl {\n\tborder: 0;\n\tmargin: 0;\n\tpadding: 0;\n\tfont-family: var(--font-family);\n}\n\n.radio-group-m__legend__ZiCRP {\n\tpadding: 0;\n}\n"],"sourceRoot":""}

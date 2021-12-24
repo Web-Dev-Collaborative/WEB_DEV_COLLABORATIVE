@@ -1,0 +1,11 @@
+{
+  "name" : "background vs. background color CSS Performance investigation",
+  "authors" : [
+    {
+      "name" : "Paul Irish",
+      "twitter" : "@paul_irish"
+    }
+  ],
+  "youtubeId" : "wooovVDLUU8",
+  "tags" : [ "css", "devTools", "webpagetest" ]
+}

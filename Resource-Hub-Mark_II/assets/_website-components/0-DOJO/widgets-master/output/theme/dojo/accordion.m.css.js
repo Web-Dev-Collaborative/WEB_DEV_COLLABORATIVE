@@ -1,0 +1,1 @@
+module.exports = {" _key":"@dojo/widgets/accordion","root":"accordion-m__root__Rxs8b"};

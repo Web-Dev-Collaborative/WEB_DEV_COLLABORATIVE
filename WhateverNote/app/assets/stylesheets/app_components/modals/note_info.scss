@@ -1,0 +1,42 @@
+.modal-ele{
+    .note-info{
+        border-radius: inherit;
+        box-shadow: 0 0 20px $text-gray;
+        font-family: $body;
+        padding: 20px;
+        box-sizing: border-box;
+        width: 590px;
+        color: $dark-gray;
+        
+        div{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+
+            h1{
+                padding-top: 5px;
+                font-size: 18px;
+                color: inherit;
+            }
+            i{
+                color: $text-gray;
+                transition: color 0.125s;
+            }
+
+            i:hover{
+                cursor: pointer;
+                color: $dark-gray;
+            }
+        }
+        td{
+            padding: 10px 0;
+            padding-right: 40px;
+            font-size: 14px;
+            color: inherit;
+        }
+
+        td:first-child{
+            color: $text-gray;
+        }
+    }
+}

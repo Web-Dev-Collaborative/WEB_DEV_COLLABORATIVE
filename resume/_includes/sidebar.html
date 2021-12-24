@@ -1,0 +1,39 @@
+{% if page.author %} {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %} {% endif %}
+
+<div class="cover-card table-cell table-middle">
+  {% if author.avatar %}
+  <a href="{{ site.url }}/">
+    {% if author.avatar contains 'https' or author.avatar contains 'http' %}
+    <img src="{{ author.avatar }}" alt="" class="avatar">
+    {% else %}
+    <img src="{{ site.url }}/img/{{ author.avatar }}" alt="" class="avatar">
+    {% endif %}
+  </a>
+  {% endif %}
+  <a href="{{ site.url }}/" class="author_name">{{ author.name }}</a>
+  <span class="author_job">{{ author.job }}</span>
+  <span class="author_bio mbm">{{ author.bio }}</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      {% if site.home.hide-on-sidebar == false %}
+      <li class="nav-item">
+        <a href="{{ site.url }}/">{% if site.home.icon %}<i class="fa {{ site.home.icon }}"></i>{% else %}home{% endif %}</a>
+      </li>
+      {% endif %}
+      {% if site.readme.hide-on-sidebar == false %}
+      <li class="nav-item">
+        <a href="{{ site.url }}/{{ site.readme.url }}">{% if site.readme.icon %}<i class="fa {{ site.readme.icon }}"></i>{% else %}{{ site.readme.title }}{% endif %}</a>
+      </li>
+      {% endif %}
+      {% for page in site.pages %} {% if page.title %}
+      {% if page.hide-on-sidebar == false %}
+       <li class="nav-item">
+        <a href="{{ site.url }}{{ page.url }}">{% if page.icon.sidebar %}<i class="fa {{ page.icon.sidebar }}"></i>{% else %}{{ page.title }}{% endif %}</a>
+      </li>
+      {% endif %}
+      {% endif %} {% endfor %}
+    </ul>
+  </nav>
+  {% include social-links.html %}
+  {% include custom-links.html %}
+</div>

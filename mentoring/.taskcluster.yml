@@ -1,0 +1,76 @@
+version: 1
+reporting: checks-v1
+policy:
+  pullRequests: public
+tasks:
+  $let:
+    should_run:
+      {$eval: '(tasks_for == "github-push") || (tasks_for == "github-pull-request" && event["action"] in ["opened","reopened","synchronize"])'}
+    head_rev:
+      $if: 'tasks_for == "github-pull-request"'
+      then: ${event.pull_request.head.sha}
+      else: ${event.after}
+    repository:
+      $if: 'tasks_for == "github-pull-request"'
+      then: ${event.pull_request.head.repo.html_url}
+      else: ${event.repository.html_url}
+  in:
+    $if: should_run
+    then:
+      $map:
+        - name: yarn test
+          image: node:14
+          command: >-
+            cd frontend &&
+            yarn --frozen-lockfile &&
+            yarn test
+        - name: yarn lint
+          image: node:14
+          command: >-
+            cd frontend &&
+            yarn --frozen-lockfile &&
+            yarn lint
+        - name: Django tests
+          image: python:3.9
+          command: >-
+            pip install -r requirements.txt &&
+            python3 manage.py test &&
+            python3 manage.py makemigrations --dry-run --check
+        - name: Python code style
+          image: python:3.9
+          command: >-
+            pip install pycodestyle &&
+            pycodestyle ./mentoring
+        - name: pip-tools
+          image: python:3.9
+          command: >-
+            pip install pip-tools &&
+            ./pipupdate.sh &&
+            if ! output=$(git status --porcelain) || [ -n "$output" ]; then
+                echo "*** ./pipupdate.sh produced changes to the repository; these changes should be checked in ***";
+                git --no-pager diff;
+                exit 1;
+            fi
+      each(opts):
+        provisionerId: 'proj-misc'
+        workerType: 'ci'
+        created: {$fromNow: ''}
+        deadline: {$fromNow: '1 hour'}
+        payload:
+          maxRunTime: 3600
+          image: "${opts.image}"
+          command:
+            - /bin/bash
+            - '--login'
+            - '-c'
+            - >-
+              git clone ${repository} repo &&
+              cd repo &&
+              git config advice.detachedHead false &&
+              git checkout ${head_rev} &&
+              ${opts.command}
+        metadata:
+          name: "${opts.name}"
+          description: Mentoring app CI
+          owner: nobody@mozilla.com
+          source: https://github.com/mozilla/mentoring

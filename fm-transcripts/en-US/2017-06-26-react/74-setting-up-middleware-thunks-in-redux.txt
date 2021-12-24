@@ -1,0 +1,91 @@
+[00:00:00]
+>> Brian Holt: So what I want you to do is I want you to go into your store.js.
+>> Brian Holt: So I guess I didn't talk about what compose is here. This is us augmenting the abilities of redux by handing it a Middleware, right? This Middleware just intercepts all of the actions and feeds it into the dev tools.
+
+[00:00:19]
+That's all this bit of code is doing, right? We're gonna hand it another Middleware, which is gonna make redux able to deal with thunks. So what I want you to do up here is import thunk from 'redux-thunk'.
+>> Brian Holt: And then down here, you're gonna say inside of the compose function, apply middleware.
+
+[00:00:47]
+So I guess I have to go import that as well, applyMiddleware(th). And up here we're gonna also have to get applyMiddleware.
+>> Brian Holt: Yep.
+>> Brian Holt: So just if you're gonna applyMiddleware, you have to import thunk and then you have to apply the Middleware and compose,
+>> Brian Holt: Okay, now we're gonna have to create two different action creators.
+
+[00:01:29]
+We're gonna have to create an action creator that actually goes out and makes the request, right, the thunk part. Then we're gonna have to have another type of action that actually takes the result of that and feeds into our redux as an action, right? So we need the thunk and the actual action that's gonna get dispatched, and I'll show you what that means.
+
+[00:01:47]
+So first thing, let's go to action.js, and we're gonna create a new type of constant here which is going to be ADD_API_DATA, that's gonna be 'ADD_API_DATA'.
+>> Brian Holt: And we'll finally get rid of that stupid ES lint error.
+>> Brian Holt: Okay, and now I want you to go into types, and we're gonna make another type of type.
+
+[00:02:19]
+
+>> Brian Holt: So ActionType will either be able to be 'SET_SEARCH_TERM' or 'ADD_API _DATA',
+>> Brian Holt: Okay, no, no, close.
+>> Brian Holt: And then here down where we're exporting the action down here, we're gonna make another type of ActionT.
+>> Brian Holt: So what are we going to get back from the API? Well, in fact, let's actually go run it.
+
+[00:02:58]
+Our API, I still have it running, but if you need a refresher, it's just yarn api. And then if I go to localhost 3000/ some valid ID.
+>> Brian Holt: So this is for Master of None. What does this look like? Well, it looks like a show, right? This is the same show.
+
+[00:03:23]
+It's literally the show object because that's where I'm reading it from. So the action type is going to be ADD_API_DATA. What is the payload type going to be? Show, right, that's what the payload's gonna be. So this is gonna be ADD_API_DATA, Show, right, because the payload type is gonna be show.
+
+[00:03:48]
+Does that make sense?
+>> Brian Holt: Now we're gonna have to do one thing up here to show, because if you look over here, it's getting one more thing which is the rating, right? So we're just gonna add that in to our show type.
+>> Brian Holt: And that's gonna be a string.
+
+[00:04:09]
+You don't want it to be a number in this particular case because we want it to be like 9.0. And if you make it a number, it's gonna drop the 0.0, right? So you want the ratings to always have that, so we're just gonna keep it as a string.
+
+[00:04:21]
+And actually, this is gonna be a maybe type because we're not always going to get the rating back. That's only gonna be from back from the API. And when we pre-load it on the side, it's not gonna come with rating data. So we're gonna make that rating data a maybe type.
+
+[00:04:44]
+
+>> Brian Holt: Okay, now let's go back to reducers. Okay, we're going to import ADD_API_DATA. So again, just to be clear, right now everything that we're doing is just the synchronous normal action types. We haven't done anything asynchronous yet. So we have const searchTerm here and what we're gonna have here is const apiData.
+
+[00:05:14]
+
+>> Brian Holt: The default state of this is going to be an empty object. And the action is going to be, of course, an Action.
+>> Brian Holt: So how are we gonna store this apiData? I found a useful way to do is to store as a key value store, right? Because every time we go to the API, we want to store in a way that we can easily retrieve it.
+
+[00:05:40]
+So we're going to store it within an object where the imdbID is actually going to be the key, and the value of that is going to be the show object, right? So that way in the future if I navigate to Orange is the New Black, and then I back out of it, and then I go back to Orange is the New Black, I can just get the data out of redux and I don't have to request it again from the API, right?
+
+[00:06:02]
+First thing you're gonna do is just like in searchTerm you're gonna say if action.type === ADD_API_DATA. So another thing that we're kind of doing here behind the scenes, which you may not have noticed, is this is another type refinement here which I think is pretty clever. So as soon as I establish that action.type is triple equal to add API data, what do I know about the payload.
+
+[00:06:30]
+I know for a fact the payload is going to be a shell, so I can start saying like action.payload.rating and my type check is cool. I know that's gonna be there because you checked to see if the type is an ADD_API_DATA. It is, cool, I know exactly what payload is.
+
+[00:06:48]
+By the same token, I can say return action.payload.toUpperCase () here, right? This is not gonna fail because this knows that's a stream. I know that's a stream. Whereas if I and say map, right, I don’t think that’s a function on strings. It’s going to say, hey, action payload's a string and it doesn’t have a map feature on it.
+
+[00:07:11]
+So that’s cool, that’s how we able to do that. This is a type refinement right here, it kinda happened behind the scenes.
+>> Brian Holt: I think it's cool, you can disagree with me, you're just wrong, that's all. I'm just kidding. Okay, so what we're going to do here is we're going to return, if it is in fact ADD_API_DATA is the action type.
+
+[00:07:39]
+We're gonna do object.assign({}), new object, right? state, so we're gonna keep everything that we had before, then we're going to return a new object. So what we want is, we want the key here to be whatever the IMDB ID of the new thing that we got. So the way we're gonna do that is we're gonna say, [action.payload.imdbID].
+
+[00:08:11]
+These square brackets around it mean I want this to be actually what it is, so [action.payload.imdbID]. It's gonna take that string and make that the key, okay? Then, we'll say action.payload.
+>> Brian Holt: This would have been similar like if you wanted to do it a different way, const key = action.payload.imdbID.
+
+[00:08:41]
+And then you could have said const obj = {}. You could have said obj[key] = action.payload, right? And now object would be what you would put here. This is just the new ES6 way of doing dynamic keys, right, or dynamic key names. Does that make sense? Okay, cool, cool.
+
+[00:09:18]
+
+>> Brian Holt: Okay, and then if it's not an ADD_API_DATA action, what do we do? Just return whatever was there.
+>> Brian Holt: Okay, then down here, the name of our key and our state is going to be called apiData, right? So we can just do, apiData.
+>> Brian Holt: Cool, so that's the reducer.
+
+[00:09:51]
+Now we're set up to be storing these API data results.
+

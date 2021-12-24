@@ -1,0 +1,431 @@
+.project-container {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0;
+}
+
+.project-container > .project {
+  position: relative;
+  display: block;
+  margin: 0;
+  letter-spacing: 0.25px;
+  transition: all 0.3s ease;
+  border: 10px solid var(--theme-bg-colour-140);
+  width: 33.3%;
+  overflow: hidden;
+}
+
+.project-container > .project > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease;
+  object-position: 50%;
+}
+
+.project-scroller {
+  display: flex;
+  flex-direction: row;
+  min-height: 316px;
+  overflow-x: scroll;
+  /* overflow-y: hidden; */
+  /* width: 100vw; */
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
+  scroll-snap-align: start;
+}
+
+.project-scroller > .project {
+  position: relative;
+  display: block;
+  margin: 0 10px;
+  letter-spacing: 0.25px;
+  transition: all 0.3s ease;
+  min-width: 300px;
+  /* min-height: 416px; */
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.project-scroller > .project > img {
+  position: absolute;
+  top: 40px;
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  transition: all 0.2s ease;
+  object-position: 50%;
+}
+
+.project.hover > img {
+  /* transform: scale(1.1); */
+  filter: blur(2px) brightness(120%) saturate(120%);
+  transition: all 0.3s ease;
+}
+
+.project > .toggle-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-bottom-left-radius: 0.35rem;
+  background-color: var(--accent-colour);
+  cursor: pointer;
+  z-index: 5;
+}
+
+.project > .toggle ~ .toggle-overlay {
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.project > .toggle:checked ~ .toggle-overlay {
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.project > .toggle ~ .toggle-overlay:hover {
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.project > .toggle-overlay > .fa-thumbtack {
+  color: #fff;
+  transform: rotate(45deg);
+  float: right;
+  margin-top: 7px;
+  margin-right: 7px;
+  font-size: 1.2rem;
+}
+
+.project > .toggle  {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.project > .toggle ~ .details {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  /* background: var(--theme-bg-colour-120); */
+  background: linear-gradient(to bottom, #333333cc 0%, var(--theme-bg-colour-120) 100%);
+  opacity: 1;
+  background-position: center;
+  color: var(--theme-text-colour-150);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  padding: 10px 15px 15px 15px;
+  /* font-size: 0.75rem; */
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.2s 0.1s ease;
+  overflow: hidden;
+}
+
+.project-container > .project > .toggle ~ .details {
+  bottom: 0;
+}
+
+.project-scroller > .project > .toggle ~ .details {
+  top: 0;
+}
+
+.project > .toggle:checked ~ .details {
+  height: 100%;
+  transition: all 0.2s 0.1s ease;
+  bottom: 0;
+}
+
+/*******************/
+/* project details */
+/*******************/
+
+.project > .details > li:first-child {
+  letter-spacing: 0.25px;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.project.hover > .details {
+  font-size: 1rem;
+  height: 100%;
+  bottom: 0;
+  padding: 10px 15px 15px 15px;
+  transition: all 0.2s 0.1s ease;
+}
+
+/* details hading angle */
+.project > .details > li > .fa-angle-up {
+  font-size: 1rem;
+  transform: rotate(0);
+  transition: all 0.2s 0.3s ease;
+}
+
+/* .project > .details > li:first-child:hover > .fa-angle-up,
+.project.hover > .details > li:first-child:hover > .fa-angle-up {
+  transform: rotate(90deg);
+  transition: all 0.2s 0.3s ease;
+}
+
+@media screen and (max-width: 720px) {
+  .project > .details > li:first-child:hover > .fa-angle-up,
+  .project.hover > .details > li:first-child:hover > .fa-angle-up {
+    transform: rotate(180deg);
+    transition: all 0.2s 0.3s ease;
+  }
+} */
+
+.project.hover > .details > li > .fa-angle-up,
+.project > .toggle:checked ~ .details > li > .fa-angle-up
+ {
+  transform: rotate(180deg);
+  transition: all 0.2s 0.3s ease;
+}
+
+/************************/
+/* project info buttons */
+/************************/
+
+
+.project > .toggle:not(:checked) ~ .info,
+.project > .toggle:checked ~ .info,
+.project.hover > .toggle:not(:checked) ~ .info,
+.project.hover > .toggle:checked ~ .info {
+  display: flex;
+  flex-direction: row;
+}
+
+.project > .toggle:not(:checked) ~ .info {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s 0.1s ease;
+}
+
+.project > .toggle:checked ~ .info {
+  opacity: 1;
+  pointer-events: initial;
+  transition: opacity 0.2s 0.2s ease;
+}
+
+.project.hover > .toggle:checked ~ .info {
+  opacity: 1;
+  pointer-events: initial;
+  transition: opacity 0.2s 0.2s ease;
+}
+
+.project.hover > .toggle:not(:checked) ~ .info {
+  opacity: 1;
+  pointer-events: initial;
+  transition: opacity 0.2s 0.2s ease;
+}
+
+.project > .info > li {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  background-color: var(--accent-colour);
+  bottom: 90px;
+  left: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 5px -5px #00000099;
+}
+
+.project > .info > li:hover {
+  transition: all 0.2s ease;
+  transform: scale(1);
+}
+
+.project > .info > li > a > i {
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.project > .info > li:hover > a > i {
+  color: var(--theme-bg-colour-120);
+  transition: all 0.2s ease;
+}
+
+
+/* .project:hover > .info > li:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.project:hover > .info > li:nth-child(2) {
+  transition-delay: 0.35s;
+}
+
+.project:hover > .info > li:nth-child(3) {
+  transition-delay: 0.4s;
+} */
+
+.project > .info > li::before {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-colour);
+  position: absolute;
+  text-align: center;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s ease;
+}
+
+.project > .info > li:hover::before {
+  color: var(--accent-colour);
+}
+
+.project > .info > .play > a > i {
+  position: absolute;
+  font-size: 1.75rem;
+  top: 8px;
+  left: 9px;
+}
+
+.project > .info > .github > a > i {
+  position: absolute;
+  font-size: 2rem;
+  top: 7px;
+  left: 7px;
+}
+
+.project > .info > .code > a > i {
+  position: absolute;
+  font-size: 1.7rem;
+  top: 9px;
+  left: 5px;
+}
+
+.project > .info > .play::before {
+  content: 'View';
+}
+
+.project > .info > .github::before {
+  content: 'Git';
+}
+
+.project > .info > .code::before {
+  content: 'Code';
+}
+
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+p > .fa-play,
+p > .fa-external-link-alt,
+p > .fa-github,
+p > .fa-code {
+  background-color: var(--theme-bg-colour-90);
+  padding: 4px;
+  color: var(--theme-text-colour-120);
+  border-radius: 3px;
+}
+
+p > .fa-play {
+  padding: 5px 6px;
+}
+
+p > .fa-external-link-alt {
+  padding: 5px;
+}
+
+p > .fa-github {
+  font-size: 1.2rem;
+}
+
+p > .fa-code {
+  padding: 5px 3px
+}
+
+/*/////////////////
+// media queries // 
+/////////////////*/
+
+@media screen and (max-width: 846px) {
+  li.project {
+    width: 50%;
+    transition: all 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  
+  li.project {
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  li.project > .details > li {
+    font-size: 1rem;
+  }
+
+  li.project > .details > li:first-child {
+    font-size: 1.25rem;
+  }
+  
+  li.project > .details {
+    min-height: 50px;
+  }
+
+  li.project > .details > li > .fa-angle-up {
+    font-size: 1.5rem;
+  }
+
+}
+
+/* @media screen and (max-width: 720px) and (min-width: 640px)  { */
+@media screen and (max-width: 320px) {
+  .project > .info > li {
+    width: 35px;
+    height: 35px;
+    bottom: 75px;
+  }
+  .project > .info > li::before {
+    font-size: 0.75rem;
+  }
+  .project > .info > .play > a > i {
+    font-size: 1.5rem;
+    top: 6px;
+    left: 7px;
+  }
+  .project > .info > .github > a > i {
+    font-size: 1.75rem;
+    top: 5px;
+    left: 5px;
+  }
+  .project > .info > .code > a > i {
+    font-size: 1.375rem;
+    top: 7px;
+    left: 4px;
+  }
+  li.project > .details > li {
+    font-size: 1rem;
+  }
+
+}

@@ -1,0 +1,289 @@
+@import '../config/import';
+
+.article-wrapper {
+  // Hack preventing content exceeding its container - it works for scenarios where we have
+  // `pre` tag having wide (overflowing) text. And the container itself is part of a layout
+  // built using CSS `grid`. Without this, the grid layout wouldn't stick to its defined
+  // widths...
+  min-width: 0;
+}
+
+.crayons-article {
+  &__cover {
+    position: relative;
+    width: 100%;
+    padding-top: 42%;
+
+    &__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: var(--radius) var(--radius) 0 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__video {
+    background: black;
+
+    &__player {
+      &:empty {
+        width: 100%;
+        padding-top: 56.25%;
+      }
+    }
+  }
+
+  &__header {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+
+    &__meta {
+      padding: var(--content-padding-y) var(--content-padding-x) 0
+        var(--content-padding-x);
+    }
+  }
+
+  &__subheader {
+    font-size: var(--fs-base);
+    color: var(--base-60);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__main {
+    padding: var(--content-padding-y) var(--content-padding-x);
+  }
+
+  &__body {
+    overflow-wrap: break-word;
+  }
+
+  .reaction-button[disabled] {
+    cursor: pointer;
+  }
+}
+
+.crayons-article-actions {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--su-2);
+  background: var(--body-bg);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.1);
+  z-index: var(--z-sticky);
+
+  @media (min-width: $breakpoint-m) {
+    padding: 0;
+    padding-bottom: 0;
+    display: grid;
+    gap: var(--su-6);
+    position: -webkit-sticky;
+    position: sticky;
+    box-shadow: none;
+    justify-content: stretch;
+    top: calc(var(--header-height) + var(--layout-padding) + 6vh);
+    z-index: var(--z-elevate);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: env(safe-area-inset-bottom);
+
+    @media (min-width: $breakpoint-m) {
+      display: grid;
+      gap: var(--su-6);
+      justify-content: stretch;
+    }
+  }
+}
+
+.crayons-reaction {
+  --reaction-color: var(--button-ghost-color);
+  --reaction-border: inset 0 0 0 0 transparent;
+  --reaction-bg: transparent;
+
+  border: none;
+  padding: 0;
+  background: transparent;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  @media (min-width: $breakpoint-m) {
+    flex-direction: column;
+  }
+
+  &__icon {
+    padding: var(--su-2);
+    box-shadow: var(--reaction-border);
+    background: var(--reaction-bg);
+    color: var(--reaction-color);
+    border-radius: 50%;
+    transition: all var(--transition-props);
+
+    &--active {
+      display: none;
+    }
+  }
+
+  &__count {
+    color: var(--base-70);
+    font-size: var(--fs-s);
+    display: block;
+    min-width: var(--su-7);
+
+    @media (min-width: $breakpoint-m) {
+      min-width: auto;
+    }
+  }
+
+  &.user-activated {
+    --reaction-border: inset 0 0 0 2px var(--reaction-color);
+    .crayons-reaction__icon--inactive {
+      display: none;
+    }
+    .crayons-reaction__icon--active {
+      display: block;
+    }
+
+    .crayons-reaction__count {
+      color: var(--reaction-color);
+    }
+  }
+
+  &--like {
+    &:hover,
+    &.user-activated {
+      --reaction-color: var(--reaction-like-color);
+      --reaction-bg: var(--reaction-like-bg);
+    }
+  }
+
+  &--unicorn {
+    &:hover,
+    &.user-activated {
+      --reaction-color: var(--reaction-custom-color);
+      --reaction-bg: var(--reaction-custom-bg);
+    }
+  }
+
+  &--readinglist {
+    &:hover,
+    &.user-activated {
+      --reaction-color: var(--reaction-save-color);
+      --reaction-bg: var(--reaction-save-bg);
+    }
+  }
+}
+
+.user-animated {
+  .crayons-reaction__icon {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px currentColor;
+      opacity: 0;
+      transform: scale(2);
+      animation-name: ringPop;
+      animation-duration: 0.25s;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 transparent;
+      opacity: 0;
+      transform: scale(1);
+      animation-name: ringPop2;
+      animation-duration: 0.75s;
+    }
+
+    animation-name: iconPop;
+    animation-duration: 0.25s;
+  }
+
+  @keyframes iconPop {
+    0% {
+      transform: scale(0.65);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes ringPop {
+    0% {
+      transform: scale(2);
+      box-shadow: 0 0 0 4px currentColor;
+      opacity: 0;
+    }
+
+    100% {
+      box-shadow: 0 0 0 1px currentColor;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes ringPop2 {
+    0% {
+      box-shadow: 0 0 0 currentColor;
+      transform: scale(1);
+      opacity: 0.6;
+    }
+
+    100% {
+      box-shadow: 0 0 1px 1px transparent;
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+}
+
+.crayons-article-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(var(--header-height) + var(--layout-padding));
+  .static-header & {
+    top: var(--layout-padding);
+  }
+}
+
+.user-metadata-details {
+  li + li {
+    margin-top: var(--su-3);
+  }
+  .key {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    color: var(--card-color-tertiary);
+  }
+}

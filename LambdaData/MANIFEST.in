@@ -1,0 +1,5 @@
+include LambdaData.pyx
+include README.md
+include setup.py
+include Storm.hpp
+include LICENSE

@@ -1,0 +1,54 @@
+[00:00:00]
+>> Now the next thing that we're gonna do, is take the add to cart and we're gonna create a cart page and use Vuex store mutations. Okay, so let's create a cart page and use Vuex store mutations to add to a cart that we're actually holding inside that cart.
+
+[00:00:20]
+So, as you might guess, what we're gonna do is say this.store.commits. And we're just still gonna call this add to cart, cuz that makes it a little bit easy to remember. And I'm gonna go into my store index, the first thing I need to do is give myself a cart, right?
+
+[00:00:40]
+My cart is gonna be represented by, just like the food data, it's gonna be an empty array. And I'm gonna go into my mutations, and I'm gonna add that, add to cart and name it the same. Just like before we're going to pass in the state and then I'm gonna pass in that formOutput that I was gathering.
+
+[00:01:06]
+So, with that formOutput, I'm gonna say, state.cart.push formOutput. Cool. So in here, what we're doing is we're pushing things onto the store formOutput. So we wanna make sure that we're actually doing that. So let's go back to our localhost, refresh and we're gonna go look at Vue, in the Vue tab, and we're gonna do some options ,and add-ons and add to the cart, order submitted.
+
+[00:01:45]
+Now we look at Vuex, we load here, and then the cart has an array in it. So, let's make a cart page and let's also make use of UUID. Making use of UUID requires that we actually install it. So what we're going to do here is we're in the Nuxt food app, we're gonna say yarn add UUID If we go back to the slides while we do this, UUID is a way to create unique IDs in an application.
+
+[00:02:25]
+It's really useful, so you might have seen those like long honking [LAUGH] IDs that we used for some of the pages and things like that. We often need to tell Vue or Nuxt exactly what element or page etcetera is using which. And we often use v-for keys for virtual DOM diffing.
+
+[00:02:45]
+So we can use it for keys, we can use it for dynamic pages, in this case what we're gonna need to do is, we're going to be passing the formOutput to the cart. We're gonna be pushing that FormData into the cart, but we also wanna add a unique ID.
+
+[00:03:03]
+And the reason why we wanna do that is, let's say you ordered a taco that's carne asada, and then your son or daughter or brother or sister or somebody, comes along and they also order one with carne asada but one of you got pico de gallo, and the other one did not.
+
+[00:03:19]
+And so we want a way to differentiate between those two different items with an ID, then we can loop through and we're not using something like the name of the item in order to do so. So far what we have is a unique ID for that item, but there are different types of units we can add to have different amounts of counts.
+
+[00:03:41]
+We can have different types of add-ons and an option, so we wanna make sure that each one of those is unique. So I'm gonna copy this, so you can check out that package with UUID. And here's how we import it. So if we go back to the cart, and we import it here.
+
+[00:04:03]
+So we're gonna import it at the top of the page, and the way that we're gonna use it is, we're going to say add to cart, state and form output. And then we're gonna say, formOutput.id=UUID. One thing [LAUGH] I think I might have forgotten to do, that's very important, is to actually pass this [LAUGH] information in.
+
+[00:04:29]
+We probably want to also let it know about that formOutput. So okay, when we commit to the store, we're passing in the formOutput. I'm gonna save this, so let's try it out. If we go back to Chrome, and we go to, I have too many things open. So let's go here, we're going to refresh this.
+
+[00:04:57]
+I'm going to say okay, let's add four of these, add to cart. I did not save, so [LAUGH] let's try this again. We're gonna go back to localhost. Okay, so we've got our localhost, soup dumplings, let's add something here. This is .store.commit, add to cart, I'm passing formOutput as a string, not as formOutput.
+
+[00:05:48]
+That was silly, so we definitely want to not pass formOutput as a string, we wanna pass it as this object here. So let's [LAUGH] try this again. Here we go, we're gonna add in the items, mango pudding, add to cart. And if we go into Vue, then we can see in Vuex, that we now have in that cart, an object and it has all of the add-ons that we added, and all of this, awesome cool.
+
+[00:06:22]
+So let's also make a cart page while we're doing this, so we're gonna create new, your masters at this now, you know exactly what to do. You go into pages, you say cart.vue, and we say save, and we're gonna create a cart here. For all of them, we've been saying, mean class=container.
+
+[00:06:46]
+And then I'm also gonna call it cart, h2 is cart. And I'm also gonna add it to the menu, right? So we're gonna go into the app menu, and below the ul, I'm gonna say v next l And then cart, we're gonna capitalize this. And let's come back to our app, we have home and restaurants, and all of these things.
+
+[00:07:16]
+So we go back to the food app, soup dumplings, I want soup dumplings. We have our order submitted if we want to,we can go to the cart page which has nothing in it right now. And at this point, we look at Vuex, we load the state, and we have that object inside of the cart, cool.
+
+[00:07:36]
+Let's go back to the CodePen. So, we created a cart page and used Vuex store mutations, and we made use of UUID to gather a unique ID for each one of those.
+

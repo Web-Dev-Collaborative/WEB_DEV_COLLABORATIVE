@@ -1,0 +1,32 @@
+{% for item in include.list %}
+    <div class="row">
+            <div class="col {% if item.image %}l10{% endif %}">
+                <h3 style="margin: 0">{{ item.name }}
+                {% if item.date %}
+                <span style="font-size:medium">({{ item.date }})</span>
+                {% endif %}
+                </h3>
+                <p style="margin: 0">{{ item.descr }}</p>
+
+                {% if item.github %}
+                <a href="{{ item.github }} "><i class="fa fa-fw fa-github"></i>GitHub</a>
+                {% endif %}
+                {% if item.website %}
+                <a href="{{ item.website }} "><i class="fa fa-fw fa-home"></i>Homepage</a>
+                {% endif %}
+                {% if item.local %}
+                <a href="{{ site.url }}/{{ item.local }}"><i class="fa fa-fw fa-hand-pointer-o"></i>{{ item.local }}</a>
+                {% endif %}
+                {% if item.link %}
+                {% for link in item.link %}
+                <a href="{{ link.url }}"><i class="fa fa-fw {{ link.icon }}"></i>{{ link.title }}</a>
+                {% endfor %}
+                {% endif %}
+            </div>
+            {% if item.image %}
+            <div class="col l2">
+              <img class="post-media-feature" src="{{ item.image }}" />
+            </div>
+            {% endif %}
+    </div>
+{% endfor %}

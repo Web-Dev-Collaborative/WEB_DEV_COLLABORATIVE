@@ -1,0 +1,20 @@
+[build]
+  Functions = "src/functions"
+  command = "npm run build"
+  publish = "dist"
+  environment = { NODE_VERSION = "12.18.0" }
+
+# Config for the Netlify Build Plugin: netlify-plugin-form-submissions
+[[plugins]]
+  package = "netlify-plugin-form-submissions"
+
+  [plugins.inputs]
+    # Get submissions for specific forms
+    # e.g. "form-name"
+    # e.g. ["form-name-1", "form-name-2"]
+    # e.g. "ALL"
+    # default: "ALL"
+    formNames = "approved-comments"
+
+    # the folder to recieve json files for each form
+    dataDirectory = "src/site/_data"

@@ -1,0 +1,130 @@
+[00:00:03]
+>> Will Sentance: Async/await simplifies this entire process. Async/await,
+>> Will Sentance: I would say finally fixes the inversion control problem of call backs. Actually, this does as well.
+>> Will Sentance: Async/await, we're not gonna need to have a function here that triggers the return back into the generator function's execution context. The createFlow, we don't really need that anymore.
+
+[00:00:33]
+Instead, what's gonna be triggered from here is just come straight back in here with a return value. No more triggering of that happening via another function. We're gonna walk through it line by line, and this is our final code. We're running slightly long. This is our very, very final code of all of hard parts, all of the beauty of asynchronicity.
+
+[00:00:59]
+By the way though, can we just appreciate for a second, or appreciate yourselves for a second? You have incorporated into your mental model every hard part of the JavaScript engine here. The entire web browser features part, the micro-task queue. The only person looking for a micro-task queue, really, is the guy called Jake Archibald.
+
+[00:01:20]
+Truly gifted, I highly recommend him. Brilliant British speaker who's a developer of Androids at Google, truly gifted, explainer of concepts, and sharer of entertaining, humble anecdotes as is the want of my people, and he talks about the micro task hue. The only person who does. That's how advanced this stuff is, and you've combined all that with a feature of JavaScript in ES7 that only just got released, generated and async/await.
+
+[00:01:55]
+And you built async/await from scratch, this is async/await. If you get a senior dev interview question which is gonna come up more and more I think, can you build for me async/await from scratch? We just did it, we just built async/await from scratch.
+>> Speaker 2: Just built Redux Saga, basically.
+
+[00:02:13]
+
+>> Will Sentance: Even better, we just built Redux Saga from scratch. Let's try and inflate our achievements even more.
+>> Speaker 2: [LAUGH]
+>> Will Sentance: We've just built the JavaScript engine from scratch.
+>> Speaker 2: [LAUGH]
+>> Will Sentance: There we go, I feel particularly proud of all of you. All right, so we're gonna do this though.
+
+[00:02:29]
+Final code is going to be,
+>> Will Sentance: Doing the nicely, prettily wrapped version of this using the async/await or the async function declaration style, which is going to just prettify this slightly more.
+>> Will Sentance: For us. All right, okay, for the first time, my beautiful people, for the first time, we are able to return back into a function's execution context after we've left it.
+
+[00:03:07]
+We're able to do so using our returnNextElement.nextMethod. That guides us back into the createFlow execution context. We manually do so using our nextMethod call, which was triggered by the triggering of our due when data received call back, that was attached to our future data promise object. But this flow inwards and outwards gets complex, and so JavaScript gives us a async function that's gonna automate that process of going back into the create flow function.
+
+[00:03:55]
+It's gonna say don't worry, we don't have to trigger going back into it. Instead we're gonna go automatically back into it, we're gonna pass the response object value back in, as the evaluated result of the yield expression and store that straight in data. It's going to simplify all of this code for us, with the help of the new async functions.
+
+[00:04:25]
+Async/await simplifies this and finally cleans up our inversion of control problem of callbacks. We're gonna see that now, for the first time, we don't define a task to be done beyond our control much later on. Instead, we're going to go into createFlow, set up some work, set up a task that takes a long time that is speaking to the web browser that speaks to the internet, gets that tweet, 200 milliseconds, brings it back.
+
+[00:04:56]
+And then we're gonna somehow get back into create flow to continue running our code sequentially. No need for trigger function on the triggered function on the promise resolution. Instead, we also trigger the resumption of the create flow execution. That functionality is still added to the micro-task queue though.
+
+[00:05:14]
+All right, so here we go. Line one, what are we doing?
+>> Blessing: We're going to declare an async function code with flow.
+>> Will Sentance: Excellent. Create flow is defined, it is a function, it is an a brand new type of function and a synchronous function. Good. Line two Blessing.
+
+[00:05:43]
+
+>> Blessing: Are we going to invoke the function just create averages.
+>> Will Sentance: Excellent we are going to invoke CreateFlow and we are going to immediately enter its execution context, immediately enter its execution context, there it is. And what is the first thing Blessing that it tells us to do in this execution context?
+
+[00:06:12]
+Let's say at about one millisecond.
+>> Blessing: To console that log, me first.
+>> Will Sentance: Excellent, so at about one millisecond we hit our console log, me first. So we do go into the crit. This isn't like our generator function we have to trigger going into using the next method that the call to the generator function, returned out the next method on that object.
+
+[00:06:40]
+Instead we're gonna go into it directly ourselves just by calling it. So the first thing we do is indeed a console.log of the string me first. Perfect? And in our memory what is the next sign of code blessing that we're going to encounter.
+>> Blessing: We declare constant data.
+
+[00:07:02]
+
+>> Will Sentance: Perfect there it is and for now, undefined exactly so we set data is going to be the evaluated result of that expression on the right hand side. So there it is on the right hand side. We say await and then fetch the return of our wonderful final call to our fetch facade function, a two-pronged function that, in JavaScript, returns out a what, Blessing?
+
+[00:07:42]
+
+>> Blessing: A promise object.
+>> Will Sentance: A promise object, but it also spins up a bunch of work in the web browser itself. So let's do the JavaScript piece. First, we are going to return out a promise object, just as Blessing said, with two, I mean, it has a few properties, but two important properties, value, and on fulfillment, which is an empty array, both right now, nothing interesting in them yet.
+
+[00:08:16]
+The value is gonna be auto-filled in with whatever comes back from the web browser features background work. And the auto-fillment array, well, we'll see what that's gonna do here. Good, but, and that object here, we're going to hold it here for now. But in the web browser, what are we spinning up?
+
+[00:08:41]
+We are spinning up the background feature, xhr. There it is, xhr is spun up. And it has some important properties, the URL, Twitter.com, the path, /will/1, whatever it is, and the type of request we're making, and it's a get request. And we are sending off an HTTP. That's the H In the xhr, HDCP message off to Twitter itself, their server.
+
+[00:09:25]
+There it is, the beautiful Twitter server. And is it, at this moment, at about one millisecond passing, is it complete yet?
+>> Blessing: No.
+>> Will Sentance: It is not. But when everything comes back, it'll be complete. What do we want to update on the completion? We wanna update this value property.
+
+[00:09:50]
+Now we have not assigned this object to any particular place. It's just a position in memory. So, we know that we're referring to this object we defined its value property. That's what we're going to update. We didn't give it a label in JavaScript but the web browser knows where that object is stored and that's the value property it is gonna update.
+
+[00:10:15]
+Okay, perfect, good. And now the all powerful await is going to throw us out of the create flow execution context.
+>> Will Sentance: I have a very clean eye and throw us out about create flow execution context where we are going to encounter what line next? Blessing.
+>> Blessing: Console.log me second.
+
+[00:10:42]
+
+>> Will Sentance: Me second, exactly. At about, let's say maybe two milliseconds, something like that, about two milli. In other words, the most important thing we wanted to do
+>> Will Sentance: With any asynchronous work, is set up a task that takes a bunch of time, that's the web browser feature task, to speak to the Internet and take 200 milliseconds.
+
+[00:11:08]
+Set it up but be able to continue running our synchronous code afterwards. But now do we see to do it, we're stepping out of our function? And wouldn't it be wonderful if we could step back in to our function to when we get the value from the request back as a response.
+
+[00:11:26]
+Hopefully, it's gonna be stored in data, and we can then continue running our code and log that data. Wouldn't that be wonderful? Let's hope it is possible. So in JavaScript now, we don't really have much interesting stuff to do. We're done. We're done. But as our call stack, but in the background after about 200 milliseconds interesting stuff is happening.
+
+[00:12:03]
+About 200 milliseconds later, let's say 201 milliseconds, our background work is complete and we get a glorious response. That pen is now thoroughly dead. We get a glorious response. Let's use red. A glorious, mm-hm. A glorious response, the string pi, and what Is that going to update? That is going to update our value property of the promise object that's being stored in memory and referred to its position in memory from the web browser feature, ready to update that value.
+
+[00:12:55]
+At which point, what are we gonna do? We are going to trigger and we can think of in our on fulfillment array as effectively the continuation of our createFlow execution context. We're gonna trigger at that moment the continuation of our createFlow execution context and at about 201 milliseconds re-enter where we effectively paused, we're gonna get to re-enter and create flow back on our call stack and come back in.
+
+[00:13:36]
+And the await fetch, await was super powerful, it threw us straight out. We never even got to assign anything to the data. That's not a bad thing. We are hoping that data is going to be filled in with whatever this right hand side evaluates to. And what does it evaluate to Blessing?
+
+[00:13:54]
+
+>> Blessing: Pi.
+>> Will Sentance: To the value from the request to the internet that came back with pi. That's is what our weight expression evaluates to pi. And we assign it to what label? To data, exactly. And so, we hit our next line in the body of our create of function console log data.
+
+[00:14:22]
+Data is going to be evaluated to high, and look at that. At about 202 milliseconds, we get to continue running the rest of our code, we get to continue running the rest of our code inside our create flow function. All that work of returning a value or the response object that we saw before into the promise object that we stored in future data.
+
+[00:14:59]
+That we then triggered a do when data received function that then triggered .next on the return next element, cool, or return it element object next function that triggered us to go back into create flow. All of that automated the async function definition is gonna handle all of that for us.
+
+[00:15:23]
+The await still behaves similar to a yield. So similar to a yield, that we are going to hold on storing from the left hand side until we get something back from this background work. But now when the value comes back we're just gonna go straight back into create flow and store it in data.
+
+[00:15:40]
+This is a beautifully cleaned up version of that highly complex set up we had, that was nevertheless, a very powerful set up, but now, we have a cleaned up version. And by the way this cleaned up version behind the scenes, is doing all of this. So if you want to emulate the async/await function definition in call we can do it ourselves with generators.
+
+[00:16:11]
+And this is the senior dev interview question over the next few years.
+

@@ -1,0 +1,84 @@
+---
+title: Accordion
+description:
+  The accordion component delivers large amounts of content in a small space
+  through progressive disclosure. The user gets key details about the underlying
+  content and can choose to expand that content.
+tabs: ['Usage', 'Style', 'Code', 'Accessibility']
+---
+
+<PageDescription>
+
+Preview the accordion component with the React live demo. For detailed code
+usage documentation, see the Storybooks for each framework below.
+
+</PageDescription>
+
+## Documentation
+
+<Row className="resource-card-group">
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+    subTitle="React"
+    href="https://react.carbondesignsystem.com/?path=/story/components-accordion--accordion"
+    >
+
+<MdxIcon name="react" />
+
+  </ResourceCard>
+</Column>
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+      subTitle="Angular (Community)"
+      href="https://angular.carbondesignsystem.com/?path=/story/components-accordion--basic"
+      >
+
+<MdxIcon name="angular" />
+
+  </ResourceCard>
+</Column>
+<Column colLg={4} colMd={4} noGutterSm>
+  <ResourceCard
+      subTitle="Vue (Community)"
+      href="http://vue.carbondesignsystem.com/?path=/story/components-cvaccordion--default"
+      >
+
+<MdxIcon name="vue" />
+
+  </ResourceCard>
+</Column>
+</Row>
+
+## Live demo
+
+<ComponentDemo
+  components={[
+    {
+      id: 'accordion',
+      label: 'Accordion',
+    },
+  ]}>
+  <ComponentVariant
+    id="accordion"
+    knobs={{
+      Accordion: ['align', 'disabled'],
+      AccordionItem: ['open', 'disabled'],
+    }}
+    links={{
+      React:
+        'https://react.carbondesignsystem.com/?path=/story/components-accordion--accordion',
+      Angular:
+        'https://angular.carbondesignsystem.com/?path=/story/components-accordion--basic',
+      Vue:
+        'http://vue.carbondesignsystem.com/?path=/story/components-cvaccordion--default',
+      Vanilla: 'https://the-carbon-components.netlify.com/?nav=accordion',
+    }}>
+    {`
+  <Accordion>
+    <AccordionItem title="Title 1"><p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</p></AccordionItem>
+    <AccordionItem title="Title 2"><p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</p></AccordionItem>
+    <AccordionItem title="Title 3"><p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</p></AccordionItem>
+  </Accordion>
+  `}
+  </ComponentVariant>
+</ComponentDemo>

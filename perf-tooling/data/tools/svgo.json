@@ -1,0 +1,29 @@
+{
+  "name" : "SVGO",
+  "broccoli" : {
+    "url" : "https://github.com/sindresorhus/broccoli-svgo"
+  },
+  "cli" : {
+    "url" : "https://github.com/svg/svgo"
+  },
+  "grunt" : {
+    "url" : "https://github.com/sindresorhus/grunt-svgmin"
+  },
+  "gulp" : {
+    "url" : "https://github.com/ben-eb/gulp-svgmin"
+  },
+  "illustrator": {
+    "url" : "https://github.com/davidderaedt/SVG-NOW"
+  },
+  "mac" : {
+    "url" : "https://github.com/svg/svgo-gui"
+  },
+  "service" : {
+    "url" : "https://github.com/jakearchibald/svgomg"
+  },
+  "windows": {
+    "url" : "https://github.com/svg/svgo-gui"
+  },
+  "description" : "SVGO is a Nodejs-based tool for optimizing SVG vector graphics files.",
+  "tags" : [ "svg", "minification" ]
+}

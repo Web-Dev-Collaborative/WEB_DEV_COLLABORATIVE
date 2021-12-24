@@ -1,0 +1,30 @@
+[00:00:00]
+>> I'm gonna dive in one step further, and I promise that we are going to move into watchers in just a second. But I think that this is kind of interesting, so we'll go into just the next level. Again, feel free to sit back, I'm still not showing you anything from the API, just some more base concepts.
+
+[00:00:18]
+We have set, map and weakmap, which are things that native JavaScript allows us to use, and this is again, in later more modern JavaScript. A set is a series of only values, similar to an array, where any particular value can only be inserted once. So if we have const, my lunch items, new set, and I have taco burger taco and I console log, my lunch items, that set will only have in it a taco and a burger, it will get rid of anything that's duplicated.
+
+[00:00:50]
+A map is a series of keys and values, similar to an object, so if you're thinking of set like an array, you can think of map like an object, but it has some key differences. Key/value pairs remember their explicit ordering, which is not true in objects, performs better in scenarios involving frequent additions and removals, like set you can only add key value pairs once.
+
+[00:01:16]
+And it has some nice methods like size, has, set, clear, delete, with if you pass in, key, so I've linked those up if you wanna explore maps a little bit more. So if I create a new map, and I say, new map.set lunch 1 and it's just a taco, and then I say, .set lunch 2 and I add a burger.
+
+[00:01:39]
+So map will have lunch 1, lunch 2, and then I add lunch1 again with another taco, it will throw that out, so it's kind of similar to that set. There's another thing called a weakmap, that's similar to map but the references are held weekly. In other words, if you delete something, the reference can be garbage collected, in a map it can't, so that's a big primary difference.
+
+[00:02:02]
+It also means it loses some of the juju, and juju is not a technical term, [LAUGH]. It loses some of the juju you had in the maps including, it loses its implicit ordering. And it also loses some of those nice set and things that the map offered, some of those nice pieces of working with it, some methods.
+
+[00:02:23]
+So the differences, garbage, [LAUGH] that's really the reason why we have maps and weakmaps and why they're different. The difference is literally that one can be garbage collected and one can't, and that's the thing that we care about the most when we're working with View. But this is not bad garbage, this is good happy garbage, because we want these to be able to be garbage collected in view three.
+
+[00:02:48]
+So, here, when you pass an object to view instance as data, View converts it to a proxy which you just saw. The proxy enables View to perform dependency tracking and change notification when properties are accessed or modified, and there are two levels of dependencies for every component. The first level uses a map and stores the dependencies for each property.
+
+[00:03:12]
+The second level tracks the effects, which will be run when the values change in set. After the first render, a component would have tracked a list of dependencies, the properties that it had. Conversely, the component becomes a subscriber to each of these properties. When a proxy intercepts a set operation, the property will notify all of its subscribers, so that allows us to efficiently track changes in our application.
+
+[00:03:40]
+So, we're coming on the end of this long explanation of View reactivity and now we're gonna talk about watchers. If you need more information, View mastery has a bunch of articles and a bunch of courses that go into even more detail about all of this stuff. I went on to it a top level, they'll go even further into the details of View reactivity, if you're interested in that.
+

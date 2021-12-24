@@ -1,0 +1,22 @@
+doctype 5
+html(data-ng-app="todoApp")
+    head
+        title My title
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/components/metro-bootstrap/css/metro-bootstrap.css")
+        link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css")     
+        link(rel="stylesheet", href="/css/general.css")   
+        
+    body
+    
+        nav.navbar.navbar-default(role="navigation")
+            .navbar-header
+                a.navbar-brand(href="#") Express-ToDo
+            
+        block content
+        
+        script(type="text/javascript", src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+        script(type="text/javascript", src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js")
+        script(type="text/javascript", src="/components/angular/angular.js")
+        script(type="text/javascript", src="/components/angular-resource/angular-resource.js")
+        != renderJs()

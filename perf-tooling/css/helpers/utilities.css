@@ -1,0 +1,67 @@
+/* Postitioning */
+
+.center-block {
+  display: block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center .subline {
+  margin: 0 auto;
+  max-width: 40rem;
+}
+
+/* Visual */
+
+.is-locked {
+  overflow: hidden;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.list--inline {
+  margin: -.25rem;
+}
+
+.list--inline li {
+  display: inline-block;
+  margin: .25rem;
+}
+
+.list--unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link--text {
+  color: var(--base__color);
+}
+
+.link--text:focus,
+.link--text:hover {
+  color: var(--link__color--hover);
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.subline {
+  color: var(--border__color);
+  font-weight: normal;
+}

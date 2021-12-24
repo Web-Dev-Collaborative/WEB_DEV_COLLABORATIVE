@@ -1,0 +1,17 @@
+{
+  "$id": "/schemas/basic-data-types/object/schema-dependencies.json#",
+  "type": "object",
+  "properties": {
+    "credit_card": { "type": "number" }
+  },
+  "dependencies": {
+    "credit_card": {
+      "properties": {
+        "billing_address": { "type": "string" }
+      },
+      "required": ["billing_address"]
+    }
+  },
+  "title": "Object Type Schema (+ Schema Dependency)",
+  "description": "Demonstrates an object type schema where the schema changes when a given property is present.\n\n * The `dependencies` keyword allows the schema of the object to change based on the presence of certain special properties."
+}

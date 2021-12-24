@@ -1,0 +1,140 @@
+[00:00:00]
+>> Brian Holt: Let's talk about React perf tools then, okay? So go into ClientApp.jsx. And I want you to import Perf from react-addons-perf.
+>> Brian Holt: And we're gonna say window.Perf = Perf.
+>> Brian Holt: And then we're gonna say Perf.start.
+>> Brian Holt: So what we've done here is this is not something that you're gonna ship to production, this is only something you're gonna temporarily bring in the perf tools, do your profiling, and then remove it from your code, okay?
+
+[00:00:52]
+So I brought in the perf tools, I set it on the window so I can directly mess with it, and then I also told it to start recording as soon as the page loads.
+>> Brian Holt: Okay, so what I want you to do now,
+>> Brian Holt: Okay, local host 8080.
+
+[00:01:21]
+
+>> Brian Holt: So now the perf tools are running, right? So what I'm gonna do now is I'm just gonna browse around a little bit.
+>> Brian Holt: And so I can kind of get like a nice profile going.
+>> Brian Holt: I'm just gonna click into a bunch of these. Go to the home page.
+
+[00:01:43]
+
+>> Brian Holt: Hmm, yeah, that's true.
+>> Brian Holt: So,
+>> Brian Holt: Now what I'm gonna just say is I'm gonna say Perf.stop, okay? So now it stopped recording. And then I'm gonna say Perf.printWasted.
+>> Brian Holt: So that actually wasn't too bad.
+>> Brian Holt: Let's talk about what we actually did first. When I was clicking around, it's doing a bunch of renders, it's doing a bunch of destroying and re-upping of components, right?
+
+[00:02:25]
+All of that different stuff. When I call print wasted, it's going to print out times that it was running the render method and nothing changed, right? Which is considered a wasted render. Normally, this is not a problem. What you see here, where I'm wasting 0.1 millisecond, you don't care, right?
+
+[00:02:45]
+
+>> Brian Holt: You're really worried about things that are wasting tens of milliseconds, hundreds of milliseconds, right? And God forbid seconds, right? So like this one wasted two render counts, this one wasted one, no big deal. If you have a performance profile like that, no big deal at all. However, wait, I'm gonna refresh the page again.
+
+[00:03:06]
+I'm gonna say all browse all. And then I'm gonna, so now it's recording again, and I'm just gonna type a bunch of stuff, and then untype it and then type more, and type home and then, now I'm gonna go in and say,
+>> Brian Holt: Perf.stop and then I'm gonna say Perf.printWasted.
+
+[00:03:26]
+And you're gonna see here I have 138 render counts that were wasted. And now we're starting to waste 23.25 milliseconds, right? As you can see that's a problem, right? That's going to spiral out of control, in particular, if people are typing along things and then untyping them and all that kind of stuff, right?
+
+[00:03:48]
+So right now this is a small perf problem but as ShowCard becomes more and more complicated, it's going to balloon into a very large perf problem. And if someone's on a really crappy Android phone, that's, I mean this is a brand new MacBook Pro, right? So it's gonna be fine but a crappy Android phone, that's gonna be a way bigger amount of stuff wasted.
+
+[00:04:10]
+
+>> Brian Holt: So again, yeah, this search.ShowCard, this 59 number, that's how many times it rendered and nothing changed, right? So what's nice about this is ShowCard is totally static, right? It doesn’t really need to re-render. Once it renders the first time, it doesn’t change, right? There’s nothing dynamic about it.
+
+[00:04:33]
+So this is a really easy performance optimization here. So I want you to open ShowCard real quick. Because ES6 classes don't have life cycle methods, we're gonna have to convert this into an ES6 class. So we're gonna say class ShowCard,
+>> Brian Holt: extends Component. We're gonna have to import component at the top,
+
+[00:05:01]
+
+>> Brian Holt: From React, okay? We're gonna have a render method.
+>> Brian Holt: And that is going to return,
+>> Brian Holt: That, so return blah.
+>> Brian Holt: Prettier will fix my formatting for me. And then it's going to have props of,
+>> Brian Holt: Props is just gonna be Show I think like that.
+>> Brian Holt: And cool.
+
+[00:05:50]
+And then here, wherever it says props we're gonna have to say this.props.
+>> Brian Holt: Okay, lint is gonna yell at you because it should be a sales function component, whatever.
+>> Brian Holt: Above props, I think, we're going to say shouldComponentUpdate.
+>> Brian Holt: So in shouldComponentUpdate, you're gonna say this is basically a method that instead of doing React's diffing algorithm to see if somethings changed between renders, it's going to call your method, and you're going to tell React should you update or not.
+
+[00:06:43]
+In this particular case, we have no state and we don't expect the props to change for any one individual ShowCard, so how often do we want this component to update its markup? Never, we never want it to update. So here you're just gonna say return false.
+>> Brian Holt: So this is telling us, once this component has rendered for the first time, never update it.
+
+[00:07:15]
+
+>> Brian Holt: Okay, so now we're going to come over here, refresh, so we have a fresh start of it, and we're gonna start typing a bunch. Atlanta and then black and then game, okay? And then now we're gonna say Perf.stop and Perf.printWasted, much fewer things, right? We still have some in the header link, but we're not gonna worry about that for now.
+
+[00:07:46]
+
+>> Brian Holt: In any case, we've mostly solved, well, we totally solved our ShowCard problem, right? We don't even see it show up anymore, because it's not doing that render anymore. So I just gave you a really big hammer, right? shouldComponentUpdate, it's a really big hammer. I will say that I very rarely write the shouldComponentUpdate components.
+
+[00:08:10]
+And it's not because I'm particularly good at writing React or something like that, I'm avoiding these cases. Sometimes these cases are just inevitable, right? The issue here is let's say I come back next week. And I have some, now I need to have showComponent also show the rating.
+
+[00:08:27]
+So it also needs to request from the API or something like that, so it's keeping track of state as well.
+>> Brian Holt: So as soon as I add state to this, if I don't forget or if I forget to update the shouldComponentUpdate, it's never going to update, right? Because I've told React now, never update these components, right?
+
+[00:08:46]
+So it's very easy to write these components that never update and then have to go back later and update them so they have to update themselves. And unless you're aware that they have a shouldComponentUpdate method on them. It's a big foot gun cuz you're gonna go and try and like change your code or you can try and run it, and nothing's gonna change and you'll be like, what the hell?
+
+[00:09:08]
+Why is this not updating anymore? It's because you told it not to update it anymore.
+>> Brian Holt: So this is the most simple use case and I'll also say that, as far as I can remember, no, that's not true. 95% of shouldComponentUpdate I've written look like this. That's just returning false.
+
+[00:09:28]
+However, you can get only, maybe only year is the thing that updates. Maybe let's say rating, right, let's say it has a rating. Then you can say this.props.rating is not equal to, this a next props right here, I think. nextProps.rating. So you can do something that only update if rating is updating, right?
+
+[00:10:01]
+And you can do that, so you can kinda like shortcut the amount of things that it needs to check, right? But again, this is a really big hammer, do not write shouldComponentUpdate until you actually need them. Do not prematurely optimize your code. That's just a general piece of life advise for coding.
+
+[00:10:17]
+Like do not prematurely update your code or optimize your code but in particular here, do not optimize this until its actually needed. So, return false.
+>> Brian Holt: Cool, so that is the perf tools. Since we're not gonna be using them anymore, you can feel free to go into ClientApp and remove them.
+
+[00:10:43]
+So that you're not including something that you don't need in production. The other thing is that because perf tools are hooking into the internals of React, it is going to make React itself a little bit slower. Actually, something else I just wanted to show you. I showed you printWasted cuz that's the one that you actually care about.
+
+[00:11:04]
+But if I come in here and navigate around a little bit, come back and say, or browse all, game, okay. So now if I say Perf.stop.
+>> Brian Holt: There is two other methods on here as well, there is Perf.printInclusive.
+>> Brian Holt: So this is going to print everything including things that were not wasted, right?
+
+[00:11:36]
+So this is going to print timers for everything including the life cycle methods, right? So you can see app is taking the most time to render, but that makes sense because app is literally everything, it's the sum of everything, right? But you can see here-
+>> Speaker 2: That is over 60 milliseconds, then you're gonna get some performance problems and painting, right?
+
+[00:12:03]
+
+>> Brian Holt: This is a sum, this is not a rate.
+>> Speaker 2: Okay.
+>> Brian Holt: Yeah, but, so it depends on how long you're clicking around that will happened.
+>> Speaker 2: It makes sense.
+>> Brian Holt: Yeah. But definitely if there are things in here like for example, I mean, again browser out of your expect that cuz that's rendering everything out.
+
+[00:12:24]
+But let's say,
+>> Brian Holt: Like here, component.search, you can see here, the one that's taking the most time, the least performant component that we have here is search. It's still performant enough, for sure by far, but that isn't the least performant component that we have. And you can see here the hot code path is the ShowCard inside of there, right?
+
+[00:12:50]
+That's taking most of the time inside of search, but that's just the nature of these, because we're doing a lots of re-rendering every time we're typing, right? That just takes time. So that's expected. So that's inclusive, so that includes life cycle methods. If you're not interested to know how much time the life cycle methods are taking, then you can say, exclusive.
+
+[00:13:13]
+Come on.
+>> Brian Holt: There we go and now this is exclusive of life cycle methods.
+>> Brian Holt: And all of the parent components as well. So you can see here the styled link right now is the things that´s least performant. That’s because it’s doing a bunch of stuff with manipulating styles.
+
+[00:13:42]
+So styles components are not necessarily the fastest React components. They are typically fast enough though.
+>> Brian Holt: Something else that bears mentioning, that with the advent of React Fiber just around the corner, these perf tools are going to, these ones in particular are not going to directly work with Fiber.
+
+[00:14:06]
+And that's just because these hook into internal methods inside of React. And so the way that Fiber works is totally different. So we will eventually get a different set of perf tools for React Fiber.
+
